@@ -1,0 +1,141 @@
+<?php
+
+function invalidEmail($email) {
+    $result;
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $result = true;
+    }
+    else {
+        $result = false;
+    }
+    return $result;
+}
+
+function passwordMatch($password, $confirmPassword) {
+    $result;
+    if ($password !== $confirmPassword) {
+        $result = true;
+    }
+    else {
+        $result = false;
+    }
+    return $result;
+}
+
+function insertUser($connection, $username, $email, $password){
+    $sql = "INSERT INTO user (username, email, password) VALUES (?, ?, ?);";
+    $stmt = $connection->prepare($sql);
+
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+    mysqli_stmt_bind_param($stmt, "sss", $username, $email, $hashedPassword);
+    mysqli_stmt_execute($stmt); 
+    mysqli_stmt_close($stmt);
+    header("location: ../index.html");
+    exit();
+}
+
+function usernameExists($connection, $username, $email){
+    $sql = "SELECT * FROM user WHERE username=? OR email=?";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../create-account.html?error=stmterror");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "ss", $username, $email);
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+    if ($row = mysqli_fetch_assoc($result)) {
+        return $row;
+    } 
+    else {
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+function userExists($connection, $username){
+    $sql = "SELECT * FROM user_data WHERE username=?";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../create-account.html?error=stmterror");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $username);
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+    if ($row = mysqli_fetch_assoc($result)) {
+        return $row;
+    } 
+    else {
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+function loginUser($connection, $username, $password){
+    $usernameExists = usernameExists($connection, $username, $username);
+
+    if ($usernameExists === false) {
+        header("location: ../index.html?error=wrongaccount");
+        exit();
+    }
+    $passwordhashed = $usernameExists['password'];
+    $checkPassword = password_verify($password, $passwordhashed);
+
+    if ($checkPassword === false) {
+        header("location: ../index.html?error=wrongpassword");
+        exit();
+    }
+    else if($checkPassword === true) {
+        session_start();
+        $_SESSION['username'] = $usernameExists['username'];
+        $_SESSION['email'] = $usernameExists['email'];
+        header("location: ../home.html");
+        exit();
+    }
+}
+
+function insertData($connection, $firstName, $middleName, $lastName, $suffix, $sex, $nationality, $status, $bloodType, $dataOfBirth, $region, $province, $city, $barangay, $street, $address) {
+    $sql = "INSERT INTO user_data(FName, MName, LName, suffix, sex, nationality, status, BType, dob, region, province, city, barangay, street, address) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../home.html?error=stmterror");
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "sssssssssssssss", $firstName, $middleName, $lastName, $suffix, $sex, $nationality, $status, $bloodType, $dataOfBirth, $region, $province, $city, $barangay, $street, $address);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    header("location: ../home.html?error=none");
+    exit();
+}
+
+function updateData($connection, $username, $q1, $q2o1, $q2o2, $q2o3, 
+                $q2o4, $q2o5, $q3, $phoneNumber, $firstName, $middleName,
+                $lastName, $gender, $birthday, $race, $type) {
+    $sql = "UPDATE user_data SET q1 = ?, q2o1 = ?, q2o2 = ?, q2o3 = ?, q2o4 = ?, q2o5 = ?, q3 = ?, phone = ?, firstName = ?,
+     middleName = ?, lastName = ?, gender = ?, birthday = ?, race = ?, raceType = ? WHERE username = ?;";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../home.html?error=stmterror");
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "ssssssssssssssss", $q1, $q2o1, $q2o2, $q2o3, 
+                $q2o4, $q2o5, $q3, $phoneNumber, $firstName, $middleName,
+                $lastName, $gender, $birthday, $race, $type, $username);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    header("location: ../home.html?error=none");
+    exit();
+}

@@ -1,0 +1,15 @@
+<?php 
+    include('header.html');
+?>
+<div class="container">
+  <form action="includes/sign-up.inc.php" method="post">
+    <input type="text" id="SUsername" name="SUsername" placeholder="Username" required />
+    <input type="text" id="SEmail" name="SEmail" placeholder="Email Account" required />
+    <input type="password" id="SPassword" name="SPassword" placeholder="Password" required />
+    <input type="password" id="SConfirmPassword" name="SConfirmPassword" placeholder="Confirm Password" required />
+    <input type="submit" id="submit" name="submit" value="Submit">
+  </form>
+</div>
+<?php 
+    include('footer.html');
+?>

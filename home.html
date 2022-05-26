@@ -1,0 +1,17 @@
+<?php 
+    include('header.html');
+    session_start();
+    if (!isset($_SESSION['username'])) {
+        header("location: index.html");
+        exit();
+    }
+?> 
+
+<div class="container">
+    <h1>Home</h1>
+    <a href="registration.html">Register</a>
+</div>
+
+<?php 
+    include('footer.html');
+?>
