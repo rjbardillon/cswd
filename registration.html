@@ -1,6 +1,8 @@
 <?php 
-    include('header.html');
     session_start();
+    $page = "registration";
+    include('header.html');
+    
     if (!isset($_SESSION['username'])) {
         header("location: index.html");
         exit();
@@ -12,40 +14,40 @@
     <h1>Registration Page</h1>
     <p>Instruction:</p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam eaque, dignissimos blanditiis nesciunt quidem vel hic nobis, debitis provident distinctio accusantium odio in ipsa officiis nulla dicta eveniet aut accusamus.</p>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row align-items-start">
             <div class="col">
-                <label for="FName">First Name (Pangalan)</label>
+                <label for="FName">First Name (Pangalan)</label><br>
                 <input type="text" id="FName" name="FName" required>
             </div>
             <div class="col">
-                <label for="MName">Middle Name (Gitnang Pangalan)</label>
+                <label for="MName">Middle Name (Gitnang Pangalan)</label><br>
                 <input type="text" id="MName" name="MName">
             </div>
             <div class="col">
-                <label for="LName">Last Name (Apelyido) </label>
+                <label for="LName">Last Name (Apelyido) </label><br>
                 <input type="text" id="LName" name="LName" required>
             </div>
             <div class="col">
-                <label for="suffix">Suffix</label>
+                <label for="suffix">Suffix</label><br>
                 <input type="text" id="suffix" name="suffix">
             </div>
         </div>
 
         <div class="row align-items-start">
             <div class="col">
-                <label for="sex">Sex (Kasarian noong Kapanganakan)</label>
+                <label for="sex">Sex (Kasarian noong Kapanganakan)</label><br>
                     <select id="sex" name="sex">
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                     </select>
             </div>
             <div class="col">
-                <label for="nationality">Filipino or Resident Alien</label>
+                <label for="nationality">Filipino or Resident Alien</label><br>
                 <input type="text" id="nationality" name="nationality" required>
             </div>
             <div class="col">
-                <label for="status">Marital Status</label>
+                <label for="status">Marital Status</label><br>
                 <div class="dropdown">
                     <select id="status" name="status">
                         <option value="single">Single</option>
@@ -57,7 +59,7 @@
                 </div>
             </div>
             <div class="col">
-                <label for="BType">Blood Type (Uri ng dugo)</label>
+                <label for="BType">Blood Type (Uri ng dugo)</label><br>
                 <div class="dropdown">
                     <select id="BType" name="BType">
                         <option value="A">A</option>
@@ -72,21 +74,21 @@
 
         <div class="row align-items-start">
             <div class="col">
-                <label for="dob">Date of Birth</label>
+                <label for="dob">Date of Birth</label><br>
                 <input type="date" id="dob" name="dob" required>
             </div>
             <div class="col">
-                <label for="region">Region (Rehiyon)</label>
+                <label for="region">Region (Rehiyon)</label><br>
                 <input type="hidden" name="region"/>
                 <select id="region"></select>
             </div>
             <div class="col">
-                <label for="province">Province (Probinsya)</label>
+                <label for="province">Province (Probinsya)</label><br>
                 <input type="hidden" name="province"/>
                 <select id="province"></select>
             </div>
             <div class="col">
-                <label for="city">City (Lungsod)</label>
+                <label for="city">City (Lungsod)</label><br>
                 <input type="hidden" name="city"/>
                 <select id="city"></select>
             </div>
@@ -94,17 +96,21 @@
 
         <div class="row align-items-start">
             <div class="col">
-                <label for="barangay">Barangay</label>
+                <label for="barangay">Barangay</label><br>
                 <input type="hidden" name="barangay"/>
                 <select id="barangay"></select>
             </div>
             <div class="col">
-                <label for="street">Street</label>
+                <label for="street">Street</label><br>
                 <input type="text" id="street" name="street" required>
             </div>
             <div class="col">
-                <label for="address">Address</label>
+                <label for="address">Address</label><br>
                 <input type="text" id="address" name="address" required>
+            </div>
+            <div class="col">
+                <label for="zip">Zip Code</label><br>
+                <input type="text" id="zip-code" name="zip-code" required>
             </div>
         </div>
         <input type="submit" value="Register" id="register" name="register">
