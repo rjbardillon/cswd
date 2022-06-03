@@ -3,13 +3,14 @@
   $page = "sign_up";
   include('header.html');
 ?>
-<div class="container">
-  <form action="includes/sign-up.inc.php" method="post">
-    <input type="text" id="SUsername" name="SUsername" placeholder="Username" required />
-    <input type="text" id="SEmail" name="SEmail" placeholder="Email Account" required />
-    <input type="password" id="SPassword" name="SPassword" placeholder="Password" required />
-    <input type="password" id="SConfirmPassword" name="SConfirmPassword" placeholder="Confirm Password" required />
-    <input type="submit" id="submit" name="submit" value="Submit">
+<div class="container mt-4 text-center" id="signup-container">
+  <form id="signup-form" action="includes/sign-up.inc.php" method="post">
+    <div class="display-5 mt-4 mb-4 text-white">Sign up</div>
+    <input class="form-control" type="text" id="SUsername" name="SUsername" placeholder="Username" required />
+    <input class="form-control" type="text" id="SEmail" name="SEmail" placeholder="Email Account" required />
+    <input class="form-control" type="password" id="SPassword" name="SPassword" placeholder="Password" required />
+    <input class="form-control" type="password" id="SConfirmPassword" name="SConfirmPassword" placeholder="Confirm Password" required />
+    <input class="btn btn-lg btn-primary w-100" type="submit" id="submit" name="submit" value="Submit">
   </form>
 </div>
 <?php 

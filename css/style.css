@@ -3,10 +3,31 @@ body {
 }
 
 footer {
-    background-image: linear-gradient(to right, #0f2d37, #d70080); 
-    position: fixed; 
-    /* padding: 3px 3px 0px 10px;  */
-    bottom: 0;
-    height: 10%;
-    width: 100%;
+  background-image: linear-gradient(to right, #0f2d37, #d70080); 
+  position: fixed; 
+  /* padding: 3px 3px 0px 10px;  */
+  bottom: 0;
+  height: 10%;
+  width: 100%;
 }
+
+input {
+  margin: 20px;
+}
+
+#login-container, #signup-container {
+  display: flex;
+  border-style: solid;
+  border-radius: 15px;
+  background-color: rgba(57, 202, 221, 0.5);
+  max-width: 500px;
+  height: 70vh;
+  margin: auto;
+}
+
+#login-form, #signup-form {
+  margin: auto;
+  max-width: 500px;
+  padding: 20px;
+}
+
