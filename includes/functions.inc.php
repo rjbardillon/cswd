@@ -31,7 +31,7 @@ function insertUser($connection, $username, $email, $password){
     mysqli_stmt_bind_param($stmt, "sss", $username, $email, $hashedPassword);
     mysqli_stmt_execute($stmt); 
     mysqli_stmt_close($stmt);
-    header("location: ../index.html");
+    header("location: ../sign-up.html?error=none&username=".$username);
     exit();
 }
 

@@ -4,8 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google reCaptcha -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <!-- Location api -->
     <script src="https://f001.backblazeb2.com/file/buonzz-assets/jquery.ph-locations-v1.0.0.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
+    <script type="text/javascript" src="https://f001.backblazeb2.com/file/buonzz-assets/jquery.ph-locations.js"></script>
     <!-- Bootstrap -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
@@ -18,6 +22,8 @@
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
+    <!-- External Javascript -->
+    <script type="text/javascript" src="includes/funtion.inc.js"></script>
     <!-- Tab Icon -->
     <link rel="shortcut icon" href="images/santarosa-logo.ico" type="image/x-icon">
     <!-- External CSS -->
@@ -70,7 +76,7 @@
             require_once 'includes/dbh.inc.php';
             require_once 'includes/functions.inc.php';
             if (isset($_SESSION['username'])) {
-              echo '<li class="nav-item"><a class="btn btn-dark" href="includes/logout.inc.php">Log Out</a></li>';
+              echo '<li class="nav-item"><a class="btn btn-dark m-2" href="includes/logout.inc.php">Log Out</a></li>';
             }
           ?>
          

@@ -5,6 +5,14 @@
     $password = $_POST["SPassword"];
     $confirmPassword = $_POST["SConfirmPassword"];
     
+    if (isset($_POST['g-recaptcha-response'])) {
+        $recaptcha = $_POST['g-recaptcha-response'];
+        if (!$recaptcha) {
+            header("location: ../sign-up.html?error=wrongcaptcha");
+            exit();
+        }
+    }
+    
     require_once 'dbh.inc.php';
     require_once 'functions.inc.php';
 

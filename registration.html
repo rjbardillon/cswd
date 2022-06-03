@@ -8,176 +8,112 @@
         exit();
     }
 ?>
-
-<form action="includes/register.inc.php" method="post">
-<div class="container-fluid">
-    <h1>Registration Page</h1>
-    <p>Instruction:</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam eaque, dignissimos blanditiis nesciunt quidem vel hic nobis, debitis provident distinctio accusantium odio in ipsa officiis nulla dicta eveniet aut accusamus.</p>
-    <div class="container-fluid">
-        <div class="row align-items-start">
-            <div class="col">
-                <label for="FName">First Name (Pangalan)</label><br>
-                <input type="text" id="FName" name="FName" required>
-            </div>
-            <div class="col">
-                <label for="MName">Middle Name (Gitnang Pangalan)</label><br>
-                <input type="text" id="MName" name="MName">
-            </div>
-            <div class="col">
-                <label for="LName">Last Name (Apelyido) </label><br>
-                <input type="text" id="LName" name="LName" required>
-            </div>
-            <div class="col">
-                <label for="suffix">Suffix</label><br>
-                <input type="text" id="suffix" name="suffix">
-            </div>
-        </div>
-
-        <div class="row align-items-start">
-            <div class="col">
-                <label for="sex">Sex (Kasarian noong Kapanganakan)</label><br>
-                    <select id="sex" name="sex">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select>
-            </div>
-            <div class="col">
-                <label for="nationality">Filipino or Resident Alien</label><br>
-                <input type="text" id="nationality" name="nationality" required>
-            </div>
-            <div class="col">
-                <label for="status">Marital Status</label><br>
-                <div class="dropdown">
-                    <select id="status" name="status">
-                        <option value="single">Single</option>
-                        <option value="married">Married</option>
-                        <option value="widowed">Widowed</option>
-                        <option value="separated">Separated</option>
-                        <option value="divorced">Divorced</option>
-                    </select>
+<div class="container registration-container mt-5">
+    <form class="registration-form" action="includes/register.inc.php" method="post">
+        <h1>Registration Page</h1>
+        <p>Instruction:</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam eaque, dignissimos blanditiis nesciunt quidem vel hic nobis, debitis provident distinctio accusantium odio in ipsa officiis nulla dicta eveniet aut accusamus.</p>
+            <div class="row align-items-start">
+                <div class="col form-group">
+                    <label class="" for="FName">First Name (Pangalan)</label>
+                    <input class="form-control" type="text" id="FName" name="FName" required>
+                </div>
+                <div class="col form-group">
+                    <label class="" for="MName">Middle Name (Gitnang Pangalan)</label>
+                    <input class="form-control" type="text" id="MName" name="MName">
+                </div>
+                <div class="col form-group">
+                    <label class="" for="LName">Last Name (Apelyido) </label>
+                    <input class="form-control" type="text" id="LName" name="LName" required>
+                </div>
+                <div class="col form-group">
+                    <label class="" for="suffix">Suffix</label>
+                    <input class="form-control" type="text" id="suffix" name="suffix">
                 </div>
             </div>
-            <div class="col">
-                <label for="BType">Blood Type (Uri ng dugo)</label><br>
-                <div class="dropdown">
-                    <select id="BType" name="BType">
-                        <option value="A">A</option>
-                        <option value="B">B</option>
-                        <option value="AB">AB</option>
-                        <option value="O">O</option>
-                        <option value="Unknown">Unknown</option>
-                    </select>
+
+            <div class="row align-items-start">
+                <div class="col">
+                    <label for="sex">Sex (Kasarian noong Kapanganakan)</label>
+                        <select class="form-select" id="sex" name="sex">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                </div>
+                <div class="col">
+                    <label for="nationality">Filipino or Resident Alien</label>
+                    <input class="form-control" type="text" id="nationality" name="nationality" required>
+                </div>
+                <div class="col">
+                    <label for="status">Marital Status</label>
+                    <div class="dropdown">
+                        <select class="form-select" id="status" name="status">
+                            <option value="single">Single</option>
+                            <option value="married">Married</option>
+                            <option value="widowed">Widowed</option>
+                            <option value="separated">Separated</option>
+                            <option value="divorced">Divorced</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="BType">Blood Type (Uri ng dugo)</label>
+                    <div class="dropdown">
+                        <select class="form-select"  id="BType" name="BType">
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="AB">AB</option>
+                            <option value="O">O</option>
+                            <option value="Unknown">Unknown</option>
+                        </select>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row align-items-start">
-            <div class="col">
-                <label for="dob">Date of Birth</label><br>
-                <input type="date" id="dob" name="dob" required>
+            <div class="row align-items-start">
+                <div class="col">
+                    <label for="dob">Date of Birth</label>
+                    <input class="form-control" type="date" id="dob" name="dob" required>
+                </div>
+                <div class="col">
+                    <label for="region">Region (Rehiyon)</label>
+                    <input type="hidden" name="region"/>
+                    <select class="form-select" id="region"></select>
+                </div>
+                <div class="col">
+                    <label for="province">Province (Probinsya)</label>
+                    <input type="hidden" name="province"/>
+                    <select class="form-select" id="province"></select>
+                </div>
+                <div class="col">
+                    <label for="city">City (Lungsod)</label>
+                    <input type="hidden" name="city"/>
+                    <select class="form-select" id="city"></select>
+                </div>
             </div>
-            <div class="col">
-                <label for="region">Region (Rehiyon)</label><br>
-                <input type="hidden" name="region"/>
-                <select id="region"></select>
-            </div>
-            <div class="col">
-                <label for="province">Province (Probinsya)</label><br>
-                <input type="hidden" name="province"/>
-                <select id="province"></select>
-            </div>
-            <div class="col">
-                <label for="city">City (Lungsod)</label><br>
-                <input type="hidden" name="city"/>
-                <select id="city"></select>
-            </div>
-        </div>
 
-        <div class="row align-items-start">
-            <div class="col">
-                <label for="barangay">Barangay</label><br>
-                <input type="hidden" name="barangay"/>
-                <select id="barangay"></select>
+            <div class="row align-items-start">
+                <div class="col">
+                    <label for="barangay">Barangay</label>
+                    <input type="hidden" name="barangay"/>
+                    <select class="form-select" id="barangay"></select>
+                </div>
+                <div class="col">
+                    <label for="street">Street</label>
+                    <input class="form-control" type="text" id="street" name="street" required>
+                </div>
+                <div class="col">
+                    <label for="address">Address</label>
+                    <input class="form-control" type="text" id="address" name="address" required>
+                </div>
+                <div class="col">
+                    <label for="zip"></label>
+                    <input class="form-control" type="hidden" id="zip-code" name="zip-code" required>
+                </div>
             </div>
-            <div class="col">
-                <label for="street">Street</label><br>
-                <input type="text" id="street" name="street" required>
-            </div>
-            <div class="col">
-                <label for="address">Address</label><br>
-                <input type="text" id="address" name="address" required>
-            </div>
-            <div class="col">
-                <label for="zip">Zip Code</label><br>
-                <input type="text" id="zip-code" name="zip-code" required>
-            </div>
-        </div>
-        <input type="submit" value="Register" id="register" name="register">
-    </div>
+            <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="register" name="register">
+    </form>
 </div>
-</form>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
-<script type="text/javascript" src="https://f001.backblazeb2.com/file/buonzz-assets/jquery.ph-locations.js"></script>
-<script type="text/javascript">
-    var my_handlers = {
-
-        fill_provinces:  function(){
-
-            var region_code = $(this).val();
-            $('#province').ph_locations('fetch_list', [{"region_code": region_code}]);
-            
-        },
-
-        fill_cities: function(){
-
-            var province_code = $(this).val();
-            $('#city').ph_locations( 'fetch_list', [{"province_code": province_code}]);
-        },
-
-
-        fill_barangays: function(){
-
-            var city_code = $(this).val();
-            $('#barangay').ph_locations('fetch_list', [{"city_code": city_code}]);
-        }
-    };
-
-    $(function(){
-        $('#region').on('change', my_handlers.fill_provinces);
-        $('#province').on('change', my_handlers.fill_cities);
-        $('#city').on('change', my_handlers.fill_barangays);
-
-        $('#region').ph_locations({'location_type': 'regions'});
-        $('#province').ph_locations({'location_type': 'provinces'});
-        $('#city').ph_locations({'location_type': 'cities'});
-        $('#barangay').ph_locations({'location_type': 'barangays'});
-
-        $('#region').ph_locations('fetch_list');
-    });
-
-    $(function(){
-        $('#region').on('change', function(){
-            var selected_caption = $("#region option:selected").text();
-            $('input[name=region]').val(selected_caption);
-        }).ph_locations('fetch_list');
-
-        $('#province').on('change', function(){
-            var selected_caption = $("#province option:selected").text();
-            $('input[name=province]').val(selected_caption);
-        }).ph_locations('fetch_list');
-
-        $('#city').on('change', function(){
-            var selected_caption = $("#city option:selected").text();
-            $('input[name=city]').val(selected_caption);
-        }).ph_locations('fetch_list');
-
-        $('#barangay').on('change', function(){
-            var selected_caption = $("#barangay option:selected").text();
-            $('input[name=barangay]').val(selected_caption);
-        }).ph_locations('fetch_list');
-    });
-</script>
 <?php 
     include('footer.html');
 ?>
