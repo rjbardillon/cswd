@@ -30,7 +30,7 @@ footer {
 }
 
 .registration-container {
-  display: flex;
+  display: none;
   border-style: solid;
   border-radius: 15px;
   background-color: rgba(57, 202, 221, 0.5);

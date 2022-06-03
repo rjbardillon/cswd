@@ -1,25 +1,24 @@
 var my_handlers = {
+    fill_provinces:  function(){
 
-        fill_provinces:  function(){
+        var region_code = $(this).val();
+        $('#province').ph_locations('fetch_list', [{"region_code": region_code}]);
+        
+    },
 
-            var region_code = $(this).val();
-            $('#province').ph_locations('fetch_list', [{"region_code": region_code}]);
-            
-        },
+    fill_cities: function(){
 
-        fill_cities: function(){
-
-            var province_code = $(this).val();
-            $('#city').ph_locations( 'fetch_list', [{"province_code": province_code}]);
-        },
+        var province_code = $(this).val();
+        $('#city').ph_locations( 'fetch_list', [{"province_code": province_code}]);
+    },
 
 
-        fill_barangays: function(){
+    fill_barangays: function(){
 
-            var city_code = $(this).val();
-            $('#barangay').ph_locations('fetch_list', [{"city_code": city_code}]);
-        }
-    };
+        var city_code = $(this).val();
+        $('#barangay').ph_locations('fetch_list', [{"city_code": city_code}]);
+    }
+};
 
 $(function(){
     $('#region').on('change', my_handlers.fill_provinces);
@@ -38,20 +37,27 @@ $(function(){
     $('#region').on('change', function(){
         var selected_caption = $("#region option:selected").text();
         $('input[name=region]').val(selected_caption);
-    }).ph_locations('fetch_list');
+    });
 
     $('#province').on('change', function(){
         var selected_caption = $("#province option:selected").text();
         $('input[name=province]').val(selected_caption);
-    }).ph_locations('fetch_list');
+    });
 
     $('#city').on('change', function(){
         var selected_caption = $("#city option:selected").text();
         $('input[name=city]').val(selected_caption);
-    }).ph_locations('fetch_list');
+    });
 
     $('#barangay').on('change', function(){
         var selected_caption = $("#barangay option:selected").text();
         $('input[name=barangay]').val(selected_caption);
-    }).ph_locations('fetch_list');
+    });
 });
+
+$(document).ready(function(){
+    $("#id-type").on('change', function(){
+        $(".registration-container").hide();
+        $("#" + $(this).val()).fadeIn(700)
+    });
+}).change();
