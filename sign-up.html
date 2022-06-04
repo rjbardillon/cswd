@@ -6,11 +6,13 @@
 <div class="container mt-4 text-center" id="signup-container">
   <form id="signup-form" action="includes/sign-up.inc.php" method="post">
     <div class="display-5 mt-4 mb-4 text-white">Sign up</div>
-    <input class="form-control mt-2" type="text" id="SUsername" name="SUsername" placeholder="Username" required />
+    <input class="form-control mt-2" type="text" id="SLastName" name="SLastName" placeholder="Last Name" required autofocus/>
+    <input class="form-control mt-2" type="text" id="SFirstName" name="SFirstName" placeholder="First Name" required />
+    <input class="form-control mt-2" type="text" id="SMiddleName" name="SMiddleName" placeholder="Middle Name"/>
     <input class="form-control mt-2" type="text" id="SEmail" name="SEmail" placeholder="Email Account" required />
     <input class="form-control mt-2" type="password" id="SPassword" name="SPassword" placeholder="Password" required />
     <input class="form-control mt-2" type="password" id="SConfirmPassword" name="SConfirmPassword" placeholder="Confirm Password" required />
-    <div class="g-recaptcha mt-3" data-sitekey="6LfVLT4gAAAAADdM5VWP-MuEDD4FVtcMB1gIZQve"></div>
+    <div class="g-recaptcha mt-2 mb-2" data-sitekey="6LfVLT4gAAAAADdM5VWP-MuEDD4FVtcMB1gIZQve"></div>
     <input class="btn btn-lg btn-primary w-100" type="submit" id="submit" name="submit" value="Submit">
   </form>
 </div>
@@ -19,24 +21,27 @@
       $username = $_GET['username'];
   }
   if (isset($_GET["error"])) {
-      if ($_GET["error"] == "none"){
-          echo "<script>alert('Your Username is $username')</script>";
-      }    
-      else if ($_GET["error"] == "invalidemail"){
-          echo "<script>alert('Invalid Email')</script>";
+      if ($_GET["error"] == "userexists"){
+        echo "<script>alert('User already Existing')</script>";
       }
-      else if ($_GET["error"] == "usernametaken"){
-          echo "<script>alert('User is existing')</script>";
+      else if ($_GET["error"] == "invalidemail"){
+        echo "<script>alert('Invalid Email')</script>";
+      }
+      else if ($_GET["error"] == "emailtaken"){
+        echo "<script>alert('Email is not available')</script>";
       }
       else if ($_GET["error"] == "passwordnotmatch"){
-          echo "<script>alert('Password Not Match')</script>";
+        echo "<script>alert('Password Not Match')</script>";
       }
       else if ($_GET["error"] == "wrongcaptcha"){
-          echo "<script>alert('Wrong Captcha')</script>";
+        echo "<script>alert('Wrong Captcha')</script>";
       } 
       else if ($_GET["error"] == "stmterror"){
-          echo "<script>alert('Something Went Wrong')</script>";
+        echo "<script>alert('Something Went Wrong')</script>";
       }
+      else if ($_GET["error"] == "none"){
+        echo "<script>alert('Your Username is $username')</script>";
+      } 
   }
 ?>
 <?php 

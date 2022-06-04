@@ -22,20 +22,41 @@ function passwordMatch($password, $confirmPassword) {
     return $result;
 }
 
-function insertUser($connection, $username, $email, $password){
-    $sql = "INSERT INTO user (username, email, password) VALUES (?, ?, ?);";
+function insertUser($connection, $firstName, $middleName, $lastName, $username, $email, $password){
+    $sql = "INSERT INTO user (first_name, middle_name, last_name, username, email, password) VALUES (?, ?, ?, ?, ?, ?);";
     $stmt = $connection->prepare($sql);
 
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    mysqli_stmt_bind_param($stmt, "sss", $username, $email, $hashedPassword);
+    mysqli_stmt_bind_param($stmt, "ssssss", $firstName, $middleName, $lastName, $username, $email, $hashedPassword);
     mysqli_stmt_execute($stmt); 
     mysqli_stmt_close($stmt);
     header("location: ../sign-up.html?error=none&username=".$username);
     exit();
 }
 
-function usernameExists($connection, $username, $email){
+function userExists($connection, $firstName, $middleName, $lastName) {
+    $sql = "SELECT * FROM user WHERE first_name=? and middle_name=? and last_name=?";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../sign-up.html?error=stmterror");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "sss", $firstName, $middleName, $lastName);
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+    if ($row = mysqli_fetch_assoc($result)) {
+        return true;
+    } 
+    else {
+        return false;
+    }
+    mysqli_stmt_close($stmt);
+}
+
+function emailExists($connection, $username, $email){
     $sql = "SELECT * FROM user WHERE username=? OR email=?";
     $stmt = mysqli_stmt_init($connection);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -58,15 +79,15 @@ function usernameExists($connection, $username, $email){
     mysqli_stmt_close($stmt);
 }
 
-function userExists($connection, $username){
-    $sql = "SELECT * FROM user_data WHERE username=?";
+function usernameExists($connection, $username, $email) {
+    $sql = "SELECT * FROM user WHERE username=? or email=?";
     $stmt = mysqli_stmt_init($connection);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../create-account.html?error=stmterror");
         exit();
     }
 
-    mysqli_stmt_bind_param($stmt, "s", $username);
+    mysqli_stmt_bind_param($stmt, "ss", $username, $email);
     mysqli_stmt_execute($stmt);
 
     $result = mysqli_stmt_get_result($stmt);
@@ -83,12 +104,13 @@ function userExists($connection, $username){
 
 function loginUser($connection, $username, $password){
     $usernameExists = usernameExists($connection, $username, $username);
-
     if ($usernameExists === false) {
         header("location: ../index.html?error=wrongaccount");
         exit();
     }
+    
     $passwordhashed = $usernameExists['password'];
+
     $checkPassword = password_verify($password, $passwordhashed);
 
     if ($checkPassword === false) {
