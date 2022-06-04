@@ -21,7 +21,7 @@
         require_once 'dbh.inc.php';
         require_once 'functions.inc.php';
 
-        while (usernameExists($connection, $currentUsername, $email) !== false) {
+        while (usernameExists($connection, $currentUsername) !== false) {
             $i++;
             $currentUsername = "";
             $currentUsername = $username.$i;
@@ -34,7 +34,7 @@
             header("location: ../sign-up.html?error=invalidemail");
             exit();
         }
-        if (emailExists($connection, $currentUsername, $email) !== false) {
+        if (emailExists($connection, $email) !== false) {
             header("location: ../sign-up.html?error=emailtaken");
             exit();
         }

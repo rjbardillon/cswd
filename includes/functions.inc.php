@@ -56,15 +56,15 @@ function userExists($connection, $firstName, $middleName, $lastName) {
     mysqli_stmt_close($stmt);
 }
 
-function emailExists($connection, $username, $email){
-    $sql = "SELECT * FROM user WHERE username=? OR email=?";
+function usernameExists($connection, $username){
+    $sql = "SELECT * FROM user WHERE username=?";
     $stmt = mysqli_stmt_init($connection);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../create-account.html?error=stmterror");
         exit();
     }
 
-    mysqli_stmt_bind_param($stmt, "ss", $username, $email);
+    mysqli_stmt_bind_param($stmt, "s", $username);
     mysqli_stmt_execute($stmt);
 
     $result = mysqli_stmt_get_result($stmt);
@@ -79,11 +79,34 @@ function emailExists($connection, $username, $email){
     mysqli_stmt_close($stmt);
 }
 
-function usernameExists($connection, $username, $email) {
-    $sql = "SELECT * FROM user WHERE username=? or email=?";
+function emailExists($connection, $email) { 
+    $sql = "SELECT * FROM user WHERE email=?";
     $stmt = mysqli_stmt_init($connection);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../create-account.html?error=stmterror");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+    if ($row = mysqli_fetch_assoc($result)) {
+        return $row;
+    } 
+    else {
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+function loginCredentialsExists($connection, $username, $email) {
+    $sql = "SELECT * FROM user WHERE username=? OR email=?";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../sign-up.html?error=stmterror");
         exit();
     }
 
@@ -103,14 +126,13 @@ function usernameExists($connection, $username, $email) {
 }
 
 function loginUser($connection, $username, $password){
-    $usernameExists = usernameExists($connection, $username, $username);
-    if ($usernameExists === false) {
+    $loginCredentialsExists = loginCredentialsExists($connection, $username, $username);
+    if ($loginCredentialsExists === false) {
         header("location: ../index.html?error=wrongaccount");
         exit();
     }
     
-    $passwordhashed = $usernameExists['password'];
-
+    $passwordhashed = $loginCredentialsExists['password'];
     $checkPassword = password_verify($password, $passwordhashed);
 
     if ($checkPassword === false) {
@@ -119,8 +141,8 @@ function loginUser($connection, $username, $password){
     }
     else if($checkPassword === true) {
         session_start();
-        $_SESSION['username'] = $usernameExists['username'];
-        $_SESSION['email'] = $usernameExists['email'];
+        $_SESSION['username'] = $loginCredentialsExists['username'];
+        $_SESSION['email'] = $loginCredentialsExists['email'];
         header("location: ../home.html");
         exit();
     }
