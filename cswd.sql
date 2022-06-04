@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2022 at 01:03 PM
+-- Generation Time: Jun 04, 2022 at 01:07 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -29,10 +29,21 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
+  `first_name` varchar(128) NOT NULL,
+  `middle_name` varchar(128) DEFAULT NULL,
+  `last_name` varchar(128) NOT NULL,
   `username` varchar(254) NOT NULL,
   `email` varchar(254) NOT NULL,
   `password` varchar(120) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `first_name`, `middle_name`, `last_name`, `username`, `email`, `password`) VALUES
+(1, 'Romeo Jr', 'Montealegre', 'Bardillon', 'rmbardillon', 'romsky.bardillon@gmail.com', '$2y$10$YX.S7QY846.hLKk1Spl1nOFilqtuyEu0eD4N2PUXfzbd68hgY4/jS'),
+(2, 'Maria Christine', 'Montealegre', 'Del Rosario', 'mmdelrosario', 'tintin@gmail.com', '$2y$10$ojARYvLgD1HO6ZqdjSvGbuDhcLNSSWRDXcy7tPgEyl/pO85riJcHm');
 
 -- --------------------------------------------------------
 
@@ -49,7 +60,7 @@ CREATE TABLE `user_data` (
   `sex` enum('male','female') NOT NULL,
   `nationality` varchar(128) NOT NULL,
   `status` enum('single','married','widowed','separated','divorced') NOT NULL,
-  `BType` enum('A','B','AB','O') DEFAULT NULL,
+  `BType` enum('A','B','AB','O','Unknown') DEFAULT NULL,
   `dob` date NOT NULL,
   `region` varchar(128) NOT NULL,
   `province` varchar(128) NOT NULL,
@@ -83,7 +94,7 @@ ALTER TABLE `user_data`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user_data`
