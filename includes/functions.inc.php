@@ -143,6 +143,7 @@ function loginUser($connection, $username, $password){
         session_start();
         $_SESSION['username'] = $loginCredentialsExists['username'];
         $_SESSION['email'] = $loginCredentialsExists['email'];
+        $_SESSION['name'] = $loginCredentialsExists['first_name']." ".$loginCredentialsExists['middle_name']." ".$loginCredentialsExists['last_name'];
         header("location: ../home.html");
         exit();
     }
