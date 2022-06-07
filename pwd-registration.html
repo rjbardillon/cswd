@@ -1,30 +1,13 @@
 <?php 
     session_start();
-    $page = "registration";
+    $page = 'registration';
     include('header.html');
-    
-    if (!isset($_SESSION['username'])) {
-        header("location: index.html");
-        exit();
-    }
-?>
-<!-- Dropdown -->
-<div class="container mt-2">
-    <label for="id-type">ID Type</label>
-        <select class="form-select" id="id-type" name="id-type">
-            <option disabled selected value="">Please Select</option>
-            <option value="pwd">PWD</option>
-            <option value="sr-citizen">Sr. Citizen</option>
-            <option value="solo-parent">Solo Parent</option>
-        </select>
-</div>
-<!-- PWD -->
-<div class="container registration-container mt-5" id="pwd">
-    <form class="registration-form" action="includes/register.inc.php" method="post">
-        <!-- row 1 -->
+?> 
+<div class="container-fluid p-5" style="border-style: solid; border-radius: 15px;">
+    <!-- row 1 -->
     <div class="row m-1" style="background-color: green;">
         <div class="col border1">
-            <h6 class="display-6 text-center text-white">***PAKISAGUTAN LAHAT AT MAGSULAT NG MALALAKING LETRA LAMANG***</h6>
+            <h6 class="display-6 text-center text-white">*** PAKISAGUTAN LAHAT AT MAGSULAT NG MALALAKING LETRA LAMANG***</h6>
         </div>
     </div>
     <div class="row m-1">
@@ -1045,117 +1028,6 @@
             <b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b><input type="text" name="" id="">
         </div>
     </div>
-    </form>
-</div>
-<!-- Solo Parent -->
-<div class="container registration-container mt-5" id="solo-parent">
-    <form class="registration-form" action="includes/register.inc.php" method="post">
-        <h1>Solo Parent</h1>
-        <p>Instruction:</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam eaque, dignissimos blanditiis nesciunt quidem vel hic nobis, debitis provident distinctio accusantium odio in ipsa officiis nulla dicta eveniet aut accusamus.</p>
-            <div class="row align-items-start">
-                <div class="col form-group">
-                    <label class="" for="FName">First Name (Pangalan)</label>
-                    <input class="form-control" type="text" id="FName" name="FName" required>
-                </div>
-                <div class="col form-group">
-                    <label class="" for="MName">Middle Name (Gitnang Pangalan)</label>
-                    <input class="form-control" type="text" id="MName" name="MName">
-                </div>
-                <div class="col form-group">
-                    <label class="" for="LName">Last Name (Apelyido) </label>
-                    <input class="form-control" type="text" id="LName" name="LName" required>
-                </div>
-                <div class="col form-group">
-                    <label class="" for="suffix">Suffix</label>
-                    <input class="form-control" type="text" id="suffix" name="suffix">
-                </div>
-            </div>
-
-            <div class="row align-items-start">
-                <div class="col">
-                    <label for="sex">Sex (Kasarian noong Kapanganakan)</label>
-                        <select class="form-select" id="sex" name="sex">
-                            <option disabled selected value="">Please Select</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                        </select>
-                </div>
-                <div class="col">
-                    <label for="nationality">Filipino or Resident Alien</label>
-                    <input class="form-control" type="text" id="nationality" name="nationality" required>
-                </div>
-                <div class="col">
-                    <label for="status">Marital Status</label>
-                    <div class="dropdown">
-                        <select class="form-select" id="status" name="status">
-                            <option disabled selected value="">Please Select</option>
-                            <option value="single">Single</option>
-                            <option value="married">Married</option>
-                            <option value="widowed">Widowed</option>
-                            <option value="separated">Separated</option>
-                            <option value="divorced">Divorced</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col">
-                    <label for="BType">Blood Type (Uri ng dugo)</label>
-                    <div class="dropdown">
-                        <select class="form-select"  id="BType" name="BType">
-                            <option disabled selected value="">Please Select</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="AB">AB</option>
-                            <option value="O">O</option>
-                            <option value="Unknown">Unknown</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row align-items-start">
-                <div class="col">
-                    <label for="dob">Date of Birth</label>
-                    <input class="form-control" type="date" id="dob" name="dob" required>
-                </div>
-                <div class="col">
-                    <label for="region2">Region (Rehiyon)</label>
-                    <input type="hidden" name="region"/>
-                    <select class="form-select" id="region2"></select>
-                </div>
-                <div class="col">
-                    <label for="province2">Province (Probinsya)</label>
-                    <input type="hidden" name="province"/>
-                    <select class="form-select" id="province2"></select>
-                </div>
-                <div class="col">
-                    <label for="city2">City (Lungsod)</label>
-                    <input type="hidden" name="city"/>
-                    <select class="form-select" id="city2"></select>
-                </div>
-            </div>
-
-            <div class="row align-items-start">
-                <div class="col">
-                    <label for="barangay2">Barangay</label>
-                    <input type="hidden" name="barangay"/>
-                    <select class="form-select" id="barangay2"></select>
-                </div>
-                <div class="col">
-                    <label for="street">Street</label>
-                    <input class="form-control" type="text" id="street" name="street" required>
-                </div>
-                <div class="col">
-                    <label for="address">Address</label>
-                    <input class="form-control" type="text" id="address" name="address" required>
-                </div>
-                <div class="col">
-                    <label for="zip"></label>
-                    <input class="form-control" type="hidden" id="zip-code" name="zip-code" required>
-                </div>
-            </div>
-            <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="register" name="register">
-    </form>
 </div>
 <?php 
     include('footer.html');

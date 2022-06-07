@@ -1,130 +1,45 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <!-- Bootstrap -->
+        <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+        crossorigin="anonymous"
+        />
+        <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"
+        ></script>
         <title>jQuery PH Locations Demo</title>
     </head>
     <body>
-        <h1>jQuery PH Locations Demo</h1>
-        <div>
-            <table>
-                <tr>
-                    <td>Region</td>
-                    <td><select id="region"></select></td>
-                </tr>
-                <tr>
-                    <td>Province</td>
-                    <td><select id="province"></select></td>
-                </tr>
-                <tr>
-                    <td>City</td>
-                    <td><select id="city"></select></td>
-                </tr>
-                <tr>
-                    <td>Barangay</td>
-                    <td><select id="barangay"></select></td>
-                </tr>
-            </table>
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        1st COlumn
+                    </div>
+                    <div class="col">
+                        2nd COlumn
+                    </div>
+                </div>
+                
+            </div>
 
+             <div class="col">
+                <div class="row">
+                    <div class="col">
+                        1st COlumn
+                    </div>
+                    <div class="col">
+                        2nd COlumn
+                    </div>
+                </div>
+                
+            </div>
         </div>
-
-         <h1>jQuery PH Locations Demo</h1>
-        <div>
-            <table>
-                <tr>
-                    <td>Region</td>
-                    <td><select id="region1"></select></td>
-                </tr>
-                <tr>
-                    <td>Province</td>
-                    <td><select id="province1"></select></td>
-                </tr>
-                <tr>
-                    <td>City</td>
-                    <td><select id="city1"></select></td>
-                </tr>
-                <tr>
-                    <td>Barangay</td>
-                    <td><select id="barangay1"></select></td>
-                </tr>
-            </table>
-
-        </div>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
-        <!-- script type="text/javascript" src="../../jquery.ph-locations.js"></script -->
-        <script type="text/javascript" src="https://f001.backblazeb2.com/file/buonzz-assets/jquery.ph-locations.js"></script -->
-        <script type="text/javascript">
-            
-            var my_handlers = {
-
-                fill_provinces:  function(){
-
-                    var region_code = $(this).val();
-                    $('#province').ph_locations('fetch_list', [{"region_code": region_code}]);
-                    
-                },
-
-                fill_cities: function(){
-
-                    var province_code = $(this).val();
-                    $('#city').ph_locations( 'fetch_list', [{"province_code": province_code}]);
-                },
-
-
-                fill_barangays: function(){
-
-                    var city_code = $(this).val();
-                    $('#barangay').ph_locations('fetch_list', [{"city_code": city_code}]);
-                }
-            };
-
-            $(function(){
-                $('#region').on('change', my_handlers.fill_provinces);
-                $('#province').on('change', my_handlers.fill_cities);
-                $('#city').on('change', my_handlers.fill_barangays);
-
-                $('#region').ph_locations({'location_type': 'regions'});
-                $('#province').ph_locations({'location_type': 'provinces'});
-                $('#city').ph_locations({'location_type': 'cities'});
-                $('#barangay').ph_locations({'location_type': 'barangays'});
-
-                $('#region').ph_locations('fetch_list');
-            });
-
-            var my_handlers1 = {
-
-                fill_provinces:  function(){
-
-                    var region_code1 = $(this).val();
-                    $('#province1').ph_locations('fetch_list', [{"region_code": region_code1}]);
-                    
-                },
-
-                fill_cities: function(){
-
-                    var province_code1 = $(this).val();
-                    $('#city1').ph_locations( 'fetch_list', [{"province_code": province_code1}]);
-                },
-
-
-                fill_barangays: function(){
-
-                    var city_code1 = $(this).val();
-                    $('#barangay1').ph_locations('fetch_list', [{"city_code": city_code1}]);
-                }
-            };
-
-            $(function(){
-                $('#region1').on('change', my_handlers1.fill_provinces);
-                $('#province1').on('change', my_handlers1.fill_cities);
-                $('#city1').on('change', my_handlers1.fill_barangays);
-
-                $('#region1').ph_locations({'location_type': 'regions'});
-                $('#province1').ph_locations({'location_type': 'provinces'});
-                $('#city1').ph_locations({'location_type': 'cities'});
-                $('#barangay1').ph_locations({'location_type': 'barangays'});
-
-                $('#region1').ph_locations('fetch_list');
-            });
-        </script>
     </body>
 </html>
