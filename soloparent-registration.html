@@ -1,0 +1,259 @@
+<?php 
+    session_start();
+    $page = 'registration';
+    include('header.html');
+?> 
+
+<div class="container-fluid p-5" style="border-style: solid; border-radius: 15px;">
+    <div class="row m-1">
+        <div class="">
+            <h2 class="display-20">APPLICATION FORM:</h2>
+    </div>
+    <div class="row m-1">
+            <div class="">
+                <h2 class="display-20 text-center" >SOLO PARENT IDENTIFICATION CARD</h2>
+    </div>
+
+
+    </div>
+    <div class="row align-items-start">
+        <div class="col form-group">
+            <label class="" for="name2">Name</label>
+            <input class="form-control" type="text" id="name2" name="name2" required>
+        </div>
+        <div class="col form-group">
+            <label class="" for="age2">Age</label>
+            <input class="form-control" type="text" id="age2" name="age2">
+        </div>
+        <div class="col form-group">
+            <label class="" for="sex2">Sex </label>
+            <input class="form-control" type="text" id="sex2" name="sex2" required>
+        </div>
+    </div>
+
+    <div class="row align-items-start">
+        <div class="col form-group">
+            <label class="" for="birth2">Date of Birth </label>
+            <input class="form-control" type="text" id="birth2" name="birth2" required>
+        </div>
+        <div class="col form-group">
+            <label class="" for="birthplace2">Place of Birth </label>
+            <input class="form-control" type="text" id="birthplace2" name="birthplace2" required>
+        </div>
+    </div>
+
+    <div class="row align-items-start">
+        <div class="col">
+            <label for="address2">Address</label>
+            <input class="form-control" type="text" id="address2" name="address2" required>
+        </div>
+    </div>
+
+    <div class="row align-items-start">
+        <div class="col">
+            <label for="educational2">Highest Educational Attainment</label>
+            <input class="form-control" type="text" id="educational2" name="educational2" required>
+        </div>
+    </div>
+
+    <div class="row align-items-start">
+        <div class="col">
+            <label for="occupation2">Occupation</label>
+            <input class="form-control" type="text" id="occupation2" name="occupation2" required>
+        </div>
+        <div class="col">
+            <label for="income2">Monthly Income</label>
+            <input class="form-control" type="text" id="income2" name="income2" required>
+        </div>
+    </div>
+
+    <div class="row align-items-start">
+        <div class="col">
+            <label for="famincome2">Total Family Income</label>
+            <input class="form-control" type="text" id="famincome2" name="famincome2" required>
+        </div>
+    </div>
+
+    <div class="row align-items-start">
+        <div class="col">
+            <label for="tenurial2">Tenurial Status</label>
+            <input class="form-control" type="text" id="tenurial2" name="tenurial2" required>
+        </div>
+    </div>
+
+    <div class="row align-items-start">
+        <div class="col">
+            <label for="religion2">Religion</label>
+            <input class="form-control" type="text" id="religion2" name="religion2" required>
+        </div>
+        <div class="col">
+            <label for="contact2">Contact no.</label>
+            <input class="form-control" type="text" id="contact2" name="contact2" required>
+        </div>
+    </div>
+    <div class="row m-1">
+        <div class="">
+            <h5 class="" >Marital Status (Please check):</h5>
+    </div>
+    <div class="row align-items-start">
+        <div class="col ml-5">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              Single
+            </label>
+        </div>
+        <div class="col ml-5">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              Annuled
+            </label>
+        </div>
+        <div class="col ml-5">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+                Widow/Widower
+            </label>
+        </div>
+    </div>
+    <div class="row align-items-start">
+        <div class="col ml-5">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              Married
+            </label>
+        </div>
+        
+        <div class="col ml-5">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+                Separated(w/certificate of Legal Separation)
+            </label>
+        </div>
+        <div class="col">
+            <label for=""> </label>
+        </div>
+    </div>
+
+
+    
+    
+    <div class="row align-items-start">
+        <div class="">
+            <h5 class="" >I.Family Composition</h5>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Relationship</th>
+            <th scope="col">Age</th>
+            <th scope="col">Civil Status</th>
+            <th scope="col">Educational Attainment</th>
+            <th scope="col">Occupation & Monthly Income</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="text" class="text"></td>
+            <td><input type="text" class="text"></td>
+            <td><input type="text" class="text"></td>
+            <td><input type="text" class="text"></td>
+            <td><input type="text" class="text"></td>
+            <td><input type="text" class="text"></td>
+          </tr>
+          <tr>
+            <td><input type="text" class="text"></td>
+            <td><input type="text" class="text"></td>
+            <td><input type="text" class="text"></td>
+            <td><input type="text" class="text"></td>
+            <td><input type="text" class="text"></td>
+            <td><input type="text" class="text"></td>
+          </tr>
+          <tr>
+            <td><input type="text" class="text"></td>
+            <td><input type="text" class="text"></td>
+            <td><input type="text" class="text"></td>
+            <td><input type="text" class="text"></td>
+            <td><input type="text" class="text"></td>
+            <td><input type="text" class="text"></td>
+          </tr>
+          <tr>
+            <td><input type="text" class="text"></td>
+            <td><input type="text" class="text"></td>
+            <td><input type="text" class="text"></td>
+            <td><input type="text" class="text"></td>
+            <td><input type="text" class="text"></td>
+            <td><input type="text" class="text"></td>
+          </tr>
+          <tr>
+            <td><input type="text" class="text"></td>
+            <td><input type="text" class="text"></td>
+            <td><input type="text" class="text"></td>
+            <td><input type="text" class="text"></td>
+            <td><input type="text" class="text"></td>
+            <td><input type="text" class="text"></td>
+          </tr>
+
+          
+        </tbody>
+    </table>
+    
+    <div class="">
+                <h6 class="text-center" >(Include all family members and other members of the household.)</h6>
+    </div>
+
+
+
+    <div class="row align-items-start">
+        <div class="">
+            <h5 class="" >II. Classification/ Circumstances of being a Solo Parent:</h5>
+    </div>
+    <div class="row align-items-start">
+        <div class="col">
+            <label for="incidence">Incidence</label>
+            <input class="form-control" type="text" id="incidence" name="incidence" required>
+        </div>
+    </div>
+    <div class="row align-items-start">
+        <div class="col">
+            <label for="when">When</label>
+            <input class="form-control" type="text" id="when" name="when" required>
+        </div>
+    </div>
+    <div class="row align-items-start">
+        <div class="col">
+            <h5 class="">III. Needs/Problems of Solo Parent</h5>
+        </div>
+    </div>
+    <div class="row align-items-start">
+        <div class="col">
+            <label for="problem"> </label>
+            <input class="form-control" type="text" id="problem" name="problem" required>
+        </div>
+    </div>   
+    
+    <div class="row m-1">
+        <div class="">
+            <h5 class="" >IV. Family Resources:</h5>
+    </div>
+    <div class="row align-items-start">
+        <div class="col">
+            <label for="resources"> </label>
+            <input class="form-control" type="text" id="resources" name="resources" required>
+        </div>
+    </div> 
+
+
+    
+    
+
+    
+        
+
+    
+
+</div>
+
+<?php 
+    include('footer.html');
+?>
