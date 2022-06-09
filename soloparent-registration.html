@@ -21,11 +21,11 @@
             <label class="" for="name2">Name</label>
             <input class="form-control" type="text" id="name2" name="name2" required>
         </div>
-        <div class="col form-group">
+        <div class="col-2 form-group">
             <label class="" for="age2">Age</label>
-            <input class="form-control" type="text" id="age2" name="age2">
+            <input class="form-control" type="text" id="age2" name="age2" disabled>
         </div>
-        <div class="col form-group">
+        <div class="col-2 form-group">
             <label class="" for="sex2">Sex </label>
             <input class="form-control" type="text" id="sex2" name="sex2" required>
         </div>
@@ -34,7 +34,7 @@
     <div class="row align-items-start">
         <div class="col form-group">
             <label class="" for="birth2">Date of Birth </label>
-            <input class="form-control" type="text" id="birth2" name="birth2" required>
+            <input class="form-control" type="date" id="birth2" name="birth2" required>
         </div>
         <div class="col form-group">
             <label class="" for="birthplace2">Place of Birth </label>
@@ -69,7 +69,7 @@
 
     <div class="row align-items-start">
         <div class="col">
-            <label for="famincome2">Total Family Income</label>
+            <label for="famincome2">Total Monthly Family Income</label>
             <input class="form-control" type="text" id="famincome2" name="famincome2" required>
         </div>
     </div>
@@ -94,119 +94,118 @@
     <div class="row m-1">
         <div class="">
             <h5 class="" >Marital Status (Please check):</h5>
-    </div>
+        </div>
     <div class="row align-items-start">
         <div class="col ml-5">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
+            <input class="form-check-input" type="radio" value="Single" name="marital-status" id="single">
+            <label class="form-check-label" for="single">
               Single
             </label>
         </div>
         <div class="col ml-5">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
+            <input class="form-check-input" type="radio" value="Annuled" name="marital-status" id="annuled">
+            <label class="form-check-label" for="annuled">
               Annuled
             </label>
         </div>
         <div class="col ml-5">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
+            <input class="form-check-input" type="radio" value="Widow/Widower" name="marital-status" id="widow">
+            <label class="form-check-label" for="widow">
                 Widow/Widower
             </label>
         </div>
     </div>
     <div class="row align-items-start">
         <div class="col ml-5">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
+            <input class="form-check-input" type="radio" value="Married" name="marital-status" id="married">
+            <label class="form-check-label" for="married">
               Married
             </label>
         </div>
         
         <div class="col ml-5">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
+            <input class="form-check-input" type="radio" value="Separated" name="marital-status" id="separated">
+            <label class="form-check-label" for="separated">
                 Separated(w/certificate of Legal Separation)
             </label>
         </div>
         <div class="col">
-            <label for=""> </label>
         </div>
     </div>
 
 
-    
-    
+<div class="container">
     <div class="row align-items-start">
         <div class="">
             <h5 class="" >I.Family Composition</h5>
+        </div>
     </div>
-    <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Relationship</th>
-            <th scope="col">Age</th>
-            <th scope="col">Civil Status</th>
-            <th scope="col">Educational Attainment</th>
-            <th scope="col">Occupation & Monthly Income</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><input type="text" class="text"></td>
-            <td><input type="text" class="text"></td>
-            <td><input type="text" class="text"></td>
-            <td><input type="text" class="text"></td>
-            <td><input type="text" class="text"></td>
-            <td><input type="text" class="text"></td>
-          </tr>
-          <tr>
-            <td><input type="text" class="text"></td>
-            <td><input type="text" class="text"></td>
-            <td><input type="text" class="text"></td>
-            <td><input type="text" class="text"></td>
-            <td><input type="text" class="text"></td>
-            <td><input type="text" class="text"></td>
-          </tr>
-          <tr>
-            <td><input type="text" class="text"></td>
-            <td><input type="text" class="text"></td>
-            <td><input type="text" class="text"></td>
-            <td><input type="text" class="text"></td>
-            <td><input type="text" class="text"></td>
-            <td><input type="text" class="text"></td>
-          </tr>
-          <tr>
-            <td><input type="text" class="text"></td>
-            <td><input type="text" class="text"></td>
-            <td><input type="text" class="text"></td>
-            <td><input type="text" class="text"></td>
-            <td><input type="text" class="text"></td>
-            <td><input type="text" class="text"></td>
-          </tr>
-          <tr>
-            <td><input type="text" class="text"></td>
-            <td><input type="text" class="text"></td>
-            <td><input type="text" class="text"></td>
-            <td><input type="text" class="text"></td>
-            <td><input type="text" class="text"></td>
-            <td><input type="text" class="text"></td>
-          </tr>
+    <div class="container-fluid">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Relationship</th>
+                <th scope="col">Age</th>
+                <th scope="col">Civil Status</th>
+                <th scope="col">Educational Attainment</th>
+                <th scope="col">Occupation & Monthly Income</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><input type="text" class="text"></td>
+                <td><input type="text" class="text"></td>
+                <td><input type="text" class="text"></td>
+                <td><input type="text" class="text"></td>
+                <td><input type="text" class="text"></td>
+                <td><input type="text" class="text"></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="text"></td>
+                <td><input type="text" class="text"></td>
+                <td><input type="text" class="text"></td>
+                <td><input type="text" class="text"></td>
+                <td><input type="text" class="text"></td>
+                <td><input type="text" class="text"></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="text"></td>
+                <td><input type="text" class="text"></td>
+                <td><input type="text" class="text"></td>
+                <td><input type="text" class="text"></td>
+                <td><input type="text" class="text"></td>
+                <td><input type="text" class="text"></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="text"></td>
+                <td><input type="text" class="text"></td>
+                <td><input type="text" class="text"></td>
+                <td><input type="text" class="text"></td>
+                <td><input type="text" class="text"></td>
+                <td><input type="text" class="text"></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="text"></td>
+                <td><input type="text" class="text"></td>
+                <td><input type="text" class="text"></td>
+                <td><input type="text" class="text"></td>
+                <td><input type="text" class="text"></td>
+                <td><input type="text" class="text"></td>
+            </tr>
 
-          
-        </tbody>
-    </table>
-    
-    <div class="">
-                <h6 class="text-center" >(Include all family members and other members of the household.)</h6>
+            
+            </tbody>
+        </table>
     </div>
-
-
+    <div class="text-center">
+        <h6>(Include all family members and other members of the household.)</h6>
+    </div>
 
     <div class="row align-items-start">
-        <div class="">
+        <div class="col">
             <h5 class="" >II. Classification/ Circumstances of being a Solo Parent:</h5>
+        </div>
     </div>
     <div class="row align-items-start">
         <div class="col">
@@ -222,38 +221,36 @@
     </div>
     <div class="row align-items-start">
         <div class="col">
-            <h5 class="">III. Needs/Problems of Solo Parent</h5>
-        </div>
-    </div>
-    <div class="row align-items-start">
-        <div class="col">
-            <label for="problem"> </label>
+            <label for="problem"><h5>III. Needs/Problems of Solo Parent</h5></label>
             <input class="form-control" type="text" id="problem" name="problem" required>
         </div>
     </div>   
-    
-    <div class="row m-1">
-        <div class="">
-            <h5 class="" >IV. Family Resources:</h5>
-    </div>
     <div class="row align-items-start">
         <div class="col">
-            <label for="resources"> </label>
+            <label for="resources"><h5>IV. Family Resources:</h5></label>
             <input class="form-control" type="text" id="resources" name="resources" required>
         </div>
     </div> 
-
-
-    
-    
-
-    
-        
-
-    
-
-</div>
-
+    <div class="row align-items-start">
+        <div class="col">
+            <p class="font-weight-normal">I hereby certify that the information given above are true and correct. I further UNDERSTAND that any misinterpretations that may have made will subject me to criminal and civil liabilities provided by the existing laws.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="text-center">
+                <input class="form-control " type="date" name="date" id="date"><br>
+                <label for="date"><b>Date</b></label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="text-center">
+                <input class="form-control " type="file" name="signature" id="signature"><br>
+                <label for="signature"><b>Signature/ Thumbmark over Printed Name</b></label>
+            </div>
+        </div>
+    </div>
+</div>  
 <?php 
     include('footer.html');
 ?>

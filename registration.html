@@ -18,6 +18,10 @@
             <option value="solo-parent">Solo Parent</option>
         </select>
 </div>
+<?php 
+    include('footer.html');
+?>
+
 <!-- PWD -->
 <div class="container registration-container mt-5" id="pwd">
     <form class="registration-form" action="includes/register.inc.php" method="post">
@@ -188,31 +192,31 @@
                 <div class="col">
                     <h5>CAUSE OF DISABILITY</h5>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" value="CONGENITAL/INBORN" id="inborn" name="inborn">
+                        <label class="form-check-label" for="inborn">
                             <b>CONGENITAL/INBORN</b>
                         </label>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
+                            <input class="form-check-input" type="checkbox" value="Autism" id="autism" name="autism">
+                            <label class="form-check-label" for="autism">
                                 Autism
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
+                            <input class="form-check-input" type="checkbox" value="ADHD" id="adhd" name="adhd">
+                            <label class="form-check-label" for="adhd">
                                 ADHD
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
+                            <input class="form-check-input" type="checkbox" value="Cerebral Palsy" id="cerebralPalsy" name="cerebralPalsy">
+                            <label class="form-check-label" for="cerebralPalsy">
                                 Cerebral Palsy
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
+                            <input class="form-check-input" type="checkbox" value="Down Syndrome" id="downSyndrome" name="downSyndrome">
+                            <label class="form-check-label" for="downSyndrome">
                                 Down Syndrome
                             </label>
                         </div>
@@ -220,14 +224,14 @@
                     <div class="row">
                         <h5>STATUS OF DISABILITY</h5>
                         <div class="form-check col">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
+                            <input class="form-check-input" type="radio" value="Permanent" id="permanent" name="statusOfDisability">
+                            <label class="form-check-label" for="permanent">
                                 Permanent
                             </label>
                         </div>
                         <div class="form-check col">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
+                            <input class="form-check-input" type="radio" value="Temporary" id="temporary" name="statusOfDisability">
+                            <label class="form-check-label" for="temporary">
                                 Temporary
                             </label>
                         </div>
@@ -235,25 +239,25 @@
                 </div>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" value="ACQUIRED" id="acquired" name="acquired">
+                        <label class="form-check-label" for="acquired">
                             <b>ACQUIRED</b>
                         </label>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
+                            <input class="form-check-input" type="checkbox" value="Chronic Illness" id="chronicIllness" name="chronicIllness">
+                            <label class="form-check-label" for="chronicIllness">
                                 Chronic Illness
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
+                            <input class="form-check-input" type="checkbox" value="Cerebral Palsy" id="acquired-cerebralPalsy" name="acquired-cerebralPalsy">
+                            <label class="form-check-label" for="acquired-cerebralPalsy">
                                 Cerebral Palsy
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
+                            <input class="form-check-input" type="checkbox" value="Injury" id="injury" name="injury">
+                            <label class="form-check-label" for="injury">
                                 Injury
                             </label>
                         </div>
@@ -269,11 +273,11 @@
         </div>
         <div class="col border1">
             <h5>HOUSE NO. /Street Name/Subdivision</h5>
-            <input type="text" name="" id="">
+            <input class="form-control" type="text" name="" id="">
         </div>
         <div class="col col-md-3 border1">
             <h5>BARANGAY</h5>
-            <input type="text" name="" id="">
+            <input class="form-control" type="text" name="" id="">
         </div>
     </div>
     <!-- row 5 -->
@@ -289,15 +293,15 @@
         </div>
         <div class="col border1">
             <b>LANDLINE: </b>
-            <input class="form-control text-center" type="text" name="" id="" maxlength="10" size="10">
+            <input class="form-control" type="text" name="" id="" maxlength="10" size="10">
         </div>
         <div class="col border1">
             <b>MOBILE NO. OF PWD: </b>
-            <input class="form-control text-center" type="text" name="" id="" maxlength="11" size="11">
+            <input class="form-control" type="text" name="" id="" maxlength="11" size="11">
         </div>
         <div class="col col-md-auto border1">
             <b>EMAIL ADDRESS:</b>
-            <input type="text" name="" id="">
+            <input class="form-control" type="text" name="" id="">
         </div>
     </div>
     <!-- row 7 -->
@@ -347,8 +351,8 @@
                     </div>
                     <div class="col">
                         <div class="form-check">
-                            <input class="form-check-input" value="" type="radio" name="civilStatus" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
+                            <input class="form-check-input" value="" type="radio" name="civilStatus" id="cohabitation">
+                            <label class="form-check-label" for="cohabitation">
                                 Cohabitation (Live-in)
                             </label>
                         </div>
@@ -360,16 +364,16 @@
                 <div class="row">
                     <div class="col">
                         <div class="form-check">
-                            <input class="form-check-input" value="" type="radio" name="civilStatus" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Separated
+                            <input class="form-check-input" value="" type="radio" name="civilStatus" id="married">
+                            <label class="form-check-label" for="married">
+                                Married
                             </label>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-check">
-                            <input class="form-check-input" value="" type="radio" name="civilStatus" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
+                            <input class="form-check-input" value="" type="radio" name="civilStatus" id="widow">
+                            <label class="form-check-label" for="widow">
                                 Widow/er
                             </label>
                         </div>
@@ -386,69 +390,69 @@
         <div class="col border1">
             <b>EDUCATIONAL ATTAINMENT</b>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
+                <input class="form-check-input" value="None" type="radio" name="educationalAttainment" id="none">
+                <label class="form-check-label" for="none">
                     None
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
+                <input class="form-check-input" value="Kindergarten" type="radio" name="educationalAttainment" id="kindergarten">
+                <label class="form-check-label" for="kindergarten">
                     Kindergarten
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
+                <input class="form-check-input" value="Elementary Education" type="radio" name="educationalAttainment" id="elementaryEducation">
+                <label class="form-check-label" for="elementaryEducation">
                     Elementary Education
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
+                <input class="form-check-input" value="Junior High School" type="radio" name="educationalAttainment" id="juniorHighSchool">
+                <label class="form-check-label" for="juniorHighSchool">
                     Junior High School
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
+                <input class="form-check-input" value="Senior High School" type="radio" name="educationalAttainment" id="seniorHighSchool">
+                <label class="form-check-label" for="seniorHighSchool">
                     Senior High School
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
+                <input class="form-check-input" value="College" type="radio" name="educationalAttainment" id="college">
+                <label class="form-check-label" for="college">
                     College
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
+                <input class="form-check-input" value="Vocational" type="radio" name="educationalAttainment" id="vocational">
+                <label class="form-check-label" for="vocational">
                     Vocational
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
+                <input class="form-check-input" value="Post Graduate Program" type="radio" name="educationalAttainment" id="postGraduateProgram">
+                <label class="form-check-label" for="postGraduateProgram">
                     Post Graduate Program
                 </label>
             </div>
             <b>ARE YOU (PWD) AN ACTIVE VOTER IN</b><br><b>SANTA ROSA, LAGUNA?</b>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
+                <input class="form-check-input" value="Yes" type="radio" name="isVoter" id="yes">
+                <label class="form-check-label" for="yes">
                     Yes
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
+                <input class="form-check-input" value="No" type="radio" name="isVoter" id="no">
+                <label class="form-check-label" for="no">
                     No
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
+                <input class="form-check-input" value="17 Below" type="radio" name="isVoter" id="17below">
+                <label class="form-check-label" for="17below">
                     17 Below
                 </label>
             </div>
@@ -458,28 +462,28 @@
                 <b>EMPLOYMENT STATUS</b>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <input class="form-check-input" value="Employed" type="radio" name="employmentStatus" id="employed">
+                        <label class="form-check-label" for="employed">
                             Employed
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <input class="form-check-input" value="Unemployed" type="radio" name="employmentStatus" id="unemployed">
+                        <label class="form-check-label" for="unemployed">
                             Unemployed
                         </label>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <input class="form-check-input" value="Self-employed" type="radio" name="employmentStatus" id="selfEmployed">
+                        <label class="form-check-label" for="selfEmployed">
                             Self-employed
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <input class="form-check-input" value="Student" type="radio" name="employmentStatus" id="student">
+                        <label class="form-check-label" for="student">
                             Student
                         </label>
                     </div>
@@ -487,34 +491,34 @@
                 <b>INCOME IF EMPLOYED/SELF-EMPLOYED</b>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <input class="form-check-input" value="Less than 10,000" type="radio" name="income" id="l10">
+                        <label class="form-check-label" for="l10">
                             Less than 10,000
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <input class="form-check-input" value="10,000 - 20, 000" type="radio" name="income" id="10t-20t">
+                        <label class="form-check-label" for="10t-20t">
                             10,000 - 20, 000
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <input class="form-check-input" value="21,000 - 40,000" type="radio" name="income" id="21t-40t">
+                        <label class="form-check-label" for="21t-40t">
                             21,000 - 40,000
                         </label>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <input class="form-check-input" value="41,000 - 100,000" type="radio" name="income" id="41t-100t">
+                        <label class="form-check-label" for="41t-100t">
                             41,000 - 100,000
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <input class="form-check-input" value="More than 100,000" type="radio" name="income" id="m100t">
+                        <label class="form-check-label" for="m100t">
                             More than 100,000
                         </label>
                     </div>
@@ -524,16 +528,16 @@
                 <b>CATEGORY OF EMPLOYMENT</b>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <input class="form-check-input" value="Government" type="radio" name="categoryOfEmployment" id="government">
+                        <label class="form-check-label" for="government">
                             Government
                         </label>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <input class="form-check-input" value="Private" type="radio" name="categoryOfEmployment" id="private">
+                        <label class="form-check-label" for="private">
                             Private
                         </label>
                     </div>
@@ -543,28 +547,28 @@
                 <b>NATURE OF EMPLOYMENT</b>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <input class="form-check-input" value="Permanent/Regular" type="radio" name="natureOfEmployment" id="permanent/regular">
+                        <label class="form-check-label" for="permanent/regular">
                             Permanent/Regular
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <input class="form-check-input" value="Seasonal" type="radio" name="natureOfEmployment" id="seasonal">
+                        <label class="form-check-label" for="seasonal">
                             Seasonal
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <input class="form-check-input" value="Casual" type="radio" name="natureOfEmployment" id="casual">
+                        <label class="form-check-label" for="casual">
                             Casual
                         </label>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <input class="form-check-input" value="Emergency" type="radio" name="natureOfEmployment" id="emergency">
+                        <label class="form-check-label" for="emergency">
                             Emergency
                         </label>
                     </div>
@@ -574,77 +578,77 @@
         <div class="col border1">
             <b>OCCUPATION</b>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
+                <input class="form-check-input" value="Managers" type="radio" name="occupation" id="managers">
+                <label class="form-check-label" for="managers">
                     Managers
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
+                <input class="form-check-input" value="Professionals" type="radio" name="occupation" id="professionals">
+                <label class="form-check-label" for="professionals">
                     Professionals
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
+                <input class="form-check-input" value="Technician & Associate Professionals" type="radio" name="occupation" id="technicianAndAssociateProfessionals">
+                <label class="form-check-label" for="technicianAndAssociateProfessionals">
                     Technician & Associate Professionals
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
+                <input class="form-check-input" value="Clerical Support Workers" type="radio" name="occupation" id="clericalSupportWorkers">
+                <label class="form-check-label" for="clericalSupportWorkers">
                     Clerical Support Workers
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
+                <input class="form-check-input" value="Service & Sales Workers" type="radio" name="occupation" id="serviceAndSalesWorkers">
+                <label class="form-check-label" for="serviceAndSalesWorkers">
                     Service & Sales Workers
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
+                <input class="form-check-input" value="Skilled Agricultural, Forestry & Fishery Workers" type="radio" name="occupation" id="skilledAgricultural">
+                <label class="form-check-label" for="skilledAgricultural">
                     Skilled Agricultural, Forestry & Fishery Workers
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
+                <input class="form-check-input" value="Craft & Related Trade Workers" type="radio" name="occupation" id="tradeWorkers">
+                <label class="form-check-label" for="tradeWorkers">
                     Craft & Related Trade Workers 
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
+                <input class="form-check-input" value="Plant & Machine Operators & Assemblers" type="radio" name="occupation" id="machineOperator">
+                <label class="form-check-label" for="machineOperator">
                     Plant & Machine Operators & Assemblers
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
+                <input class="form-check-input" value="Elementary Occupations" type="radio" name="occupation" id="elementaryOccupations">
+                <label class="form-check-label" for="elementaryOccupations">
                     Elementary Occupations
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
+                <input class="form-check-input" type="radio" name="occupation" id="others">
+                <label class="form-check-label" for="others">
                     Others, specify
                 </label>
-                <input type="text" name="" id="">
+                <input type="text" name="others" id="others">
             </div>
             <div class="row border1">
                 <b>Are you or any of your family member a 4p's beneficiary?</b>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
+                    <input class="form-check-input" value="Yes" type="radio" name="4psBeneficiary" id="4psyes">
+                    <label class="form-check-label" for="4psyes">
                         Yes
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
+                    <input class="form-check-input" value="No" type="radio" name="4psBeneficiary" id="4psno">
+                    <label class="form-check-label" for="4psno">
                         No
                     </label>
                 </div>
@@ -1031,14 +1035,298 @@
             <b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b><input type="text" name="" id="">
         </div>
     </div>
+    <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="register" name="register">
     </form>
 </div>
 <!-- Solo Parent -->
 <div class="container registration-container mt-5" id="solo-parent">
     <form class="registration-form" action="includes/register.inc.php" method="post">
-        <h1>Solo Parent</h1>
+        <div class="row m-1">
+                <h2 class="display-20">APPLICATION FORM:</h2>
+        </div>
+        <div class="row m-1">
+                <div class="">
+                    <h2 class="display-20 text-center" >SOLO PARENT IDENTIFICATION CARD</h2>
+                </div>
+        </div>
+        <div class="row align-items-start">
+            <div class="col form-group">
+                <label class="" for="name2">Name</label>
+                <input class="form-control" type="text" id="name2" name="name2" required>
+            </div>
+            <div class="col-2 form-group">
+                <label class="" for="age2">Age</label>
+                <input class="form-control" type="text" id="age2" name="age2" disabled>
+            </div>
+            <div class="col-2 form-group">
+                <label class="" for="sex2">Sex </label>
+                <input class="form-control" type="text" id="sex2" name="sex2" required>
+            </div>
+        </div>
+
+        <div class="row align-items-start">
+            <div class="col form-group">
+                <label class="" for="birth2">Date of Birth </label>
+                <input class="form-control" type="date" id="birth2" name="birth2" required>
+            </div>
+            <div class="col form-group">
+                <label class="" for="birthplace2">Place of Birth </label>
+                <input class="form-control" type="text" id="birthplace2" name="birthplace2" required>
+            </div>
+        </div>
+
+        <div class="row align-items-start">
+            <div class="col">
+                <label for="address2">Address</label>
+                <input class="form-control" type="text" id="address2" name="address2" required>
+            </div>
+        </div>
+
+        <div class="row align-items-start">
+            <div class="col">
+                <label for="educational2">Highest Educational Attainment</label>
+                <input class="form-control" type="text" id="educational2" name="educational2" required>
+            </div>
+        </div>
+
+        <div class="row align-items-start">
+            <div class="col">
+                <label for="occupation2">Occupation</label>
+                <input class="form-control" type="text" id="occupation2" name="occupation2" required>
+            </div>
+            <div class="col">
+                <label for="income2">Monthly Income</label>
+                <input class="form-control" type="text" id="income2" name="income2" required>
+            </div>
+        </div>
+
+        <div class="row align-items-start">
+            <div class="col">
+                <label for="famincome2">Total Monthly Family Income</label>
+                <input class="form-control" type="text" id="famincome2" name="famincome2" required>
+            </div>
+        </div>
+
+        <div class="row align-items-start">
+            <div class="col">
+                <label for="tenurial2">Tenurial Status</label>
+                <input class="form-control" type="text" id="tenurial2" name="tenurial2" required>
+            </div>
+        </div>
+
+        <div class="row align-items-start">
+            <div class="col">
+                <label for="religion2">Religion</label>
+                <input class="form-control" type="text" id="religion2" name="religion2" required>
+            </div>
+            <div class="col">
+                <label for="contact2">Contact no.</label>
+                <input class="form-control" type="text" id="contact2" name="contact2" required>
+            </div>
+        </div>
+        <div class="row m-1">
+            <div class="">
+                <h5 class="" >Marital Status (Please check):</h5>
+            </div>
+        </div>
+        <div class="row align-items-start">
+            <div class="col ml-5">
+                <input class="form-check-input" type="radio" value="Single" name="marital-status" id="single">
+                <label class="form-check-label" for="single">
+                Single
+                </label>
+            </div>
+            <div class="col ml-5">
+                <input class="form-check-input" type="radio" value="Annuled" name="marital-status" id="annuled">
+                <label class="form-check-label" for="annuled">
+                Annuled
+                </label>
+            </div>
+            <div class="col ml-5">
+                <input class="form-check-input" type="radio" value="Widow/Widower" name="marital-status" id="widow">
+                <label class="form-check-label" for="widow">
+                    Widow/Widower
+                </label>
+            </div>
+        </div>
+        <div class="row align-items-start">
+            <div class="col ml-5">
+                <input class="form-check-input" type="radio" value="Married" name="marital-status" id="married">
+                <label class="form-check-label" for="married">
+                Married
+                </label>
+            </div>
+            
+            <div class="col ml-5">
+                <input class="form-check-input" type="radio" value="Separated" name="marital-status" id="separated">
+                <label class="form-check-label" for="separated">
+                    Separated(w/certificate of Legal Separation)
+                </label>
+            </div>
+            <div class="col">
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row align-items-start">
+                <div class="">
+                    <h5 class="" >I.Family Composition</h5>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Relationship</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Civil Status</th>
+                        <th scope="col">Educational Attainment</th>
+                        <th scope="col">Occupation & Monthly Income</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><input type="text" class="text"></td>
+                        <td><input type="text" class="text"></td>
+                        <td><input type="text" class="text"></td>
+                        <td><input type="text" class="text"></td>
+                        <td><input type="text" class="text"></td>
+                        <td><input type="text" class="text"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="text"></td>
+                        <td><input type="text" class="text"></td>
+                        <td><input type="text" class="text"></td>
+                        <td><input type="text" class="text"></td>
+                        <td><input type="text" class="text"></td>
+                        <td><input type="text" class="text"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="text"></td>
+                        <td><input type="text" class="text"></td>
+                        <td><input type="text" class="text"></td>
+                        <td><input type="text" class="text"></td>
+                        <td><input type="text" class="text"></td>
+                        <td><input type="text" class="text"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="text"></td>
+                        <td><input type="text" class="text"></td>
+                        <td><input type="text" class="text"></td>
+                        <td><input type="text" class="text"></td>
+                        <td><input type="text" class="text"></td>
+                        <td><input type="text" class="text"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="text"></td>
+                        <td><input type="text" class="text"></td>
+                        <td><input type="text" class="text"></td>
+                        <td><input type="text" class="text"></td>
+                        <td><input type="text" class="text"></td>
+                        <td><input type="text" class="text"></td>
+                    </tr>
+
+                    
+                    </tbody>
+                </table>
+            </div>
+            <div class="text-center">
+                <h6>(Include all family members and other members of the household.)</h6>
+            </div>
+
+            <div class="row align-items-start">
+                <div class="col">
+                    <h5 class="" >II. Classification/ Circumstances of being a Solo Parent:</h5>
+                </div>
+            </div>
+            <div class="row align-items-start">
+                <div class="col">
+                    <label for="incidence">Incidence</label>
+                    <input class="form-control" type="text" id="incidence" name="incidence" required>
+                </div>
+            </div>
+            <div class="row align-items-start">
+                <div class="col">
+                    <label for="when">When</label>
+                    <input class="form-control" type="text" id="when" name="when" required>
+                </div>
+            </div>
+            <div class="row align-items-start">
+                <div class="col">
+                    <label for="problem"><h5>III. Needs/Problems of Solo Parent</h5></label>
+                    <input class="form-control" type="text" id="problem" name="problem" required>
+                </div>
+            </div>   
+            <div class="row align-items-start">
+                <div class="col">
+                    <label for="resources"><h5>IV. Family Resources:</h5></label>
+                    <input class="form-control" type="text" id="resources" name="resources" required>
+                </div>
+            </div> 
+            <div class="row align-items-start">
+                <div class="col">
+                    <p class="font-weight-normal">I hereby certify that the information given above are true and correct. I further UNDERSTAND that any misinterpretations that may have made will subject me to criminal and civil liabilities provided by the existing laws.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="text-center">
+                        <input class="form-control " type="date" name="date" id="date"><br>
+                        <label for="date"><b>Date</b></label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="text-center">
+                        <input class="form-control " type="file" name="signature" id="signature"><br>
+                        <label for="signature"><b>Signature/ Thumbmark over Printed Name</b></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="register" name="register">
+    </form>
+</div>
+<!-- Senior Citizen -->
+<div class="container registration-container mt-5" id="sr-citizen">
+    <form class="registration-form" action="includes/register.inc.php" method="post">
+        <h1>Sr. Citizen</h1>
         <p>Instruction:</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam eaque, dignissimos blanditiis nesciunt quidem vel hic nobis, debitis provident distinctio accusantium odio in ipsa officiis nulla dicta eveniet aut accusamus.</p>
+       <!-- Radio Btn -->
+        <div class="row align-items-start">
+            <div class="col form-group">
+                <div>
+                    <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="">
+                    <label class="" for="bago">Bago</label>
+                  </div>    
+            </div>
+            <div class="col form-group">
+                <div>
+                    <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="">
+                    <label class="" for="lumipat">Lumipat</label>
+                  </div>    
+            </div>
+            <div class="col form-group">
+                <div>
+                    <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="">
+                    <label class="" for="magpapalit">Magpapalit</label>
+                  </div>    
+            </div>
+            <div class="col form-group">
+                <div>
+                    <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="">
+                    <label class="" for="nawala">Nawala</label>
+                  </div>    
+            </div>
+            <!-- ID number -->
+            <div class="row align-items-start">
+                <div class="col form-group">
+                    <label class="" for="IDnum">Numero ng ID (Bago)</label>
+                    <input class="form-control" type="text" id="IDnum" name="IDnum" required>
+                </div>
+            </div>
+            <!-- Name -->
             <div class="row align-items-start">
                 <div class="col form-group">
                     <label class="" for="FName">First Name (Pangalan)</label>
@@ -1057,7 +1345,18 @@
                     <input class="form-control" type="text" id="suffix" name="suffix">
                 </div>
             </div>
-
+            <!-- Address -->
+            <div class="row align-items-start">
+                <div class="col form-group">
+                    <label class="" for="barangay">Barangay</label>
+                    <input class="form-control" type="text" id="barangay" name="barangay" required>
+                </div>
+                <div class="col form-group">
+                    <label class="" for="tirahan">Tirahan</label>
+                    <input class="form-control" type="text" id="tirahan" name="tirahan">
+                </div>
+            </div>
+            <!-- S/M/A -->
             <div class="row align-items-start">
                 <div class="col">
                     <label for="sex">Sex (Kasarian noong Kapanganakan)</label>
@@ -1068,14 +1367,10 @@
                         </select>
                 </div>
                 <div class="col">
-                    <label for="nationality">Filipino or Resident Alien</label>
-                    <input class="form-control" type="text" id="nationality" name="nationality" required>
-                </div>
-                <div class="col">
                     <label for="status">Marital Status</label>
                     <div class="dropdown">
                         <select class="form-select" id="status" name="status">
-                            <option disabled selected value="">Please Select</option>
+                            <option di  sabled selected value="">Please Select</option>
                             <option value="single">Single</option>
                             <option value="married">Married</option>
                             <option value="widowed">Widowed</option>
@@ -1084,18 +1379,9 @@
                         </select>
                     </div>
                 </div>
-                <div class="col">
-                    <label for="BType">Blood Type (Uri ng dugo)</label>
-                    <div class="dropdown">
-                        <select class="form-select"  id="BType" name="BType">
-                            <option disabled selected value="">Please Select</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="AB">AB</option>
-                            <option value="O">O</option>
-                            <option value="Unknown">Unknown</option>
-                        </select>
-                    </div>
+                <div class="col form-group">
+                    <label class="" for="edad">Edad</label>
+                    <input class="form-control" type="text" id="edad" name="edad" required>
                 </div>
             </div>
 
@@ -1104,45 +1390,69 @@
                     <label for="dob">Date of Birth</label>
                     <input class="form-control" type="date" id="dob" name="dob" required>
                 </div>
-                <div class="col">
-                    <label for="region2">Region (Rehiyon)</label>
-                    <input type="hidden" name="region"/>
-                    <select class="form-select" id="region2"></select>
-                </div>
-                <div class="col">
-                    <label for="province2">Province (Probinsya)</label>
-                    <input type="hidden" name="province"/>
-                    <select class="form-select" id="province2"></select>
-                </div>
-                <div class="col">
-                    <label for="city2">City (Lungsod)</label>
-                    <input type="hidden" name="city"/>
-                    <select class="form-select" id="city2"></select>
+                <div class="col form-group">
+                    <label class="" for="birthplace">Lugar ng Kapanganakan</label>
+                    <input class="form-control" type="text" id="birthplace" name="birthplace" required>
                 </div>
             </div>
 
             <div class="row align-items-start">
-                <div class="col">
-                    <label for="barangay2">Barangay</label>
-                    <input type="hidden" name="barangay"/>
-                    <select class="form-select" id="barangay2"></select>
+                <div class="col form-group">
+                    <label class="" for="telepono">Telepono</label>
+                    <input class="form-control" type="text" id="telepono" name="telepono" required>
                 </div>
-                <div class="col">
-                    <label for="street">Street</label>
-                    <input class="form-control" type="text" id="street" name="street" required>
+                <div class="col form-group">
+                    <label class="" for="relihiyon">Relihiyon</label>
+                    <input class="form-control" type="text" id="relihiyon" name="relihiyon" required>
                 </div>
-                <div class="col">
-                    <label for="address">Address</label>
-                    <input class="form-control" type="text" id="address" name="address" required>
-                </div>
-                <div class="col">
-                    <label for="zip"></label>
-                    <input class="form-control" type="hidden" id="zip-code" name="zip-code" required>
+                <div class="col form-group">
+                    <label class="" for="hanapbuhay">Hanabuhay</label>
+                    <input class="form-control" type="text" id="hanapbuhay" name="hanapbuhay    " required>
                 </div>
             </div>
+            <!-- Pensyon -->
+            <div class="row align-items-start">
+                <div class="col">
+                    <label for="pensyon">May pensyon na tinatanggap</label>
+                        <select class="form-select" id="pensyon" name="pensyon">
+                            <option disabled selected value="">Please Select</option>
+                            <option value="oo">Oo</option>
+                            <option value="hindi">hindi</option>
+                        </select>
+                </div>
+                <div class="col form-group">
+                    <label class="" for="saan">Saan</label>
+                    <input class="form-control" type="text" id="saan" name="saan">
+                </div>
+                <div class="col form-group">
+                    <label class="" for="magkano">Magkano</label>
+                    <input class="form-control" type="text" id="magkano" name="magkano">
+                </div>
+            </div>
+            <!-- Asawa -->
+            <div class="row align-items-start">
+                <div class="col form-group">
+                    <label class="" for="asawa">Pangalang ng Asawa</label>
+                    <input class="form-control" type="text" id="asawa" name="asawa">
+                </div>
+                <div class="col form-group">
+                    <label class="" for="edad-asawa">Edad</label>
+                    <input class="form-control" type="text" id="edad-asawa" name="edad-asawa">
+                </div>
+            </div>
+
+            <!-- Anak -->
+            <div class="row align-items-start">
+                <div class="col form-group">
+                    <label class="" for="anak">Ilan ang anak</label>
+                    <input class="form-control" type="text" id="anak" name="anak">
+                </div>
+                <div class="col form-group">
+                    <label class="" for="kasama">Kasama sa bahay?</label>
+                    <input class="form-control" type="text" id="kasama" name="kasama">
+                </div>
+            </div>
+            <!-- DITO MO ILAGAY YUNG LALAGAY MO ZETH -->
             <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="register" name="register">
     </form>
 </div>
-<?php 
-    include('footer.html');
-?>

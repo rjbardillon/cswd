@@ -39,7 +39,16 @@
     <a href="sign-up.html" class="btn btn-success">Create Account</a>
   </form>
 </div>
-
+<?php
+  if (isset($_GET["username"])) {
+      $username = $_GET['username'];
+  }
+  if (isset($_GET["error"])) {
+      if ($_GET["error"] == "none"){
+        echo "<script>alert('Your Username is $username')</script>";
+      } 
+  }
+?>
 <?php 
   include('footer.html');
 ?>
