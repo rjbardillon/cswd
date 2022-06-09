@@ -23,12 +23,12 @@ function passwordMatch($password, $confirmPassword) {
 }
 
 function insertUser($connection, $firstName, $middleName, $lastName, $username, $email, $password){
-    $sql = "INSERT INTO user (first_name, middle_name, last_name, username, email, password) VALUES (?, ?, ?, ?, ?, ?);";
+    $sql = "INSERT INTO user (username, last_name, first_name, middle_name, email, password) VALUES (?, ?, ?, ?, ?, ?);";
     $stmt = $connection->prepare($sql);
 
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    mysqli_stmt_bind_param($stmt, "ssssss", $firstName, $middleName, $lastName, $username, $email, $hashedPassword);
+    mysqli_stmt_bind_param($stmt, "ssssss", $username, $lastName, $firstName, $middleName, $email, $hashedPassword);
     mysqli_stmt_execute($stmt); 
     mysqli_stmt_close($stmt);
     header("location: ../sign-up.html?error=none&username=".$username);

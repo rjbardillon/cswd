@@ -78,7 +78,7 @@
             require_once 'includes/dbh.inc.php';
             require_once 'includes/functions.inc.php';
             if (isset($_SESSION['username'])) {
-              echo '<li class="nav-item"><h4 class="display-6 m-2">Welcome'; echo ($_SESSION["name"]); echo '</h4></li>';
+              echo '<li class="nav-item"><h4 class="display-6 m-2">Welcome '; echo ($_SESSION["name"]); echo '</h4></li>';
               echo '<li class="nav-item"><a class="btn btn-dark m-2" href="includes/logout.inc.php">Log Out</a></li>';
             }
           ?>
