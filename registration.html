@@ -108,7 +108,7 @@
             </div>
         </div>
         <div class="col-sm-1 border1">
-            <input type="file" name="" id="">
+            <input type="file" name="" id="" accept="image/*">
         </div>
     </div>
     <!-- row 3 -->
@@ -543,7 +543,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row border1">
                 <b>NATURE OF EMPLOYMENT</b>
                 <div class="col">
                     <div class="form-check">
@@ -662,16 +662,16 @@
             <div class="row">
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <input class="form-check-input" type="radio" name="bloodType" id="A+">
+                        <label class="form-check-label" for="A+">
                             A+
                         </label>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <input class="form-check-input" type="radio" name="bloodType" id="AB+">
+                        <label class="form-check-label" for="AB+">
                             AB+
                         </label>
                     </div>
@@ -680,16 +680,16 @@
             <div class="row">
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <input class="form-check-input" type="radio" name="bloodType" id="A-">
+                        <label class="form-check-label" for="A-">
                             A-
                         </label>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <input class="form-check-input" type="radio" name="bloodType" id="AB-">
+                        <label class="form-check-label" for="AB-">
                             AB-
                         </label>
                     </div>
@@ -698,16 +698,16 @@
             <div class="row">
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <input class="form-check-input" type="radio" name="bloodType" id="B+">
+                        <label class="form-check-label" for="B+">
                             B+
                         </label>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <input class="form-check-input" type="radio" name="bloodType" id="O+">
+                        <label class="form-check-label" for="O+">
                             O+
                         </label>
                     </div>
@@ -716,16 +716,16 @@
             <div class="row">
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <input class="form-check-input" type="radio" name="bloodType" id="B-">
+                        <label class="form-check-label" for="B-">
                             B-
                         </label>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <input class="form-check-input" type="radio" name="bloodType" id="O-">
+                        <label class="form-check-label" for="O-">
                             O-
                         </label>
                     </div>
@@ -734,47 +734,67 @@
         </div>
         <div class="col border1">
             <div class="row">
+                <label class="form-check-label" for="organization">
                 <b>ORGANIZATION AFFILIATED</b>
-                <input type="text" name="" id="">
+                </label>
+                <input type="text" name="organization" id="organization">
             </div>
             <div class="row">
+                <label class="form-check-label" for="contactPerson">
                 <b>CONTACT PERSON</b>
-                <input type="text" name="" id="">
+                </label>
+                <input type="text" name="contactPerson" id="contactPerson">
             </div>
             <div class="row">
+                <label class="form-check-label" for="officeAddress">
                 <b>OFFICE ADDRESS</b>
-                <input type="text" name="" id="">
+                </label>
+                <input type="text" name="officeAddress" id="officeAddress">
             </div>
-            <b>TEL. NO.</b><input class="w-auto" type="text" name="" id="">
+            <div class="row">
+                <label class="form-check-label" for="telNumber">
+                <b>TEL. NO.</b>
+                </label>
+                <input type="text" name="telNumber" id="telNumber">
+            </div>       
         </div>
         <div class="col border1">
             <b>ID REFERENCE NO.</b>
-            <div>
+            <div class="row">
                 <label class="form-check-label" for="sssNumber">
                     <b>SSS NO. :</b>
                 </label>
                 <input type="tel" name="sssNumber" id="sssNumber">
             </div>
-            <div>
-                <b>GSIS No.:</b><input type="tel" name="" id="">
+            <div class="row">
+                <label class="form-check-label" for="gsisNumber">
+                    <b>GSIS No. :</b>
+                </label>
+                <input type="text" name="gsisNumber" id="gsisNumber">
             </div>
-            <div>
-                <b>PSN NO. :</b><input type="text" name="" id="">
+            <div class="row">
+                <label class="form-check-label" for="psnNumber">
+                    <b>PSN NO. :</b>
+                </label>
+                <input type="text" name="psnNumber" id="psnNumber">
             </div>
-            <div>
-                <b>PHILHEALTH NO. :</b><input type="text" name="" id="">
+            <div class="row">
+                <label class="form-check-label" for="philHealthNumber">
+                     <b>PHILHEALTH NO. :</b>
+                </label>
+               <input type="text" name="philHealthNumber" id="philHealthNumber">
                 <div class="row">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <input class="form-check-input" type="radio" name="philHealth" id="philHealthMember">
+                        <label class="form-check-label" for="philHealthMember">
                             PhilHealth Member
                         </label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <input class="form-check-input" type="radio" name="philHealth" id="philHealthMemberDependent">
+                        <label class="form-check-label" for="philHealthMemberDependent">
                             PhilHealth Member-Dependent
                         </label>
                     </div>
@@ -845,41 +865,56 @@
     <!-- row 11 -->
     <div class="row">
         <div class="col border1">
-            <b>KAANU-ANO NG PWD AND GUARDIAN: </b> <input type="text" name="" id="">
+            <label class="form-check-label" for="guardianRelationship">
+            <b>KAANU-ANO NG PWD AND GUARDIAN: </b>
+            </label>
+             <input type="text" name="guardianRelationship" id="guardianRelationship">
         </div>
         <div class="col border1">
-            <b class="text-white" style="background-color: rgb(67, 67, 114);">GUARDIAN'S CONTACT NO.: </b> <input type="text" name="" id="">
+            <label class="form-check-label" for="guadianContactNumber">
+            <b class="text-white" style="background-color: rgb(67, 67, 114);">GUARDIAN'S CONTACT NO.: </b>
+            </label>
+            <input type="text" name="guadianContactNumber" id="guadianContactNumber">
         </div>
     </div>
     <!-- row 12 -->
     <div class="row">
         <div class="col col-md-auto border1">
             <b>ACCOMPLISHED BY: </b>
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="accomplishedBy" id="applicant">
+            <label class="form-check-label" for="applicant">
                 Applicant
             </label>
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="accomplishedBy" id="guardian">
+            <label class="form-check-label" for="guardian">
                 Guardian
             </label>
 
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="accomplishedBy" id="representative">
+            <label class="form-check-label" for="representative">
                 Representative  
             </label>
         </div>
         <div class="col border1">
-            <b>NAME: </b><input type="text" name="" id="">
+            <label class="form-check-label" for="accomplishedName">
+                <b>NAME: </b>  
+            </label>
+            <input type="text" name="accomplishedName" id="accomplishedName">
         </div>
     </div>
     <!-- row 13 -->
     <div class="row">
         <div class="col border1">
-            <b class="text-white" style="background-color: rgb(67, 67, 114);">NAME OF CERTIFYING PHYSICIAN: </b> <input type="text" name="" id="">
+            <label class="form-check-label" for="physicianName">
+                <b class="text-white" style="background-color: rgb(67, 67, 114);">NAME OF CERTIFYING PHYSICIAN: </b>
+            </label>
+            <input type="text" name="physicianName" id="physicianName">
         </div>
         <div class="col border1">
-            <b class="text-white" style="background-color: rgb(67, 67, 114);">LICENSE NO.: </b> <input type="text" name="" id="">
+            <label class="form-check-label" for="licenseNumber">
+                <b class="text-white" style="background-color: rgb(67, 67, 114);">LICENSE NO.: </b> 
+            </label>
+            <input type="text" name="licenseNumber" id="licenseNumber">
         </div>
     </div>
     <!-- row 14 -->
@@ -898,16 +933,21 @@
     <!-- row 16 -->
     <div class="row">
         <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
-            <b>CONTROL NO.: </b>
+            <label class="form-check-label" for="controlNumber">
+                <b>CONTROL NO.: </b>
+            </label>
         </div>
         <div class="col border1">
-            <input type="text" name="" id="">
+            <input type="text" name="controlNumber" id="controlNumber">
         </div>
         <div class="col border1">
-            <b style="color: red;">#</b><input type="text" name="" id="">
+            <label class="form-check-label" for="#">
+                <b style="color: red;">#</b>
+            </label>
+            <input type="text" name="#" id="#">
         </div>
         <div class="col col-md-3 border1">
-            <b class="text-white" style="background-color: rgb(67, 67, 114);">DATE:</b><input type="text" name="" id="">
+            <b class="text-white" style="background-color: rgb(67, 67, 114);">DATE: </b><input type="date" name="" id="">
         </div>
     </div>
     <!-- row 17 -->
@@ -916,18 +956,18 @@
             <b>RECEIVING: </b>
         </div>
         <div class="col border1">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="receiving" id="receivingManetteCerin">
+            <label class="form-check-label" for="receivingManetteCerin">
                 MANETTE CERIN
             </label>
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="receiving" id="receivingPDAOStaff">
+            <label class="form-check-label" for="receivingPDAOStaff">
                 PDAO STAFF
             </label>
-            <input type="text" name="" id="">
+            <input type="text" name="receivingPDAOStaff" id="receivingPDAOStaff">
         </div>
         <div class="col col-md-3 border1">
-            <b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b><input type="text" name="" id="">
+            <b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b>
         </div>
     </div>
     <!-- row 18 -->
