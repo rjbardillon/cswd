@@ -34,7 +34,7 @@
     <div class="row m-1">
         <div class="col border1 m-1">
             <div class="form-check">
-                <input class="form-check-input" type="radio" id="new-id" name="flexRadioDefault1">
+                <input class="form-check-input" type="radio" value="New Id" id="new-id" name="idType">
                 <label class="form-check-label" for="new-id">
                     NEW ID
                 </label>
@@ -42,7 +42,7 @@
         </div>
         <div class="col border1 m-1">
             <div class="form-check">
-                <input class="form-check-input" type="radio" id="renewal-id" name="flexRadioDefault1">
+                <input class="form-check-input" type="radio" value="RENEWAL ID" id="renewal-id" name="idType">
                 <label class="form-check-label" for="renewal-id">
                     RENEWAL ID
                 </label>
@@ -50,7 +50,7 @@
         </div>
         <div class="col border1 m-1">
             <div class="form-check">
-                <input class="form-check-input" type="radio" id="lost-id" name="flexRadioDefault1">
+                <input class="form-check-input" type="radio" value="LOST ID" id="lost-id" name="idType">
                 <label class="form-check-label" for="lost-id">
                     LOST ID
                 </label>
@@ -58,7 +58,7 @@
         </div>
         <div class="col border1 m-1">
             <div class="form-check">
-                <input class="form-check-input" type="radio" id="transfer" name="flexRadioDefault1">
+                <input class="form-check-input" type="radio" value="TRANSFER" id="transfer" name="idType">
                 <label class="form-check-label" for="transfer">
                     TRANSFER
                 </label>
@@ -67,7 +67,7 @@
         </div>
         <div class="col border1 m-1">
             <div class="form-check">
-                <input class="form-check-input" type="radio" id="change-info" name="flexRadioDefault1">
+                <input class="form-check-input" type="radio" value="CHANGE INFO" id="change-info" name="idType">
                 <label class="form-check-label" for="change-info">
                     CHANGE INFO
                 </label>
@@ -108,7 +108,11 @@
             </div>
         </div>
         <div class="col-sm-1 border1">
-            <input type="file" name="" id="" accept="image/*">
+            <div class="profile-pic-div">
+                <img src="images/image.jpg" id="photo">
+                <input type="file" id="file" accept="image/*">
+                <label for="file" id="uploadBtn">Choose Photo</label>
+            </div>
         </div>
     </div>
     <!-- row 3 -->
@@ -351,7 +355,7 @@
                     </div>
                     <div class="col">
                         <div class="form-check">
-                            <input class="form-check-input" value="" type="radio" name="civilStatus" id="cohabitation">
+                            <input class="form-check-input" value="Cohabitation (Live-in)" type="radio" name="civilStatus" id="cohabitation">
                             <label class="form-check-label" for="cohabitation">
                                 Cohabitation (Live-in)
                             </label>
@@ -364,7 +368,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="form-check">
-                            <input class="form-check-input" value="" type="radio" name="civilStatus" id="married">
+                            <input class="form-check-input" value="Married" type="radio" name="civilStatus" id="married">
                             <label class="form-check-label" for="married">
                                 Married
                             </label>
@@ -372,7 +376,7 @@
                     </div>
                     <div class="col">
                         <div class="form-check">
-                            <input class="form-check-input" value="" type="radio" name="civilStatus" id="widow">
+                            <input class="form-check-input" value="Widow/er" type="radio" name="civilStatus" id="widow">
                             <label class="form-check-label" for="widow">
                                 Widow/er
                             </label>
@@ -662,7 +666,7 @@
             <div class="row">
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="bloodType" id="A+">
+                        <input class="form-check-input" type="radio" value="A+" name="bloodType" id="A+">
                         <label class="form-check-label" for="A+">
                             A+
                         </label>
@@ -670,7 +674,7 @@
                 </div>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="bloodType" id="AB+">
+                        <input class="form-check-input" type="radio" value="AB+" name="bloodType" id="AB+">
                         <label class="form-check-label" for="AB+">
                             AB+
                         </label>
@@ -680,7 +684,7 @@
             <div class="row">
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="bloodType" id="A-">
+                        <input class="form-check-input" type="radio" value="A-" name="bloodType" id="A-">
                         <label class="form-check-label" for="A-">
                             A-
                         </label>
@@ -688,7 +692,7 @@
                 </div>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="bloodType" id="AB-">
+                        <input class="form-check-input" type="radio" value="AB-" name="bloodType" id="AB-">
                         <label class="form-check-label" for="AB-">
                             AB-
                         </label>
@@ -698,7 +702,7 @@
             <div class="row">
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="bloodType" id="B+">
+                        <input class="form-check-input" type="radio" value="B+" name="bloodType" id="B+">
                         <label class="form-check-label" for="B+">
                             B+
                         </label>
@@ -706,7 +710,7 @@
                 </div>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="bloodType" id="O+">
+                        <input class="form-check-input" type="radio" value="O+" name="bloodType" id="O+">
                         <label class="form-check-label" for="O+">
                             O+
                         </label>
@@ -716,7 +720,7 @@
             <div class="row">
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="bloodType" id="B-">
+                        <input class="form-check-input" type="radio" value="B-" name="bloodType" id="B-">
                         <label class="form-check-label" for="B-">
                             B-
                         </label>
@@ -724,7 +728,7 @@
                 </div>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="bloodType" id="O-">
+                        <input class="form-check-input" type="radio" value="O-" name="bloodType" id="O-">
                         <label class="form-check-label" for="O-">
                             O-
                         </label>
@@ -785,7 +789,7 @@
                <input type="text" name="philHealthNumber" id="philHealthNumber">
                 <div class="row">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="philHealth" id="philHealthMember">
+                        <input class="form-check-input" type="radio" value="PhilHealth Member" name="philHealth" id="philHealthMember">
                         <label class="form-check-label" for="philHealthMember">
                             PhilHealth Member
                         </label>
@@ -793,7 +797,7 @@
                 </div>
                 <div class="row">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="philHealth" id="philHealthMemberDependent">
+                        <input class="form-check-input" type="radio" value="PhilHealth Member-Dependent" name="philHealth" id="philHealthMemberDependent">
                         <label class="form-check-label" for="philHealthMemberDependent">
                             PhilHealth Member-Dependent
                         </label>
@@ -881,16 +885,16 @@
     <div class="row">
         <div class="col col-md-auto border1">
             <b>ACCOMPLISHED BY: </b>
-            <input class="form-check-input" type="radio" name="accomplishedBy" id="applicant">
+            <input class="form-check-input" type="radio" value="Applicant" name="accomplishedBy" id="applicant">
             <label class="form-check-label" for="applicant">
                 Applicant
             </label>
-            <input class="form-check-input" type="radio" name="accomplishedBy" id="guardian">
+            <input class="form-check-input" type="radio" value="Guardian" name="accomplishedBy" id="guardian">
             <label class="form-check-label" for="guardian">
                 Guardian
             </label>
 
-            <input class="form-check-input" type="radio" name="accomplishedBy" id="representative">
+            <input class="form-check-input" type="radio" value="Representative" name="accomplishedBy" id="representative">
             <label class="form-check-label" for="representative">
                 Representative  
             </label>
@@ -956,18 +960,19 @@
             <b>RECEIVING: </b>
         </div>
         <div class="col border1">
-            <input class="form-check-input" type="radio" name="receiving" id="receivingManetteCerin">
+            <input class="form-check-input" type="radio" value="MANETTE CERIN" name="receiving" id="receivingManetteCerin">
             <label class="form-check-label" for="receivingManetteCerin">
                 MANETTE CERIN
             </label>
-            <input class="form-check-input" type="radio" name="receiving" id="receivingPDAOStaff">
+            <input class="form-check-input" type="radio" value="PDAO STAFF" name="receiving" id="receivingPDAOStaff">
             <label class="form-check-label" for="receivingPDAOStaff">
                 PDAO STAFF
             </label>
             <input type="text" name="receivingPDAOStaff" id="receivingPDAOStaff">
         </div>
-        <div class="col col-md-3 border1">
-            <b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b>
+        <div class="col col-md-3 border1 custom-file">
+            <label class="custom-file-label" for="receivingSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
+            <input type="file" name="receivingSignature" id="receivingSignature" accept="image/*">
         </div>
     </div>
     <!-- row 18 -->
@@ -976,21 +981,22 @@
             <b>VERIFICATION: </b>
         </div>
          <div class="col border1">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
+            <input class="form-check-input" type="radio" value="MARIMAM HALDOS" name="verification" id="verificationMarimamHaldos">
+            <label class="form-check-label" for="verificationMarimamHaldos">
                 MARIMAM HALDOS
             </label>
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
+            <input class="form-check-input" type="radio" value="MITCHELLE MANLANGIT" name="verification" id="verificationMitchelle">
+            <label class="form-check-label" for="verificationMitchelle">
                 MITCHELLE MANLANGIT
             </label>
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
+            <input class="form-check-input" type="radio" value="RENERSON CERIN" name="verification" id="verificationRenerson">
+            <label class="form-check-label" for="verificationRenerson">
                 RENERSON CERIN
             </label>
         </div>
         <div class="col col-md-3 border1">
-            <b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b><input type="text" name="" id="">
+            <label class="custom-file-label" for="verificationSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
+            <input type="file" name="verificationSignature" id="verificationSignature" accept="image/*">
         </div>
     </div>
     <!-- row 19 -->
@@ -999,17 +1005,18 @@
             <b>APPROVING OFFICER: </b>
         </div>
          <div class="col border1">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
+            <input class="form-check-input" type="radio" value="MARRIE ROSE YACAT" name="approvingOfficer" id="approvingOfficerMarrieRose">
+            <label class="form-check-label" for="approvingOfficerMarrieRose">
                 MARRIE ROSE YACAT
             </label>
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
+            <input class="form-check-input" type="radio" value="RENERSON CERIN" name="approvingOfficer" id="approvingOfficerRenerson">
+            <label class="form-check-label" for="approvingOfficerRenerson">
                 RENERSON CERIN
             </label>
         </div>
         <div class="col col-md-3 border1">
-            <b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b><input type="text" name="" id="">
+            <label class="custom-file-label" for="approvingOfficerSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
+            <input type="file" name="approvingOfficerSignature" id="approvingOfficerSignature" accept="image/*">
         </div>
     </div>
     <!-- row 20 -->
@@ -1018,18 +1025,19 @@
             <b>PROCESSING OFFICER: </b>
         </div>
         <div class="col border1">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
+            <input class="form-check-input" type="radio" value="MANETTE CERIN" name="processingOfficer" id="processingOfficerManetteCerin">
+            <label class="form-check-label" for="processingOfficerManetteCerin">
                 MANETTE CERIN
             </label>
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
+            <input class="form-check-input" type="radio" value="PDAO STAFF" name="processingOfficer" id="processingOfficerPDAOStaff">
+            <label class="form-check-label" for="processingOfficerPDAOStaff">
                 PDAO STAFF
             </label>
-            <input type="text" name="" id="">
+            <input type="text" name="processingOfficerPDAOStaff" id="processingOfficerPDAOStaff">
         </div>
         <div class="col col-md-3 border1">
-            <b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b><input type="text" name="" id="">
+            <label class="custom-file-label" for="processingOfficerSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
+            <input type="file" name="processingOfficerSignature" id="processingOfficerSignature" accept="image/*">
         </div>
     </div>
     <!-- row 21 -->
@@ -1038,18 +1046,19 @@
             <b>RELEASING: </b>
         </div>
         <div class="col border1">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
+            <input class="form-check-input" type="radio" value="MANETTE CERIN" name="releasing" id="releasingManetteCerin">
+            <label class="form-check-label" for="releasingManetteCerin">
                 MANETTE CERIN
             </label>
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
+            <input class="form-check-input" type="radio" value="PDAO STAFF" name="releasing" id="releasingPDAOStaff">
+            <label class="form-check-label" for="releasingPDAOStaff">
                 PDAO STAFF
             </label>
-            <input type="text" name="" id="">
+            <input type="text" name="releasingPDAOStaff" id="releasingPDAOStaff">
         </div>
         <div class="col col-md-3 border1">
-            <b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b><input type="text" name="" id="">
+            <label class="custom-file-label" for="releasingSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
+            <input type="file" name="releasingSignature" id="releasingSignature" accept="image/*">
         </div>
     </div>
     <!-- row 22 -->
@@ -1058,25 +1067,27 @@
             <b>ENCODER: </b>
         </div>
          <div class="col border1">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
+            <input class="form-check-input" type="radio" value="NOLAND AZURES" name="encoder" id="encoderNolandAzures">
+            <label class="form-check-label" for="encoderNolandAzures">
                 NOLAND AZURES
             </label>
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
+            <input class="form-check-input" type="radio" value="ANGELICA PAPAG" name="encoder" id="encoderAngelicaPapag">
+            <label class="form-check-label" for="encoderAngelicaPapag">
                 ANGELICA PAPAG
             </label>
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
+            <input class="form-check-input" type="radio" value="PETERSON CARASCO" name="encoder" id="encoderPetersonCarasco">
+            <label class="form-check-label" for="encoderPetersonCarasco">
                 PETERSON CARASCO
             </label>
         </div>
         <div class="col col-md-3 border1">
-            <b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b><input type="text" name="" id="">
+            <label class="custom-file-label" for="receivingSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
+            <input type="file" name="receivingSignature" id="receivingSignature" accept="image/*">
         </div>
     </div>
     <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="register" name="register">
     </form>
+
 </div>
 <!-- Solo Parent -->
 <div class="container registration-container mt-5" id="solo-parent">
@@ -1496,3 +1507,4 @@
             <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="register" name="register">
     </form>
 </div>
+<script src="includes/app.inc.js"></script>

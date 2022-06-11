@@ -178,4 +178,3 @@ $(document).ready(function(){
         $("#" + $(this).val()).fadeIn(700)
     });
 }).change();
-
