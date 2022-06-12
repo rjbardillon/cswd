@@ -1,0 +1,90 @@
+<?php 
+    session_start();
+    $page = 'registration';
+    include('header.html');
+?> 
+
+<div class="container-fluid p-5" style="border-style: solid; border-radius: 15px;">
+    <!-- header -->
+    <div class="row align-items-start">
+        <div class="col">
+            <h4 class="text-center"> CITY OF SANTA ROSA LAGUNA</h4>
+            <h4 class="text-center">Senior Citizen Birthday Cash Gift</h4>
+            <h4 class="text-center mb-5">APPLICATION FORM</h4>
+        </div>
+    </div>
+    <!-- Name -->
+    <p class="font-weight-bold"><b>PANGALAN:</b></p>
+    
+    <div class="row align-items-start">
+        <div class="col form-group">
+            <label class="" for="huling-pangalan">Huling Pangalan</label>
+            <input class="form-control" type="text" id="huling-pangalan" name="huling-pangalan" required>
+        </div>
+        <div class="col form-group">
+            <label class="" for="pangalan">Pangalan</label>
+            <input class="form-control" type="text" id="pangalan" name="pangalan">
+        </div>
+        <div class="col form-group">
+            <label class="" for="gitnang-pangalan">Gitnang Pangalan</label>
+            <input class="form-control" type="text" id="gitnang-pangalan" name="gitnang-pangalan" required>
+        </div>
+        <div class="col mb-5 form-group">
+            <label class="" for="osca">OSCA I.D#</label>
+            <input class="form-control" type="text" id="osca" name="osca">
+        </div>
+    </div>
+
+    <!-- Address -->
+    <p class="font-weight-bold"><b>TIRAHAN:</b></p>
+
+    <div class="row align-items-start">
+        <div class="col form-group">
+            <label class="" for="num-tirahan">Numero at Tirahan</label>
+            <input class="form-control" type="text" id="num-tirahan" name="num-tirahan" required>
+        </div>
+        <div class="col-4 mb-5 form-group">
+            <label class="" for="distrito">Distrito/Barangay</label>
+            <input class="form-control" type="text" id="distrito" name="distrito">
+        </div>
+    </div>
+
+    <!-- Bday and Number -->
+    <div class="row align-items-start">
+        <div class="col form-group">
+            <label class="" for="kapanganakan">Kapanganakan</label>
+            <input class="form-control" type="date" id="kapanganakan" name="kapanganakan" required>
+        </div>
+        <div class="col form-group">
+            <label class="" for="telepono">Numero ng Telepono</label>
+            <input class="form-control" type="text" id="telepono" name="telepono">
+        </div>
+        <div class="col-4 form-group mt-4">
+            <div class="text-center">
+                <input class="form-control " type="file" name="lagda" id="lagda"><br>
+                <label for="lagda"><b>Lagda</b></label>
+            </div>
+        </div>  
+    </div>
+
+    <div class="row align-items-start">
+        <div class="col-md-3 my-4">
+            <div class="text-center">
+                <input class="form-control" type="file" name="id-pic" id="id-pic"><br>
+                <label for="id-pic"><b>ID Picture (1x1)</b></label>
+            </div>
+        </div>  
+    </div>
+
+    <!-- REQUIREMENTS -->
+    <div class="container-fluid p-5 col-md-5" style="border-style: solid; border-radius: 15px;">
+        <p>1. XEROX COPY SR. CITIZEN ID FROM OSCA</p>
+        <p>2. VOTER'S CERTIFICATION/ID</p>
+        <p>3. CERTIFICATION OF RESIDENCY WITH GOOD MORAL CHARACTER WITH SIGNATURE OF BRGY CAPTAIN</p>
+    </div>
+
+</div>
+
+<?php 
+    include('footer.html');
+?>

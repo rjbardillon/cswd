@@ -1,0 +1,98 @@
+<?php 
+    session_start();
+    $page = 'registration';
+    include('header.html');
+?> 
+
+<div class="container-fluid p-5" style="border-style: solid; border-radius: 15px;">
+    <!-- header -->
+    <div class="row align-items-start">
+        <div class="col">
+            <h4 class="text-center">Senior Citizen Birthday Cash Gift</h4>
+            <h4 class="text-center mb-5">APPLICATION FORM</h4>
+        </div>
+    </div>
+    <!-- Name -->
+    <p class="font-weight-bold"><b>PANGALAN:</b></p>
+    
+    <div class="row align-items-start">
+        <div class="col form-group">
+            <label class="" for="huling-pangalan2">Huling Pangalan</label>
+            <input class="form-control" type="text" id="huling-pangalan2" name="huling-pangalan2" required>
+        </div>
+        <div class="col form-group">
+            <label class="" for="pangalan2">Unang Pangalan</label>
+            <input class="form-control" type="text" id="pangalan2" name="pangalan2">
+        </div>
+        <div class="col form-group">
+            <label class="" for="gitnang-pangalan2">Gitnang Pangalan</label>
+            <input class="form-control" type="text" id="gitnang-pangalan2" name="gitnang-pangalan2" required>
+        </div>
+        <div class="col mb-5 form-group">
+            <label class="" for="osca2">OSCA I.D#</label>
+            <input class="form-control" type="text" id="osca2" name="osca2">
+        </div>
+    </div>
+
+    <!-- Address -->
+    <p class="font-weight-bold"><b>TIRAHAN:</b></p>
+
+    <div class="row align-items-start">
+        <div class="col form-group">
+            <label class="" for="num-tirahan2">Numero at Tirahan/Kalye</label>
+            <input class="form-control" type="text" id="num-tirahan2" name="num-tirahan2" required>
+        </div>
+        <div class="col-4 mb-5 form-group">
+            <label class="" for="barangay2">Barangay</label>
+            <input class="form-control" type="text" id="barangay2" name="barangay2">
+        </div>
+    </div>
+
+    <!-- Bday and Number -->
+    <div class="row align-items-start">
+        <div class="col form-group">
+            <label class="" for="kapanganakan2">Kapanganakan</label>
+            <input class="form-control" type="date" id="kapanganakan2" name="kapanganakan2" required>
+        </div>
+        <div class="col-3 form-group">
+            <label class="" for="edad2">Edad</label>
+            <input class="form-control" type="text" id="edad2" name="edad2" disabled>
+        </div>
+        <div class="col form-group">
+            <label class="" for="telepono2">Numero ng Telepono</label>
+            <input class="form-control" type="text" id="telepono2" name="telepono2">
+        </div>
+    </div>
+    
+    <div class="row align-items-start">
+        <div class="col-md-4 my-5">
+            <div class="text-center">
+                <input class="form-control" type="file" name="id-pic" id="id-pic"><br>
+                <label for="id-pic"><b>ID Picture (1x1)</b></label>
+            </div>
+        </div>  
+
+        <div class="col-md-4 my-5">
+            <div class="text-center">
+                <input class="form-control " type="file" name="lagda" id="lagda"><br>
+                <label for="lagda"><b>Lagda</b></label>
+            </div>
+        </div>  
+    </div>
+
+    <!-- REQUIREMENTS -->
+    <div class="container-fluid p-5 col-md-5" style="border-style: solid; border-radius: 15px;">
+        <p>1. XEROX COPY ng Seinor Citizen ID na may tatlong pirma</p>
+        <p>2. XEROX COPY ng BIRTH CERTIFICATE/NSO/PSA</p>
+        <p>Kung sakaling negative o no record ang PSA/NSO, karagdagang dokimento ay kailangan (Marriage Contract o Baptismal Certificate)</p>
+        <p>*At kung sakaling walang Marriage Contract o Baptismal Certificate, maaaring Birth Certificate na lamang ng anak ang ipresenta kasama ang Negative Record ng PSA</p>
+        <p>3. Xerox Copy ng VOTER'S CERTIFICATION/ID/STUB</p>
+        <p>4. Kung walang kakayahang bumoto dahil sa lagay ng kalusugan, pagpapatunay/sertipikasiyon galing sa barangay na may lagda ng kapitan ang kailangan</p>
+        <p>5. CERTIFICATION OF RESIDENCY WITH GOOD MORAL CHARACTER FROM BRGY. CAPTAIN</p>
+    </div>
+
+</div>
+
+<?php 
+    include('footer.html');
+?>
