@@ -32,7 +32,7 @@ footer {
   display: none;
   border-style: solid;
   border-radius: 15px;
-  background-color: rgba(57, 202, 221, 0.5);
+  background-color: rgba(203, 225, 228, 0.5);
   /* max-width: 1500px; */
   height: auto;
   margin: auto;
@@ -49,10 +49,12 @@ footer {
 
 .row {
   margin: 3px;
+  /* padding: 8px; */
 }
 
 .col {
   margin: 3px;
+  /* padding: 8px; */
 }
 
 hr {
@@ -95,4 +97,8 @@ hr {
     font-size: 15px;
     cursor: pointer;
     display: none;
+}
+
+input {
+  margin: 5px;
 }

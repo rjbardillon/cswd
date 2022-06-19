@@ -21,14 +21,13 @@
 <?php 
     include('footer.html');
 ?>
-
 <!-- PWD -->
 <div class="container registration-container mt-5" id="pwd">
     <form class="registration-form" action="includes/register.inc.php" method="post">
         <!-- row 1 -->
     <div class="row m-1" style="background-color: green;">
         <div class="col border1">
-            <h6 class="display-6 text-center text-white">***PAKISAGUTAN LAHAT AT MAGSULAT NG MALALAKING LETRA LAMANG***</h6>
+            <h6 class="text-center text-white">***PAKISAGUTAN LAHAT AT MAGSULAT NG MALALAKING LETRA LAMANG***</h6>
         </div>
     </div>
     <div class="row m-1">
@@ -81,7 +80,9 @@
             <div class="row">
                 <div class="col border1">
                     <h5>PERSONS WITH DISABILITY NUMBER (RR-PPMM-BBB-NNNNNNN)</h5>
-                    <h5>0 4 3 4 2 8 0 <input class="text-center w-5" type="text" maxlength="1" size="1"><input class="text-center w-5" type="text" maxlength="1" size="1"> - <input class="text-center w-5" type="text" maxlength="1" size="1"><input class="text-center w-5" type="text" maxlength="1" size="1"><input class="text-center w-5" type="text" maxlength="1" size="1"><input class="text-center w-5" type="text" maxlength="1" size="1"><input class="text-center w-5" type="text" maxlength="1" size="1"></h5>
+                    <div>
+                        <label for="pwdNumber">0 4 3 4 2 8 0 </label> <input name="pwdNumber" id="pwdNumber" type="text" maxlength="2" size="2"> - <input name="pwdNumber" id="pwdNumber" type="text" maxlength="5" size="5">
+                    </div>
                 </div>
                 <div class="col border1">
                     <h5>DATE APPLIED (MM/DD/YYYY)</h5>
@@ -107,7 +108,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-1 border1">
+        <div class="col-sm-2 border1">
             <div class="profile-pic-div">
                 <img src="images/image.jpg" id="photo">
                 <input type="file" id="file" accept="image/*">
