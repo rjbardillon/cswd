@@ -1,10 +1,11 @@
 body {
-  padding-bottom: 15%;
+  /* padding-bottom: 15%; */
+  height: 100vh;
 }
 
 footer {
   background-image: linear-gradient(to right, #0f2d37, #d70080);
-  position: fixed;
+  position: relative;
   bottom: 0;
   height: 10%;
   width: 100%;
@@ -26,6 +27,10 @@ footer {
   margin: auto;
   max-width: 500px;
   padding: 20px;
+}
+
+section {
+  height: 85vh;
 }
 
 .registration-container {
