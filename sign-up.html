@@ -3,19 +3,22 @@
   $page = "sign_up";
   include('header.html');
 ?>
-<div class="container mt-4 text-center" id="signup-container">
-  <form id="signup-form" action="includes/sign-up.inc.php" method="post">
-    <div class="display-5 mt-4 mb-4 text-white">Sign up</div>
-    <input class="form-control mt-2" type="text" id="SLastName" name="SLastName" placeholder="Last Name" required autofocus/>
-    <input class="form-control mt-2" type="text" id="SFirstName" name="SFirstName" placeholder="First Name" required />
-    <input class="form-control mt-2" type="text" id="SMiddleName" name="SMiddleName" placeholder="Middle Name"/>
-    <input class="form-control mt-2" type="text" id="SEmail" name="SEmail" placeholder="Email Account" required />
-    <input class="form-control mt-2" type="password" id="SPassword" name="SPassword" placeholder="Password" required />
-    <input class="form-control mt-2" type="password" id="SConfirmPassword" name="SConfirmPassword" placeholder="Confirm Password" required />
-    <div class="g-recaptcha mt-2 mb-2" data-sitekey="6LfVLT4gAAAAADdM5VWP-MuEDD4FVtcMB1gIZQve"></div>
-    <input class="btn btn-lg btn-primary w-100" type="submit" id="submit" name="submit" value="Submit">
-  </form>
-</div>
+<section>
+  <div class="container mt-4 text-center" id="signup-container">
+    <form id="signup-form" action="includes/sign-up.inc.php" method="post">
+      <div class="display-5 mt-4 mb-4 text-white">Sign up</div>
+      <input class="form-control mt-2" type="text" id="SLastName" name="SLastName" placeholder="Last Name" required autofocus/>
+      <input class="form-control mt-2" type="text" id="SSuffix" name="SSuffix" placeholder="Suffix" required autofocus/>
+      <input class="form-control mt-2" type="text" id="SFirstName" name="SFirstName" placeholder="First Name" required />
+      <input class="form-control mt-2" type="text" id="SMiddleName" name="SMiddleName" placeholder="Middle Name"/>
+      <input class="form-control mt-2" type="text" id="SEmail" name="SEmail" placeholder="Email Account" required />
+      <input class="form-control mt-2" type="password" id="SPassword" name="SPassword" placeholder="Password" required />
+      <input class="form-control mt-2" type="password" id="SConfirmPassword" name="SConfirmPassword" placeholder="Confirm Password" required />
+      <div class="g-recaptcha mt-2 mb-2" data-sitekey="6LfVLT4gAAAAADdM5VWP-MuEDD4FVtcMB1gIZQve"></div>
+      <input class="btn btn-lg btn-primary w-100" type="submit" id="submit" name="submit" value="Submit">
+    </form>
+  </div>
+</section>
 <?php
   if (isset($_GET["username"])) {
       $username = $_GET['username'];

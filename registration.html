@@ -9,20 +9,19 @@
     }
 ?>
 <!-- Dropdown -->
-<div class="container mt-2">
-    <label for="id-type">ID Type</label>
+<section>
+    <div class="container mt-2">
+        <label for="id-type">ID Type</label>
         <select class="form-select" id="id-type" name="id-type">
             <option disabled selected value="">Please Select</option>
             <option value="pwd">PWD</option>
             <option value="sr-citizen">Sr. Citizen</option>
             <option value="solo-parent">Solo Parent</option>
         </select>
-</div>
-<?php 
-    include('footer.html');
-?>
+    </div>    
 <!-- PWD -->
-<div class="container registration-container mt-5" id="pwd">
+<div class="registration-container" id="pwd">
+<div class="container registration-containers mt-5 mb-5">
     <form class="registration-form" action="includes/register.inc.php" method="post">
         <!-- row 1 -->
     <div class="row m-1" style="background-color: green;">
@@ -92,19 +91,35 @@
             <div class="row">
                 <div class="col border1">
                     <h5>LAST NAME</h5>
-                    <input type="text" name="" id="">
+                    <?php
+                    require_once 'includes/dbh.inc.php'; 
+                    require_once 'includes/functions.inc.php';
+                        echo '<input type="text" name="lastName" id="lastName" value = "'; echo ($_SESSION['last_name']); echo '" disabled>';
+                    ?>
                 </div>
                 <div class="col border1">
                     <h5>FIRST NAME</h5>
-                    <input type="text" name="" id="">
+                    <?php
+                    require_once 'includes/dbh.inc.php'; 
+                    require_once 'includes/functions.inc.php';
+                        echo '<input type="text" name="firstName" id="firstName" value = "'; echo ($_SESSION['first_name']); echo '" disabled>';
+                    ?>
                 </div>
                 <div class="col border1">
                     <h5>MIDDLE NAME</h5>
-                    <input type="text" name="" id="">
+                    <?php
+                    require_once 'includes/dbh.inc.php'; 
+                    require_once 'includes/functions.inc.php';
+                        echo '<input type="text" name="middleName" id="middleName" value = "'; echo ($_SESSION['middle_name']); echo '" disabled>';
+                    ?>
                 </div>
                 <div class="col border1">
                     <h5>SUFFIX</h5>
-                    <input type="text" name="" id="">
+                    <?php
+                    require_once 'includes/dbh.inc.php'; 
+                    require_once 'includes/functions.inc.php';
+                        echo '<input type="text" name="suffix" id="suffix" value = "'; echo ($_SESSION['suffix']); echo '" disabled>';
+                    ?>
                 </div>
             </div>
         </div>
@@ -297,16 +312,26 @@
             <h5>CONTACT DETAILS</h5>
         </div>
         <div class="col border1">
-            <b>LANDLINE: </b>
-            <input class="form-control" type="text" name="" id="" maxlength="10" size="10">
+            <label class="form-check-label" for="landline">
+                LANDLINE
+            </label>
+            <input class="form-control" type="text" name="landline" id="landline" maxlength="10" size="10">
         </div>
         <div class="col border1">
-            <b>MOBILE NO. OF PWD: </b>
-            <input class="form-control" type="text" name="" id="" maxlength="11" size="11">
+            <label class="form-check-label" for="mobileNumber">
+                MOBILE NO. OF PWD
+            </label>
+            <input class="form-control" type="text" name="mobileNumber" id="mobileNumber" maxlength="11" size="11">
         </div>
         <div class="col col-md-auto border1">
-            <b>EMAIL ADDRESS:</b>
-            <input class="form-control" type="text" name="" id="">
+            <label class="form-check-label" for="email">
+                EMAIL ADDRESS
+            </label>
+            <?php
+                require_once 'includes/dbh.inc.php'; 
+                require_once 'includes/functions.inc.php';
+                    echo '<input class="form-control" type="text" name="email" id="email" value = "'; echo ($_SESSION['email']); echo '" disabled>';
+            ?>
         </div>
     </div>
     <!-- row 7 -->
@@ -1088,10 +1113,14 @@
     </div>
     <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="register" name="register">
     </form>
-
+</div>
+<?php 
+    include('footer.html');
+?>
 </div>
 <!-- Solo Parent -->
-<div class="container registration-container mt-5" id="solo-parent">
+<div class="registration-container" id="solo-parent">
+<div class="container registration-containers mt-5 mb-5">
     <form class="registration-form" action="includes/register.inc.php" method="post">
         <div class="row m-1">
                 <h2 class="display-20">APPLICATION FORM:</h2>
@@ -1339,8 +1368,13 @@
         <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="register" name="register">
     </form>
 </div>
+<?php 
+    include('footer.html');
+?>
+</div>
 <!-- Senior Citizen -->
-<div class="container registration-container mt-5" id="sr-citizen">
+<div class="registration-container" id="sr-citizen">
+<div class="container registration-containers mt-5 mb-5">
     <form class="registration-form" action="includes/register.inc.php" method="post">
         <h1>Sr. Citizen</h1>
         <p>Instruction:</p>
@@ -1351,26 +1385,27 @@
                 <div>
                     <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="">
                     <label class="" for="bago">Bago</label>
-                  </div>    
+                </div>    
             </div>
             <div class="col form-group">
                 <div>
                     <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="">
                     <label class="" for="lumipat">Lumipat</label>
-                  </div>    
+                </div>    
             </div>
             <div class="col form-group">
                 <div>
                     <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="">
                     <label class="" for="magpapalit">Magpapalit</label>
-                  </div>    
+                </div>    
             </div>
             <div class="col form-group">
                 <div>
                     <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="">
                     <label class="" for="nawala">Nawala</label>
-                  </div>    
+                </div>    
             </div>
+        </div>
             <!-- ID number -->
             <div class="row align-items-start">
                 <div class="col form-group">
@@ -1508,4 +1543,10 @@
             <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="register" name="register">
     </form>
 </div>
-<script src="includes/app.inc.js"></script>
+<?php 
+    include('footer.html');
+?>
+</div>
+</section>
+
+<script type="text/javascript" src="includes/app.inc.js"></script>

@@ -175,6 +175,6 @@
 $(document).ready(function(){
     $("#id-type").on('change', function(){
         $(".registration-container").hide();
-        $("#" + $(this).val()).fadeIn(700)
+        $("#" + $(this).val()).fadeIn(700);
     });
 }).change();
