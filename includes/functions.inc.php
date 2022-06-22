@@ -22,13 +22,13 @@ function passwordMatch($password, $confirmPassword) {
     return $result;
 }
 
-function insertUser($connection, $firstName, $middleName, $lastName, $username, $email, $password){
-    $sql = "INSERT INTO user (username, last_name, first_name, middle_name, email, password) VALUES (?, ?, ?, ?, ?, ?);";
+function insertUser($connection, $firstName, $middleName, $lastName, $suffix, $username, $email, $password){
+    $sql = "INSERT INTO user (username, last_name, suffix, first_name, middle_name, email, password) VALUES (?, ?, ?, ?, ?, ?, ?);";
     $stmt = $connection->prepare($sql);
 
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    mysqli_stmt_bind_param($stmt, "ssssss", $username, $lastName, $firstName, $middleName, $email, $hashedPassword);
+    mysqli_stmt_bind_param($stmt, "sssssss", $username, $lastName, $suffix, $firstName, $middleName, $email, $hashedPassword);
     mysqli_stmt_execute($stmt); 
     mysqli_stmt_close($stmt);
     header("location: ../index.html?error=none&username=".$username);
@@ -143,6 +143,10 @@ function loginUser($connection, $username, $password){
         session_start();
         $_SESSION['username'] = $loginCredentialsExists['username'];
         $_SESSION['email'] = $loginCredentialsExists['email'];
+        $_SESSION['first_name'] = $loginCredentialsExists['first_name'];
+        $_SESSION['middle_name'] = $loginCredentialsExists['middle_name'];
+        $_SESSION['last_name'] = $loginCredentialsExists['last_name'];
+        $_SESSION['suffix'] = $loginCredentialsExists['suffix'];
         $_SESSION['name'] = $loginCredentialsExists['first_name']." ".$loginCredentialsExists['middle_name']." ".$loginCredentialsExists['last_name'];
         header("location: ../home.html");
         exit();

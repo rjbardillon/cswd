@@ -1,16 +1,4 @@
-<?php 
-    session_start();
-    $page = "registration";
-    include('header.html');
-    
-    if (!isset($_SESSION['username'])) {
-        header("location: index.html");
-        exit();
-    }
-?>
-
-<!-- Senior Citizen -->
-<div class="container-fluid mt-5">
+<div class="container registration-container mt-5" id="sr-citizen">
     <form class="registration-form" action="includes/register.inc.php" method="post">
         <h1>Sr. Citizen</h1>
         <p>Instruction:</p>
@@ -175,11 +163,6 @@
                 </div>
             </div>
             <!-- DITO MO ILAGAY YUNG LALAGAY MO ZETH -->
-
             <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="register" name="register">
     </form>
 </div>
-
-<?php 
-    include('footer.html');
-?>
