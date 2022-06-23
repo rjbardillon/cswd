@@ -1162,7 +1162,12 @@
             </div>
             <div class="col-2 form-group">
                 <label class="" for="sex2">Sex </label>
-                <input class="form-control" type="text" id="sex2" name="sex2" required>
+                <select class="form-select" id="id-type" name="id-type">
+                    <option disabled selected value="">Please Select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+               
             </div>
         </div>
 
@@ -1181,6 +1186,30 @@
             <div class="col">
                 <label for="address2">Address</label>
                 <input class="form-control" type="text" id="address2" name="address2" required>
+            </div>
+            <div class="col">
+                <label for="address2">Barangay</label>
+                <select class="form-select" id="id-type" name="id-type">
+                    <option disabled selected value="">Please Select</option>
+                    <option value="Aplaya">Aplaya</option>
+                    <option value="Balibago">Balibago</option>
+                    <option value="Caingin">Caingin</option>
+                    <option value="Dila">Dila</option>
+                    <option value="Dita">Dita</option>
+                    <option value="Don Jose">Don Jose</option>
+                    <option value="Ibaba">Ibaba</option>
+                    <option value="Kalnuran">Kanluran</option>
+                    <option value="Labas">Labas</option>
+                    <option value="Macabling">Macabling</option>
+                    <option value="Malitlit">Malitlit</option>
+                    <option value="Malusak">Malusak</option>
+                    <option value="Market Area">Market Area</option>
+                    <option value="Pook">Pook</option>
+                    <option value="Pulong Santa Cruz">Pulong Santa Cruz</option>
+                    <option value="Santo Domingo">Santo Domingo</option>
+                    <option value="Sinalhan">Sinalhan</option>
+                    <option value="Tagapo">Tagapo</option>
+                </select>
             </div>
         </div>
 
@@ -1239,9 +1268,9 @@
                 </label>
             </div>
             <div class="col ml-5">
-                <input class="form-check-input" type="radio" value="Annuled" name="marital-status" id="annuled">
-                <label class="form-check-label" for="annuled">
-                Annuled
+                <input class="form-check-input" type="radio" value="Annulled" name="marital-status" id="annulled">
+                <label class="form-check-label" for="annulled">
+                Annulled
                 </label>
             </div>
             <div class="col ml-5">
@@ -1276,62 +1305,33 @@
                 </div>
             </div>
             <div class="container-fluid">
-                <table class="table table-bordered">
-                    <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Relationship</th>
-                        <th scope="col">Age</th>
-                        <th scope="col">Civil Status</th>
-                        <th scope="col">Educational Attainment</th>
-                        <th scope="col">Occupation & Monthly Income</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td><input type="text" class="text"></td>
-                        <td><input type="text" class="text"></td>
-                        <td><input type="text" class="text"></td>
-                        <td><input type="text" class="text"></td>
-                        <td><input type="text" class="text"></td>
-                        <td><input type="text" class="text"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" class="text"></td>
-                        <td><input type="text" class="text"></td>
-                        <td><input type="text" class="text"></td>
-                        <td><input type="text" class="text"></td>
-                        <td><input type="text" class="text"></td>
-                        <td><input type="text" class="text"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" class="text"></td>
-                        <td><input type="text" class="text"></td>
-                        <td><input type="text" class="text"></td>
-                        <td><input type="text" class="text"></td>
-                        <td><input type="text" class="text"></td>
-                        <td><input type="text" class="text"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" class="text"></td>
-                        <td><input type="text" class="text"></td>
-                        <td><input type="text" class="text"></td>
-                        <td><input type="text" class="text"></td>
-                        <td><input type="text" class="text"></td>
-                        <td><input type="text" class="text"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" class="text"></td>
-                        <td><input type="text" class="text"></td>
-                        <td><input type="text" class="text"></td>
-                        <td><input type="text" class="text"></td>
-                        <td><input type="text" class="text"></td>
-                        <td><input type="text" class="text"></td>
-                    </tr>
-
+                    <div class="row">
+                        <b class="col">Name</b>
+                        <b class="col">Relationship</b>
+                        <b class="col">Age</b>
+                        <b class="col">Civil Status</b>
+                        <b class="col">Educational Attainment</b>
+                        <b class="col">Occupation</b>
+                        <b class="col">Monthly Income</b>
+                    </div>
+                    <div class="row">
+                        <input type="text" class="text col">
+                        <input type="text" class="text col">
+                        <input type="text" class="text col">
+                        <select class="col form-select" id="id-type" name="id-type">
+                            <option disabled selected value="">Please Select</option>
+                            <option value="Single">Single</option>
+                            <option value="Annulled">Annulled</option>
+                            <option value="Widow">Widow/Widower</option>
+                            <option value="Married">Married</option>
+                            <option value="Separated">Separated</option>
+                        </select>
+                        <input type="text" class="text col">
+                        <input type="text" class="text col">
+                        <input type="text" class="text col">
+                    </div>
                     
-                    </tbody>
-                </table>
+                <button class = "btn btn-primary" type="button">Add</button>
             </div>
             <div class="text-center">
                 <h6>(Include all family members and other members of the household.)</h6>
@@ -1457,10 +1457,30 @@
             <div class="row align-items-start">
                 <div class="col form-group">
                     <label class="" for="barangay">Barangay</label>
-                    <input class="form-control" type="text" id="barangay" name="barangay" required>
+                    <select class="form-select" id="id-type" name="id-type">
+                        <option disabled selected value="">Please Select</option>
+                        <option value="Aplaya">Aplaya</option>
+                        <option value="Balibago">Balibago</option>
+                        <option value="Caingin">Caingin</option>
+                        <option value="Dila">Dila</option>
+                        <option value="Dita">Dita</option>
+                        <option value="Don Jose">Don Jose</option>
+                        <option value="Ibaba">Ibaba</option>
+                        <option value="Kalnuran">Kanluran</option>
+                        <option value="Labas">Labas</option>
+                        <option value="Macabling">Macabling</option>
+                        <option value="Malitlit">Malitlit</option>
+                        <option value="Malusak">Malusak</option>
+                        <option value="Market Area">Market Area</option>
+                        <option value="Pook">Pook</option>
+                        <option value="Pulong Santa Cruz">Pulong Santa Cruz</option>
+                        <option value="Santo Domingo">Santo Domingo</option>
+                        <option value="Sinalhan">Sinalhan</option>
+                        <option value="Tagapo">Tagapo</option>
+                    </select>
                 </div>
                 <div class="col form-group">
-                    <label class="" for="tirahan">Tirahan</label>
+                    <label class="" for="tirahan">Tirahan (House No./Street/Subdivision)</label>
                     <input class="form-control" type="text" id="tirahan" name="tirahan">
                 </div>
             </div>
@@ -1540,7 +1560,7 @@
             <!-- Asawa -->
             <div class="row align-items-start">
                 <div class="col form-group">
-                    <label class="" for="asawa">Pangalang ng Asawa</label>
+                    <label class="" for="asawa">Pangalan ng Asawa</label>
                     <input class="form-control" type="text" id="asawa" name="asawa">
                 </div>
                 <div class="col form-group">
