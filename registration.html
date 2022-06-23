@@ -80,12 +80,13 @@
                 <div class="col border1">
                     <h5>PERSONS WITH DISABILITY NUMBER (RR-PPMM-BBB-NNNNNNN)</h5>
                     <div>
-                        <label for="pwdNumber">0 4 3 4 2 8 0 </label> <input name="pwdNumber" id="pwdNumber" type="text" maxlength="2" size="2"> - <input name="pwdNumber" id="pwdNumber" type="text" maxlength="5" size="5">
+                        <label class="form-check-label" for="pwdNumber">0 4 3 4 2 8 0 </label>
+                        <input name="pwdNumber1" id="pwdNumber1" type="text" maxlength="2" size="2"> - <input name="pwdNumber2" id="pwdNumber2" type="text" maxlength="5" size="5">
                     </div>
                 </div>
                 <div class="col border1">
                     <h5>DATE APPLIED (MM/DD/YYYY)</h5>
-                    <input type="date" name="" id="">
+                    <input type="date" name="dateApplied" id="dateApplied">
                 </div>
             </div>
             <div class="row">
@@ -212,7 +213,7 @@
                 <div class="col">
                     <h5>CAUSE OF DISABILITY</h5>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="CONGENITAL/INBORN" id="inborn" name="inborn">
+                        <input class="form-check-input" type="checkbox" value="Congenital/Inborn" id="inborn" name="inborn">
                         <label class="form-check-label" for="inborn">
                             <b>CONGENITAL/INBORN</b>
                         </label>
@@ -259,7 +260,7 @@
                 </div>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="ACQUIRED" id="acquired" name="acquired">
+                        <input class="form-check-input" type="checkbox" value="Acquired" id="acquired" name="acquired">
                         <label class="form-check-label" for="acquired">
                             <b>ACQUIRED</b>
                         </label>
@@ -270,8 +271,8 @@
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Cerebral Palsy" id="acquired-cerebralPalsy" name="acquired-cerebralPalsy">
-                            <label class="form-check-label" for="acquired-cerebralPalsy">
+                            <input class="form-check-input" type="checkbox" value="Cerebral Palsy" id="acquiredCerebralPalsy" name="acquiredCerebralPalsy">
+                            <label class="form-check-label" for="acquiredCerebralPalsy">
                                 Cerebral Palsy
                             </label>
                         </div>
@@ -293,11 +294,11 @@
         </div>
         <div class="col border1">
             <h5>HOUSE NO. /Street Name/Subdivision</h5>
-            <input class="form-control" type="text" name="" id="">
+            <input class="form-control" type="text" name="address" id="address">
         </div>
         <div class="col col-md-3 border1">
             <h5>BARANGAY</h5>
-            <select class="form-select" id="id-type" name="id-type">
+            <select class="form-select" id="barangay" name="barangay">
                 <option disabled selected value="">Please Select</option>
                 <option value="Aplaya">Aplaya</option>
                 <option value="Balibago">Balibago</option>
@@ -359,7 +360,7 @@
     <div class="row">
         <div class="col border1">
             <b>DATE OF BIRTH (mm/dd/yyyy)</b><br>
-            <input type="date" name="" id="">
+            <input type="date" name="dob" id="dob">
         </div>
         <div class="col col-md-auto border1">
             <b>SEX</b>
@@ -378,7 +379,7 @@
         </div>
         <div class="col col-md-auto border1">
             <b>RELIGION</b><br>
-            <input type="text" name="" id="">
+            <input type="text" name="religion" id="religion">
         </div>
         <div class="col border1">
             <b>CIVIL STATUS</b>
@@ -687,7 +688,7 @@
                 <label class="form-check-label" for="others">
                     Others, specify
                 </label>
-                <input type="text" name="others" id="others">
+                <input type="text" name="otherOccupation" id="otherOccupation">
             </div>
             <div class="row border1">
                 <b>Are you or any of your family member a 4p's beneficiary?</b>
@@ -836,7 +837,7 @@
                <input type="text" name="philHealthNumber" id="philHealthNumber">
                 <div class="row">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" value="PhilHealth Member" name="philHealth" id="philHealthMember">
+                        <input class="form-check-input" type="radio" value="PhilHealth Member" name="philHealthMemberType" id="philHealthMember">
                         <label class="form-check-label" for="philHealthMember">
                             PhilHealth Member
                         </label>
@@ -844,7 +845,7 @@
                 </div>
                 <div class="row">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" value="PhilHealth Member-Dependent" name="philHealth" id="philHealthMemberDependent">
+                        <input class="form-check-input" type="radio" value="PhilHealth Member-Dependent" name="philHealthMemberType" id="philHealthMemberDependent">
                         <label class="form-check-label" for="philHealthMemberDependent">
                             PhilHealth Member-Dependent
                         </label>
@@ -875,13 +876,13 @@
                 <b>LAST NAME</b>
             </div>
             <div class="row">
-                <input type="text" name="" id="">
+                <input type="text" name="fatherLastName" id="fatherLastName">
             </div>
             <div class="row">
-                <input type="text" name="" id="">
+                <input type="text" name="motherLastName" id="motherLastName">
             </div>
             <div class="row">
-                <input type="text" name="" id="">
+                <input type="text" name="guardianLastName" id="guardianLastName">
             </div>
         </div>
         <div class="col border1">
@@ -889,13 +890,13 @@
                 <b>FIRST NAME</b>
             </div>
             <div class="row">
-                <input type="text" name="" id="">
+                <input type="text" name="fatherFirstName" id="fatherFirstName">
             </div>
             <div class="row">
-                <input type="text" name="" id="">
+                <input type="text" name="motherFirstName" id="motherFirstName">
             </div>
             <div class="row">
-                <input type="text" name="" id="">
+                <input type="text" name="guardianFirstName" id="guardianFirstName">
             </div>
         </div>
         <div class="col border1">
@@ -903,13 +904,13 @@
                 <b>MIDDLE NAME</b>
             </div>
             <div class="row">
-                <input type="text" name="" id="">
+                <input type="text" name="fatherMiddleName" id="fatherMiddleName">
             </div>
             <div class="row">
-                <input type="text" name="" id="">
+                <input type="text" name="motherMiddleName" id="motherMiddleName">
             </div>
             <div class="row">
-                <input type="text" name="" id="">
+                <input type="text" name="guardianMiddleName" id="guardianMiddleName">
             </div>
         </div>
     </div>
@@ -947,19 +948,19 @@
             </label>
         </div>
         <div class="col border1">
-            <label class="form-check-label" for="accomplishedName">
+            <label class="form-check-label" for="nameOfAccomplisher">
                 <b>NAME: </b>  
             </label>
-            <input type="text" name="accomplishedName" id="accomplishedName">
+            <input type="text" name="nameOfAccomplisher" id="nameOfAccomplisher">
         </div>
     </div>
     <!-- row 13 -->
     <div class="row">
         <div class="col border1">
-            <label class="form-check-label" for="physicianName">
+            <label class="form-check-label" for="nameOfPhysician">
                 <b class="text-white" style="background-color: rgb(67, 67, 114);">NAME OF CERTIFYING PHYSICIAN: </b>
             </label>
-            <input type="text" name="physicianName" id="physicianName">
+            <input type="text" name="nameOfPhysician" id="nameOfPhysician">
         </div>
         <div class="col border1">
             <label class="form-check-label" for="licenseNumber">
@@ -1132,7 +1133,7 @@
             <input type="file" name="receivingSignature" id="receivingSignature" accept="image/*">
         </div>
     </div>
-    <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="register" name="register">
+    <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="pwd-register" name="pwd-register">
     </form>
 </div>
 <?php 
@@ -1386,7 +1387,7 @@
                 </div>
             </div>
         </div>
-        <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="register" name="register">
+        <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="solo-parent-register" name="solo-parent-register">
     </form>
 </div>
 <?php 
@@ -1581,7 +1582,7 @@
                 </div>
             </div>
             <!-- DITO MO ILAGAY YUNG LALAGAY MO ZETH -->
-            <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="register" name="register">
+            <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="senior-citizen-register" name="senior-citizen-register">
     </form>
 </div>
 <?php 
