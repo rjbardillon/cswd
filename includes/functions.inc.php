@@ -183,16 +183,17 @@ function insertPWDData($connection, $username, $registrationType, $pwdNumber, $d
                 $otherOccupation, $is4PsBeneficiary, $bloodType, $organizationAffiliated, $contactPerson, $officeAddress, $telNumber, $sssNumber, $gsisNumber, $psnNumber, 
                 $philHealthNumber, $philHealthMemberType, $fatherLastName, $fatherFirstName, $fatherMiddleName, $motherLastName, $motherFirstName, $motherMiddleName, 
                 $guardianLastName, $guardianFirstName, $guardianMiddleName, $guardianRelationship, $guardianContactNumber, $accomplishedBy, $nameOfAccomplisher, $nameOfPhysician, $licenseNumber);
+    
+    // echo $username, $registrationType, $pwdNumber, $dateApplied, $pwdLastName, $pwdFirstName, $pwdMiddleName, 
+    //             $pwdSuffix, $typeOfDisability, $medicalCondition, $causeOfDisability, $congenitalInborn, $acquired, $statusOfDisability, $address, $barangay, $landline, $mobileNumber, $email, 
+    //             $dateOfBirth, $sex, $religion, $civilStatus, $educationalAttainment, $isVoter, $employmentStatus, $income, $categoryOfEmployment, $natureOfEmployment, $occupation, 
+    //             $otherOccupation, $is4PsBeneficiary, $bloodType, $organizationAffiliated, $contactPerson, $officeAddress, $telNumber, $sssNumber, $gsisNumber, $psnNumber, 
+    //             $philHealthNumber, $philHealthMemberType, $fatherLastName, $fatherFirstName, $fatherMiddleName, $motherLastName, $motherFirstName, $motherMiddleName, 
+    //             $guardianLastName, $guardianFirstName, $guardianMiddleName, $guardianRelationship, $guardianContactNumber, $accomplishedBy, $nameOfAccomplisher, $nameOfPhysician, $licenseNumber;
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    echo $username, $registrationType, $pwdNumber, $dateApplied, $pwdLastName, $pwdFirstName, $pwdMiddleName, 
-                $pwdSuffix, $typeOfDisability, $medicalCondition, $causeOfDisability, $congenitalInborn, $acquired, $statusOfDisability, $address, $barangay, $landline, $mobileNumber, $email, 
-                $dateOfBirth, $sex, $religion, $civilStatus, $educationalAttainment, $isVoter, $employmentStatus, $income, $categoryOfEmployment, $natureOfEmployment, $occupation, 
-                $otherOccupation, $is4PsBeneficiary, $bloodType, $organizationAffiliated, $contactPerson, $officeAddress, $telNumber, $sssNumber, $gsisNumber, $psnNumber, 
-                $philHealthNumber, $philHealthMemberType, $fatherLastName, $fatherFirstName, $fatherMiddleName, $motherLastName, $motherFirstName, $motherMiddleName, 
-                $guardianLastName, $guardianFirstName, $guardianMiddleName, $guardianRelationship, $guardianContactNumber, $accomplishedBy, $nameOfAccomplisher, $nameOfPhysician, $licenseNumber;
-    // header("location: ../home.html?error=none");
-    // exit();
+    header("location: ../home.html?error=none");
+    exit();
 }
 
 function insertSoloParentData($connection, $username, $registrationType, $pwdNumber, $dateApplied, $pwdLastName, $pwdFirstName, $pwdMiddleName, $pwdSuffix, $typeOfDisability, $medicalCondition,

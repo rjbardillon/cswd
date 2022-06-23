@@ -17,12 +17,78 @@
     <title>Document</title>
 </head>
 <body>
-
-
-    <div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker" inline="true">
-        <input placeholder="Select date" type="text" id="example" class="form-control">
-        <label for="example">Try me...</label>
-        <i class="fas fa-calendar input-prefix"></i>
-    </div>
+    <form action="includes/test.inc.php" method="POST">
+        <div class="row">
+        <div class="col border1">
+            <div class="row">
+                <div class="col">
+                    <h5>TYPE OF DISABILITY</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Deaf/Hard of Hearing" id="deaf" name="typeOfDisability[]">
+                        <label class="form-check-label" for="deaf">
+                            Deaf/Hard of Hearing
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Intellectual Disability" id="intellectualDisability" name="typeOfDisability[]">
+                        <label class="form-check-label" for="intellectualDisability">
+                            Intellectual Disability
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Learning Disability" id="learningDisability" name="typeOfDisability[]">
+                        <label class="form-check-label" for="learningDisability">
+                            Learning Disability
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Mental Disability" id="mentalDisability" name="typeOfDisability[]">
+                        <label class="form-check-label" for="mentalDisability">
+                            Mental Disability
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Physical Disablity (Orthopedic)" id="physicalDisablity" name="typeOfDisability[]">
+                        <label class="form-check-label" for="physicalDisablity">
+                            Physical Disablity (Orthopedic)
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Psychosocial Disability" id="psychosocialDisability" name="typeOfDisability[]">
+                        <label class="form-check-label" for="psychosocialDisability">
+                            Psychosocial Disability
+                        </label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Speech and Language Impairment" id="speechAndLanguageImpairment" name="typeOfDisability[]">
+                        <label class="form-check-label" for="speechAndLanguageImpairment">
+                            Speech and Language Impairment
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Visual Disability" id="visualDisability" name="typeOfDisability[]">
+                        <label class="form-check-label" for="visualDisability">
+                            Visual Disability
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Cancer (RA11215)" id="cancer" name="typeOfDisability[]">
+                        <label class="form-check-label" for="cancer">
+                            Cancer (RA11215)
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Rare Disease (RA10747)" id="rareDisease" name="typeOfDisability[]">
+                        <label class="form-check-label" for="rareDisease">
+                            Rare Disease (RA10747)
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="register" name="register">
+    </form>
 </body>
 </html>

@@ -13,12 +13,31 @@ if (isset($_POST['pwd-register'])) {
     $pwdFirstName = $_SESSION['first_name'];
     $pwdMiddleName = $_SESSION['middle_name'];
     $pwdSuffix = $_SESSION['suffix'];
-    $typeOfDisability = $_POST['deaf'].",".$_POST['intellectualDisability'].",".$_POST['learningDisability'].",".$_POST['mentalDisability'].",".$_POST['physicalDisablity'].",".
-    $_POST['psychosocialDisability'].",".$_POST['speechAndLanguageImpairment'].",".$_POST['visualDisability'].",".$_POST['cancer'].",".$_POST['rareDisease'];
+    if (isset($_POST['typeOfDisability'])) {
+        $str = $_POST['typeOfDisability'];
+        $typeOfDisability = implode (",", $str);
+    } else {
+        $typeOfDisability = "";
+    }
     $medicalCondition = $_POST['medicalCondition'];
-    $causeOfDisability = $_POST['inborn'].",".$_POST['acquired'];
-    $congenitalInborn = $_POST['autism'].",".$_POST['adhd'].",".$_POST['cerebralPalsy'].",".$_POST['downSyndrome'];
-    $acquired = $_POST['chronicIllness'].",".$_POST['acquiredCerebralPalsy'].",".$_POST['injury'];
+    if (isset($_POST['causeOfDisability'])) {
+        $str = $_POST['causeOfDisability'];
+        $causeOfDisability = implode (",", $str);
+    } else {
+        $causeOfDisability = "";
+    }
+    if (isset($_POST['congenital'])) {
+        $str = $_POST['congenital'];
+        $congenitalInborn = implode (",", $str);
+    } else {
+        $congenitalInborn = "";
+    }
+    if (isset($_POST['acquired'])) {
+        $str = $_POST['acquired'];
+        $acquired = implode (",", $str);
+    } else {
+        $acquired = "";
+    }
     $statusOfDisability = $_POST['statusOfDisability'];
     $address = $_POST['address'];
     $barangay = $_POST['barangay'];
@@ -32,10 +51,30 @@ if (isset($_POST['pwd-register'])) {
     $educationalAttainment = $_POST['educationalAttainment'];
     $isVoter = $_POST['isVoter'];
     $employmentStatus = $_POST['employmentStatus'];
-    $income = $_POST['income'];
-    $categoryOfEmployment = $_POST['categoryOfEmployment'];
-    $natureOfEmployment = $_POST['natureOfEmployment'];
-    $occupation = $_POST['occupation'];
+    if (isset($_POST['income'])) {
+        $str = $_POST['income'];
+        $income = implode (",", $str);
+    } else {
+        $income = "";
+    }
+    if (isset($_POST['categoryOfEmployment'])) {
+        $str = $_POST['categoryOfEmployment'];
+        $categoryOfEmployment = implode (",", $str);
+    } else {
+        $categoryOfEmployment = "";
+    }
+    if (isset($_POST['natureOfEmployment'])) {
+        $str = $_POST['natureOfEmployment'];
+        $natureOfEmployment = implode (",", $str);
+    } else {
+        $natureOfEmployment = "";
+    }
+    if (isset($_POST['occupation'])) {
+        $str = $_POST['occupation'];
+        $occupation = implode (",", $str);
+    } else {
+        $occupation = "";
+    }
     $otherOccupation = $_POST['otherOccupation'];
     $is4PsBeneficiary = $_POST['4psBeneficiary'];
     $bloodType = $_POST['bloodType'];
@@ -47,7 +86,12 @@ if (isset($_POST['pwd-register'])) {
     $gsisNumber = $_POST['gsisNumber'];
     $psnNumber = $_POST['psnNumber'];
     $philHealthNumber = $_POST['philHealthNumber'];
-    $philHealthMemberType = $_POST['philHealthMemberType'];
+    if (isset($_POST['philHealthMemberType'])) {
+        $str = $_POST['philHealthMemberType'];
+        $philHealthMemberType = implode (",", $str);
+    } else {
+        $philHealthMemberType = "";
+    }
     $fatherLastName = $_POST['fatherLastName'];
     $fatherFirstName = $_POST['fatherFirstName'];
     $fatherMiddleName = $_POST['fatherMiddleName'];
