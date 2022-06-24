@@ -199,26 +199,22 @@ function insertPWDData($connection, $username, $registrationType, $pwdNumber, $d
     exit();
 }
 
-function insertSoloParentData($connection, $username, $registrationType, $pwdNumber, $dateApplied, $pwdLastName, $pwdFirstName, $pwdMiddleName, $pwdSuffix, $typeOfDisability, $medicalCondition,
-                $causeOfDisability, $congenitalInborn, $acquired, $statusOfDisability, $address, $barangay, $landline, $mobileNumber, $email, $dateOfBirth, $sex, $religion, $civilStatus,
-                $educationalAttainment, $isVoter, $employmentStatus, $income, $categoryOfEmployment, $natureOfEmployment, $occupation, $otherOccupation, $is4PsBeneficiary, $bloodType,
-                $organizationAffiliated, $contactPerson, $officeAddress, $telNumber, $sssNumber, $gsisNumber, $psnNumber, $philHealthNumber, $philHealthMemberType, $fatherLastName, 
-                $fatherFirstName, $fatherMiddleName, $motherLastName, $motherFirstName, $motherMiddleName, $guardianLastName, $guardianFirstName, $guardianMiddleName, $guardianRelationship,
-                $guardianContactNumber, $accomplishedBy, $nameOfAccomplisher, $nameOfPhysician, $licenseNumber) {
-    $sql = "INSERT INTO pwd_data(username, registration_type, pwd_number, date_applied, pwd_last_name, pwd_first_name, pwd_middle_name, pwd_suffix, 
-    type_of_disability, medical_condition, cause_of_disability, congenital_inborn, acquired, status_of_disability, houseno_street_subdivision_address, 
-    barangay, city_municipality, province, region, landline, mobile_number, email, date_of_birth, sex, religion, civil_status, educational_attainment, 
-    is_voter, employment_status, income, category_of_employment, nature_of_employment, occupation, other_occupation, is_4ps_beneficiary, blood_type, 
-    organization_affiliated, contact_person, office_address, office_telephone_number, sss_number, gsis_number, psn_number, philhealth_number, philhealth_member_type, 
-    father_last_name, father_first_name, father_middle_name, mother_last_name, mother_first_name, mother_middle_name, guardian_last_name, guardian_first_name, 
-    guardian_middle_name, guardian_relationship, guardian_contact_number, accomplished_by, name_of_accomplisher, name_of_physician, license_number) 
-    VALUES  (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+function insertSoloParentData($connection, $username, $solo_parent_name, $sex2, $date_of_birth, $place_of_birth, $address, $barangay, 
+                            $educ_attainment, $occupation, $income, $fam_income, $tenurial, $religion, $contact_number, $marital_status, $classification_incidence,
+                            $classification_when, $problems, $family_resources, $date_applied) {
+    $sql = "INSERT INTO solo_parent_data(username, solo_parent_name, sex2, date_of_birth, place_of_birth, address, barangay, educ_attainment, occupation, 
+    income, fam_income, tenurial, religion, contact_number, marital_status, classification_incidence, classification_when, problems, family_resources, 
+    date_applied) 
+    VALUES  (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+            ?, ?, ?, ?, ?, ?, ?, ?, ?, ? );";
     $stmt = mysqli_stmt_init($connection);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../home.html?error=stmterror");
         exit();
     }
-    mysqli_stmt_bind_param($stmt, "sssssssssssssss", $firstName, $middleName, $lastName, $suffix, $sex, $nationality, $status, $bloodType, $dataOfBirth, $region, $province, $city, $barangay, $street, $address);
+    mysqli_stmt_bind_param($stmt, "ssssssssssssssssssss", $username, $solo_parent_name, $sex2, $date_of_birth, $place_of_birth, $address, $barangay, 
+                         $educ_attainment, $occupation, $income, $fam_income, $tenurial, $religion, $contact_number, $marital_status, $classification_incidence,
+                         $classification_when, $problems, $family_resources, $date_applied);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 

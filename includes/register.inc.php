@@ -221,14 +221,80 @@ if (isset($_POST['pwd-register'])) {
 
     $username = $_SESSION['username'];
 
+    $username = $_SESSION['username'];
+    $registrationType = $_POST['idType'];
+    if (!empty($_POST['pwdNumber1']) and !empty($_POST['pwdNumber2'])) {
+        $pwdNumber = "0434280".$_POST['pwdNumber1'].$_POST['pwdNumber2'];
+    } else {
+        $pwdNumber = NULL;
+    }
+    $dateApplied = date('Y-m-d', strtotime($_POST['dateApplied']));
+    $pwdLastName = $_SESSION['last_name'];
+    $pwdFirstName = $_SESSION['first_name'];
+    $pwdMiddleName = $_SESSION['middle_name'];
+    $pwdSuffix = $_SESSION['suffix'];
+
+
+
 } else if(isset($_POST['solo-parent-register'])) {
     session_start();
     require_once 'dbh.inc.php';
     require_once 'functions.inc.php';
     
     $username = $_SESSION['username'];
+    $solo_parent_name = $_SESSION['name2'];
+    $sex2 = $_POST['sex2'];
+    $date_of_birth = date('Y-m-d', strtotime($_POST['birth2']));
+    $place_of_birth = $_POST['birthplace2'];
+    $address = $_POST['address'];
+    $barangay = $_POST['barangay2'];
+    if (!empty($_POST['educational2'])) {
+        $educ_attainment = $_POST['educational2'];
+    } else {
+        $educ_attainment = NULL;
+    }
+    if (!empty($_POST['occupation2'])) {
+        $occupation = $_POST['occupation2'];
+    } else {
+        $occupation = NULL;
+    }
+    if (!empty($_POST['income2'])) {
+        $income = $_POST['income2'];
+    } else {
+        $income = NULL;
+    }
+    if (!empty($_POST['famincome2'])) {
+        $fam_income = $_POST['famincome2'];
+    } else {
+        $fam_income = NULL;
+    }
+    if (!empty($_POST['tenurial2'])) {
+        $tenurial = $_POST['tenurial2'];
+    } else {
+        $tenurial = NULL;
+    }
+    if (!empty($_POST['religion2'])) {
+        $religion = $_POST['religion2'];
+    } else {
+        $religion = NULL;
+    }
+    $contact_number = $_POST['contact2'];
+    if (!empty($_POST['marital-status'])) {
+        $marital_status = $_POST['marital-status'];
+    } else {
+        $marital_status = NULL;
+    }
+    $classification_incidence = $_POST['incidence'];
+    $classification_when = $_POST['when'];
+    $problems = $_POST ['problem'];
+    if (!empty($_POST['resources'])) {
+        $family_resources = $_POST['resources'];
+    } else {
+        $family_resources = NULL;
+    }
+    $date_applied = date('Y-m-d', strtotime($_POST['date']));
 
-} else {
-    header("location: ../home.html");
-    exit();
+    insertSoloParentData($connection, $username, $solo_parent_name, $sex2, $date_of_birth, $place_of_birth, $address, $barangay, 
+                        $educ_attainment, $occupation, $income, $fam_income, $tenurial, $religion, $contact_number, $marital_status, $classification_incidence,
+                        $classification_when, $problems, $family_resources, $date_applied)
 }
