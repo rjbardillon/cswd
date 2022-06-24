@@ -7,7 +7,11 @@ if (isset($_POST['pwd-register'])) {
     
     $username = $_SESSION['username'];
     $registrationType = $_POST['idType'];
-    $pwdNumber = "0434280".$_POST['pwdNumber1'].$_POST['pwdNumber2'];
+    if (!empty($_POST['pwdNumber1']) and !empty($_POST['pwdNumber2'])) {
+        $pwdNumber = "0434280".$_POST['pwdNumber1'].$_POST['pwdNumber2'];
+    } else {
+        $pwdNumber = NULL;
+    }
     $dateApplied = date('Y-m-d', strtotime($_POST['dateApplied']));
     $pwdLastName = $_SESSION['last_name'];
     $pwdFirstName = $_SESSION['first_name'];
@@ -17,32 +21,48 @@ if (isset($_POST['pwd-register'])) {
         $str = $_POST['typeOfDisability'];
         $typeOfDisability = implode (",", $str);
     } else {
-        $typeOfDisability = "";
+        $typeOfDisability = NULL;
     }
-    $medicalCondition = $_POST['medicalCondition'];
+    if (!empty($_POST['medicalCondition'])) {
+        $medicalCondition = $_POST['medicalCondition'];
+    } else {
+        $medicalCondition = NULL;
+    }
     if (isset($_POST['causeOfDisability'])) {
         $str = $_POST['causeOfDisability'];
         $causeOfDisability = implode (",", $str);
     } else {
-        $causeOfDisability = "";
+        $causeOfDisability = NULL;
     }
     if (isset($_POST['congenital'])) {
         $str = $_POST['congenital'];
         $congenitalInborn = implode (",", $str);
     } else {
-        $congenitalInborn = "";
+        $congenitalInborn = NULL;
     }
     if (isset($_POST['acquired'])) {
         $str = $_POST['acquired'];
         $acquired = implode (",", $str);
     } else {
-        $acquired = "";
+        $acquired = NULL;
     }
     $statusOfDisability = $_POST['statusOfDisability'];
-    $address = $_POST['address'];
+    if (!empty($_POST['address'])) {
+        $address = $_POST['address'];
+    } else {
+        $address = NULL;
+    }
     $barangay = $_POST['barangay'];
-    $landline = $_POST['landline'];
-    $mobileNumber = $_POST['mobileNumber'];
+    if (!empty($_POST['landline'])) {
+        $landline = $_POST['landline'];
+    } else {
+        $landline = NULL;
+    }
+    if (!empty($_POST['mobileNumber'])) {
+        $mobileNumber = $_POST['mobileNumber'];
+    } else {
+        $mobileNumber = NULL;
+    }
     $email = $_SESSION['email'];
     $dateOfBirth = date('Y-m-d', strtotime($_POST['dob']));
     $sex = $_POST['sex'];
@@ -52,57 +72,136 @@ if (isset($_POST['pwd-register'])) {
     $isVoter = $_POST['isVoter'];
     $employmentStatus = $_POST['employmentStatus'];
     if (isset($_POST['income'])) {
-        $str = $_POST['income'];
-        $income = implode (",", $str);
+        $income = $_POST['income'];
     } else {
-        $income = "";
+        $income = NULL;
     }
     if (isset($_POST['categoryOfEmployment'])) {
-        $str = $_POST['categoryOfEmployment'];
-        $categoryOfEmployment = implode (",", $str);
+        $categoryOfEmployment = $_POST['categoryOfEmployment'];
     } else {
-        $categoryOfEmployment = "";
+        $categoryOfEmployment = NULL;
     }
     if (isset($_POST['natureOfEmployment'])) {
-        $str = $_POST['natureOfEmployment'];
-        $natureOfEmployment = implode (",", $str);
+        $natureOfEmployment = $_POST['natureOfEmployment'];
     } else {
-        $natureOfEmployment = "";
+        $natureOfEmployment = NULL;
     }
     if (isset($_POST['occupation'])) {
-        $str = $_POST['occupation'];
-        $occupation = implode (",", $str);
+        $occupation = $_POST['occupation'];
     } else {
-        $occupation = "";
+        $occupation = NULL;
     }
-    $otherOccupation = $_POST['otherOccupation'];
+    if (!empty($_POST['otherOccupation'])) {
+        $otherOccupation = $_POST['otherOccupation'];
+    } else {
+        $otherOccupation = NULL;
+    }
     $is4PsBeneficiary = $_POST['4psBeneficiary'];
-    $bloodType = $_POST['bloodType'];
-    $organizationAffiliated = $_POST['organization'];
-    $contactPerson = $_POST['contactPerson'];
-    $officeAddress = $_POST['officeAddress'];
-    $telNumber = $_POST['telNumber'];
-    $sssNumber = $_POST['sssNumber'];
-    $gsisNumber = $_POST['gsisNumber'];
-    $psnNumber = $_POST['psnNumber'];
-    $philHealthNumber = $_POST['philHealthNumber'];
-    if (isset($_POST['philHealthMemberType'])) {
-        $str = $_POST['philHealthMemberType'];
-        $philHealthMemberType = implode (",", $str);
+    if (isset($_POST['bloodType'])) {
+        $bloodType = $_POST['bloodType'];
     } else {
-        $philHealthMemberType = "";
+        $bloodType = NULL;
     }
-    $fatherLastName = $_POST['fatherLastName'];
-    $fatherFirstName = $_POST['fatherFirstName'];
-    $fatherMiddleName = $_POST['fatherMiddleName'];
-    $motherLastName = $_POST['motherLastName'];
-    $motherFirstName = $_POST['motherFirstName'];
-    $motherMiddleName = $_POST['motherMiddleName'];
-    $guardianLastName = $_POST['guardianLastName'];
-    $guardianFirstName = $_POST['guardianFirstName'];
-    $guardianMiddleName = $_POST['guardianMiddleName'];
-    $guardianRelationship = $_POST['guardianRelationship'];
-    $guardianContactNumber = $_POST['guadianContactNumber'];
+    if (!empty($_POST['organization'])) {
+        $organizationAffiliated = $_POST['organization'];
+    } else {
+        $organizationAffiliated = NULL;
+    }
+    if (!empty($_POST['contactPerson'])) {
+        $contactPerson = $_POST['contactPerson'];
+    } else {
+        $contactPerson = NULL;
+    }
+    if (!empty($_POST['officeAddress'])) {
+        $officeAddress = $_POST['officeAddress'];
+    } else {
+        $officeAddress = NULL;
+    }
+    if (!empty($_POST['telNumber'])) {
+        $telNumber = $_POST['telNumber'];
+    } else {
+        $telNumber = NULL;
+    }
+    if (!empty($_POST['sssNumber'])) {
+        $sssNumber = $_POST['sssNumber'];
+    } else {
+        $sssNumber = NULL;
+    }
+    if (!empty($_POST['gsisNumber'])) {
+        $gsisNumber = $_POST['gsisNumber'];
+    } else {
+        $gsisNumber = NULL;
+    }
+    if (!empty($_POST['psnNumber'])) {
+        $psnNumber = $_POST['psnNumber'];
+    } else {
+        $psnNumber = NULL;
+    }
+    if (!empty($_POST['philHealthNumber'])) {
+        $philHealthNumber = $_POST['philHealthNumber'];
+    } else {
+        $philHealthNumber = NULL;
+    }
+    if (isset($_POST['philHealthMemberType'])) {
+        $philHealthMemberType = $_POST['philHealthMemberType'];
+    } else {
+        $philHealthMemberType = NULL;
+    }
+    if (!empty($_POST['fatherLastName'])) {
+        $fatherLastName = $_POST['fatherLastName'];
+    } else {
+        $fatherLastName = NULL;
+    }
+    if (!empty($_POST['fatherFirstName'])) {
+        $fatherFirstName = $_POST['fatherFirstName'];
+    } else {
+        $fatherFirstName = NULL;
+    }
+    if (!empty($_POST['fatherMiddleName'])) {
+        $fatherMiddleName = $_POST['fatherMiddleName'];
+    } else {
+        $fatherMiddleName = NULL;
+    }
+    if (!empty($_POST['motherLastName'])) {
+        $motherLastName = $_POST['motherLastName'];
+    } else {
+        $motherLastName = NULL;
+    }
+    if (!empty($_POST['motherFirstName'])) {
+        $motherFirstName = $_POST['motherFirstName'];
+    } else {
+        $motherFirstName = NULL;
+    }
+    if (!empty($_POST['motherMiddleName'])) {
+        $motherMiddleName = $_POST['motherMiddleName'];
+    } else {
+        $motherMiddleName = NULL;
+    }
+    if (!empty($_POST['guardianLastName'])) {
+        $guardianLastName = $_POST['guardianLastName'];
+    } else {
+        $guardianLastName = NULL;
+    }
+    if (!empty($_POST['guardianFirstName'])) {
+        $guardianFirstName = $_POST['guardianFirstName'];
+    } else {
+        $guardianFirstName = NULL;
+    }
+    if (!empty($_POST['guardianMiddleName'])) {
+        $guardianMiddleName = $_POST['guardianMiddleName'];
+    } else {
+        $guardianMiddleName = NULL;
+    }
+    if (!empty($_POST['guardianRelationship'])) {
+        $guardianRelationship = $_POST['guardianRelationship'];
+    } else {
+        $guardianRelationship = NULL;
+    }
+    if (!empty($_POST['guardianContactNumber'])) {
+        $guardianContactNumber = $_POST['guardianContactNumber'];
+    } else {
+        $guardianContactNumber = NULL;
+    }
     $accomplishedBy = $_POST['accomplishedBy'];
     $nameOfAccomplisher = $_POST['nameOfAccomplisher'];
     $nameOfPhysician = $_POST['nameOfPhysician'];

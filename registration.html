@@ -32,7 +32,7 @@
     <div class="row m-1">
         <div class="col border1 m-1">
             <div class="form-check">
-                <input class="form-check-input" type="radio" value="New Id" id="new-id" name="idType">
+                <input class="form-check-input" type="radio" value="New Id" id="new-id" name="idType" required>
                 <label class="form-check-label" for="new-id">
                     NEW ID
                 </label>
@@ -245,7 +245,7 @@
                     <div class="row">
                         <h5>STATUS OF DISABILITY</h5>
                         <div class="form-check col">
-                            <input class="form-check-input" type="radio" value="Permanent" id="permanent" name="statusOfDisability">
+                            <input class="form-check-input" type="radio" value="Permanent" id="permanent" name="statusOfDisability" required>
                             <label class="form-check-label" for="permanent">
                                 Permanent
                             </label>
@@ -298,7 +298,7 @@
         </div>
         <div class="col col-md-3 border1">
             <h5>BARANGAY</h5>
-            <select class="form-select" id="barangay" name="barangay">
+            <select class="form-select" id="barangay" name="barangay" required>
                 <option disabled selected value="">Please Select</option>
                 <option value="Aplaya">Aplaya</option>
                 <option value="Balibago">Balibago</option>
@@ -365,7 +365,7 @@
         <div class="col col-md-auto border1">
             <b>SEX</b>
             <div class="form-check">
-                <input class="form-check-input" value="Male" type="radio" name="sex" id="male">
+                <input class="form-check-input" value="Male" type="radio" name="sex" id="male" required>
                 <label class="form-check-label" for="male">
                     Male
                 </label>
@@ -387,7 +387,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="form-check">
-                            <input class="form-check-input" value="Single" type="radio" name="civilStatus" id="single">
+                            <input class="form-check-input" value="Single" type="radio" name="civilStatus" id="single" required>
                             <label class="form-check-label" for="single">
                                 Single
                             </label>
@@ -448,7 +448,7 @@
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" value="Kindergarten" type="radio" name="educationalAttainment" id="kindergarten">
+                <input class="form-check-input" value="Kindergarten" type="radio" name="educationalAttainment" id="kindergarten" required>
                 <label class="form-check-label" for="kindergarten">
                     Kindergarten
                 </label>
@@ -491,7 +491,7 @@
             </div>
             <b>ARE YOU (PWD) AN ACTIVE VOTER IN</b><br><b>SANTA ROSA, LAGUNA?</b>
             <div class="form-check">
-                <input class="form-check-input" value="Yes" type="radio" name="isVoter" id="yes">
+                <input class="form-check-input" value="Yes" type="radio" name="isVoter" id="yes" required>
                 <label class="form-check-label" for="yes">
                     Yes
                 </label>
@@ -514,7 +514,7 @@
                 <b>EMPLOYMENT STATUS</b>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" value="Employed" type="radio" name="employmentStatus" id="employed">
+                        <input class="form-check-input" value="Employed" type="radio" name="employmentStatus" id="employed" required>
                         <label class="form-check-label" for="employed">
                             Employed
                         </label>
@@ -693,7 +693,7 @@
             <div class="row border1">
                 <b>Are you or any of your family member a 4p's beneficiary?</b>
                 <div class="form-check">
-                    <input class="form-check-input" value="Yes" type="radio" name="4psBeneficiary" id="4psyes">
+                    <input class="form-check-input" value="Yes" type="radio" name="4psBeneficiary" id="4psyes" required>
                     <label class="form-check-label" for="4psyes">
                         Yes
                     </label>
@@ -923,17 +923,17 @@
              <input type="text" name="guardianRelationship" id="guardianRelationship">
         </div>
         <div class="col border1">
-            <label class="form-check-label" for="guadianContactNumber">
+            <label class="form-check-label" for="guardianContactNumber">
             <b class="text-white" style="background-color: rgb(67, 67, 114);">GUARDIAN'S CONTACT NO.: </b>
             </label>
-            <input type="text" name="guadianContactNumber" id="guadianContactNumber">
+            <input type="text" name="guardianContactNumber" id="guardianContactNumber">
         </div>
     </div>
     <!-- row 12 -->
     <div class="row">
         <div class="col col-md-auto border1">
             <b>ACCOMPLISHED BY: </b>
-            <input class="form-check-input" type="radio" value="Applicant" name="accomplishedBy" id="applicant">
+            <input class="form-check-input" type="radio" value="Applicant" name="accomplishedBy" id="applicant" required>
             <label class="form-check-label" for="applicant">
                 Applicant
             </label>
