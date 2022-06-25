@@ -280,3 +280,5 @@ if (isset($_POST['pwd-register'])) {
         header("location: ../sign-up.html");
         exit();
 }
+
+?>
