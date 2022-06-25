@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2022 at 05:30 AM
+-- Generation Time: Jun 24, 2022 at 09:18 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -91,6 +91,172 @@ CREATE TABLE `pwd_data` (
   `license_number` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `senior_citizen_data`
+--
+
+CREATE TABLE `senior_citizen_data` (
+  `id` int(11) NOT NULL,
+  `username` varchar(128) NOT NULL,
+  `registration_type` enum('Bago','Lumipat','Magpapalit','Nawala') NOT NULL,
+  `sr_citizen_num` bigint(20) NOT NULL,
+  `sr_citizen_first_name` varchar(128) NOT NULL,
+  `sr_citizen_middle_name` varchar(128) NOT NULL,
+  `sr_citizen_last_name` varchar(128) NOT NULL,
+  `sr_citizen_suffix` varchar(20) NOT NULL,
+  `barangay` enum('Aplaya','Balibago','Caingin','Dila','Dita','Don Jose','Ibaba','Kanluran','Labas','Macabling','Malitlit','Malusak','Market Area','Pook','Pulong Santa Cruz','Santo Domingo','Sinalhan','Tagapo') NOT NULL,
+  `tirahan` varchar(128) NOT NULL,
+  `sex` enum('Male','Female') NOT NULL,
+  `marital_status` enum('Single','Married','Widowed','Separated','Divorced') NOT NULL,
+  `edad` varchar(128) NOT NULL,
+  `date_of_birth` date NOT NULL,
+  `lugar_ng_kapanganakan` varchar(128) NOT NULL,
+  `telepono` varchar(15) NOT NULL,
+  `relihiyon` varchar(128) NOT NULL,
+  `hanapbuhay` varchar(128) NOT NULL,
+  `pensyon` enum('Oo','Hindi') NOT NULL,
+  `saan` varchar(128) NOT NULL,
+  `magkano` varchar(128) NOT NULL,
+  `pangalan_ng_asawa` varchar(128) NOT NULL,
+  `edad_asawa` varchar(128) NOT NULL,
+  `ilan_ang_anak` varchar(128) NOT NULL,
+  `kasama` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `solo_parent_data`
+--
+
+CREATE TABLE `solo_parent_data` (
+  `id` int(11) NOT NULL,
+  `username` varchar(128) NOT NULL,
+  `solo_parent_name` varchar(128) NOT NULL,
+  `sex` varchar(128) NOT NULL,
+  `date_of_birth` date NOT NULL,
+  `place_of_birth` varchar(128) NOT NULL,
+  `address` varchar(128) NOT NULL,
+  `barangay` enum('Aplaya','Balibago','Caingin','Dila','Dita','Don Jose','Ibaba','Kanluran','Labas','Macabling','Malitlit','Malusak','Market Area','Pook','Pulong Santa Cruz','Santo Domingo','Sinalhan','Tagapo') NOT NULL,
+  `educ_attainment` varchar(128) NOT NULL,
+  `occupation` varchar(128) NOT NULL,
+  `income` decimal(10,2) NOT NULL,
+  `fam_income` decimal(10,2) NOT NULL,
+  `tenurial` varchar(128) NOT NULL,
+  `religion` varchar(128) NOT NULL,
+  `contact_number` varchar(128) NOT NULL,
+  `marital_status` enum('Single','Annulled','Widow','Married','Separated') NOT NULL,
+  `classification_incidence` longtext NOT NULL,
+  `classification_when` longtext NOT NULL,
+  `problems` longtext NOT NULL,
+  `family_resources` longtext NOT NULL,
+  `date_applied` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `solo_parent_family_composition`
+--
+
+CREATE TABLE `solo_parent_family_composition` (
+  `id` int(11) NOT NULL,
+  `username` varchar(128) NOT NULL,
+  `name` varchar(128) NOT NULL,
+  `relationship` varchar(128) NOT NULL,
+  `age` varchar(128) NOT NULL,
+  `civil_status` varchar(128) NOT NULL,
+  `educ_attainment` varchar(128) NOT NULL,
+  `occupation` varchar(128) NOT NULL,
+  `monthly_income` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sr-citizen-birthday-cash-gift`
+--
+
+CREATE TABLE `sr-citizen-birthday-cash-gift` (
+  `id` int(11) NOT NULL,
+  `username` varchar(128) NOT NULL,
+  `last_name` varchar(128) NOT NULL,
+  `name` varchar(128) NOT NULL,
+  `middle_name` varchar(128) NOT NULL,
+  `osca_id_number` varchar(128) NOT NULL,
+  `address` varchar(128) NOT NULL,
+  `barangay` enum('Aplaya','Balibago','Caingin','Dila','Dita','Don Jose','Ibaba','Kanluran','Labas','Macabling','Malitlit','Malusak','Market Area','Pook','Pulong Santa Cruz','Santo Domingo','Sinalhan','Tagapo') NOT NULL,
+  `date_of_birth` date NOT NULL,
+  `contact_number` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sr-citizen-birthday-cash-incentive`
+--
+
+CREATE TABLE `sr-citizen-birthday-cash-incentive` (
+  `id` int(11) NOT NULL,
+  `username` varchar(128) NOT NULL,
+  `last_name` varchar(128) NOT NULL,
+  `first_name` varchar(128) NOT NULL,
+  `middle_name` varchar(128) NOT NULL,
+  `osca_id_number` varchar(128) NOT NULL,
+  `address` varchar(128) NOT NULL,
+  `barangay` enum('Aplaya','Balibago','Caingin','Dila','Dita','Don Jose','Ibaba','Kanluran','Labas','Macabling','Malitlit','Malusak','Market Area','Pook','Pulong Santa Cruz','Santo Domingo','Sinalhan','Tagapo') NOT NULL,
+  `date_of_birth` date NOT NULL,
+  `contact_number` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `test`
+--
+
+CREATE TABLE `test` (
+  `id` int(11) NOT NULL,
+  `typeOfDisability` set('Deaf/Hard of Hearing','Intellectual Disability','Learning Disability','Mental Disability','Physical Disablity (Orthopedic)','Psychosocial Disability','Speech and Language Impairment','Visual Disability','Cancer (RA11215)','Rare Disease (RA10747)') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `test`
+--
+
+INSERT INTO `test` (`id`, `typeOfDisability`) VALUES
+(1, 'Deaf/Hard of Hearing,Intellectual Disability,Learning Disability,Mental Disability,Psychosocial Disability'),
+(2, 'Deaf/Hard of Hearing,Intellectual Disability'),
+(3, ''),
+(4, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `user_type` int(11) NOT NULL,
+  `username` varchar(128) NOT NULL,
+  `last_name` varchar(128) NOT NULL,
+  `suffix` varchar(20) DEFAULT NULL,
+  `first_name` varchar(128) NOT NULL,
+  `middle_name` varchar(128) DEFAULT NULL,
+  `email` varchar(128) NOT NULL,
+  `password` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `user_type`, `username`, `last_name`, `suffix`, `first_name`, `middle_name`, `email`, `password`) VALUES
+(1, 0, 'rmbardillonjr', 'Bardillon', 'Jr', 'Romeo', 'Montealegre', 'romsky.bardillon@gmail.com', '$2y$10$D/lvgGxAdaf8DLG6kW2kTe3krJntbS12oppUXjT/5OB3dUywDDeVC');
+
 --
 -- Indexes for dumped tables
 --
@@ -103,6 +269,48 @@ ALTER TABLE `pwd_data`
   ADD UNIQUE KEY `username` (`username`);
 
 --
+-- Indexes for table `senior_citizen_data`
+--
+ALTER TABLE `senior_citizen_data`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `solo_parent_data`
+--
+ALTER TABLE `solo_parent_data`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `solo_parent_family_composition`
+--
+ALTER TABLE `solo_parent_family_composition`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sr-citizen-birthday-cash-gift`
+--
+ALTER TABLE `sr-citizen-birthday-cash-gift`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sr-citizen-birthday-cash-incentive`
+--
+ALTER TABLE `sr-citizen-birthday-cash-incentive`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `test`
+--
+ALTER TABLE `test`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -111,6 +319,48 @@ ALTER TABLE `pwd_data`
 --
 ALTER TABLE `pwd_data`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `senior_citizen_data`
+--
+ALTER TABLE `senior_citizen_data`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `solo_parent_data`
+--
+ALTER TABLE `solo_parent_data`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `solo_parent_family_composition`
+--
+ALTER TABLE `solo_parent_family_composition`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `sr-citizen-birthday-cash-gift`
+--
+ALTER TABLE `sr-citizen-birthday-cash-gift`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `sr-citizen-birthday-cash-incentive`
+--
+ALTER TABLE `sr-citizen-birthday-cash-incentive`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `test`
+--
+ALTER TABLE `test`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
