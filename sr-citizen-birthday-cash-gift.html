@@ -5,6 +5,7 @@
 ?> 
 
 <div class="container registration-form p-5">
+    <form action="includes/apply.inc.php" method="post">
     <!-- header -->
     <div class="row align-items-start">
         <div class="col">
@@ -45,7 +46,7 @@
         </div>
         <div class="col-4 mb-5 form-group">
             <label class="" for="barangay">Barangay</label>
-            <select class="form-select" id="id-type" name="id-type">
+            <select class="form-select" id="barangay" name="barangay">
                 <option disabled selected value="">Please Select</option>
                 <option value="Aplaya">Aplaya</option>
                 <option value="Balibago">Balibago</option>
@@ -102,7 +103,8 @@
         <p>2. VOTER'S CERTIFICATION/ID</p>
         <p>3. CERTIFICATION OF RESIDENCY WITH GOOD MORAL CHARACTER WITH SIGNATURE OF BRGY CAPTAIN</p>
     </div>
-    <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="senior-citizen-bday-cash-gift" name="senior-citizen-bday-cash-gift">
+    <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="sr_citizen_birthday_cash_gift" name="sr_citizen_birthday_cash_gift">
+</form>
 </div>
 
 <?php 

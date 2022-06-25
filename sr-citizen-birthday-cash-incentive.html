@@ -5,10 +5,11 @@
 ?> 
 
 <div class="container p-5">
+    <form action="includes/apply.inc.php" method="post">
     <!-- header -->
     <div class="row align-items-start">
         <div class="col">
-            <h4 class="text-center">Senior Citizen Birthday Cash Gift</h4>
+            <h4 class="text-center">Senior Citizen Cash Incentive</h4>
             <h4 class="text-center mb-5">APPLICATION FORM</h4>
         </div>
     </div>
@@ -17,20 +18,20 @@
     
     <div class="row align-items-start">
         <div class="col form-group">
-            <label class="" for="huling-pangalan2">Huling Pangalan</label>
-            <input class="form-control" type="text" id="huling-pangalan2" name="huling-pangalan2" required>
+            <label class="" for="huling-pangalan">Huling Pangalan</label>
+            <input class="form-control" type="text" id="huling-pangalan" name="huling-pangalan" required>
         </div>
         <div class="col form-group">
-            <label class="" for="pangalan2">Unang Pangalan</label>
-            <input class="form-control" type="text" id="pangalan2" name="pangalan2">
+            <label class="" for="pangalan">Unang Pangalan</label>
+            <input class="form-control" type="text" id="pangalan" name="pangalan" required>
         </div>
         <div class="col form-group">
-            <label class="" for="gitnang-pangalan2">Gitnang Pangalan</label>
-            <input class="form-control" type="text" id="gitnang-pangalan2" name="gitnang-pangalan2" required>
+            <label class="" for="gitnang-pangalan">Gitnang Pangalan</label>
+            <input class="form-control" type="text" id="gitnang-pangalan" name="gitnang-pangalan" required>
         </div>
         <div class="col mb-5 form-group">
-            <label class="" for="osca2">OSCA I.D#</label>
-            <input class="form-control" type="text" id="osca2" name="osca2">
+            <label class="" for="osca">OSCA I.D#</label>
+            <input class="form-control" type="text" id="osca" name="osca" required>
         </div>
     </div>
 
@@ -39,12 +40,12 @@
 
     <div class="row align-items-start">
         <div class="col form-group">
-            <label class="" for="num-tirahan2">Numero at Tirahan/Kalye</label>
-            <input class="form-control" type="text" id="num-tirahan2" name="num-tirahan2" required>
+            <label class="" for="num-tirahan">Numero at Tirahan/Kalye</label>
+            <input class="form-control" type="text" id="num-tirahan" name="num-tirahan" required>
         </div>
         <div class="col-4 mb-5 form-group">
-            <label class="" for="barangay2">Barangay</label>
-            <select class="form-select" id="id-type" name="id-type">
+            <label class="" for="barangay">Barangay</label>
+            <select class="form-select" id="barangay" name="barangay">
                 <option disabled selected value="">Please Select</option>
                 <option value="Aplaya">Aplaya</option>
                 <option value="Balibago">Balibago</option>
@@ -71,16 +72,16 @@
     <!-- Bday and Number -->
     <div class="row align-items-start">
         <div class="col form-group">
-            <label class="" for="kapanganakan2">Kapanganakan</label>
-            <input class="form-control" type="date" id="kapanganakan2" name="kapanganakan2" required>
+            <label class="" for="kapanganakan">Kapanganakan</label>
+            <input class="form-control" type="date" id="kapanganakan" name="kapanganakan" required>
         </div>
         <div class="col-3 form-group">
-            <label class="" for="edad2">Edad</label>
-            <input class="form-control" type="text" id="edad2" name="edad2" disabled>
+            <label class="" for="edad">Edad</label>
+            <input class="form-control" type="text" id="edad" name="edad" disabled>
         </div>
         <div class="col form-group">
-            <label class="" for="telepono2">Numero ng Telepono</label>
-            <input class="form-control" type="text" id="telepono2" name="telepono2">
+            <label class="" for="telepono">Numero ng Telepono</label>
+            <input class="form-control" type="text" id="telepono" name="telepono">
         </div>
     </div>
     
@@ -110,7 +111,8 @@
         <p>4. Kung walang kakayahang bumoto dahil sa lagay ng kalusugan, pagpapatunay/sertipikasiyon galing sa barangay na may lagda ng kapitan ang kailangan</p>
         <p>5. CERTIFICATION OF RESIDENCY WITH GOOD MORAL CHARACTER FROM BRGY. CAPTAIN</p>
     </div>
-    <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="senior-citizen-bday-cash-incentive" name="senior-citizen-bday-cash-incentive">
+    <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="sr_citizen_birthday_cash_incentive" name="sr_citizen_birthday_cash_incentive">
+</form> 
 </div>
 
 <?php 
