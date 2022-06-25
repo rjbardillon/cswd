@@ -86,7 +86,7 @@
                 </div>
                 <div class="col border1">
                     <h5>DATE APPLIED (MM/DD/YYYY)</h5>
-                    <input type="date" name="dateApplied" id="dateApplied">
+                    <input class="form-control" type="date" name="dateApplied" id="dateApplied" value ="<?php echo date('Y-m-d') ?>" disabled>
                 </div>
             </div>
             <div class="row">
@@ -95,7 +95,7 @@
                     <?php
                     require_once 'includes/dbh.inc.php'; 
                     require_once 'includes/functions.inc.php';
-                        echo '<input type="text" name="lastName" id="lastName" value = "'; echo ($_SESSION['last_name']); echo '" disabled>';
+                        echo '<input class="form-control" type="text" name="lastName" id="lastName" value = "'; echo ($_SESSION['last_name']); echo '" disabled>';
                     ?>
                 </div>
                 <div class="col border1">
@@ -103,7 +103,7 @@
                     <?php
                     require_once 'includes/dbh.inc.php'; 
                     require_once 'includes/functions.inc.php';
-                        echo '<input type="text" name="firstName" id="firstName" value = "'; echo ($_SESSION['first_name']); echo '" disabled>';
+                        echo '<input class="form-control" type="text" name="firstName" id="firstName" value = "'; echo ($_SESSION['first_name']); echo '" disabled>';
                     ?>
                 </div>
                 <div class="col border1">
@@ -111,7 +111,7 @@
                     <?php
                     require_once 'includes/dbh.inc.php'; 
                     require_once 'includes/functions.inc.php';
-                        echo '<input type="text" name="middleName" id="middleName" value = "'; echo ($_SESSION['middle_name']); echo '" disabled>';
+                        echo '<input class="form-control" type="text" name="middleName" id="middleName" value = "'; echo ($_SESSION['middle_name']); echo '" disabled>';
                     ?>
                 </div>
                 <div class="col border1">
@@ -119,7 +119,7 @@
                     <?php
                     require_once 'includes/dbh.inc.php'; 
                     require_once 'includes/functions.inc.php';
-                        echo '<input type="text" name="suffix" id="suffix" value = "'; echo ($_SESSION['suffix']); echo '" disabled>';
+                        echo '<input class="form-control" type="text" name="suffix" id="suffix" value = "'; echo ($_SESSION['suffix']); echo '" disabled>';
                     ?>
                 </div>
             </div>
@@ -127,8 +127,8 @@
         <div class="col-sm-2 border1">
             <div class="profile-pic-div">
                 <img src="images/image.jpg" id="photo">
-                <input type="file" id="file" accept="image/*">
-                <label for="file" id="uploadBtn">Choose Photo</label>
+                <input type="file" id="file" accept="image/*" required>
+                <label class="required" for="file" id="uploadBtn">Choose Photo</label>
             </div>
         </div>
     </div>
@@ -137,9 +137,9 @@
         <div class="col border1">
             <div class="row">
                 <div class="col">
-                    <h5>TYPE OF DISABILITY</h5>
+                    <h5 class="required">TYPE OF DISABILITY</h5>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="Deaf/Hard of Hearing" id="deaf" name="typeOfDisability[]">
+                        <input class="form-check-input" type="checkbox" value="Deaf/Hard of Hearing" id="deaf" name="typeOfDisability[]" required>
                         <label class="form-check-label" for="deaf">
                             Deaf/Hard of Hearing
                         </label>
@@ -210,40 +210,42 @@
         
         <div class="col border1">
             <div class="row">
+                <h5 class="required">CAUSE OF DISABILITY</h5>
+            </div>
+            <div class="row">
                 <div class="col">
-                    <h5>CAUSE OF DISABILITY</h5>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="Congenital/Inborn" id="inborn" name="causeOfDisability[]">
+                        <input class="form-check-input" type="checkbox" value="Congenital/Inborn" id="inborn" name="causeOfDisability[]" disabled>
                         <label class="form-check-label" for="inborn">
                             <b>CONGENITAL/INBORN</b>
                         </label>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Autism" id="autism" name="congenital[]">
+                            <input class="form-check-input" type="checkbox" value="Autism" id="autism" name="congenital[]" onclick="congenitalCheckboxChecker();">
                             <label class="form-check-label" for="autism">
                                 Autism
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="ADHD" id="adhd" name="congenital[]">
+                            <input class="form-check-input" type="checkbox" value="ADHD" id="adhd" name="congenital[]" onclick="congenitalCheckboxChecker();">
                             <label class="form-check-label" for="adhd">
                                 ADHD
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Cerebral Palsy" id="cerebralPalsy" name="congenital[]">
+                            <input class="form-check-input" type="checkbox" value="Cerebral Palsy" id="cerebralPalsy" name="congenital[]" onclick="congenitalCheckboxChecker();">
                             <label class="form-check-label" for="cerebralPalsy">
                                 Cerebral Palsy
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Down Syndrome" id="downSyndrome" name="congenital[]">
+                            <input class="form-check-input" type="checkbox" value="Down Syndrome" id="downSyndrome" name="congenital[]" onclick="congenitalCheckboxChecker();">
                             <label class="form-check-label" for="downSyndrome">
                                 Down Syndrome
                             </label>
                         </div>
                     </div>
                     <div class="row">
-                        <h5>STATUS OF DISABILITY</h5>
+                        <h5 class="required">STATUS OF DISABILITY</h5>
                         <div class="form-check col">
                             <input class="form-check-input" type="radio" value="Permanent" id="permanent" name="statusOfDisability" required>
                             <label class="form-check-label" for="permanent">
@@ -260,24 +262,24 @@
                 </div>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="Acquired" id="acquired" name="causeOfDisability[]">
+                        <input class="form-check-input" type="checkbox" value="Acquired" id="acquired" name="causeOfDisability[]" disabled>
                         <label class="form-check-label" for="acquired">
                             <b>ACQUIRED</b>
                         </label>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Chronic Illness" id="chronicIllness" name="acquired[]">
+                            <input class="form-check-input" type="checkbox" value="Chronic Illness" id="chronicIllness" name="acquired[]" onclick="acquiredCheckboxChecker();">
                             <label class="form-check-label" for="chronicIllness">
                                 Chronic Illness
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Cerebral Palsy" id="acquiredCerebralPalsy" name="acquired[]">
+                            <input class="form-check-input" type="checkbox" value="Cerebral Palsy" id="acquiredCerebralPalsy" name="acquired[]" onclick="acquiredCheckboxChecker();">
                             <label class="form-check-label" for="acquiredCerebralPalsy">
                                 Cerebral Palsy
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Injury" id="injury" name="acquired[]">
+                            <input class="form-check-input" type="checkbox" value="Injury" id="injury" name="acquired[]" onclick="acquiredCheckboxChecker();">
                             <label class="form-check-label" for="injury">
                                 Injury
                             </label>
@@ -293,11 +295,11 @@
             <h5>ADDRESS</h5>
         </div>
         <div class="col border1">
-            <h5>HOUSE NO. /Street Name/Subdivision</h5>
-            <input class="form-control" type="text" name="address" id="address">
+            <h5 class="required">HOUSE NO. /Street Name/Subdivision</h5>
+            <input class="form-control" type="text" name="address" id="address" required>
         </div>
         <div class="col col-md-3 border1">
-            <h5>BARANGAY</h5>
+            <h5 class="required">BARANGAY</h5>
             <select class="form-select" id="barangay" name="barangay" required>
                 <option disabled selected value="">Please Select</option>
                 <option value="Aplaya">Aplaya</option>
@@ -319,7 +321,6 @@
                 <option value="Sinalhan">Sinalhan</option>
                 <option value="Tagapo">Tagapo</option>
             </select>
-            <!-- <input class="form-control" type="text" name="" id=""> -->
         </div>
     </div>
     <!-- row 5 -->
@@ -359,11 +360,11 @@
     <!-- row 7 -->
     <div class="row">
         <div class="col border1">
-            <b>DATE OF BIRTH (mm/dd/yyyy)</b><br>
-            <input type="date" name="dob" id="dob">
+            <b class="required">DATE OF BIRTH (mm/dd/yyyy)</b><br>
+            <input type="date" name="dob" id="dob" required>
         </div>
         <div class="col col-md-auto border1">
-            <b>SEX</b>
+            <b class="required">SEX</b>
             <div class="form-check">
                 <input class="form-check-input" value="Male" type="radio" name="sex" id="male" required>
                 <label class="form-check-label" for="male">
@@ -378,11 +379,11 @@
             </div>
         </div>
         <div class="col col-md-auto border1">
-            <b>RELIGION</b><br>
-            <input type="text" name="religion" id="religion">
+            <b class="required">RELIGION</b><br>
+            <input type="text" name="religion" id="religion" required>
         </div>
         <div class="col border1">
-            <b>CIVIL STATUS</b>
+            <b class="required">CIVIL STATUS</b>
             <div class="col">
                 <div class="row">
                     <div class="col">
@@ -440,9 +441,9 @@
     <!-- row 8 -->
     <div class="row">
         <div class="col border1">
-            <b>EDUCATIONAL ATTAINMENT</b>
+            <b class="required">EDUCATIONAL ATTAINMENT</b>
             <div class="form-check">
-                <input class="form-check-input" value="None" type="radio" name="educationalAttainment" id="none">
+                <input class="form-check-input" value="None" type="radio" name="educationalAttainment" id="none" required>
                 <label class="form-check-label" for="none">
                     None
                 </label>
@@ -489,7 +490,7 @@
                     Post Graduate Program
                 </label>
             </div>
-            <b>ARE YOU (PWD) AN ACTIVE VOTER IN</b><br><b>SANTA ROSA, LAGUNA?</b>
+            <b class="required">ARE YOU (PWD) AN ACTIVE VOTER IN</b><br><b>SANTA ROSA, LAGUNA?</b>
             <div class="form-check">
                 <input class="form-check-input" value="Yes" type="radio" name="isVoter" id="yes" required>
                 <label class="form-check-label" for="yes">
@@ -511,7 +512,7 @@
         </div>
         <div class="col border1">
             <div class="row border1">
-                <b>EMPLOYMENT STATUS</b>
+                <b class="required">EMPLOYMENT STATUS</b>
                 <div class="col">
                     <div class="form-check">
                         <input class="form-check-input" value="Employed" type="radio" name="employmentStatus" id="employed" required>
@@ -691,7 +692,7 @@
                 <input type="text" name="otherOccupation" id="otherOccupation">
             </div>
             <div class="row border1">
-                <b>Are you or any of your family member a 4p's beneficiary?</b>
+                <b class="required">Are you or any of your family member a 4p's beneficiary?</b>
                 <div class="form-check">
                     <input class="form-check-input" value="Yes" type="radio" name="4psBeneficiary" id="4psyes" required>
                     <label class="form-check-label" for="4psyes">
@@ -710,7 +711,7 @@
     <!-- row 9 -->
     <div class="row">
         <div class="col col-md-auto border1">
-            <b>BLOOD TYPE</b>
+            <b>BLOOD TYPE (Leave blank if you don't know)</b>
             <div class="row">
                 <div class="col">
                     <div class="form-check">
@@ -932,7 +933,7 @@
     <!-- row 12 -->
     <div class="row">
         <div class="col col-md-auto border1">
-            <b>ACCOMPLISHED BY: </b>
+            <b class="required">ACCOMPLISHED BY: </b>
             <input class="form-check-input" type="radio" value="Applicant" name="accomplishedBy" id="applicant" required>
             <label class="form-check-label" for="applicant">
                 Applicant
@@ -949,24 +950,24 @@
         </div>
         <div class="col border1">
             <label class="form-check-label" for="nameOfAccomplisher">
-                <b>NAME: </b>  
+                <b class="required">NAME: </b>  
             </label>
-            <input type="text" name="nameOfAccomplisher" id="nameOfAccomplisher">
+            <input type="text" name="nameOfAccomplisher" id="nameOfAccomplisher" required>
         </div>
     </div>
     <!-- row 13 -->
     <div class="row">
         <div class="col border1">
             <label class="form-check-label" for="nameOfPhysician">
-                <b class="text-white" style="background-color: rgb(67, 67, 114);">NAME OF CERTIFYING PHYSICIAN: </b>
+                <b class="text-white required" style="background-color: rgb(67, 67, 114);">NAME OF CERTIFYING PHYSICIAN: </b>
             </label>
-            <input type="text" name="nameOfPhysician" id="nameOfPhysician">
+            <input type="text" name="nameOfPhysician" id="nameOfPhysician" required>
         </div>
         <div class="col border1">
             <label class="form-check-label" for="licenseNumber">
-                <b class="text-white" style="background-color: rgb(67, 67, 114);">LICENSE NO.: </b> 
+                <b class="text-white required" style="background-color: rgb(67, 67, 114);">LICENSE NO.: </b> 
             </label>
-            <input type="text" name="licenseNumber" id="licenseNumber">
+            <input type="text" name="licenseNumber" id="licenseNumber" required>
         </div>
     </div>
     <!-- row 14 -->

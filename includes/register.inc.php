@@ -296,5 +296,8 @@ if (isset($_POST['pwd-register'])) {
 
     insertSoloParentData($connection, $username, $solo_parent_name, $sex2, $date_of_birth, $place_of_birth, $address, $barangay, 
                         $educ_attainment, $occupation, $income, $fam_income, $tenurial, $religion, $contact_number, $marital_status, $classification_incidence,
-                        $classification_when, $problems, $family_resources, $date_applied)
+                        $classification_when, $problems, $family_resources, $date_applied);
+} else {
+        header("location: ../sign-up.html");
+        exit();
 }
