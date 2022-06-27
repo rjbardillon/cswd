@@ -15,1451 +15,292 @@
         <select class="form-select" id="id-type" name="id-type">
             <option disabled selected value="">Please Select</option>
             <option value="pwd">PWD</option>
-            <option value="sr-citizen">Sr. Citizen</option>
             <option value="solo-parent">Solo Parent</option>
+            <option value="sr-citizen">Sr. Citizen</option>
         </select>
     </div>    
-<!-- PWD -->
-<div class="registration-container" id="pwd">
-<div class="container registration-containers mt-5 mb-5">
-    <form class="registration-form" action="includes/register.inc.php" method="post">
-        <!-- row 1 -->
-    <div class="row m-1" style="background-color: green;">
-        <div class="col border1">
-            <h6 class="text-center text-white">***PAKISAGUTAN LAHAT AT MAGSULAT NG MALALAKING LETRA LAMANG***</h6>
-        </div>
-    </div>
-    <div class="row m-1">
-        <div class="col border1 m-1">
-            <div class="form-check">
-                <input class="form-check-input" type="radio" value="New Id" id="new-id" name="idType" required>
-                <label class="form-check-label" for="new-id">
-                    NEW ID
-                </label>
-            </div>
-        </div>
-        <div class="col border1 m-1">
-            <div class="form-check">
-                <input class="form-check-input" type="radio" value="RENEWAL ID" id="renewal-id" name="idType">
-                <label class="form-check-label" for="renewal-id">
-                    RENEWAL ID
-                </label>
-            </div>
-        </div>
-        <div class="col border1 m-1">
-            <div class="form-check">
-                <input class="form-check-input" type="radio" value="LOST ID" id="lost-id" name="idType">
-                <label class="form-check-label" for="lost-id">
-                    LOST ID
-                </label>
-            </div>
-        </div>
-        <div class="col border1 m-1">
-            <div class="form-check">
-                <input class="form-check-input" type="radio" value="TRANSFER" id="transfer" name="idType">
-                <label class="form-check-label" for="transfer">
-                    TRANSFER
-                </label>
-                <input type="text" name="" id="" disabled>
-            </div>
-        </div>
-        <div class="col border1 m-1">
-            <div class="form-check">
-                <input class="form-check-input" type="radio" value="CHANGE INFO" id="change-info" name="idType">
-                <label class="form-check-label" for="change-info">
-                    CHANGE INFO
-                </label>
-                <input type="text" name="" id="" disabled>
-            </div>
-        </div>
-    </div>
-    <!-- row 2 -->
-    <div class="row m-1">
-        <div class="col">
-            <div class="row">
+    <!-- PWD -->
+    <div class="registration-container" id="pwd">
+        <div class="container registration-containers mt-5 mb-5">
+            <form class="registration-form" action="includes/register.inc.php" method="post">
+                <!-- row 1 -->
+            <div class="row m-1" style="background-color: green;">
                 <div class="col border1">
-                    <h5>PERSONS WITH DISABILITY NUMBER (RR-PPMM-BBB-NNNNNNN)</h5>
-                    <div>
-                        <label class="form-check-label" for="pwdNumber">0 4 3 4 2 8 0 </label>
-                        <input name="pwdNumber1" id="pwdNumber1" type="text" maxlength="2" size="2"> - <input name="pwdNumber2" id="pwdNumber2" type="text" maxlength="5" size="5">
+                    <h6 class="text-center text-white">***PAKISAGUTAN LAHAT AT MAGSULAT NG MALALAKING LETRA LAMANG***</h6>
+                </div>
+            </div>
+            <div class="row m-1">
+                <div class="col border1 m-1">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="New Id" id="new-id" name="idType" required>
+                        <label class="form-check-label" for="new-id">
+                            NEW ID
+                        </label>
                     </div>
                 </div>
-                <div class="col border1">
-                    <h5>DATE APPLIED (MM/DD/YYYY)</h5>
-                    <input class="form-control" type="date" name="dateApplied" id="dateApplied" value ="<?php echo date('Y-m-d') ?>" disabled>
+                <div class="col border1 m-1">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="RENEWAL ID" id="renewal-id" name="idType">
+                        <label class="form-check-label" for="renewal-id">
+                            RENEWAL ID
+                        </label>
+                    </div>
+                </div>
+                <div class="col border1 m-1">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="LOST ID" id="lost-id" name="idType">
+                        <label class="form-check-label" for="lost-id">
+                            LOST ID
+                        </label>
+                    </div>
+                </div>
+                <div class="col border1 m-1">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="TRANSFER" id="transfer" name="idType">
+                        <label class="form-check-label" for="transfer">
+                            TRANSFER
+                        </label>
+                        <input type="text" name="" id="" disabled>
+                    </div>
+                </div>
+                <div class="col border1 m-1">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="CHANGE INFO" id="change-info" name="idType">
+                        <label class="form-check-label" for="change-info">
+                            CHANGE INFO
+                        </label>
+                        <input type="text" name="" id="" disabled>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col border1">
-                    <h5>LAST NAME</h5>
-                    <?php
-                    require_once 'includes/dbh.inc.php'; 
-                    require_once 'includes/functions.inc.php';
-                        echo '<input class="form-control" type="text" name="lastName" id="lastName" value = "'; echo ($_SESSION['last_name']); echo '" disabled>';
-                    ?>
-                </div>
-                <div class="col border1">
-                    <h5>FIRST NAME</h5>
-                    <?php
-                    require_once 'includes/dbh.inc.php'; 
-                    require_once 'includes/functions.inc.php';
-                        echo '<input class="form-control" type="text" name="firstName" id="firstName" value = "'; echo ($_SESSION['first_name']); echo '" disabled>';
-                    ?>
-                </div>
-                <div class="col border1">
-                    <h5>MIDDLE NAME</h5>
-                    <?php
-                    require_once 'includes/dbh.inc.php'; 
-                    require_once 'includes/functions.inc.php';
-                        echo '<input class="form-control" type="text" name="middleName" id="middleName" value = "'; echo ($_SESSION['middle_name']); echo '" disabled>';
-                    ?>
-                </div>
-                <div class="col border1">
-                    <h5>SUFFIX</h5>
-                    <?php
-                    require_once 'includes/dbh.inc.php'; 
-                    require_once 'includes/functions.inc.php';
-                        echo '<input class="form-control" type="text" name="suffix" id="suffix" value = "'; echo ($_SESSION['suffix']); echo '" disabled>';
-                    ?>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-2 border1">
-            <div class="profile-pic-div">
-                <img src="images/image.jpg" id="photo">
-                <input type="file" id="file" accept="image/*">
-                <label class="required" for="file" id="uploadBtn">Choose Photo</label>
-            </div>
-        </div>
-    </div>
-    <!-- row 3 -->
-    <div class="row">
-        <div class="col border1">
-            <div class="row">
+            <!-- row 2 -->
+            <div class="row m-1">
                 <div class="col">
-                    <h5 class="required">TYPE OF DISABILITY</h5>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="Deaf/Hard of Hearing" id="deaf" name="typeOfDisability[]" required>
-                        <label class="form-check-label" for="deaf">
-                            Deaf/Hard of Hearing
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="Intellectual Disability" id="intellectualDisability" name="typeOfDisability[]">
-                        <label class="form-check-label" for="intellectualDisability">
-                            Intellectual Disability
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="Learning Disability" id="learningDisability" name="typeOfDisability[]">
-                        <label class="form-check-label" for="learningDisability">
-                            Learning Disability
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="Mental Disability" id="mentalDisability" name="typeOfDisability[]">
-                        <label class="form-check-label" for="mentalDisability">
-                            Mental Disability
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="Physical Disablity (Orthopedic)" id="physicalDisablity" name="typeOfDisability[]">
-                        <label class="form-check-label" for="physicalDisablity">
-                            Physical Disablity (Orthopedic)
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="Psychosocial Disability" id="psychosocialDisability" name="typeOfDisability[]">
-                        <label class="form-check-label" for="psychosocialDisability">
-                            Psychosocial Disability
-                        </label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="Speech and Language Impairment" id="speechAndLanguageImpairment" name="typeOfDisability[]">
-                        <label class="form-check-label" for="speechAndLanguageImpairment">
-                            Speech and Language Impairment
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="Visual Disability" id="visualDisability" name="typeOfDisability[]">
-                        <label class="form-check-label" for="visualDisability">
-                            Visual Disability
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="Cancer (RA11215)" id="cancer" name="typeOfDisability[]">
-                        <label class="form-check-label" for="cancer">
-                            Cancer (RA11215)
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="Rare Disease (RA10747)" id="rareDisease" name="typeOfDisability[]">
-                        <label class="form-check-label" for="rareDisease">
-                            Rare Disease (RA10747)
-                        </label>
-                    </div>
-                    <label class="form-check-label" for="medicalCondition">
-                        <h5>***MEDICAL CONDITION/DIAGNOSIS***</h5>
-                    </label>
-                    <input type="text" name="medicalCondition" id="medicalCondition">
-                </div>
-            </div>
-        </div>
-        
-        <div class="col border1">
-            <div class="row">
-                <h5 class="required">CAUSE OF DISABILITY</h5>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="Congenital/Inborn" id="inborn" name="causeOfDisability[]" disabled>
-                        <label class="form-check-label" for="inborn">
-                            <b>CONGENITAL/INBORN</b>
-                        </label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Autism" id="autism" name="congenital[]" onclick="congenitalCheckboxChecker();">
-                            <label class="form-check-label" for="autism">
-                                Autism
-                            </label>
+                    <div class="row">
+                        <div class="col border1">
+                            <h5>PERSONS WITH DISABILITY NUMBER (RR-PPMM-BBB-NNNNNNN)</h5>
+                            <div>
+                                <label class="form-check-label" for="pwdNumber">0 4 3 4 2 8 0 </label>
+                                <input name="pwdNumber1" id="pwdNumber1" type="text" maxlength="2" size="2"> - <input name="pwdNumber2" id="pwdNumber2" type="text" maxlength="5" size="5">
+                            </div>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="ADHD" id="adhd" name="congenital[]" onclick="congenitalCheckboxChecker();">
-                            <label class="form-check-label" for="adhd">
-                                ADHD
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Cerebral Palsy" id="cerebralPalsy" name="congenital[]" onclick="congenitalCheckboxChecker();">
-                            <label class="form-check-label" for="cerebralPalsy">
-                                Cerebral Palsy
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Down Syndrome" id="downSyndrome" name="congenital[]" onclick="congenitalCheckboxChecker();">
-                            <label class="form-check-label" for="downSyndrome">
-                                Down Syndrome
-                            </label>
+                        <div class="col border1">
+                            <h5>DATE APPLIED (MM/DD/YYYY)</h5>
+                            <input class="form-control" type="date" name="dateApplied" id="dateApplied" value ="<?php echo date('Y-m-d') ?>" disabled>
                         </div>
                     </div>
                     <div class="row">
-                        <h5 class="required">STATUS OF DISABILITY</h5>
-                        <div class="form-check col">
-                            <input class="form-check-input" type="radio" value="Permanent" id="permanent" name="statusOfDisability" required>
-                            <label class="form-check-label" for="permanent">
-                                Permanent
-                            </label>
+                        <div class="col border1">
+                            <h5>LAST NAME</h5>
+                            <?php
+                            require_once 'includes/dbh.inc.php'; 
+                            require_once 'includes/functions.inc.php';
+                                echo '<input class="form-control" type="text" name="lastName" id="lastName" value = "'; echo ($_SESSION['last_name']); echo '" disabled>';
+                            ?>
                         </div>
-                        <div class="form-check col">
-                            <input class="form-check-input" type="radio" value="Temporary" id="temporary" name="statusOfDisability">
-                            <label class="form-check-label" for="temporary">
-                                Temporary
-                            </label>
+                        <div class="col border1">
+                            <h5>FIRST NAME</h5>
+                            <?php
+                            require_once 'includes/dbh.inc.php'; 
+                            require_once 'includes/functions.inc.php';
+                                echo '<input class="form-control" type="text" name="firstName" id="firstName" value = "'; echo ($_SESSION['first_name']); echo '" disabled>';
+                            ?>
                         </div>
-                    </div> 
-                </div>
-                <div class="col">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="Acquired" id="acquired" name="causeOfDisability[]" disabled>
-                        <label class="form-check-label" for="acquired">
-                            <b>ACQUIRED</b>
-                        </label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Chronic Illness" id="chronicIllness" name="acquired[]" onclick="acquiredCheckboxChecker();">
-                            <label class="form-check-label" for="chronicIllness">
-                                Chronic Illness
-                            </label>
+                        <div class="col border1">
+                            <h5>MIDDLE NAME</h5>
+                            <?php
+                            require_once 'includes/dbh.inc.php'; 
+                            require_once 'includes/functions.inc.php';
+                                echo '<input class="form-control" type="text" name="middleName" id="middleName" value = "'; echo ($_SESSION['middle_name']); echo '" disabled>';
+                            ?>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Cerebral Palsy" id="acquiredCerebralPalsy" name="acquired[]" onclick="acquiredCheckboxChecker();">
-                            <label class="form-check-label" for="acquiredCerebralPalsy">
-                                Cerebral Palsy
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Injury" id="injury" name="acquired[]" onclick="acquiredCheckboxChecker();">
-                            <label class="form-check-label" for="injury">
-                                Injury
-                            </label>
+                        <div class="col border1">
+                            <h5>SUFFIX</h5>
+                            <?php
+                            require_once 'includes/dbh.inc.php'; 
+                            require_once 'includes/functions.inc.php';
+                                echo '<input class="form-control" type="text" name="suffix" id="suffix" value = "'; echo ($_SESSION['suffix']); echo '" disabled>';
+                            ?>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- row 4 -->
-    <div class="row">
-        <div class="col col-md-auto text-white border1" style="background-color: rgb(67, 67, 114);">
-            <h5>ADDRESS</h5>
-        </div>
-        <div class="col border1">
-            <h5 class="required">HOUSE NO. /Street Name/Subdivision</h5>
-            <input class="form-control" type="text" name="address" id="address" required>
-        </div>
-        <div class="col col-md-3 border1">
-            <h5 class="required">BARANGAY</h5>
-            <select class="form-select" id="barangay" name="barangay" required>
-                <option disabled selected value="">Please Select</option>
-                <option value="Aplaya">Aplaya</option>
-                <option value="Balibago">Balibago</option>
-                <option value="Caingin">Caingin</option>
-                <option value="Dila">Dila</option>
-                <option value="Dita">Dita</option>
-                <option value="Don Jose">Don Jose</option>
-                <option value="Ibaba">Ibaba</option>
-                <option value="Kalnuran">Kanluran</option>
-                <option value="Labas">Labas</option>
-                <option value="Macabling">Macabling</option>
-                <option value="Malitlit">Malitlit</option>
-                <option value="Malusak">Malusak</option>
-                <option value="Market Area">Market Area</option>
-                <option value="Pook">Pook</option>
-                <option value="Pulong Santa Cruz">Pulong Santa Cruz</option>
-                <option value="Santo Domingo">Santo Domingo</option>
-                <option value="Sinalhan">Sinalhan</option>
-                <option value="Tagapo">Tagapo</option>
-            </select>
-        </div>
-    </div>
-    <!-- row 5 -->
-    <div class="row">
-        <div class="col border1"><b>CITY/MUNICIPALITY: </b>CITY OF SANTA ROSA</div>
-        <div class="col border1"><b>PROVINCE: </b>LAGUNA</div>
-        <div class="col border1"><b>REGION: </b>IV-A (CALABARZON)</div>
-    </div>
-    <!-- row 6 -->
-    <div class="row">
-        <div class="col col-md-auto text-white border1" style="background-color: rgb(67, 67, 114);">
-            <h5>CONTACT DETAILS</h5>
-        </div>
-        <div class="col border1">
-            <label class="form-check-label" for="landline">
-                LANDLINE
-            </label>
-            <input class="form-control" type="text" name="landline" id="landline" maxlength="10" size="10">
-        </div>
-        <div class="col border1">
-            <label class="form-check-label" for="mobileNumber">
-                MOBILE NO. OF PWD
-            </label>
-            <input class="form-control" type="text" name="mobileNumber" id="mobileNumber" maxlength="11" size="11">
-        </div>
-        <div class="col col-md-auto border1">
-            <label class="form-check-label" for="email">
-                EMAIL ADDRESS
-            </label>
-            <?php
-                require_once 'includes/dbh.inc.php'; 
-                require_once 'includes/functions.inc.php';
-                    echo '<input class="form-control" type="text" name="email" id="email" value = "'; echo ($_SESSION['email']); echo '" disabled>';
-            ?>
-        </div>
-    </div>
-    <!-- row 7 -->
-    <div class="row">
-        <div class="col border1">
-            <b class="required">DATE OF BIRTH (mm/dd/yyyy)</b><br>
-            <input type="date" name="dob" id="dob" required>
-        </div>
-        <div class="col col-md-auto border1">
-            <b class="required">SEX</b>
-            <div class="form-check">
-                <input class="form-check-input" value="Male" type="radio" name="sex" id="male" required>
-                <label class="form-check-label" for="male">
-                    Male
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" value="Female" type="radio" name="sex" id="female">
-                <label class="form-check-label" for="female">
-                    Female
-                </label>
-            </div>
-        </div>
-        <div class="col col-md-auto border1">
-            <b class="required">RELIGION</b><br>
-            <input type="text" name="religion" id="religion" required>
-        </div>
-        <div class="col border1">
-            <b class="required">CIVIL STATUS</b>
-            <div class="col">
-                <div class="row">
-                    <div class="col">
-                        <div class="form-check">
-                            <input class="form-check-input" value="Single" type="radio" name="civilStatus" id="single" required>
-                            <label class="form-check-label" for="single">
-                                Single
-                            </label>
-                        </div>
+                <div class="col-sm-2 border1">
+                    <div class="profile-pic-div">
+                        <img src="images/image.jpg" id="photo">
+                        <input type="file" id="file" accept="image/*">
+                        <label class="required" for="file" id="uploadBtn">Choose Photo</label>
                     </div>
-                    <div class="col">
-                        <div class="form-check">
-                            <input class="form-check-input" value="Separated" type="radio" name="civilStatus" id="separated">
-                            <label class="form-check-label" for="separated">
-                                Separated
-                            </label>
+                </div>
+            </div>
+            <!-- row 3 -->
+            <div class="row">
+                <div class="col border1">
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="required">TYPE OF DISABILITY</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Deaf/Hard of Hearing" id="deaf" name="typeOfDisability[]" required>
+                                <label class="form-check-label" for="deaf">
+                                    Deaf/Hard of Hearing
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Intellectual Disability" id="intellectualDisability" name="typeOfDisability[]">
+                                <label class="form-check-label" for="intellectualDisability">
+                                    Intellectual Disability
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Learning Disability" id="learningDisability" name="typeOfDisability[]">
+                                <label class="form-check-label" for="learningDisability">
+                                    Learning Disability
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Mental Disability" id="mentalDisability" name="typeOfDisability[]">
+                                <label class="form-check-label" for="mentalDisability">
+                                    Mental Disability
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Physical Disablity (Orthopedic)" id="physicalDisablity" name="typeOfDisability[]">
+                                <label class="form-check-label" for="physicalDisablity">
+                                    Physical Disablity (Orthopedic)
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Psychosocial Disability" id="psychosocialDisability" name="typeOfDisability[]">
+                                <label class="form-check-label" for="psychosocialDisability">
+                                    Psychosocial Disability
+                                </label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-check">
-                            <input class="form-check-input" value="Cohabitation (Live-in)" type="radio" name="civilStatus" id="cohabitation">
-                            <label class="form-check-label" for="cohabitation">
-                                Cohabitation (Live-in)
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Speech and Language Impairment" id="speechAndLanguageImpairment" name="typeOfDisability[]">
+                                <label class="form-check-label" for="speechAndLanguageImpairment">
+                                    Speech and Language Impairment
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Visual Disability" id="visualDisability" name="typeOfDisability[]">
+                                <label class="form-check-label" for="visualDisability">
+                                    Visual Disability
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Cancer (RA11215)" id="cancer" name="typeOfDisability[]">
+                                <label class="form-check-label" for="cancer">
+                                    Cancer (RA11215)
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Rare Disease (RA10747)" id="rareDisease" name="typeOfDisability[]">
+                                <label class="form-check-label" for="rareDisease">
+                                    Rare Disease (RA10747)
+                                </label>
+                            </div>
+                            <label class="form-check-label" for="medicalCondition">
+                                <h5>***MEDICAL CONDITION/DIAGNOSIS***</h5>
                             </label>
+                            <input type="text" name="medicalCondition" id="medicalCondition">
                         </div>
                     </div>
                 </div>
                 
-            </div>
-             <div class="col">
-                <div class="row">
-                    <div class="col">
-                        <div class="form-check">
-                            <input class="form-check-input" value="Married" type="radio" name="civilStatus" id="married">
-                            <label class="form-check-label" for="married">
-                                Married
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-check">
-                            <input class="form-check-input" value="Widow/er" type="radio" name="civilStatus" id="widow">
-                            <label class="form-check-label" for="widow">
-                                Widow/er
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col">
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- row 8 -->
-    <div class="row">
-        <div class="col border1">
-            <b class="required">EDUCATIONAL ATTAINMENT</b>
-            <div class="form-check">
-                <input class="form-check-input" value="None" type="radio" name="educationalAttainment" id="none" required>
-                <label class="form-check-label" for="none">
-                    None
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" value="Kindergarten" type="radio" name="educationalAttainment" id="kindergarten" required>
-                <label class="form-check-label" for="kindergarten">
-                    Kindergarten
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" value="Elementary Education" type="radio" name="educationalAttainment" id="elementaryEducation">
-                <label class="form-check-label" for="elementaryEducation">
-                    Elementary Education
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" value="Junior High School" type="radio" name="educationalAttainment" id="juniorHighSchool">
-                <label class="form-check-label" for="juniorHighSchool">
-                    Junior High School
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" value="Senior High School" type="radio" name="educationalAttainment" id="seniorHighSchool">
-                <label class="form-check-label" for="seniorHighSchool">
-                    Senior High School
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" value="College" type="radio" name="educationalAttainment" id="college">
-                <label class="form-check-label" for="college">
-                    College
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" value="Vocational" type="radio" name="educationalAttainment" id="vocational">
-                <label class="form-check-label" for="vocational">
-                    Vocational
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" value="Post Graduate Program" type="radio" name="educationalAttainment" id="postGraduateProgram">
-                <label class="form-check-label" for="postGraduateProgram">
-                    Post Graduate Program
-                </label>
-            </div>
-            <b class="required">ARE YOU (PWD) AN ACTIVE VOTER IN</b><br><b>SANTA ROSA, LAGUNA?</b>
-            <div class="form-check">
-                <input class="form-check-input" value="Yes" type="radio" name="isVoter" id="yes" required>
-                <label class="form-check-label" for="yes">
-                    Yes
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" value="No" type="radio" name="isVoter" id="no">
-                <label class="form-check-label" for="no">
-                    No
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" value="17 Below" type="radio" name="isVoter" id="17below">
-                <label class="form-check-label" for="17below">
-                    17 Below
-                </label>
-            </div>
-        </div>
-        <div class="col border1">
-            <div class="row border1">
-                <b class="required">EMPLOYMENT STATUS</b>
-                <div class="col">
-                    <div class="form-check">
-                        <input class="form-check-input" value="Employed" type="radio" name="employmentStatus" id="employed" required>
-                        <label class="form-check-label" for="employed">
-                            Employed
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" value="Unemployed" type="radio" name="employmentStatus" id="unemployed">
-                        <label class="form-check-label" for="unemployed">
-                            Unemployed
-                        </label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-check">
-                        <input class="form-check-input" value="Self-employed" type="radio" name="employmentStatus" id="selfEmployed">
-                        <label class="form-check-label" for="selfEmployed">
-                            Self-employed
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" value="Student" type="radio" name="employmentStatus" id="student">
-                        <label class="form-check-label" for="student">
-                            Student
-                        </label>
-                    </div>
-                </div>
-                <b>INCOME IF EMPLOYED/SELF-EMPLOYED</b>
-                <div class="col">
-                    <div class="form-check">
-                        <input class="form-check-input" value="Less than 10,000" type="radio" name="income" id="l10">
-                        <label class="form-check-label" for="l10">
-                            Less than 10,000
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" value="10,000 - 20, 000" type="radio" name="income" id="10t-20t">
-                        <label class="form-check-label" for="10t-20t">
-                            10,000 - 20, 000
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" value="21,000 - 40,000" type="radio" name="income" id="21t-40t">
-                        <label class="form-check-label" for="21t-40t">
-                            21,000 - 40,000
-                        </label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-check">
-                        <input class="form-check-input" value="41,000 - 100,000" type="radio" name="income" id="41t-100t">
-                        <label class="form-check-label" for="41t-100t">
-                            41,000 - 100,000
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" value="More than 100,000" type="radio" name="income" id="m100t">
-                        <label class="form-check-label" for="m100t">
-                            More than 100,000
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="row border1">
-                <b>CATEGORY OF EMPLOYMENT</b>
-                <div class="col">
-                    <div class="form-check">
-                        <input class="form-check-input" value="Government" type="radio" name="categoryOfEmployment" id="government">
-                        <label class="form-check-label" for="government">
-                            Government
-                        </label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-check">
-                        <input class="form-check-input" value="Private" type="radio" name="categoryOfEmployment" id="private">
-                        <label class="form-check-label" for="private">
-                            Private
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="row border1">
-                <b>NATURE OF EMPLOYMENT</b>
-                <div class="col">
-                    <div class="form-check">
-                        <input class="form-check-input" value="Permanent/Regular" type="radio" name="natureOfEmployment" id="permanent/regular">
-                        <label class="form-check-label" for="permanent/regular">
-                            Permanent/Regular
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" value="Seasonal" type="radio" name="natureOfEmployment" id="seasonal">
-                        <label class="form-check-label" for="seasonal">
-                            Seasonal
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" value="Casual" type="radio" name="natureOfEmployment" id="casual">
-                        <label class="form-check-label" for="casual">
-                            Casual
-                        </label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-check">
-                        <input class="form-check-input" value="Emergency" type="radio" name="natureOfEmployment" id="emergency">
-                        <label class="form-check-label" for="emergency">
-                            Emergency
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col border1">
-            <b>OCCUPATION</b>
-            <div class="form-check">
-                <input class="form-check-input" value="Managers" type="radio" name="occupation" id="managers">
-                <label class="form-check-label" for="managers">
-                    Managers
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" value="Professionals" type="radio" name="occupation" id="professionals">
-                <label class="form-check-label" for="professionals">
-                    Professionals
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" value="Technician & Associate Professionals" type="radio" name="occupation" id="technicianAndAssociateProfessionals">
-                <label class="form-check-label" for="technicianAndAssociateProfessionals">
-                    Technician & Associate Professionals
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" value="Clerical Support Workers" type="radio" name="occupation" id="clericalSupportWorkers">
-                <label class="form-check-label" for="clericalSupportWorkers">
-                    Clerical Support Workers
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" value="Service & Sales Workers" type="radio" name="occupation" id="serviceAndSalesWorkers">
-                <label class="form-check-label" for="serviceAndSalesWorkers">
-                    Service & Sales Workers
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" value="Skilled Agricultural, Forestry & Fishery Workers" type="radio" name="occupation" id="skilledAgricultural">
-                <label class="form-check-label" for="skilledAgricultural">
-                    Skilled Agricultural, Forestry & Fishery Workers
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" value="Craft & Related Trade Workers" type="radio" name="occupation" id="tradeWorkers">
-                <label class="form-check-label" for="tradeWorkers">
-                    Craft & Related Trade Workers 
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" value="Plant & Machine Operators & Assemblers" type="radio" name="occupation" id="machineOperator">
-                <label class="form-check-label" for="machineOperator">
-                    Plant & Machine Operators & Assemblers
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" value="Elementary Occupations" type="radio" name="occupation" id="elementaryOccupations">
-                <label class="form-check-label" for="elementaryOccupations">
-                    Elementary Occupations
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="occupation" id="others">
-                <label class="form-check-label" for="others">
-                    Others, specify
-                </label>
-                <input type="text" name="otherOccupation" id="otherOccupation">
-            </div>
-            <div class="row border1">
-                <b class="required">Are you or any of your family member a 4p's beneficiary?</b>
-                <div class="form-check">
-                    <input class="form-check-input" value="Yes" type="radio" name="4psBeneficiary" id="4psyes" required>
-                    <label class="form-check-label" for="4psyes">
-                        Yes
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" value="No" type="radio" name="4psBeneficiary" id="4psno">
-                    <label class="form-check-label" for="4psno">
-                        No
-                    </label>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- row 9 -->
-    <div class="row">
-        <div class="col col-md-auto border1">
-            <b>BLOOD TYPE (Leave blank if you don't know)</b>
-            <div class="row">
-                <div class="col">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="A+" name="bloodType" id="A+">
-                        <label class="form-check-label" for="A+">
-                            A+
-                        </label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="AB+" name="bloodType" id="AB+">
-                        <label class="form-check-label" for="AB+">
-                            AB+
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="A-" name="bloodType" id="A-">
-                        <label class="form-check-label" for="A-">
-                            A-
-                        </label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="AB-" name="bloodType" id="AB-">
-                        <label class="form-check-label" for="AB-">
-                            AB-
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="B+" name="bloodType" id="B+">
-                        <label class="form-check-label" for="B+">
-                            B+
-                        </label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="O+" name="bloodType" id="O+">
-                        <label class="form-check-label" for="O+">
-                            O+
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="B-" name="bloodType" id="B-">
-                        <label class="form-check-label" for="B-">
-                            B-
-                        </label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="O-" name="bloodType" id="O-">
-                        <label class="form-check-label" for="O-">
-                            O-
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col border1">
-            <div class="row">
-                <label class="form-check-label" for="organization">
-                <b>ORGANIZATION AFFILIATED</b>
-                </label>
-                <input type="text" name="organization" id="organization">
-            </div>
-            <div class="row">
-                <label class="form-check-label" for="contactPerson">
-                <b>CONTACT PERSON</b>
-                </label>
-                <input type="text" name="contactPerson" id="contactPerson">
-            </div>
-            <div class="row">
-                <label class="form-check-label" for="officeAddress">
-                <b>OFFICE ADDRESS</b>
-                </label>
-                <input type="text" name="officeAddress" id="officeAddress">
-            </div>
-            <div class="row">
-                <label class="form-check-label" for="telNumber">
-                <b>TEL. NO.</b>
-                </label>
-                <input type="text" name="telNumber" id="telNumber">
-            </div>       
-        </div>
-        <div class="col border1">
-            <b>ID REFERENCE NO.</b>
-            <div class="row">
-                <label class="form-check-label" for="sssNumber">
-                    <b>SSS NO. :</b>
-                </label>
-                <input type="tel" name="sssNumber" id="sssNumber">
-            </div>
-            <div class="row">
-                <label class="form-check-label" for="gsisNumber">
-                    <b>GSIS No. :</b>
-                </label>
-                <input type="text" name="gsisNumber" id="gsisNumber">
-            </div>
-            <div class="row">
-                <label class="form-check-label" for="psnNumber">
-                    <b>PSN NO. :</b>
-                </label>
-                <input type="text" name="psnNumber" id="psnNumber">
-            </div>
-            <div class="row">
-                <label class="form-check-label" for="philHealthNumber">
-                     <b>PHILHEALTH NO. :</b>
-                </label>
-               <input type="text" name="philHealthNumber" id="philHealthNumber">
-                <div class="row">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="PhilHealth Member" name="philHealthMemberType" id="philHealthMember">
-                        <label class="form-check-label" for="philHealthMember">
-                            PhilHealth Member
-                        </label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="PhilHealth Member-Dependent" name="philHealthMemberType" id="philHealthMemberDependent">
-                        <label class="form-check-label" for="philHealthMemberDependent">
-                            PhilHealth Member-Dependent
-                        </label>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </div>
-    <!-- row 10 -->
-    <div class="row">
-        <div class="col col-md-auto border1">
-            <div class="row text-white" style="background-color: rgb(67, 67, 114);">
-                <b>FAMILY BACKGROUND</b>
-            </div>
-            <div class="row">
-                <b>FATHER'S NAME</b>
-            </div>
-            <div class="row">
-                <b>MOTHER"S NAME</b>
-            </div>
-            <div class="row text-white" style="background-color: rgb(67, 67, 114);">
-                <b>GUARDIAN's NAME</b>
-            </div>
-        </div>
-        <div class="col border1">
-            <div class="row text-white" style="background-color: rgb(67, 67, 114);">
-                <b>LAST NAME</b>
-            </div>
-            <div class="row">
-                <input type="text" name="fatherLastName" id="fatherLastName">
-            </div>
-            <div class="row">
-                <input type="text" name="motherLastName" id="motherLastName">
-            </div>
-            <div class="row">
-                <input type="text" name="guardianLastName" id="guardianLastName">
-            </div>
-        </div>
-        <div class="col border1">
-            <div class="row text-white" style="background-color: rgb(67, 67, 114);">
-                <b>FIRST NAME</b>
-            </div>
-            <div class="row">
-                <input type="text" name="fatherFirstName" id="fatherFirstName">
-            </div>
-            <div class="row">
-                <input type="text" name="motherFirstName" id="motherFirstName">
-            </div>
-            <div class="row">
-                <input type="text" name="guardianFirstName" id="guardianFirstName">
-            </div>
-        </div>
-        <div class="col border1">
-            <div class="row text-white" style="background-color: rgb(67, 67, 114);">
-                <b>MIDDLE NAME</b>
-            </div>
-            <div class="row">
-                <input type="text" name="fatherMiddleName" id="fatherMiddleName">
-            </div>
-            <div class="row">
-                <input type="text" name="motherMiddleName" id="motherMiddleName">
-            </div>
-            <div class="row">
-                <input type="text" name="guardianMiddleName" id="guardianMiddleName">
-            </div>
-        </div>
-    </div>
-    <!-- row 11 -->
-    <div class="row">
-        <div class="col border1">
-            <label class="form-check-label" for="guardianRelationship">
-            <b>KAANU-ANO NG PWD AND GUARDIAN: </b>
-            </label>
-             <input type="text" name="guardianRelationship" id="guardianRelationship">
-        </div>
-        <div class="col border1">
-            <label class="form-check-label" for="guardianContactNumber">
-            <b class="text-white" style="background-color: rgb(67, 67, 114);">GUARDIAN'S CONTACT NO.: </b>
-            </label>
-            <input type="text" name="guardianContactNumber" id="guardianContactNumber">
-        </div>
-    </div>
-    <!-- row 12 -->
-    <div class="row">
-        <div class="col col-md-auto border1">
-            <b class="required">ACCOMPLISHED BY: </b>
-            <input class="form-check-input" type="radio" value="Applicant" name="accomplishedBy" id="applicant" required>
-            <label class="form-check-label" for="applicant">
-                Applicant
-            </label>
-            <input class="form-check-input" type="radio" value="Guardian" name="accomplishedBy" id="guardian">
-            <label class="form-check-label" for="guardian">
-                Guardian
-            </label>
-
-            <input class="form-check-input" type="radio" value="Representative" name="accomplishedBy" id="representative">
-            <label class="form-check-label" for="representative">
-                Representative  
-            </label>
-        </div>
-        <div class="col border1">
-            <label class="form-check-label" for="nameOfAccomplisher">
-                <b class="required">NAME: </b>  
-            </label>
-            <input type="text" name="nameOfAccomplisher" id="nameOfAccomplisher" required>
-        </div>
-    </div>
-    <!-- row 13 -->
-    <div class="row">
-        <div class="col border1">
-            <label class="form-check-label" for="nameOfPhysician">
-                <b class="text-white required" style="background-color: rgb(67, 67, 114);">NAME OF CERTIFYING PHYSICIAN: </b>
-            </label>
-            <input type="text" name="nameOfPhysician" id="nameOfPhysician" required>
-        </div>
-        <div class="col border1">
-            <label class="form-check-label" for="licenseNumber">
-                <b class="text-white required" style="background-color: rgb(67, 67, 114);">LICENSE NO.: </b> 
-            </label>
-            <input type="text" name="licenseNumber" id="licenseNumber" required>
-        </div>
-    </div>
-    <!-- row 14 -->
-    <div class="row">
-        <hr><b>To be filled out by Persons with Disability Affairs Office Staff</b>
-    </div>
-    <!-- row 15 -->
-    <div class="row">
-        <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
-            <b>NAME OF REPORTING UNIT: </b>
-        </div>
-        <div class="col border1">
-            <b>PERSONS WITH DISABILITY AFFAIRS OFFICE - CITY OF SANTA ROSA, LAGUNA</b>
-        </div>
-    </div>
-    <!-- row 16 -->
-    <div class="row">
-        <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
-            <label class="form-check-label" for="controlNumber">
-                <b>CONTROL NO.: </b>
-            </label>
-        </div>
-        <div class="col border1">
-            <input type="text" name="controlNumber" id="controlNumber">
-        </div>
-        <div class="col border1">
-            <label class="form-check-label" for="#">
-                <b style="color: red;">#</b>
-            </label>
-            <input type="text" name="#" id="#">
-        </div>
-        <div class="col col-md-3 border1">
-            <b class="text-white" style="background-color: rgb(67, 67, 114);">DATE: </b><input type="date" name="" id="">
-        </div>
-    </div>
-    <!-- row 17 -->
-    <div class="row">
-        <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
-            <b>RECEIVING: </b>
-        </div>
-        <div class="col border1">
-            <input class="form-check-input" type="radio" value="MANETTE CERIN" name="receiving" id="receivingManetteCerin">
-            <label class="form-check-label" for="receivingManetteCerin">
-                MANETTE CERIN
-            </label>
-            <input class="form-check-input" type="radio" value="PDAO STAFF" name="receiving" id="receivingPDAOStaff">
-            <label class="form-check-label" for="receivingPDAOStaff">
-                PDAO STAFF
-            </label>
-            <input type="text" name="receivingPDAOStaff" id="receivingPDAOStaff">
-        </div>
-        <div class="col col-md-3 border1 custom-file">
-            <label class="custom-file-label" for="receivingSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
-            <input type="file" name="receivingSignature" id="receivingSignature" accept="image/*">
-        </div>
-    </div>
-    <!-- row 18 -->
-    <div class="row">
-        <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
-            <b>VERIFICATION: </b>
-        </div>
-         <div class="col border1">
-            <input class="form-check-input" type="radio" value="MARIMAM HALDOS" name="verification" id="verificationMarimamHaldos">
-            <label class="form-check-label" for="verificationMarimamHaldos">
-                MARIMAM HALDOS
-            </label>
-            <input class="form-check-input" type="radio" value="MITCHELLE MANLANGIT" name="verification" id="verificationMitchelle">
-            <label class="form-check-label" for="verificationMitchelle">
-                MITCHELLE MANLANGIT
-            </label>
-            <input class="form-check-input" type="radio" value="RENERSON CERIN" name="verification" id="verificationRenerson">
-            <label class="form-check-label" for="verificationRenerson">
-                RENERSON CERIN
-            </label>
-        </div>
-        <div class="col col-md-3 border1">
-            <label class="custom-file-label" for="verificationSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
-            <input type="file" name="verificationSignature" id="verificationSignature" accept="image/*">
-        </div>
-    </div>
-    <!-- row 19 -->
-    <div class="row">
-        <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
-            <b>APPROVING OFFICER: </b>
-        </div>
-         <div class="col border1">
-            <input class="form-check-input" type="radio" value="MARRIE ROSE YACAT" name="approvingOfficer" id="approvingOfficerMarrieRose">
-            <label class="form-check-label" for="approvingOfficerMarrieRose">
-                MARRIE ROSE YACAT
-            </label>
-            <input class="form-check-input" type="radio" value="RENERSON CERIN" name="approvingOfficer" id="approvingOfficerRenerson">
-            <label class="form-check-label" for="approvingOfficerRenerson">
-                RENERSON CERIN
-            </label>
-        </div>
-        <div class="col col-md-3 border1">
-            <label class="custom-file-label" for="approvingOfficerSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
-            <input type="file" name="approvingOfficerSignature" id="approvingOfficerSignature" accept="image/*">
-        </div>
-    </div>
-    <!-- row 20 -->
-    <div class="row">
-        <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
-            <b>PROCESSING OFFICER: </b>
-        </div>
-        <div class="col border1">
-            <input class="form-check-input" type="radio" value="MANETTE CERIN" name="processingOfficer" id="processingOfficerManetteCerin">
-            <label class="form-check-label" for="processingOfficerManetteCerin">
-                MANETTE CERIN
-            </label>
-            <input class="form-check-input" type="radio" value="PDAO STAFF" name="processingOfficer" id="processingOfficerPDAOStaff">
-            <label class="form-check-label" for="processingOfficerPDAOStaff">
-                PDAO STAFF
-            </label>
-            <input type="text" name="processingOfficerPDAOStaff" id="processingOfficerPDAOStaff">
-        </div>
-        <div class="col col-md-3 border1">
-            <label class="custom-file-label" for="processingOfficerSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
-            <input type="file" name="processingOfficerSignature" id="processingOfficerSignature" accept="image/*">
-        </div>
-    </div>
-    <!-- row 21 -->
-    <div class="row">
-        <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
-            <b>RELEASING: </b>
-        </div>
-        <div class="col border1">
-            <input class="form-check-input" type="radio" value="MANETTE CERIN" name="releasing" id="releasingManetteCerin">
-            <label class="form-check-label" for="releasingManetteCerin">
-                MANETTE CERIN
-            </label>
-            <input class="form-check-input" type="radio" value="PDAO STAFF" name="releasing" id="releasingPDAOStaff">
-            <label class="form-check-label" for="releasingPDAOStaff">
-                PDAO STAFF
-            </label>
-            <input type="text" name="releasingPDAOStaff" id="releasingPDAOStaff">
-        </div>
-        <div class="col col-md-3 border1">
-            <label class="custom-file-label" for="releasingSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
-            <input type="file" name="releasingSignature" id="releasingSignature" accept="image/*">
-        </div>
-    </div>
-    <!-- row 22 -->
-    <div class="row">
-        <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
-            <b>ENCODER: </b>
-        </div>
-         <div class="col border1">
-            <input class="form-check-input" type="radio" value="NOLAND AZURES" name="encoder" id="encoderNolandAzures">
-            <label class="form-check-label" for="encoderNolandAzures">
-                NOLAND AZURES
-            </label>
-            <input class="form-check-input" type="radio" value="ANGELICA PAPAG" name="encoder" id="encoderAngelicaPapag">
-            <label class="form-check-label" for="encoderAngelicaPapag">
-                ANGELICA PAPAG
-            </label>
-            <input class="form-check-input" type="radio" value="PETERSON CARASCO" name="encoder" id="encoderPetersonCarasco">
-            <label class="form-check-label" for="encoderPetersonCarasco">
-                PETERSON CARASCO
-            </label>
-        </div>
-        <div class="col col-md-3 border1">
-            <label class="custom-file-label" for="receivingSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
-            <input type="file" name="receivingSignature" id="receivingSignature" accept="image/*">
-        </div>
-    </div>
-    <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="pwd-register" name="pwd-register">
-    </form>
-</div>
-<?php 
-    include('footer.html');
-?>
-</div>
-<!-- Solo Parent -->
-<div class="registration-container" id="solo-parent">
-<div class="container registration-containers mt-5 mb-5">
-    <form class="registration-form" action="includes/register.inc.php" method="post">
-        <div class="row m-1">
-                <h2 class="display-20">APPLICATION FORM:</h2>
-        </div>
-        <div class="row m-1">
-                <div class="">
-                    <h2 class="display-20 text-center" >SOLO PARENT IDENTIFICATION CARD</h2>
-                </div>
-        </div>
-        <div class="row align-items-start">
-            <div class="col form-group">
-                <label class="" for="name">Name</label>
-                <input class="form-control" type="text" id="name2" name="name" required>
-            </div>
-            <div class="col-2 form-group">
-                <label class="" for="age">Age</label>
-                <input class="form-control" type="text" id="age" name="age" disabled>
-            </div>
-            <div class="col-2 form-group">
-                <label class="" for="sex">Sex </label>
-                <select class="form-select" id="sex" name="sex">
-                    <option disabled selected value="">Please Select</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                </select>
-               
-            </div>
-        </div>
-
-        <div class="row align-items-start">
-            <div class="col form-group">
-                <label class="" for="birth">Date of Birth </label>
-                <input class="form-control" type="date" id="birth" name="birth" required>
-            </div>
-            <div class="col form-group">
-                <label class="" for="birthplace">Place of Birth </label>
-                <input class="form-control" type="text" id="birthplace" name="birthplace" required>
-            </div>
-        </div>
-
-        <div class="row align-items-start">
-            <div class="col">
-                <label for="address">Address</label>
-                <input class="form-control" type="text" id="address" name="address" required>
-            </div>
-            <div class="col">
-                <label for="address">Barangay</label>
-                <select class="form-select" id="barangay" name="barangay">
-                    <option disabled selected value="">Please Select</option>
-                    <option value="Aplaya">Aplaya</option>
-                    <option value="Balibago">Balibago</option>
-                    <option value="Caingin">Caingin</option>
-                    <option value="Dila">Dila</option>
-                    <option value="Dita">Dita</option>
-                    <option value="Don Jose">Don Jose</option>
-                    <option value="Ibaba">Ibaba</option>
-                    <option value="Kalnuran">Kanluran</option>
-                    <option value="Labas">Labas</option>
-                    <option value="Macabling">Macabling</option>
-                    <option value="Malitlit">Malitlit</option>
-                    <option value="Malusak">Malusak</option>
-                    <option value="Market Area">Market Area</option>
-                    <option value="Pook">Pook</option>
-                    <option value="Pulong Santa Cruz">Pulong Santa Cruz</option>
-                    <option value="Santo Domingo">Santo Domingo</option>
-                    <option value="Sinalhan">Sinalhan</option>
-                    <option value="Tagapo">Tagapo</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="row align-items-start">
-            <div class="col">
-                <label for="educational">Highest Educational Attainment</label>
-                <input class="form-control" type="text" id="educational" name="educational" required>
-            </div>
-        </div>
-
-        <div class="row align-items-start">
-            <div class="col">
-                <label for="occupation">Occupation</label>
-                <input class="form-control" type="text" id="occupation" name="occupation" required>
-            </div>
-            <div class="col">
-                <label for="income">Monthly Income</label>
-                <input class="form-control" type="text" id="income" name="income" required>
-            </div>
-        </div>
-
-        <div class="row align-items-start">
-            <div class="col">
-                <label for="famincome">Total Monthly Family Income</label>
-                <input class="form-control" type="text" id="famincome" name="famincome" required>
-            </div>
-        </div>
-
-        <div class="row align-items-start">
-            <div class="col">
-                <label for="tenurial">Tenurial Status</label>
-                <input class="form-control" type="text" id="tenurial" name="tenurial" required>
-            </div>
-        </div>
-
-        <div class="row align-items-start">
-            <div class="col">
-                <label for="religion">Religion</label>
-                <input class="form-control" type="text" id="religion" name="religion" required>
-            </div>
-            <div class="col">
-                <label for="contact2">Contact no.</label>
-                <input class="form-control" type="text" id="contact" name="contact" required>
-            </div>
-        </div>
-        <div class="row m-1">
-            <div class="">
-                <h5 class="" >Marital Status (Please check):</h5>
-            </div>
-        </div>
-        <div class="row align-items-start">
-            <div class="col ml-5">
-                <input class="form-check-input" type="radio" value="Single" name="marital-status" id="single">
-                <label class="form-check-label" for="single">
-                Single
-                </label>
-            </div>
-            <div class="col ml-5">
-                <input class="form-check-input" type="radio" value="Annulled" name="marital-status" id="annulled">
-                <label class="form-check-label" for="annulled">
-                Annulled
-                </label>
-            </div>
-            <div class="col ml-5">
-                <input class="form-check-input" type="radio" value="Widow/Widower" name="marital-status" id="widow">
-                <label class="form-check-label" for="widow">
-                    Widow/Widower
-                </label>
-            </div>
-        </div>
-        <div class="row align-items-start">
-            <div class="col ml-5">
-                <input class="form-check-input" type="radio" value="Married" name="marital-status" id="married">
-                <label class="form-check-label" for="married">
-                Married
-                </label>
-            </div>
-            
-            <div class="col ml-5">
-                <input class="form-check-input" type="radio" value="Separated" name="marital-status" id="separated">
-                <label class="form-check-label" for="separated">
-                    Separated(w/certificate of Legal Separation)
-                </label>
-            </div>
-            <div class="col">
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row align-items-start">
-                <div class="">
-                    <h5 class="" >I.Family Composition</h5>
-                </div>
-            </div>
-            <div class="container-fluid">
+                <div class="col border1">
                     <div class="row">
-                        <b class="col">Name</b>
-                        <b class="col">Relationship</b>
-                        <b class="col">Age</b>
-                        <b class="col">Civil Status</b>
-                        <b class="col">Educational Attainment</b>
-                        <b class="col">Occupation</b>
-                        <b class="col">Monthly Income</b>
+                        <h5 class="required">CAUSE OF DISABILITY</h5>
                     </div>
                     <div class="row">
-                        <input type="text" class="text col">
-                        <input type="text" class="text col">
-                        <input type="text" class="text col">
-                        <select class="col form-select" id="id-type" name="id-type">
-                            <option disabled selected value="">Please Select</option>
-                            <option value="Single">Single</option>
-                            <option value="Annulled">Annulled</option>
-                            <option value="Widow">Widow/Widower</option>
-                            <option value="Married">Married</option>
-                            <option value="Separated">Separated</option>
-                        </select>
-                        <input type="text" class="text col">
-                        <input type="text" class="text col">
-                        <input type="text" class="text col">
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Congenital/Inborn" id="inborn" name="causeOfDisability[]" disabled>
+                                <label class="form-check-label" for="inborn">
+                                    <b>CONGENITAL/INBORN</b>
+                                </label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="Autism" id="autism" name="congenital[]" onclick="congenitalCheckboxChecker();">
+                                    <label class="form-check-label" for="autism">
+                                        Autism
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="ADHD" id="adhd" name="congenital[]" onclick="congenitalCheckboxChecker();">
+                                    <label class="form-check-label" for="adhd">
+                                        ADHD
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="Cerebral Palsy" id="cerebralPalsy" name="congenital[]" onclick="congenitalCheckboxChecker();">
+                                    <label class="form-check-label" for="cerebralPalsy">
+                                        Cerebral Palsy
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="Down Syndrome" id="downSyndrome" name="congenital[]" onclick="congenitalCheckboxChecker();">
+                                    <label class="form-check-label" for="downSyndrome">
+                                        Down Syndrome
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <h5 class="required">STATUS OF DISABILITY</h5>
+                                <div class="form-check col">
+                                    <input class="form-check-input" type="radio" value="Permanent" id="permanent" name="statusOfDisability" required>
+                                    <label class="form-check-label" for="permanent">
+                                        Permanent
+                                    </label>
+                                </div>
+                                <div class="form-check col">
+                                    <input class="form-check-input" type="radio" value="Temporary" id="temporary" name="statusOfDisability">
+                                    <label class="form-check-label" for="temporary">
+                                        Temporary
+                                    </label>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Acquired" id="acquired" name="causeOfDisability[]" disabled>
+                                <label class="form-check-label" for="acquired">
+                                    <b>ACQUIRED</b>
+                                </label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="Chronic Illness" id="chronicIllness" name="acquired[]" onclick="acquiredCheckboxChecker();">
+                                    <label class="form-check-label" for="chronicIllness">
+                                        Chronic Illness
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="Cerebral Palsy" id="acquiredCerebralPalsy" name="acquired[]" onclick="acquiredCheckboxChecker();">
+                                    <label class="form-check-label" for="acquiredCerebralPalsy">
+                                        Cerebral Palsy
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="Injury" id="injury" name="acquired[]" onclick="acquiredCheckboxChecker();">
+                                    <label class="form-check-label" for="injury">
+                                        Injury
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
-                <button class = "btn btn-primary" type="button">Add</button>
-            </div>
-            <div class="text-center">
-                <h6>(Include all family members and other members of the household.)</h6>
-            </div>
-
-            <div class="row align-items-start">
-                <div class="col">
-                    <h5 class="" >II. Classification/ Circumstances of being a Solo Parent:</h5>
                 </div>
             </div>
-            <div class="row align-items-start">
-                <div class="col">
-                    <label for="incidence">Incidence</label>
-                    <input class="form-control" type="text" id="incidence" name="incidence" required>
-                </div>
-            </div>
-            <div class="row align-items-start">
-                <div class="col">
-                    <label for="when">When</label>
-                    <input class="form-control" type="text" id="when" name="when" required>
-                </div>
-            </div>
-            <div class="row align-items-start">
-                <div class="col">
-                    <label for="problem"><h5>III. Needs/Problems of Solo Parent</h5></label>
-                    <input class="form-control" type="text" id="problem" name="problem" required>
-                </div>
-            </div>   
-            <div class="row align-items-start">
-                <div class="col">
-                    <label for="resources"><h5>IV. Family Resources:</h5></label>
-                    <input class="form-control" type="text" id="resources" name="resources" required>
-                </div>
-            </div> 
-            <div class="row align-items-start">
-                <div class="col">
-                    <p class="font-weight-normal">I hereby certify that the information given above are true and correct. I further UNDERSTAND that any misinterpretations that may have made will subject me to criminal and civil liabilities provided by the existing laws.</p>
-                </div>
-            </div>
+            <!-- row 4 -->
             <div class="row">
-                <div class="col">
-                    <div class="text-center">
-                        <input class="form-control " type="date" name="date" id="date"><br>
-                        <label for="date"><b>Date</b></label>
-                    </div>
+                <div class="col col-md-auto text-white border1" style="background-color: rgb(67, 67, 114);">
+                    <h5>ADDRESS</h5>
                 </div>
-                <div class="col">
-                    <div class="text-center">
-                        <input class="form-control " type="file" name="signature" id="signature"><br>
-                        <label for="signature"><b>Signature/ Thumbmark over Printed Name</b></label>
-                    </div>
+                <div class="col border1">
+                    <h5 class="required">HOUSE NO. /Street Name/Subdivision</h5>
+                    <input class="form-control" type="text" name="address" id="address" required>
                 </div>
-            </div>
-        </div>
-        <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="solo-parent-register" name="solo-parent-register">
-    </form>
-</div>
-<?php 
-    include('footer.html');
-?>
-</div>
-<!-- Senior Citizen -->
-<div class="registration-container" id="sr-citizen">
-<div class="container registration-containers mt-5 mb-5">
-    <form class="registration-form" action="includes/register.inc.php" method="post">
-        <h1>Sr. Citizen</h1>
-        <p>Instruction:</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam eaque, dignissimos blanditiis nesciunt quidem vel hic nobis, debitis provident distinctio accusantium odio in ipsa officiis nulla dicta eveniet aut accusamus.</p>
-       <!-- Radio Btn -->
-        <div class="row align-items-start">
-            <div class="col form-group">
-                <div>
-                    <input class="form-check-input" type="radio" name="purpose" id="bago" value="Bago">
-                    <label class="" for="bago">Bago</label>
-                </div>    
-            </div>
-            <div class="col form-group">
-                <div>
-                    <input class="form-check-input" type="radio" name="purpose" id="lumipat" value="Lumipat">
-                    <label class="" for="lumipat">Lumipat</label>
-                </div>    
-            </div>
-            <div class="col form-group">
-                <div>
-                    <input class="form-check-input" type="radio" name="purpose" id="magpapalit" value="Magpapalit">
-                    <label class="" for="magpapalit">Magpapalit</label>
-                </div>    
-            </div>
-            <div class="col form-group">
-                <div>
-                    <input class="form-check-input" type="radio" name="purpose" id="nawala" value="Nawala">
-                    <label class="" for="nawala">Nawala</label>
-                </div>    
-            </div>
-        </div>
-            <!-- ID number -->
-            <div class="row align-items-start">
-                <div class="col form-group">
-                    <label class="" for="IDnum">Numero ng ID (Bago)</label>
-                    <input class="form-control" type="text" id="IDnum" name="IDnum" required>
-                </div>
-            </div>
-            <!-- Name -->
-            <div class="row align-items-start">
-                <div class="col form-group">
-                    <label class="" for="FName">First Name (Pangalan)</label>
-                    <input class="form-control" type="text" id="FName" name="FName" required>
-                </div>
-                <div class="col form-group">
-                    <label class="" for="MName">Middle Name (Gitnang Pangalan)</label>
-                    <input class="form-control" type="text" id="MName" name="MName">
-                </div>
-                <div class="col form-group">
-                    <label class="" for="LName">Last Name (Apelyido) </label>
-                    <input class="form-control" type="text" id="LName" name="LName" required>
-                </div>
-                <div class="col form-group">
-                    <label class="" for="suffix">Suffix</label>
-                    <input class="form-control" type="text" id="suffix" name="suffix">
-                </div>
-            </div>
-            <!-- Address -->
-            <div class="row align-items-start">
-                <div class="col form-group">
-                    <label class="" for="barangay">Barangay</label>
-                    <select class="form-select" id="barangay" name="barangay">
+                <div class="col col-md-3 border1">
+                    <h5 class="required">BARANGAY</h5>
+                    <select class="form-select" id="barangay" name="barangay" required>
                         <option disabled selected value="">Please Select</option>
                         <option value="Aplaya">Aplaya</option>
                         <option value="Balibago">Balibago</option>
@@ -1481,116 +322,1301 @@
                         <option value="Tagapo">Tagapo</option>
                     </select>
                 </div>
-                <div class="col form-group">
-                    <label class="" for="tirahan">Tirahan (House No./Street/Subdivision)</label>
-                    <input class="form-control" type="text" id="tirahan" name="tirahan">
+            </div>
+            <!-- row 5 -->
+            <div class="row">
+                <div class="col border1"><b>CITY/MUNICIPALITY: </b>CITY OF SANTA ROSA</div>
+                <div class="col border1"><b>PROVINCE: </b>LAGUNA</div>
+                <div class="col border1"><b>REGION: </b>IV-A (CALABARZON)</div>
+            </div>
+            <!-- row 6 -->
+            <div class="row">
+                <div class="col col-md-auto text-white border1" style="background-color: rgb(67, 67, 114);">
+                    <h5>CONTACT DETAILS</h5>
+                </div>
+                <div class="col border1">
+                    <label class="form-check-label" for="landline">
+                        LANDLINE
+                    </label>
+                    <input class="form-control" type="text" name="landline" id="landline" maxlength="10" size="10">
+                </div>
+                <div class="col border1">
+                    <label class="form-check-label" for="mobileNumber">
+                        MOBILE NO. OF PWD
+                    </label>
+                    <input class="form-control" type="text" name="mobileNumber" id="mobileNumber" maxlength="11" size="11">
+                </div>
+                <div class="col col-md-auto border1">
+                    <label class="form-check-label" for="email">
+                        EMAIL ADDRESS
+                    </label>
+                    <?php
+                        require_once 'includes/dbh.inc.php'; 
+                        require_once 'includes/functions.inc.php';
+                            echo '<input class="form-control" type="text" name="email" id="email" value = "'; echo ($_SESSION['email']); echo '" disabled>';
+                    ?>
                 </div>
             </div>
-            <!-- S/M/A -->
-            <div class="row align-items-start">
-                <div class="col">
-                    <label for="sex">Sex (Kasarian noong Kapanganakan)</label>
-                        <select class="form-select" id="sex" name="sex">
-                            <option disabled selected value="">Please Select</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                        </select>
+            <!-- row 7 -->
+            <div class="row">
+                <div class="col border1">
+                    <b class="required">DATE OF BIRTH (mm/dd/yyyy)</b><br>
+                    <input type="date" name="dob" id="dob" required>
                 </div>
-                <div class="col">
-                    <label for="status">Marital Status</label>
-                    <div class="dropdown">
-                        <select class="form-select" id="status" name="status">
-                            <option di  sabled selected value="">Please Select</option>
-                            <option value="single">Single</option>
-                            <option value="married">Married</option>
-                            <option value="widowed">Widowed</option>
-                            <option value="separated">Separated</option>
-                            <option value="divorced">Divorced</option>
+                <div class="col col-md-auto border1">
+                    <b class="required">SEX</b>
+                    <div class="form-check">
+                        <input class="form-check-input" value="Male" type="radio" name="sex" id="male" required>
+                        <label class="form-check-label" for="male">
+                            Male
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" value="Female" type="radio" name="sex" id="female">
+                        <label class="form-check-label" for="female">
+                            Female
+                        </label>
+                    </div>
+                </div>
+                <div class="col col-md-auto border1">
+                    <b class="required">RELIGION</b><br>
+                    <input type="text" name="religion" id="religion" required>
+                </div>
+                <div class="col border1">
+                    <b class="required">CIVIL STATUS</b>
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" value="Single" type="radio" name="civilStatus" id="single" required>
+                                    <label class="form-check-label" for="single">
+                                        Single
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" value="Separated" type="radio" name="civilStatus" id="separated">
+                                    <label class="form-check-label" for="separated">
+                                        Separated
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" value="Cohabitation (Live-in)" type="radio" name="civilStatus" id="cohabitation">
+                                    <label class="form-check-label" for="cohabitation">
+                                        Cohabitation (Live-in)
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" value="Married" type="radio" name="civilStatus" id="married">
+                                    <label class="form-check-label" for="married">
+                                        Married
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" value="Widow/er" type="radio" name="civilStatus" id="widow">
+                                    <label class="form-check-label" for="widow">
+                                        Widow/er
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- row 8 -->
+            <div class="row">
+                <div class="col border1">
+                    <b class="required">EDUCATIONAL ATTAINMENT</b>
+                    <div class="form-check">
+                        <input class="form-check-input" value="None" type="radio" name="educationalAttainment" id="none" required>
+                        <label class="form-check-label" for="none">
+                            None
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" value="Kindergarten" type="radio" name="educationalAttainment" id="kindergarten" required>
+                        <label class="form-check-label" for="kindergarten">
+                            Kindergarten
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" value="Elementary Education" type="radio" name="educationalAttainment" id="elementaryEducation">
+                        <label class="form-check-label" for="elementaryEducation">
+                            Elementary Education
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" value="Junior High School" type="radio" name="educationalAttainment" id="juniorHighSchool">
+                        <label class="form-check-label" for="juniorHighSchool">
+                            Junior High School
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" value="Senior High School" type="radio" name="educationalAttainment" id="seniorHighSchool">
+                        <label class="form-check-label" for="seniorHighSchool">
+                            Senior High School
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" value="College" type="radio" name="educationalAttainment" id="college">
+                        <label class="form-check-label" for="college">
+                            College
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" value="Vocational" type="radio" name="educationalAttainment" id="vocational">
+                        <label class="form-check-label" for="vocational">
+                            Vocational
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" value="Post Graduate Program" type="radio" name="educationalAttainment" id="postGraduateProgram">
+                        <label class="form-check-label" for="postGraduateProgram">
+                            Post Graduate Program
+                        </label>
+                    </div>
+                    <b class="required">ARE YOU (PWD) AN ACTIVE VOTER IN</b><br><b>SANTA ROSA, LAGUNA?</b>
+                    <div class="form-check">
+                        <input class="form-check-input" value="Yes" type="radio" name="isVoter" id="yes" required>
+                        <label class="form-check-label" for="yes">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" value="No" type="radio" name="isVoter" id="no">
+                        <label class="form-check-label" for="no">
+                            No
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" value="17 Below" type="radio" name="isVoter" id="17below">
+                        <label class="form-check-label" for="17below">
+                            17 Below
+                        </label>
+                    </div>
+                </div>
+                <div class="col border1">
+                    <div class="row border1">
+                        <b class="required">EMPLOYMENT STATUS</b>
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" value="Employed" type="radio" name="employmentStatus" id="employed" required>
+                                <label class="form-check-label" for="employed">
+                                    Employed
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" value="Unemployed" type="radio" name="employmentStatus" id="unemployed">
+                                <label class="form-check-label" for="unemployed">
+                                    Unemployed
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" value="Self-employed" type="radio" name="employmentStatus" id="selfEmployed">
+                                <label class="form-check-label" for="selfEmployed">
+                                    Self-employed
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" value="Student" type="radio" name="employmentStatus" id="student">
+                                <label class="form-check-label" for="student">
+                                    Student
+                                </label>
+                            </div>
+                        </div>
+                        <b>INCOME IF EMPLOYED/SELF-EMPLOYED</b>
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" value="Less than 10,000" type="radio" name="income" id="l10">
+                                <label class="form-check-label" for="l10">
+                                    Less than 10,000
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" value="10,000 - 20, 000" type="radio" name="income" id="10t-20t">
+                                <label class="form-check-label" for="10t-20t">
+                                    10,000 - 20, 000
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" value="21,000 - 40,000" type="radio" name="income" id="21t-40t">
+                                <label class="form-check-label" for="21t-40t">
+                                    21,000 - 40,000
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" value="41,000 - 100,000" type="radio" name="income" id="41t-100t">
+                                <label class="form-check-label" for="41t-100t">
+                                    41,000 - 100,000
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" value="More than 100,000" type="radio" name="income" id="m100t">
+                                <label class="form-check-label" for="m100t">
+                                    More than 100,000
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row border1">
+                        <b>CATEGORY OF EMPLOYMENT</b>
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" value="Government" type="radio" name="categoryOfEmployment" id="government">
+                                <label class="form-check-label" for="government">
+                                    Government
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" value="Private" type="radio" name="categoryOfEmployment" id="private">
+                                <label class="form-check-label" for="private">
+                                    Private
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row border1">
+                        <b>NATURE OF EMPLOYMENT</b>
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" value="Permanent/Regular" type="radio" name="natureOfEmployment" id="permanent/regular">
+                                <label class="form-check-label" for="permanent/regular">
+                                    Permanent/Regular
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" value="Seasonal" type="radio" name="natureOfEmployment" id="seasonal">
+                                <label class="form-check-label" for="seasonal">
+                                    Seasonal
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" value="Casual" type="radio" name="natureOfEmployment" id="casual">
+                                <label class="form-check-label" for="casual">
+                                    Casual
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" value="Emergency" type="radio" name="natureOfEmployment" id="emergency">
+                                <label class="form-check-label" for="emergency">
+                                    Emergency
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col border1">
+                    <b>OCCUPATION</b>
+                    <div class="form-check">
+                        <input class="form-check-input" value="Managers" type="radio" name="occupation" id="managers">
+                        <label class="form-check-label" for="managers">
+                            Managers
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" value="Professionals" type="radio" name="occupation" id="professionals">
+                        <label class="form-check-label" for="professionals">
+                            Professionals
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" value="Technician & Associate Professionals" type="radio" name="occupation" id="technicianAndAssociateProfessionals">
+                        <label class="form-check-label" for="technicianAndAssociateProfessionals">
+                            Technician & Associate Professionals
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" value="Clerical Support Workers" type="radio" name="occupation" id="clericalSupportWorkers">
+                        <label class="form-check-label" for="clericalSupportWorkers">
+                            Clerical Support Workers
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" value="Service & Sales Workers" type="radio" name="occupation" id="serviceAndSalesWorkers">
+                        <label class="form-check-label" for="serviceAndSalesWorkers">
+                            Service & Sales Workers
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" value="Skilled Agricultural, Forestry & Fishery Workers" type="radio" name="occupation" id="skilledAgricultural">
+                        <label class="form-check-label" for="skilledAgricultural">
+                            Skilled Agricultural, Forestry & Fishery Workers
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" value="Craft & Related Trade Workers" type="radio" name="occupation" id="tradeWorkers">
+                        <label class="form-check-label" for="tradeWorkers">
+                            Craft & Related Trade Workers 
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" value="Plant & Machine Operators & Assemblers" type="radio" name="occupation" id="machineOperator">
+                        <label class="form-check-label" for="machineOperator">
+                            Plant & Machine Operators & Assemblers
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" value="Elementary Occupations" type="radio" name="occupation" id="elementaryOccupations">
+                        <label class="form-check-label" for="elementaryOccupations">
+                            Elementary Occupations
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="occupation" id="others">
+                        <label class="form-check-label" for="others">
+                            Others, specify
+                        </label>
+                        <input type="text" name="otherOccupation" id="otherOccupation">
+                    </div>
+                    <div class="row border1">
+                        <b class="required">Are you or any of your family member a 4p's beneficiary?</b>
+                        <div class="form-check">
+                            <input class="form-check-input" value="Yes" type="radio" name="4psBeneficiary" id="4psyes" required>
+                            <label class="form-check-label" for="4psyes">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" value="No" type="radio" name="4psBeneficiary" id="4psno">
+                            <label class="form-check-label" for="4psno">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- row 9 -->
+            <div class="row">
+                <div class="col col-md-auto border1">
+                    <b>BLOOD TYPE (Leave blank if you don't know)</b>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="A+" name="bloodType" id="A+">
+                                <label class="form-check-label" for="A+">
+                                    A+
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="AB+" name="bloodType" id="AB+">
+                                <label class="form-check-label" for="AB+">
+                                    AB+
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="A-" name="bloodType" id="A-">
+                                <label class="form-check-label" for="A-">
+                                    A-
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="AB-" name="bloodType" id="AB-">
+                                <label class="form-check-label" for="AB-">
+                                    AB-
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="B+" name="bloodType" id="B+">
+                                <label class="form-check-label" for="B+">
+                                    B+
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="O+" name="bloodType" id="O+">
+                                <label class="form-check-label" for="O+">
+                                    O+
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="B-" name="bloodType" id="B-">
+                                <label class="form-check-label" for="B-">
+                                    B-
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="O-" name="bloodType" id="O-">
+                                <label class="form-check-label" for="O-">
+                                    O-
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col border1">
+                    <div class="row">
+                        <label class="form-check-label" for="organization">
+                        <b>ORGANIZATION AFFILIATED</b>
+                        </label>
+                        <input type="text" name="organization" id="organization">
+                    </div>
+                    <div class="row">
+                        <label class="form-check-label" for="contactPerson">
+                        <b>CONTACT PERSON</b>
+                        </label>
+                        <input type="text" name="contactPerson" id="contactPerson">
+                    </div>
+                    <div class="row">
+                        <label class="form-check-label" for="officeAddress">
+                        <b>OFFICE ADDRESS</b>
+                        </label>
+                        <input type="text" name="officeAddress" id="officeAddress">
+                    </div>
+                    <div class="row">
+                        <label class="form-check-label" for="telNumber">
+                        <b>TEL. NO.</b>
+                        </label>
+                        <input type="text" name="telNumber" id="telNumber">
+                    </div>       
+                </div>
+                <div class="col border1">
+                    <b>ID REFERENCE NO.</b>
+                    <div class="row">
+                        <label class="form-check-label" for="sssNumber">
+                            <b>SSS NO. :</b>
+                        </label>
+                        <input type="tel" name="sssNumber" id="sssNumber">
+                    </div>
+                    <div class="row">
+                        <label class="form-check-label" for="gsisNumber">
+                            <b>GSIS No. :</b>
+                        </label>
+                        <input type="text" name="gsisNumber" id="gsisNumber">
+                    </div>
+                    <div class="row">
+                        <label class="form-check-label" for="psnNumber">
+                            <b>PSN NO. :</b>
+                        </label>
+                        <input type="text" name="psnNumber" id="psnNumber">
+                    </div>
+                    <div class="row">
+                        <label class="form-check-label" for="philHealthNumber">
+                            <b>PHILHEALTH NO. :</b>
+                        </label>
+                    <input type="text" name="philHealthNumber" id="philHealthNumber">
+                        <div class="row">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="PhilHealth Member" name="philHealthMemberType" id="philHealthMember">
+                                <label class="form-check-label" for="philHealthMember">
+                                    PhilHealth Member
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="PhilHealth Member-Dependent" name="philHealthMemberType" id="philHealthMemberDependent">
+                                <label class="form-check-label" for="philHealthMemberDependent">
+                                    PhilHealth Member-Dependent
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- row 10 -->
+            <div class="row">
+                <div class="col col-md-auto border1">
+                    <div class="row text-white" style="background-color: rgb(67, 67, 114);">
+                        <b>FAMILY BACKGROUND</b>
+                    </div>
+                    <div class="row">
+                        <b>FATHER'S NAME</b>
+                    </div>
+                    <div class="row">
+                        <b>MOTHER"S NAME</b>
+                    </div>
+                    <div class="row text-white" style="background-color: rgb(67, 67, 114);">
+                        <b>GUARDIAN's NAME</b>
+                    </div>
+                </div>
+                <div class="col border1">
+                    <div class="row text-white" style="background-color: rgb(67, 67, 114);">
+                        <b>LAST NAME</b>
+                    </div>
+                    <div class="row">
+                        <input type="text" name="fatherLastName" id="fatherLastName">
+                    </div>
+                    <div class="row">
+                        <input type="text" name="motherLastName" id="motherLastName">
+                    </div>
+                    <div class="row">
+                        <input type="text" name="guardianLastName" id="guardianLastName">
+                    </div>
+                </div>
+                <div class="col border1">
+                    <div class="row text-white" style="background-color: rgb(67, 67, 114);">
+                        <b>FIRST NAME</b>
+                    </div>
+                    <div class="row">
+                        <input type="text" name="fatherFirstName" id="fatherFirstName">
+                    </div>
+                    <div class="row">
+                        <input type="text" name="motherFirstName" id="motherFirstName">
+                    </div>
+                    <div class="row">
+                        <input type="text" name="guardianFirstName" id="guardianFirstName">
+                    </div>
+                </div>
+                <div class="col border1">
+                    <div class="row text-white" style="background-color: rgb(67, 67, 114);">
+                        <b>MIDDLE NAME</b>
+                    </div>
+                    <div class="row">
+                        <input type="text" name="fatherMiddleName" id="fatherMiddleName">
+                    </div>
+                    <div class="row">
+                        <input type="text" name="motherMiddleName" id="motherMiddleName">
+                    </div>
+                    <div class="row">
+                        <input type="text" name="guardianMiddleName" id="guardianMiddleName">
+                    </div>
+                </div>
+            </div>
+            <!-- row 11 -->
+            <div class="row">
+                <div class="col border1">
+                    <label class="form-check-label" for="guardianRelationship">
+                    <b>KAANU-ANO NG PWD AND GUARDIAN: </b>
+                    </label>
+                    <input type="text" name="guardianRelationship" id="guardianRelationship">
+                </div>
+                <div class="col border1">
+                    <label class="form-check-label" for="guardianContactNumber">
+                    <b class="text-white" style="background-color: rgb(67, 67, 114);">GUARDIAN'S CONTACT NO.: </b>
+                    </label>
+                    <input type="text" name="guardianContactNumber" id="guardianContactNumber">
+                </div>
+            </div>
+            <!-- row 12 -->
+            <div class="row">
+                <div class="col col-md-auto border1">
+                    <b class="required">ACCOMPLISHED BY: </b>
+                    <input class="form-check-input" type="radio" value="Applicant" name="accomplishedBy" id="applicant" required>
+                    <label class="form-check-label" for="applicant">
+                        Applicant
+                    </label>
+                    <input class="form-check-input" type="radio" value="Guardian" name="accomplishedBy" id="guardian">
+                    <label class="form-check-label" for="guardian">
+                        Guardian
+                    </label>
+
+                    <input class="form-check-input" type="radio" value="Representative" name="accomplishedBy" id="representative">
+                    <label class="form-check-label" for="representative">
+                        Representative  
+                    </label>
+                </div>
+                <div class="col border1">
+                    <label class="form-check-label" for="nameOfAccomplisher">
+                        <b class="required">NAME: </b>  
+                    </label>
+                    <input type="text" name="nameOfAccomplisher" id="nameOfAccomplisher" required>
+                </div>
+            </div>
+            <!-- row 13 -->
+            <div class="row">
+                <div class="col border1">
+                    <label class="form-check-label" for="nameOfPhysician">
+                        <b class="text-white required" style="background-color: rgb(67, 67, 114);">NAME OF CERTIFYING PHYSICIAN: </b>
+                    </label>
+                    <input type="text" name="nameOfPhysician" id="nameOfPhysician" required>
+                </div>
+                <div class="col border1">
+                    <label class="form-check-label" for="licenseNumber">
+                        <b class="text-white required" style="background-color: rgb(67, 67, 114);">LICENSE NO.: </b> 
+                    </label>
+                    <input type="text" name="licenseNumber" id="licenseNumber" required>
+                </div>
+            </div>
+            <!-- row 14 -->
+            <div class="row">
+                <hr><b>To be filled out by Persons with Disability Affairs Office Staff</b>
+            </div>
+            <!-- row 15 -->
+            <div class="row">
+                <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
+                    <b>NAME OF REPORTING UNIT: </b>
+                </div>
+                <div class="col border1">
+                    <b>PERSONS WITH DISABILITY AFFAIRS OFFICE - CITY OF SANTA ROSA, LAGUNA</b>
+                </div>
+            </div>
+            <!-- row 16 -->
+            <div class="row">
+                <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
+                    <label class="form-check-label" for="controlNumber">
+                        <b>CONTROL NO.: </b>
+                    </label>
+                </div>
+                <div class="col border1">
+                    <input type="text" name="controlNumber" id="controlNumber">
+                </div>
+                <div class="col border1">
+                    <label class="form-check-label" for="#">
+                        <b style="color: red;">#</b>
+                    </label>
+                    <input type="text" name="#" id="#">
+                </div>
+                <div class="col col-md-3 border1">
+                    <b class="text-white" style="background-color: rgb(67, 67, 114);">DATE: </b><input type="date" name="" id="">
+                </div>
+            </div>
+            <!-- row 17 -->
+            <div class="row">
+                <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
+                    <b>RECEIVING: </b>
+                </div>
+                <div class="col border1">
+                    <input class="form-check-input" type="radio" value="MANETTE CERIN" name="receiving" id="receivingManetteCerin">
+                    <label class="form-check-label" for="receivingManetteCerin">
+                        MANETTE CERIN
+                    </label>
+                    <input class="form-check-input" type="radio" value="PDAO STAFF" name="receiving" id="receivingPDAOStaff">
+                    <label class="form-check-label" for="receivingPDAOStaff">
+                        PDAO STAFF
+                    </label>
+                    <input type="text" name="receivingPDAOStaff" id="receivingPDAOStaff">
+                </div>
+                <div class="col col-md-3 border1 custom-file">
+                    <label class="custom-file-label" for="receivingSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
+                    <input type="file" name="receivingSignature" id="receivingSignature" accept="image/*">
+                </div>
+            </div>
+            <!-- row 18 -->
+            <div class="row">
+                <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
+                    <b>VERIFICATION: </b>
+                </div>
+                <div class="col border1">
+                    <input class="form-check-input" type="radio" value="MARIMAM HALDOS" name="verification" id="verificationMarimamHaldos">
+                    <label class="form-check-label" for="verificationMarimamHaldos">
+                        MARIMAM HALDOS
+                    </label>
+                    <input class="form-check-input" type="radio" value="MITCHELLE MANLANGIT" name="verification" id="verificationMitchelle">
+                    <label class="form-check-label" for="verificationMitchelle">
+                        MITCHELLE MANLANGIT
+                    </label>
+                    <input class="form-check-input" type="radio" value="RENERSON CERIN" name="verification" id="verificationRenerson">
+                    <label class="form-check-label" for="verificationRenerson">
+                        RENERSON CERIN
+                    </label>
+                </div>
+                <div class="col col-md-3 border1">
+                    <label class="custom-file-label" for="verificationSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
+                    <input type="file" name="verificationSignature" id="verificationSignature" accept="image/*">
+                </div>
+            </div>
+            <!-- row 19 -->
+            <div class="row">
+                <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
+                    <b>APPROVING OFFICER: </b>
+                </div>
+                <div class="col border1">
+                    <input class="form-check-input" type="radio" value="MARRIE ROSE YACAT" name="approvingOfficer" id="approvingOfficerMarrieRose">
+                    <label class="form-check-label" for="approvingOfficerMarrieRose">
+                        MARRIE ROSE YACAT
+                    </label>
+                    <input class="form-check-input" type="radio" value="RENERSON CERIN" name="approvingOfficer" id="approvingOfficerRenerson">
+                    <label class="form-check-label" for="approvingOfficerRenerson">
+                        RENERSON CERIN
+                    </label>
+                </div>
+                <div class="col col-md-3 border1">
+                    <label class="custom-file-label" for="approvingOfficerSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
+                    <input type="file" name="approvingOfficerSignature" id="approvingOfficerSignature" accept="image/*">
+                </div>
+            </div>
+            <!-- row 20 -->
+            <div class="row">
+                <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
+                    <b>PROCESSING OFFICER: </b>
+                </div>
+                <div class="col border1">
+                    <input class="form-check-input" type="radio" value="MANETTE CERIN" name="processingOfficer" id="processingOfficerManetteCerin">
+                    <label class="form-check-label" for="processingOfficerManetteCerin">
+                        MANETTE CERIN
+                    </label>
+                    <input class="form-check-input" type="radio" value="PDAO STAFF" name="processingOfficer" id="processingOfficerPDAOStaff">
+                    <label class="form-check-label" for="processingOfficerPDAOStaff">
+                        PDAO STAFF
+                    </label>
+                    <input type="text" name="processingOfficerPDAOStaff" id="processingOfficerPDAOStaff">
+                </div>
+                <div class="col col-md-3 border1">
+                    <label class="custom-file-label" for="processingOfficerSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
+                    <input type="file" name="processingOfficerSignature" id="processingOfficerSignature" accept="image/*">
+                </div>
+            </div>
+            <!-- row 21 -->
+            <div class="row">
+                <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
+                    <b>RELEASING: </b>
+                </div>
+                <div class="col border1">
+                    <input class="form-check-input" type="radio" value="MANETTE CERIN" name="releasing" id="releasingManetteCerin">
+                    <label class="form-check-label" for="releasingManetteCerin">
+                        MANETTE CERIN
+                    </label>
+                    <input class="form-check-input" type="radio" value="PDAO STAFF" name="releasing" id="releasingPDAOStaff">
+                    <label class="form-check-label" for="releasingPDAOStaff">
+                        PDAO STAFF
+                    </label>
+                    <input type="text" name="releasingPDAOStaff" id="releasingPDAOStaff">
+                </div>
+                <div class="col col-md-3 border1">
+                    <label class="custom-file-label" for="releasingSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
+                    <input type="file" name="releasingSignature" id="releasingSignature" accept="image/*">
+                </div>
+            </div>
+            <!-- row 22 -->
+            <div class="row">
+                <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
+                    <b>ENCODER: </b>
+                </div>
+                <div class="col border1">
+                    <input class="form-check-input" type="radio" value="NOLAND AZURES" name="encoder" id="encoderNolandAzures">
+                    <label class="form-check-label" for="encoderNolandAzures">
+                        NOLAND AZURES
+                    </label>
+                    <input class="form-check-input" type="radio" value="ANGELICA PAPAG" name="encoder" id="encoderAngelicaPapag">
+                    <label class="form-check-label" for="encoderAngelicaPapag">
+                        ANGELICA PAPAG
+                    </label>
+                    <input class="form-check-input" type="radio" value="PETERSON CARASCO" name="encoder" id="encoderPetersonCarasco">
+                    <label class="form-check-label" for="encoderPetersonCarasco">
+                        PETERSON CARASCO
+                    </label>
+                </div>
+                <div class="col col-md-3 border1">
+                    <label class="custom-file-label" for="receivingSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
+                    <input type="file" name="receivingSignature" id="receivingSignature" accept="image/*">
+                </div>
+            </div>
+            <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="pwd-register" name="pwd-register">
+            </form>
+        </div>
+        <?php 
+            include('footer.html');
+        ?>
+    </div>
+    <!-- Solo Parent -->
+    <div class="registration-container" id="solo-parent">
+        <div class="container registration-containers mt-5 mb-5">
+            <form class="registration-form" action="includes/register.inc.php" method="post">
+                <div class="row m-1">
+                    <h2 class="display-20">APPLICATION FORM:</h2>
+                </div>
+                <div class="row m-1">
+                    <div class="">
+                        <h2 class="display-20 text-center" >SOLO PARENT IDENTIFICATION CARD</h2>
+                    </div>
+                </div>
+                <div class="row align-items-start">
+                    <div class="col form-group">
+                        <label class="required" for="name">Name</label>
+                        <input class="form-control" type="text" id="name" name="name" required>
+                    </div>
+                    <div class="col-2 form-group">
+                        <label class="required" for="age">Age</label>
+                        <input class="form-control" type="text" id="age" name="age" disabled>
+                    </div>
+                    <div class="col-2 form-group">
+                        <label class="required" for="sex">Sex </label>
+                        <select class="form-select" id="sex" name="sex" required>
+                            <option disabled selected value="">Please Select</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
                         </select>
                     </div>
                 </div>
-                <div class="col form-group">
-                    <label class="" for="edad">Edad</label>
-                    <input class="form-control" type="text" id="edad" name="edad" required>
-                </div>
-            </div>
 
-            <div class="row align-items-start">
-                <div class="col">
-                    <label for="dob">Date of Birth</label>
-                    <input class="form-control" type="date" id="dob" name="dob" required>
+                <div class="row align-items-start">
+                    <div class="col form-group">
+                        <label class="required" for="birth">Date of Birth </label>
+                        <input class="form-control" type="date" id="birth" name="birth" required>
+                    </div>
+                    <div class="col form-group">
+                        <label class="required" for="birthplace">Place of Birth </label>
+                        <input class="form-control" type="text" id="birthplace" name="birthplace" required>
+                    </div>
                 </div>
-                <div class="col form-group">
-                    <label class="" for="birthplace">Lugar ng Kapanganakan</label>
-                    <input class="form-control" type="text" id="birthplace" name="birthplace" required>
-                </div>
-            </div>
 
-            <div class="row align-items-start">
-                <div class="col form-group">
-                    <label class="" for="telepono">Telepono</label>
-                    <input class="form-control" type="text" id="telepono" name="telepono" required>
-                </div>
-                <div class="col form-group">
-                    <label class="" for="relihiyon">Relihiyon</label>
-                    <input class="form-control" type="text" id="relihiyon" name="relihiyon" required>
-                </div>
-                <div class="col form-group">
-                    <label class="" for="hanapbuhay">Hanabuhay</label>
-                    <input class="form-control" type="text" id="hanapbuhay" name="hanapbuhay" required>
-                </div>
-            </div>
-            <!-- Pensyon -->
-            <div class="row align-items-start">
-                <div class="col">
-                    <label for="pensyon">May pensyon na tinatanggap</label>
-                        <select class="form-select" id="pensyon" name="pensyon">
+                <div class="row align-items-start">
+                    <div class="col">
+                        <label class="required" for="address">Address</label>
+                        <input class="form-control" type="text" id="address" name="address" required>
+                    </div>
+                    <div class="col">
+                        <label class="required" for="address">Barangay</label>
+                        <select class="form-select" id="barangay" name="barangay" required>
                             <option disabled selected value="">Please Select</option>
-                            <option value="oo">Oo</option>
-                            <option value="hindi">hindi</option>
+                            <option value="Aplaya">Aplaya</option>
+                            <option value="Balibago">Balibago</option>
+                            <option value="Caingin">Caingin</option>
+                            <option value="Dila">Dila</option>
+                            <option value="Dita">Dita</option>
+                            <option value="Don Jose">Don Jose</option>
+                            <option value="Ibaba">Ibaba</option>
+                            <option value="Kalnuran">Kanluran</option>
+                            <option value="Labas">Labas</option>
+                            <option value="Macabling">Macabling</option>
+                            <option value="Malitlit">Malitlit</option>
+                            <option value="Malusak">Malusak</option>
+                            <option value="Market Area">Market Area</option>
+                            <option value="Pook">Pook</option>
+                            <option value="Pulong Santa Cruz">Pulong Santa Cruz</option>
+                            <option value="Santo Domingo">Santo Domingo</option>
+                            <option value="Sinalhan">Sinalhan</option>
+                            <option value="Tagapo">Tagapo</option>
                         </select>
+                    </div>
                 </div>
-                <div class="col form-group">
-                    <label class="" for="saan">Saan</label>
-                    <input class="form-control" type="text" id="saan" name="saan">
-                </div>
-                <div class="col form-group">
-                    <label class="" for="magkano">Magkano</label>
-                    <input class="form-control" type="text" id="magkano" name="magkano">
-                </div>
-            </div>
-            <!-- Asawa -->
-            <div class="row align-items-start">
-                <div class="col form-group">
-                    <label class="" for="asawa">Pangalan ng Asawa</label>
-                    <input class="form-control" type="text" id="asawa" name="asawa">
-                </div>
-                <div class="col form-group">
-                    <label class="" for="edad-asawa">Edad</label>
-                    <input class="form-control" type="text" id="edad-asawa" name="edad-asawa">
-                </div>
-            </div>
 
-            <!-- Anak -->
-            <div class="row align-items-start">
-                <div class="col form-group">
-                    <label class="" for="anak">Ilan ang anak</label>
-                    <input class="form-control" type="text" id="anak" name="anak">
+                <div class="row align-items-start">
+                    <div class="col">
+                        <label class="required" for="educational">Highest Educational Attainment</label>
+                        <input class="form-control" type="text" id="educational" name="educational" required>
+                    </div>
                 </div>
-                <div class="col form-group">
-                    <label class="" for="kasama">Kasama sa bahay?</label>
-                    <input class="form-control" type="text" id="kasama" name="kasama">
+
+                <div class="row align-items-start">
+                    <div class="col">
+                        <label class="required" for="occupation">Occupation</label>
+                        <input class="form-control" type="text" id="occupation" name="occupation" required>
+                    </div>
+                    <div class="col">
+                        <label class="required" for="income">Monthly Income</label>
+                        <input class="form-control" type="text" id="income" name="income" required>
+                    </div>
                 </div>
-            </div>
-            <!-- DITO MO ILAGAY YUNG LALAGAY MO ZETH -->
-            <!-- AYOKO NGA -ZETH-->
-            <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="senior-citizen-register" name="senior-citizen-register">
-    </form>
-</div>
-<?php 
-    include('footer.html');
-?>
-</div>
+
+                <div class="row align-items-start">
+                    <div class="col">
+                        <label class="required" for="famincome">Total Monthly Family Income</label>
+                        <input class="form-control" type="text" id="famincome" name="famincome" required>
+                    </div>
+                </div>
+
+                <div class="row align-items-start">
+                    <div class="col">
+                        <label class="required" for="tenurial">Tenurial Status</label>
+                        <input class="form-control" type="text" id="tenurial" name="tenurial" required>
+                    </div>
+                </div>
+
+                <div class="row align-items-start">
+                    <div class="col">
+                        <label class="required" for="religion">Religion</label>
+                        <input class="form-control" type="text" id="religion" name="religion" required>
+                    </div>
+                    <div class="col">
+                        <label class="required" for="contact">Contact no.</label>
+                        <input class="form-control" type="text" id="contact" name="contact" required>
+                    </div>
+                </div>
+                <div class="row m-1">
+                    <div class="">
+                        <h5 class="required" >Marital Status (Please check):</h5>
+                    </div>
+                </div>
+                <div class="row align-items-start">
+                    <div class="col ml-5">
+                        <input class="form-check-input" type="radio" value="Single" name="marital-status" id="single" required>
+                        <label class="form-check-label" for="single">
+                        Single
+                        </label>
+                    </div>
+                    <div class="col ml-5">
+                        <input class="form-check-input" type="radio" value="Annulled" name="marital-status" id="annulled">
+                        <label class="form-check-label" for="annulled">
+                        Annulled
+                        </label>
+                    </div>
+                    <div class="col ml-5">
+                        <input class="form-check-input" type="radio" value="Widow/Widower" name="marital-status" id="widow">
+                        <label class="form-check-label" for="widow">
+                            Widow/Widower
+                        </label>
+                    </div>
+                </div>
+                <div class="row align-items-start">
+                    <div class="col ml-5">
+                        <input class="form-check-input" type="radio" value="Married" name="marital-status" id="married">
+                        <label class="form-check-label" for="married">
+                        Married
+                        </label>
+                    </div>
+                    
+                    <div class="col ml-5">
+                        <input class="form-check-input" type="radio" value="Separated" name="marital-status" id="separated">
+                        <label class="form-check-label" for="separated">
+                            Separated(w/certificate of Legal Separation)
+                        </label>
+                    </div>
+                    <div class="col"></div>
+                </div>
+
+                <div class="row align-items-start">
+                    <div class="col">
+                        <h5 class="" >I.Family Composition</h5>
+                    </div>
+                    <div class="row">
+                        <label class="form-check-label col" for="">
+                            <b>Name</b>
+                        </label>
+                        <label class="form-check-label col" for="">
+                            <b>Relationship</b>
+                        </label>
+                        <label class="form-check-label col" for="">
+                            <b>Age</b>
+                        </label>
+                        <label class="form-check-label col" for="">
+                            <b>Civil Status</b>
+                        </label>
+                        <label class="form-check-label col" for="">
+                            <b>Educational Attainment</b>
+                        </label>
+                        <label class="form-check-label col" for="">
+                            <b>Occupation</b>
+                        </label>
+                        <label class="form-check-label col" for="">
+                            <b>Monthly Income</b>
+                        </label>                    
+                    </div>
+                    <div class="family-list">
+                        <div class="row family-data" id="duplicater">
+                            <input type="text" class="form-control col" name="family-composition-name[]" id="">
+                            <input type="text" class="form-control col" name="family-composition-relationship[]" id="">
+                            <input type="text" class="form-control col" name="family-composition-age[]" id="">
+                            <select class="col form-select" id="id-type" name="family-composition-civil-status[]" id="">
+                                <option disabled selected value="">Please Select</option>
+                                <option value="Single">Single</option>
+                                <option value="Annulled">Annulled</option>
+                                <option value="Widow">Widow/Widower</option>
+                                <option value="Married">Married</option>
+                                <option value="Separated">Separated</option>
+                            </select>
+                            <input type="text" class="form-control col" name="family-composition-educ-attainment[]" id="">
+                            <input type="text" class="form-control col" name="family-composition-occupation[]" id="">
+                            <input type="text" class="form-control col" name="family-composition-monthly-income[]" id="">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary m-1" type="button" id="add-family">Add</button>
+                    <div class="text-center ins">
+                        <h6>(Include all family members and other members of the household.)</h6>
+                    </div>
+                </div>
+                <div class="row align-items-start">
+                    <div class="col">
+                        <h5 class="required" >II. Classification/ Circumstances of being a Solo Parent:</h5>
+                    </div>
+                    <div class="row align-items-start">
+                        <div class="col">
+                            <label class="required" for="incidence">Incidence</label>
+                            <input class="form-control" type="text" id="incidence" name="incidence" required>
+                        </div>
+                    </div>
+                    <div class="row align-items-start">
+                        <div class="col">
+                            <label class="required" for="when">When</label>
+                            <input class="form-control" type="text" id="when" name="when" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row align-items-start">
+                    <div class="col">
+                        <label class="required" for="problem"><h5>III. Needs/Problems of Solo Parent</h5></label>
+                    </div>
+                    <div class="row align-items-start">
+                        <div class="col">
+                            <input class="form-control" type="text" id="problem" name="problem" required>
+                        </div>
+                    </div>
+                </div>   
+                <div class="row align-items-start">
+                    <div class="col">
+                        <label class="required" for="resources"><h5>IV. Family Resources:</h5></label>
+                        <div class="row align-items-start">
+                            <div class="col">
+                                <input class="form-control" type="text" id="resources" name="resources" required>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="row align-items-start">
+                    <div class="col">
+                        <p class="font-weight-normal">I hereby certify that the information given above are true and correct. I further UNDERSTAND that any misinterpretations that may have made will subject me to criminal and civil liabilities provided by the existing laws.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="text-center">
+                            <input class="form-control " type="date" name="date" id="date" value ="<?php echo date('Y-m-d') ?>" disabled>
+                            <label for="date"><b>Date</b></label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="text-center">
+                            <input class="form-control " type="file" name="signature" id="signature">
+                            <label for="signature"><b>Signature/ Thumbmark over Printed Name</b></label>
+                        </div>
+                    </div>
+                </div>
+                <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="solo-parent-register" name="solo-parent-register">
+            </form>
+        </div>
+        <?php 
+            include('footer.html');
+        ?>
+    </div>
+    <!-- Senior Citizen -->
+    <div class="registration-container" id="sr-citizen">
+        <div class="container registration-containers mt-5 mb-5">
+            <form class="registration-form" action="includes/register.inc.php" method="post">
+                <h1>Sr. Citizen</h1>
+                <p>Instruction:</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam eaque, dignissimos blanditiis nesciunt quidem vel hic nobis, debitis provident distinctio accusantium odio in ipsa officiis nulla dicta eveniet aut accusamus.</p>
+            <!-- Radio Btn -->
+                <div class="row align-items-start">
+                    <div class="col form-group">
+                        <div>
+                            <input class="form-check-input" type="radio" name="purpose" id="bago" value="Bago">
+                            <label class="" for="bago">Bago</label>
+                        </div>    
+                    </div>
+                    <div class="col form-group">
+                        <div>
+                            <input class="form-check-input" type="radio" name="purpose" id="lumipat" value="Lumipat">
+                            <label class="" for="lumipat">Lumipat</label>
+                        </div>    
+                    </div>
+                    <div class="col form-group">
+                        <div>
+                            <input class="form-check-input" type="radio" name="purpose" id="magpapalit" value="Magpapalit">
+                            <label class="" for="magpapalit">Magpapalit</label>
+                        </div>    
+                    </div>
+                    <div class="col form-group">
+                        <div>
+                            <input class="form-check-input" type="radio" name="purpose" id="nawala" value="Nawala">
+                            <label class="" for="nawala">Nawala</label>
+                        </div>    
+                    </div>
+                </div>
+                    <!-- ID number -->
+                    <div class="row align-items-start">
+                        <div class="col form-group">
+                            <label class="" for="IDnum">Numero ng ID (Bago)</label>
+                            <input class="form-control" type="text" id="IDnum" name="IDnum" required>
+                        </div>
+                    </div>
+                    <!-- Name -->
+                    <div class="row align-items-start">
+                        <div class="col form-group">
+                            <label class="" for="FName">First Name (Pangalan)</label>
+                            <input class="form-control" type="text" id="FName" name="FName" required>
+                        </div>
+                        <div class="col form-group">
+                            <label class="" for="MName">Middle Name (Gitnang Pangalan)</label>
+                            <input class="form-control" type="text" id="MName" name="MName">
+                        </div>
+                        <div class="col form-group">
+                            <label class="" for="LName">Last Name (Apelyido) </label>
+                            <input class="form-control" type="text" id="LName" name="LName" required>
+                        </div>
+                        <div class="col form-group">
+                            <label class="" for="suffix">Suffix</label>
+                            <input class="form-control" type="text" id="suffix" name="suffix">
+                        </div>
+                    </div>
+                    <!-- Address -->
+                    <div class="row align-items-start">
+                        <div class="col form-group">
+                            <label class="" for="barangay">Barangay</label>
+                            <select class="form-select" id="barangay" name="barangay">
+                                <option disabled selected value="">Please Select</option>
+                                <option value="Aplaya">Aplaya</option>
+                                <option value="Balibago">Balibago</option>
+                                <option value="Caingin">Caingin</option>
+                                <option value="Dila">Dila</option>
+                                <option value="Dita">Dita</option>
+                                <option value="Don Jose">Don Jose</option>
+                                <option value="Ibaba">Ibaba</option>
+                                <option value="Kalnuran">Kanluran</option>
+                                <option value="Labas">Labas</option>
+                                <option value="Macabling">Macabling</option>
+                                <option value="Malitlit">Malitlit</option>
+                                <option value="Malusak">Malusak</option>
+                                <option value="Market Area">Market Area</option>
+                                <option value="Pook">Pook</option>
+                                <option value="Pulong Santa Cruz">Pulong Santa Cruz</option>
+                                <option value="Santo Domingo">Santo Domingo</option>
+                                <option value="Sinalhan">Sinalhan</option>
+                                <option value="Tagapo">Tagapo</option>
+                            </select>
+                        </div>
+                        <div class="col form-group">
+                            <label class="" for="tirahan">Tirahan (House No./Street/Subdivision)</label>
+                            <input class="form-control" type="text" id="tirahan" name="tirahan">
+                        </div>
+                    </div>
+                    <!-- S/M/A -->
+                    <div class="row align-items-start">
+                        <div class="col">
+                            <label for="sex">Sex (Kasarian noong Kapanganakan)</label>
+                                <select class="form-select" id="sex" name="sex">
+                                    <option disabled selected value="">Please Select</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                        </div>
+                        <div class="col">
+                            <label for="status">Marital Status</label>
+                            <div class="dropdown">
+                                <select class="form-select" id="status" name="status">
+                                    <option di  sabled selected value="">Please Select</option>
+                                    <option value="single">Single</option>
+                                    <option value="married">Married</option>
+                                    <option value="widowed">Widowed</option>
+                                    <option value="separated">Separated</option>
+                                    <option value="divorced">Divorced</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col form-group">
+                            <label class="" for="edad">Edad</label>
+                            <input class="form-control" type="text" id="edad" name="edad" required>
+                        </div>
+                    </div>
+
+                    <div class="row align-items-start">
+                        <div class="col">
+                            <label for="dob">Date of Birth</label>
+                            <input class="form-control" type="date" id="dob" name="dob" required>
+                        </div>
+                        <div class="col form-group">
+                            <label class="" for="birthplace">Lugar ng Kapanganakan</label>
+                            <input class="form-control" type="text" id="birthplace" name="birthplace" required>
+                        </div>
+                    </div>
+
+                    <div class="row align-items-start">
+                        <div class="col form-group">
+                            <label class="" for="telepono">Telepono</label>
+                            <input class="form-control" type="text" id="telepono" name="telepono" required>
+                        </div>
+                        <div class="col form-group">
+                            <label class="" for="relihiyon">Relihiyon</label>
+                            <input class="form-control" type="text" id="relihiyon" name="relihiyon" required>
+                        </div>
+                        <div class="col form-group">
+                            <label class="" for="hanapbuhay">Hanabuhay</label>
+                            <input class="form-control" type="text" id="hanapbuhay" name="hanapbuhay" required>
+                        </div>
+                    </div>
+                    <!-- Pensyon -->
+                    <div class="row align-items-start">
+                        <div class="col">
+                            <label for="pensyon">May pensyon na tinatanggap</label>
+                                <select class="form-select" id="pensyon" name="pensyon">
+                                    <option disabled selected value="">Please Select</option>
+                                    <option value="oo">Oo</option>
+                                    <option value="hindi">hindi</option>
+                                </select>
+                        </div>
+                        <div class="col form-group">
+                            <label class="" for="saan">Saan</label>
+                            <input class="form-control" type="text" id="saan" name="saan">
+                        </div>
+                        <div class="col form-group">
+                            <label class="" for="magkano">Magkano</label>
+                            <input class="form-control" type="text" id="magkano" name="magkano">
+                        </div>
+                    </div>
+                    <!-- Asawa -->
+                    <div class="row align-items-start">
+                        <div class="col form-group">
+                            <label class="" for="asawa">Pangalan ng Asawa</label>
+                            <input class="form-control" type="text" id="asawa" name="asawa">
+                        </div>
+                        <div class="col form-group">
+                            <label class="" for="edad-asawa">Edad</label>
+                            <input class="form-control" type="text" id="edad-asawa" name="edad-asawa">
+                        </div>
+                    </div>
+
+                    <!-- Anak -->
+                    <div class="row align-items-start">
+                        <div class="col form-group">
+                            <label class="" for="anak">Ilan ang anak</label>
+                            <input class="form-control" type="text" id="anak" name="anak">
+                        </div>
+                        <div class="col form-group">
+                            <label class="" for="kasama">Kasama sa bahay?</label>
+                            <input class="form-control" type="text" id="kasama" name="kasama">
+                        </div>
+                    </div>
+                    <!-- DITO MO ILAGAY YUNG LALAGAY MO ZETH -->
+                    <!-- AYOKO NGA -ZETH-->
+                    <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="senior-citizen-register" name="senior-citizen-register">
+            </form>
+        </div>
+        <?php 
+            include('footer.html');
+        ?>
+    </div>
 </section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        document.getElementById('add-family').onclick = duplicate;
+        var original = document.getElementById('duplicater');
 
+        function duplicate() {
+            var clone = original.cloneNode(true); // "deep" clone
+            original.parentNode.appendChild(clone);
+        }
+    </script>
 <script type="text/javascript" src="includes/app.inc.js"></script>
