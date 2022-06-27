@@ -246,6 +246,38 @@ function insertSeniorCitizenData($connection, $username, $registration_type, $sr
     exit();
 }
 
+function insertSeniorCitizenBirthdayCashGift($connection, $username, $last_name, $name, $middle_name, $osca_id_number, $address, $barangay, $date_of_birth, $contact_number) {
+    $sql = "INSERT INTO sr_citizen_birthday_cash_gift(username, last_name, name, middle_name, osca_id_number, address, barangay, date_of_birth, contact_number) 
+    VALUES  ( ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../home.html?error=stmterror");
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "sssssssss", $username, $last_name, $name, $middle_name, $osca_id_number, $address, $barangay, $date_of_birth, $contact_number);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    header("location: ../home.html?error=none");
+    exit();
+}
+
+function insertSeniorCitizenBirthdayCashIncentive($connection, $username, $last_name, $first_name, $middle_name, $osca_id_number, $address, $barangay,$date_of_birth, $contact_number) {
+    $sql = "INSERT INTO sr_citizen_birthday_cash_incentive(username, last_name, first_name, middle_name, osca_id_number, address, barangay, date_of_birth, contact_number) 
+    VALUES  ( ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../home.html?error=stmterror");
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "sssssssss",$username, $last_name, $first_name, $middle_name, $osca_id_number, $address, $barangay,$date_of_birth, $contact_number);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    header("location: ../home.html?error=none");
+    exit();
+}
+
 function updateData($connection, $username, $q1, $q2o1, $q2o2, $q2o3, 
                 $q2o4, $q2o5, $q3, $phoneNumber, $firstName, $middleName,
                 $lastName, $gender, $birthday, $race, $type) {
