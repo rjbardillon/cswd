@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2022 at 09:18 AM
+-- Generation Time: Jun 30, 2022 at 06:51 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -222,16 +222,6 @@ CREATE TABLE `test` (
   `typeOfDisability` set('Deaf/Hard of Hearing','Intellectual Disability','Learning Disability','Mental Disability','Physical Disablity (Orthopedic)','Psychosocial Disability','Speech and Language Impairment','Visual Disability','Cancer (RA11215)','Rare Disease (RA10747)') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `test`
---
-
-INSERT INTO `test` (`id`, `typeOfDisability`) VALUES
-(1, 'Deaf/Hard of Hearing,Intellectual Disability,Learning Disability,Mental Disability,Psychosocial Disability'),
-(2, 'Deaf/Hard of Hearing,Intellectual Disability'),
-(3, ''),
-(4, '');
-
 -- --------------------------------------------------------
 
 --
@@ -251,13 +241,6 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`id`, `user_type`, `username`, `last_name`, `suffix`, `first_name`, `middle_name`, `email`, `password`) VALUES
-(1, 0, 'rmbardillonjr', 'Bardillon', 'Jr', 'Romeo', 'Montealegre', 'romsky.bardillon@gmail.com', '$2y$10$D/lvgGxAdaf8DLG6kW2kTe3krJntbS12oppUXjT/5OB3dUywDDeVC');
-
---
 -- Indexes for dumped tables
 --
 
@@ -272,13 +255,15 @@ ALTER TABLE `pwd_data`
 -- Indexes for table `senior_citizen_data`
 --
 ALTER TABLE `senior_citizen_data`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Indexes for table `solo_parent_data`
 --
 ALTER TABLE `solo_parent_data`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Indexes for table `solo_parent_family_composition`
@@ -354,13 +339,13 @@ ALTER TABLE `sr-citizen-birthday-cash-incentive`
 -- AUTO_INCREMENT for table `test`
 --
 ALTER TABLE `test`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
