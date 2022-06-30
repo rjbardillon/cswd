@@ -86,7 +86,7 @@
                         </div>
                         <div class="col border1">
                             <h5>DATE APPLIED (MM/DD/YYYY)</h5>
-                            <input class="form-control" type="date" name="dateApplied" id="dateApplied" value ="<?php echo date('Y-m-d') ?>" disabled>
+                            <input class="form-control" type="date" name="dateApplied" id="dateApplied" value ="<?php echo date('Y-m-d') ?>" readonly>
                         </div>
                     </div>
                     <div class="row">
@@ -139,37 +139,37 @@
                         <div class="col">
                             <h5 class="required">TYPE OF DISABILITY</h5>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Deaf/Hard of Hearing" id="deaf" name="typeOfDisability[]" required>
+                                <input class="form-check-input tod" type="checkbox" value="Deaf/Hard of Hearing" id="deaf" name="typeOfDisability[]" onclick='deRequire("tod");' required>
                                 <label class="form-check-label" for="deaf">
                                     Deaf/Hard of Hearing
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Intellectual Disability" id="intellectualDisability" name="typeOfDisability[]">
+                                <input class="form-check-input tod" type="checkbox" value="Intellectual Disability" id="intellectualDisability" name="typeOfDisability[]" onclick='deRequire("tod");' required>
                                 <label class="form-check-label" for="intellectualDisability">
                                     Intellectual Disability
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Learning Disability" id="learningDisability" name="typeOfDisability[]">
+                                <input class="form-check-input tod" type="checkbox" value="Learning Disability" id="learningDisability" name="typeOfDisability[]" onclick='deRequire("tod");' required>
                                 <label class="form-check-label" for="learningDisability">
                                     Learning Disability
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Mental Disability" id="mentalDisability" name="typeOfDisability[]">
+                                <input class="form-check-input tod" type="checkbox" value="Mental Disability" id="mentalDisability" name="typeOfDisability[]" onclick='deRequire("tod");' required>
                                 <label class="form-check-label" for="mentalDisability">
                                     Mental Disability
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Physical Disablity (Orthopedic)" id="physicalDisablity" name="typeOfDisability[]">
+                                <input class="form-check-input tod" type="checkbox" value="Physical Disablity (Orthopedic)" id="physicalDisablity" name="typeOfDisability[]" onclick='deRequire("tod");' required>
                                 <label class="form-check-label" for="physicalDisablity">
                                     Physical Disablity (Orthopedic)
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Psychosocial Disability" id="psychosocialDisability" name="typeOfDisability[]">
+                                <input class="form-check-input tod" type="checkbox" value="Psychosocial Disability" id="psychosocialDisability" name="typeOfDisability[]" onclick='deRequire("tod");' required>
                                 <label class="form-check-label" for="psychosocialDisability">
                                     Psychosocial Disability
                                 </label>
@@ -177,25 +177,25 @@
                         </div>
                         <div class="col">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Speech and Language Impairment" id="speechAndLanguageImpairment" name="typeOfDisability[]">
+                                <input class="form-check-input tod" type="checkbox" value="Speech and Language Impairment" id="speechAndLanguageImpairment" name="typeOfDisability[]" onclick='deRequire("tod");' required>
                                 <label class="form-check-label" for="speechAndLanguageImpairment">
                                     Speech and Language Impairment
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Visual Disability" id="visualDisability" name="typeOfDisability[]">
+                                <input class="form-check-input tod" type="checkbox" value="Visual Disability" id="visualDisability" name="typeOfDisability[]" onclick='deRequire("tod");' required>
                                 <label class="form-check-label" for="visualDisability">
                                     Visual Disability
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Cancer (RA11215)" id="cancer" name="typeOfDisability[]">
+                                <input class="form-check-input tod" type="checkbox" value="Cancer (RA11215)" id="cancer" name="typeOfDisability[]" onclick='deRequire("tod");' required>
                                 <label class="form-check-label" for="cancer">
                                     Cancer (RA11215)
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Rare Disease (RA10747)" id="rareDisease" name="typeOfDisability[]">
+                                <input class="form-check-input tod" type="checkbox" value="Rare Disease (RA10747)" id="rareDisease" name="typeOfDisability[]" onclick='deRequire("tod");' required>
                                 <label class="form-check-label" for="rareDisease">
                                     Rare Disease (RA10747)
                                 </label>
@@ -220,25 +220,25 @@
                                     <b>CONGENITAL/INBORN</b>
                                 </label>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Autism" id="autism" name="congenital[]" onclick="congenitalCheckboxChecker();">
+                                    <input class="form-check-input cod" type="checkbox" value="Autism" id="autism" name="congenital[]" onclick="congenitalCheckboxChecker('cod');" required>
                                     <label class="form-check-label" for="autism">
                                         Autism
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="ADHD" id="adhd" name="congenital[]" onclick="congenitalCheckboxChecker();">
+                                    <input class="form-check-input cod" type="checkbox" value="ADHD" id="adhd" name="congenital[]" onclick="congenitalCheckboxChecker('cod');" required>
                                     <label class="form-check-label" for="adhd">
                                         ADHD
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Cerebral Palsy" id="cerebralPalsy" name="congenital[]" onclick="congenitalCheckboxChecker();">
+                                    <input class="form-check-input cod" type="checkbox" value="Cerebral Palsy" id="cerebralPalsy" name="congenital[]" onclick="congenitalCheckboxChecker('cod');" required>
                                     <label class="form-check-label" for="cerebralPalsy">
                                         Cerebral Palsy
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Down Syndrome" id="downSyndrome" name="congenital[]" onclick="congenitalCheckboxChecker();">
+                                    <input class="form-check-input cod" type="checkbox" value="Down Syndrome" id="downSyndrome" name="congenital[]" onclick="congenitalCheckboxChecker('cod');" required>
                                     <label class="form-check-label" for="downSyndrome">
                                         Down Syndrome
                                     </label>
@@ -267,19 +267,19 @@
                                     <b>ACQUIRED</b>
                                 </label>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Chronic Illness" id="chronicIllness" name="acquired[]" onclick="acquiredCheckboxChecker();">
+                                    <input class="form-check-input cod" type="checkbox" value="Chronic Illness" id="chronicIllness" name="acquired[]" onclick="acquiredCheckboxChecker('cod');" required>
                                     <label class="form-check-label" for="chronicIllness">
                                         Chronic Illness
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Cerebral Palsy" id="acquiredCerebralPalsy" name="acquired[]" onclick="acquiredCheckboxChecker();">
+                                    <input class="form-check-input cod" type="checkbox" value="Cerebral Palsy" id="acquiredCerebralPalsy" name="acquired[]" onclick="acquiredCheckboxChecker('cod');" required>
                                     <label class="form-check-label" for="acquiredCerebralPalsy">
                                         Cerebral Palsy
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Injury" id="injury" name="acquired[]" onclick="acquiredCheckboxChecker();">
+                                    <input class="form-check-input cod" type="checkbox" value="Injury" id="injury" name="acquired[]" onclick="acquiredCheckboxChecker('cod');" required>
                                     <label class="form-check-label" for="injury">
                                         Injury
                                     </label>
@@ -1160,7 +1160,7 @@
                     </div>
                     <div class="col-2 form-group">
                         <label class="required" for="age">Age</label>
-                        <input class="form-control" type="text" id="age" name="age" disabled>
+                        <input class="form-control" type="text" id="age" name="age" readonly>
                     </div>
                     <div class="col-2 form-group">
                         <label class="required" for="sex">Sex </label>
@@ -1323,7 +1323,8 @@
                         </label>
                         <label class="form-check-label col" for="">
                             <b>Monthly Income</b>
-                        </label>                    
+                        </label>
+                        <label for="" class="col"></label>                    
                     </div>
                     <div class="family-list">
                         <div class="row family-data" id="duplicater">
@@ -1341,9 +1342,10 @@
                             <input type="text" class="form-control col" name="family-composition-educ-attainment[]" id="">
                             <input type="text" class="form-control col" name="family-composition-occupation[]" id="">
                             <input type="text" class="form-control col" name="family-composition-monthly-income[]" id="">
+                            <button type="button" class="btn btn-danger delete col" onclick="deleteDiv(this);">Delete</button>
                         </div>
                     </div>
-                    <button class="btn btn-primary m-1" type="button" id="add-family">Add</button>
+                    <button class="btn btn-primary m-1" type="button" id="add-family" onclick="duplicate();">Add</button>
                     <div class="text-center ins">
                         <h6>(Include all family members and other members of the household.)</h6>
                     </div>
@@ -1394,7 +1396,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="text-center">
-                            <input class="form-control " type="date" name="date" id="date" value ="<?php echo date('Y-m-d') ?>" disabled>
+                            <input class="form-control " type="date" name="date" id="date" value ="<?php echo date('Y-m-d') ?>" readonly>
                             <label for="date"><b>Date</b></label>
                         </div>
                     </div>
@@ -1611,12 +1613,11 @@
 </section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>
-        document.getElementById('add-family').onclick = duplicate;
-        var original = document.getElementById('duplicater');
-
-        function duplicate() {
-            var clone = original.cloneNode(true); // "deep" clone
-            original.parentNode.appendChild(clone);
-        }
+        $(document).ready(function(){
+            $("#id-type").on('change', function(){
+                $(".registration-container").hide();
+                $("#" + $(this).val()).fadeIn(700);
+            });
+        }).change();
     </script>
 <script type="text/javascript" src="includes/app.inc.js"></script>

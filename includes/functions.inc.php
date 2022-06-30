@@ -201,7 +201,8 @@ function insertPWDData($connection, $username, $registrationType, $pwdNumber, $d
 
 function insertSoloParentData($connection, $username, $solo_parent_name, $sex, $date_of_birth, $place_of_birth, $address, $barangay, 
                             $educ_attainment, $occupation, $income, $fam_income, $tenurial, $religion, $contact_number, $marital_status, $classification_incidence,
-                            $classification_when, $problems, $family_resources, $date_applied) {
+                            $classification_when, $problems, $family_resources, $date_applied, $family_composition_name, $family_composition_relationship, $family_composition_age, 
+                         $family_composition_civil_status, $family_composition_educ_attainment, $family_composition_occupation, $family_composition_monthly_income, $combinedArray) {
     $sql = "INSERT INTO solo_parent_data(username, solo_parent_name, sex, date_of_birth, place_of_birth, address, barangay, educ_attainment, occupation, 
     income, fam_income, tenurial, religion, contact_number, marital_status, classification_incidence, classification_when, problems, family_resources, 
     date_applied) 
@@ -217,7 +218,13 @@ function insertSoloParentData($connection, $username, $solo_parent_name, $sex, $
                          $classification_when, $problems, $family_resources, $date_applied);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-
+    for ($i=0; $i < count($family_composition_name); $i++) {
+        $sql = "INSERT INTO solo_parent_family_composition(username, name, relationship, age, civil_status, educ_attainment, occupation, monthly_income) VALUES (?,?,?,?,?,?,?,?);";
+        $stmt = $connection->prepare($sql);
+        mysqli_stmt_bind_param($stmt, "ssssssss", $username, $family_composition_name[$i], $family_composition_relationship[$i], $family_composition_age[$i], $family_composition_civil_status[$i], $family_composition_educ_attainment[$i], $family_composition_occupation[$i], $family_composition_monthly_income[$i]);
+        mysqli_stmt_execute($stmt); 
+        mysqli_stmt_close($stmt);
+    }  
     header("location: ../home.html?error=none");
     exit();
 }
@@ -278,22 +285,25 @@ function insertSeniorCitizenBirthdayCashIncentive($connection, $username, $last_
     exit();
 }
 
-function updateData($connection, $username, $q1, $q2o1, $q2o2, $q2o3, 
-                $q2o4, $q2o5, $q3, $phoneNumber, $firstName, $middleName,
-                $lastName, $gender, $birthday, $race, $type) {
-    $sql = "UPDATE user_data SET q1 = ?, q2o1 = ?, q2o2 = ?, q2o3 = ?, q2o4 = ?, q2o5 = ?, q3 = ?, phone = ?, firstName = ?,
-     middleName = ?, lastName = ?, gender = ?, birthday = ?, race = ?, raceType = ? WHERE username = ?;";
+function userDataExists($connection, $username, $database) {
+    $sql = "SELECT * FROM ".$database." WHERE username=?";
     $stmt = mysqli_stmt_init($connection);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../home.html?error=stmterror");
         exit();
     }
-    mysqli_stmt_bind_param($stmt, "ssssssssssssssss", $q1, $q2o1, $q2o2, $q2o3, 
-                $q2o4, $q2o5, $q3, $phoneNumber, $firstName, $middleName,
-                $lastName, $gender, $birthday, $race, $type, $username);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
 
-    header("location: ../home.html?error=none");
-    exit();
+    mysqli_stmt_bind_param($stmt, "s", $username);
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+    if ($row = mysqli_fetch_assoc($result)) {
+        return $row;
+    } 
+    else {
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
 }

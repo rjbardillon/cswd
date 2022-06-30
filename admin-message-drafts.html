@@ -2,7 +2,9 @@
     session_start();
     $page = 'registration';
     include('header.html');
-?> 
+?>
+
+
 
 <div class="" id="dashboard">
     <aside>
@@ -11,7 +13,7 @@
         </div>
 
         <div class="sidebar">
-            <a href="#" class="active">
+            <a href="./admin-dashboard.html">
                 <span class="material-symbols-sharp">dashboard</span>
                 <h4 class="" id="items-dashboard">Dashboard</h4>
             </a>
@@ -19,10 +21,28 @@
                 <span class="material-symbols-sharp">person</span>
                 <h4 class="" id="items-dashboard">Citizens</h4>
             </a>
-            <a href="./admin-message-inbox.html">
+            <a href="#"  class="active">
                 <span class="material-symbols-sharp">chat</span>
                 <h4 class="" id="items-dashboard">Messages</h4>
             </a>
+
+            <!-- Inside the Message -->
+           
+            <a href="./admin-message-inbox.html" class="active-msg1">
+                <span class="material-symbols-sharp">inbox</span>
+                <h4 class="inbox" id="items-dashboard">Inbox</h4>
+            </a>
+            <a href="./admin-message-drafts.html" class="active-msg"> 
+                <span class="material-symbols-sharp">drafts</span>
+                <h4 class="drafts" id="items-dashboard">Drafts</h4>
+            </a>
+            <a href="./admin-message-sent.html" class="active-msg1">
+                <span class="material-symbols-sharp">send</span>
+                <h4 class="sent" id="items-dashboard">Sent</h4>
+            </a>
+
+            <!-- End of Inside the Message -->
+
             <a href="./admin-report.html">
                 <span class="material-symbols-sharp">report</span>
                 <h4 class="" id="items-dashboard">Reports</h4>
@@ -37,134 +57,68 @@
             </a>
         </div>
     </aside>
-                                <!--END OF ASIDE-->
-    <main>
-        <h2 class="">Dashboard</h2>
+     <!-------------------------------------------END OF ASIDE-------------------------------------------->
+     <main>
+        <h2 class="">Messages</h2>
 
         <div class="date-dashboard">
             <input type="date">
         </div>
 
-        <div class="insights">
-            <!-- PWD -->
-            <div class="pwd">
-                <span class="material-symbols-sharp mb-3" id="accessible">accessible</span>
-                <div class="middle">
-                    <div class="left">
-                        <h5 class="person-wd">Person with Disability</h5>
-                        <h6>Total Number:</h6>
-                        <h6>123</h6>
-                    </div>
-                </div>
-                <div class="number"><p>Last 24 Hours</p></div>
-            </div>
-            <!-- SR CITIZEN -->
-            <div class="sr-citizen"> 
-                <span class="material-symbols-sharp mb-3">elderly</span>
-                    <div class="left">
-                        <h5>Senior Citizen</h5>
-                        <h6>Total Number:</h6>
-                        <h6>69</h6>
-                    </div>
-                  <div class="number"><p>Last 24 Hours</p>
-                </div>
-             </div>
-             <!-- SINGLE PARENT -->
-            <div class="single-parent"> 
-                <span class="material-symbols-sharp mb-3">escalator_warning</span>
-                    <div class="left">
-                        <h5>Single Parent</h5>
-                        <h6>Total Number:</h6>
-                        <h6>60</h6>
-                </div>
-                <div class="number"><p>Last 24 Hours</p></div>
-            </div>
-        </div>   
-         <!-- Recent Updates -->
-        <div class="recent-updates">
-            <h4>Recent Registrants</h4>
+     
+        <!-- REPORTS -->
+        <div class="drafts">
+            <h4>Drafts</h4>
                 <table>
                     <thead>
                         <tr>
-                            <th>Number</th>
-                            <th>Name</th>
-                            <th>Category</th>
+                            <th>Date</th>
+                            <th>To</th>
+                            <th>Message</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Aaron S. Porlares</td>
-                            <td>PWD</td>
-                            <td><a href="#" class="details">Details</a></td>
+                    <tr>
+                            <td>May 10. 2022</td>
+                            <td>Maku dog</td>
+                            <td><a href="#" class="details">arf arf arrrffffff</a></td>
+                            <td>5:30pm</td>
                     </tr>
                     <tr>
-                            <td>2</td>
-                            <td>Romeo Jr. M. Bardillon</td>
-                            <td>Senior Citizen</td>
-                            <td><a href="#" class="details">Details</a></td>
-
+                            <td>May 10. 2022</td>
+                            <td>Chocoboy</td>
+                            <td><a href="#" class="details">arf arf arrrffffff</a></td>
+                            <td>5:30pm</td>
                     </tr>
                     <tr>
-                            <td>3</td>
-                            <td>Clarence T. Urmatam</td>
-                            <td>Single Parent</td>
-                            <td><a href="#"class="details">Details</a></td>
+                            <td>May 10. 2022</td>
+                            <td>Choffee gurl</td>
+                            <td><a href="#" class="details">arf arf arrrffffff</a></td>
+                            <td>5:30pm</td>
                     </tr>
                     <tr>
-                            <td>4</td>
-                            <td>Zeth Rhodemil Rivera</td>
-                            <td>Single Parent</td>
-                            <td><a href="#" class="details">Details</a></td>
-
+                            <td>May 10. 2022</td>
+                            <td>Chaychay</td>
+                            <td><a href="#" class="details">arf arf arrrffffff</a></td>
+                            <td>5:30pm</td>
                     </tr>
                     <tr>
-                            <td>5</td>
-                            <td>Tresha Ocampo</td>
-                            <td>PWD</td>
-                            <td><a href="#" class="details">Details</a></td>
-
+                            <td>May 10. 2022</td>
+                            <td>Milkyy</td>
+                            <td><a href="#" class="details">arf arf arrrffffff</a></td>
+                            <td>5:30pm</td>
                     </tr>
-                    <tr>
-                            <td>6</td>
-                            <td>Jules Jacob Ulanday</td>
-                            <td>Senior Citizen</td>
-                            <td><a href="#" class="details">Details</a></td>
-
-                    </tr>
-                    <tr>
-                            <td>7</td>
-                            <td>Maku the Dog</td>
-                            <td>PWD</td>
-                            <td><a href="#" class="details">Details</a></td>
-
-                    </tr>
-                    <tr>
-                            <td>8</td>
-                            <td>Choco the Dog</td>
-                            <td>Seinor Citizen</td>
-                            <td><a href="#" class="details">Details</a></td>
-
-                    </tr>
-                    <!-- <tr>
-                            <td>9</td>
-                            <td>Choffee the Dog</td>
-                            <td>Single Parent</td>
-                            <td><a href="#" class="details">Details</a></td>
-
-                    </tr> -->
                     </tbody>
                 
                 </table>
-           
+        
             <a href="#" class="show">Show All</a>
         </div>
-    </main>
-                                    <!-- END OF MAIN -->
+        </main>
+                            <!-- END OF MAIN -->
 
-
-    <div class="right">
+     <div class="right">
         <div class="top">
             <button id="menu-btn">
                 <span class="material-symbols-sharp">menu</span>
@@ -251,10 +205,8 @@
         <a href="#" class="show3">Show All</a>
                                               
     </div>
-</div>
-    <script src="includes/dashboard.js"></script>
-
+</div>    
 
 <?php 
-    include('../footer.html');
+    include('footer.html');
 ?>

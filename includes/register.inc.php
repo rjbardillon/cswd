@@ -28,12 +28,19 @@ if (isset($_POST['pwd-register'])) {
     } else {
         $medicalCondition = NULL;
     }
-    if (isset($_POST['causeOfDisability'])) {
-        $str = $_POST['causeOfDisability'];
-        $causeOfDisability = implode (",", $str);
-    } else {
-        $causeOfDisability = NULL;
+    $causeOfDisabilityArray = array();
+    if(isset($_POST['congenital']) ){
+        if (sizeOf($_POST['congenital']) > 0) {
+            array_push($causeOfDisabilityArray, "Congenital/Inborn");
+        }
     }
+    if (isset($_POST['acquired'])) {
+        if (sizeOf($_POST['acquired']) > 0) {
+            array_push($causeOfDisabilityArray, "Acquired");
+        }
+    }
+    $causeOfDisability = implode (",", $causeOfDisabilityArray);
+
     if (isset($_POST['congenital'])) {
         $str = $_POST['congenital'];
         $congenitalInborn = implode (",", $str);
@@ -213,6 +220,7 @@ if (isset($_POST['pwd-register'])) {
                 $organizationAffiliated, $contactPerson, $officeAddress, $telNumber, $sssNumber, $gsisNumber, $psnNumber, $philHealthNumber, $philHealthMemberType, $fatherLastName, 
                 $fatherFirstName, $fatherMiddleName, $motherLastName, $motherFirstName, $motherMiddleName, $guardianLastName, $guardianFirstName, $guardianMiddleName, $guardianRelationship,
                 $guardianContactNumber, $accomplishedBy, $nameOfAccomplisher, $nameOfPhysician, $licenseNumber);
+    
 
 } else if(isset($_POST['senior-citizen-register'])) {
     session_start();
@@ -273,9 +281,20 @@ if (isset($_POST['pwd-register'])) {
     $family_resources = $_POST['resources'];
     $date_applied = date('Y-m-d', strtotime($_POST['date']));
 
+    $family_composition_name = $_POST['family-composition-name'];
+    $family_composition_relationship = $_POST['family-composition-relationship'];
+    $family_composition_age = $_POST['family-composition-age'];
+    $family_composition_civil_status = $_POST['family-composition-civil-status'];
+    $family_composition_educ_attainment = $_POST['family-composition-educ-attainment'];
+    $family_composition_occupation = $_POST['family-composition-occupation'];
+    $family_composition_monthly_income = $_POST['family-composition-monthly-income'];
+    $combinedArray = array_merge($family_composition_name, $family_composition_relationship, $family_composition_age, $family_composition_civil_status, $family_composition_educ_attainment, $family_composition_occupation, $family_composition_monthly_income);
+
+
     insertSoloParentData($connection, $username, $solo_parent_name, $sex, $date_of_birth, $place_of_birth, $address, $barangay, 
                         $educ_attainment, $occupation, $income, $fam_income, $tenurial, $religion, $contact_number, $marital_status, $classification_incidence,
-                        $classification_when, $problems, $family_resources, $date_applied);
+                        $classification_when, $problems, $family_resources, $date_applied, $family_composition_name, $family_composition_relationship, $family_composition_age, $family_composition_civil_status, $family_composition_educ_attainment, $family_composition_occupation, 
+                        $family_composition_monthly_income, $combinedArray);
 } else {
         header("location: ../sign-up.html");
         exit();
