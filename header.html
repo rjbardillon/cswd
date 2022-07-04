@@ -47,47 +47,43 @@
     </title>
   </head>
   <body>
-    <nav
-      class="navbar navbar-expand-sm navbar-light"
-      style="background-image: linear-gradient(to right, #0f2d37, #d70080);"
-    >
+    <nav class="navbar navbar-expand-sm" style="background-image: linear-gradient(to right, #0f2d37, #d70080);">
       <div class="container-fluid text-white">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <li class="collapse navbar-collapse" id="navbarSupportedContent">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <!-- <li class="nav-item">
+              <a class="navbar-brand" href="index.html">
+                <img src="images/ABAlogo.png" alt="Santa Rosa Logo" width="55" height="45"/>
+              </a>
+            </li> -->
+            <li class="nav-item mb-0">
+              <h3>SANTAROSA CSWD</h3> 
+            </li>
+            <?php
+              require_once 'includes/dbh.inc.php';
+              require_once 'includes/functions.inc.php';
+              if (isset($_SESSION['username'])) {
+                echo '<li class="nav-item ms-2"><h3>Welcome '; echo ($_SESSION["name"]); echo '</h3></li>';
+                
+              }
+            ?>
+          </ul>
+          <!-- </div>   -->
+        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="navbar-brand" href="index.html">
-              <img
-                src="images/ABAlogo.png"
-                alt=""
-                width="60"
-                height="50"
-              />
-            </a>
-          </li>
-          <li class="nav-item">
-            <h3 class="display-6 m-2">SantaRosa CSWD</h3>
-          </li>
-          <?php
-            require_once 'includes/dbh.inc.php';
-            require_once 'includes/functions.inc.php';
-            if (isset($_SESSION['username'])) {
-              echo '<li class="nav-item"><h4 class="display-6 m-2">Welcome '; echo ($_SESSION["name"]); echo '</h4></li>';
-              echo '<li class="nav-item"><a class="btn btn-dark m-2" href="includes/logout.inc.php">Log Out</a></li>';
-            }
-          ?>
+          <li class="nav-item"><a class="text-white" href="index.html">Home</a></li>
+          <li class="nav-item ms-2"><a class="text-white" href="contact-us.html">Contact Us</a></li>
+        <?php
+          if (isset($_SESSION['username'])) {
+            echo '<li class="nav-item ms-2"><a class="text-white" href="registration.html">Registration</a></li>';
+            echo '<div class="ms-2"><a class="btn btn-dark" href="includes/logout.inc.php">Log Out</a></div>';
+          }
+        ?>
         </ul>
+        </div>
       </div>
-    </div>
     </nav>
 

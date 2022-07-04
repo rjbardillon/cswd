@@ -2,6 +2,10 @@
     session_start();
     $page = 'registration';
     include('header.html');
+    if (!isset($_SESSION['admin-username'])) {
+        header("location: index.html");
+        exit();
+    }
 ?> 
 
 <div class="" id="dashboard">
@@ -31,7 +35,7 @@
                 <span class="material-symbols-sharp">settings</span>
                 <h4 class="" id="items-dashboard">Settings</h4>
             </a>
-            <a href="#">
+            <a href="includes/logout.inc.php">
                 <span class="material-symbols-sharp">logout</span>
                 <h4 class="" id="items-dashboard">Logout</h4>
             </a>
@@ -175,7 +179,7 @@
                     <small>Admin</small>
                 </div>
                 <div class="profile-photo">
-                    <img src="./images/profile-1.jpg" class="profile-1" alt="profile">
+                    <img src="../images/profile-1.jpg" class="profile-1" alt="profile">
                 </div>
             </div>
         </div>
@@ -187,7 +191,7 @@
             <div class="bdays">
                 <div class="bday">
                     <div class="profile-photo">
-                        <img src="./images/profile-1.jpg" class="profile-2" alt="profile">
+                        <img src="../images/profile-1.jpg" class="profile-2" alt="profile">
                     </div>
                     <div class="message">
                         <p><b>Aaron Porlares</b> birthday will be on <b>December 25</b></p>
@@ -196,7 +200,7 @@
                 </div>
                 <div class="bday">
                     <div class="profile-photo">
-                        <img src="./images/profile-1.jpg" class="profile-2" alt="profile">
+                        <img src="../images/profile-1.jpg" class="profile-2" alt="profile">
                     </div>
                     <div class="message">
                         <p><b>Aaron Porlares</b> birthday will be on <b>December 25</b></p>
@@ -205,7 +209,7 @@
                 </div>
                 <div class="bday">
                     <div class="profile-photo">
-                        <img src="./images/profile-1.jpg" class="profile-2" alt="profile">
+                        <img src="../images/profile-1.jpg" class="profile-2" alt="profile">
                     </div>
                     <div class="message">
                         <p><b>Aaron Porlares</b> birthday will be on <b>December 25</b></p>

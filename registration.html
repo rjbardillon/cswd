@@ -379,7 +379,9 @@
                     </div>
                 </div>
                 <div class="col col-md-auto border1">
-                    <b class="required">RELIGION</b><br>
+                    <label class="form-check-label" for="religion">
+                        <b class="required">RELIGION</b>
+                    </label><br>
                     <input type="text" name="religion" id="religion" required>
                 </div>
                 <div class="col border1">
@@ -1185,12 +1187,12 @@
 
                 <div class="row align-items-start">
                     <div class="col">
-                        <label class="required" for="address">Address</label>
-                        <input class="form-control" type="text" id="address" name="address" required>
+                        <label class="required" for="soloParentAddress">Address</label>
+                        <input class="form-control" type="text" id="soloParentAddress" name="soloParentAddress" required>
                     </div>
                     <div class="col">
-                        <label class="required" for="address">Barangay</label>
-                        <select class="form-select" id="barangay" name="barangay" required>
+                        <label class="required" for="soloParentBarangay">Barangay</label>
+                        <select class="form-select" id="soloParentBarangay" name="soloParentBarangay" required>
                             <option disabled selected value="">Please Select</option>
                             <option value="Aplaya">Aplaya</option>
                             <option value="Balibago">Balibago</option>
@@ -1248,8 +1250,8 @@
 
                 <div class="row align-items-start">
                     <div class="col">
-                        <label class="required" for="religion">Religion</label>
-                        <input class="form-control" type="text" id="religion" name="religion" required>
+                        <label class="required" for="soloParentReligion">Religion</label>
+                        <input class="form-control" type="text" id="soloParentReligion" name="soloParentReligion" required>
                     </div>
                     <div class="col">
                         <label class="required" for="contact">Contact no.</label>
@@ -1263,35 +1265,35 @@
                 </div>
                 <div class="row align-items-start">
                     <div class="col ml-5">
-                        <input class="form-check-input" type="radio" value="Single" name="marital-status" id="single" required>
-                        <label class="form-check-label" for="single">
+                        <input class="form-check-input" type="radio" value="Single" name="marital-status" id="soloParentSingle" required>
+                        <label class="form-check-label" for="soloParentSingle">
                         Single
                         </label>
                     </div>
                     <div class="col ml-5">
-                        <input class="form-check-input" type="radio" value="Annulled" name="marital-status" id="annulled">
-                        <label class="form-check-label" for="annulled">
+                        <input class="form-check-input" type="radio" value="Annulled" name="marital-status" id="soloParentAnnulled">
+                        <label class="form-check-label" for="soloParentAnnulled">
                         Annulled
                         </label>
                     </div>
                     <div class="col ml-5">
-                        <input class="form-check-input" type="radio" value="Widow/Widower" name="marital-status" id="widow">
-                        <label class="form-check-label" for="widow">
+                        <input class="form-check-input" type="radio" value="Widow/Widower" name="marital-status" id="soloParentWidow">
+                        <label class="form-check-label" for="soloParentWidow">
                             Widow/Widower
                         </label>
                     </div>
                 </div>
                 <div class="row align-items-start">
                     <div class="col ml-5">
-                        <input class="form-check-input" type="radio" value="Married" name="marital-status" id="married">
-                        <label class="form-check-label" for="married">
+                        <input class="form-check-input" type="radio" value="Married" name="marital-status" id="soloParentMarried">
+                        <label class="form-check-label" for="soloParentMarried">
                         Married
                         </label>
                     </div>
                     
                     <div class="col ml-5">
-                        <input class="form-check-input" type="radio" value="Separated" name="marital-status" id="separated">
-                        <label class="form-check-label" for="separated">
+                        <input class="form-check-input" type="radio" value="Separated" name="marital-status" id="soloParentSeparated">
+                        <label class="form-check-label" for="soloParentSeparated">
                             Separated(w/certificate of Legal Separation)
                         </label>
                     </div>
@@ -1470,15 +1472,15 @@
                             <input class="form-control" type="text" id="LName" name="LName" required>
                         </div>
                         <div class="col form-group">
-                            <label class="" for="suffix">Suffix</label>
-                            <input class="form-control" type="text" id="suffix" name="suffix">
+                            <label class="" for="srCitizenSuffix">Suffix</label>
+                            <input class="form-control" type="text" id="srCitizenSuffix" name="srCitizenSuffix">
                         </div>
                     </div>
                     <!-- Address -->
                     <div class="row align-items-start">
                         <div class="col form-group">
-                            <label class="" for="barangay">Barangay</label>
-                            <select class="form-select" id="barangay" name="barangay">
+                            <label class="" for="srCitizenBarangay">Barangay</label>
+                            <select class="form-select" id="srCitizenBarangay" name="srCitizenBarangay">
                                 <option disabled selected value="">Please Select</option>
                                 <option value="Aplaya">Aplaya</option>
                                 <option value="Balibago">Balibago</option>
@@ -1508,8 +1510,8 @@
                     <!-- S/M/A -->
                     <div class="row align-items-start">
                         <div class="col">
-                            <label for="sex">Sex (Kasarian noong Kapanganakan)</label>
-                                <select class="form-select" id="sex" name="sex">
+                            <label for="srCitizenSex">Sex (Kasarian noong Kapanganakan)</label>
+                                <select class="form-select" id="srCitizenSex" name="srCitizenSex">
                                     <option disabled selected value="">Please Select</option>
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
@@ -1530,18 +1532,18 @@
                         </div>
                         <div class="col form-group">
                             <label class="" for="edad">Edad</label>
-                            <input class="form-control" type="text" id="edad" name="edad" required>
+                            <input class="form-control" type="text" id="edad" name="edad" readonly>
                         </div>
                     </div>
 
                     <div class="row align-items-start">
                         <div class="col">
-                            <label for="dob">Date of Birth</label>
-                            <input class="form-control" type="date" id="dob" name="dob" required>
+                            <label for="srCitizenDOB">Date of Birth</label>
+                            <input class="form-control" type="date" id="srCitizenDOB" name="srCitizenDOB" required>
                         </div>
                         <div class="col form-group">
-                            <label class="" for="birthplace">Lugar ng Kapanganakan</label>
-                            <input class="form-control" type="text" id="birthplace" name="birthplace" required>
+                            <label class="" for="srCitizenBirthplace">Lugar ng Kapanganakan</label>
+                            <input class="form-control" type="text" id="srCitizenBirthplace" name="srCitizenBirthplace" required>
                         </div>
                     </div>
 
@@ -1619,5 +1621,41 @@
                 $("#" + $(this).val()).fadeIn(700);
             });
         }).change();
+
+        $('#srCitizenDOB').change(function () {
+                var dateOfBirth = new Date($('#srCitizenDOB').val())
+                //calculate month difference from current date in time
+                var month_diff = Date.now() - dateOfBirth.getTime()
+
+                //convert the calculated difference in date format
+                var age_dt = new Date(month_diff)
+
+                //extract year from date
+                var year = age_dt.getUTCFullYear()
+
+                //now calculate the age of the user
+                var age = Math.abs(year - 1970)
+
+                //display the calculated age
+                $('#edad').val(age)
+            });
+
+            $('#birth').change(function () {
+                var dateOfBirth = new Date($('#birth').val())
+                //calculate month difference from current date in time
+                var month_diff = Date.now() - dateOfBirth.getTime()
+
+                //convert the calculated difference in date format
+                var age_dt = new Date(month_diff)
+
+                //extract year from date
+                var year = age_dt.getUTCFullYear()
+
+                //now calculate the age of the user
+                var age = Math.abs(year - 1970)
+
+                //display the calculated age
+                $('#age').val(age)
+            });
     </script>
 <script type="text/javascript" src="includes/app.inc.js"></script>
