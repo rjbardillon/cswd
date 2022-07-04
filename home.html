@@ -2,12 +2,18 @@
     session_start();
     $page = "home";
     include('header.html');
+    $username = $_SESSION['username'];
     if (!isset($_SESSION['username'])) {
         header("location: index.html");
         exit();
     }
+    if (userDataExists($connection, $username, "pwd_data") || userDataExists($connection, $username, "senior_citizen_data") || userDataExists($connection, $username, "solo_parent_data")) {
+        header("location: profile.html");
+        exit();
+    }
 ?> 
 <div class="container home-container">
+    <form action="registration.html" method="POST">
     <h1>Home</h1>
     <h2><strong>Terms and Conditions</strong></h2>
 
@@ -135,8 +141,9 @@
 </div>
 <div class="container" style="width: 80vh; margin-bottom: 20px;"> 
     <p>By clicking <strong>Register</strong> you agree with the Terms of Use and Privacy Notice</p>
-    <a href="registration.html" class="btn btn-primary">Register</a>
+    <input type="submit" class="btn btn-primary" name="register" value="Register">
 </div>
+</form>
 <?php 
     include('footer.html');
 ?>

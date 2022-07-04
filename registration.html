@@ -3,7 +3,7 @@
     $page = "registration";
     include('header.html');
     
-    if (!isset($_SESSION['username'])) {
+    if (!isset($_SESSION['username']) || !isset($_POST['register'])) {
         header("location: index.html");
         exit();
     }

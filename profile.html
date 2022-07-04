@@ -1,0 +1,23 @@
+<?php 
+    session_start();
+    $page = "profile";
+    include('header.html');
+    $username = $_SESSION['username'];
+    if (!isset($_SESSION['username'])) {
+        header("location: index.html");
+        exit();
+    }
+    if (!userDataExists($connection, $username, "pwd_data") && !userDataExists($connection, $username, "senior_citizen_data") && !userDataExists($connection, $username, "solo_parent_data")) {
+        header("location: home.html");  
+        exit();
+    }
+?>
+<section>
+    <div class="container">
+        <h1>Edit your account</h1>
+    </div>
+</section>
+
+<?php 
+    include('footer.html');
+?>

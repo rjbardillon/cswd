@@ -148,6 +148,13 @@ function loginUser($connection, $username, $password){
         $_SESSION['last_name'] = $loginCredentialsExists['last_name'];
         $_SESSION['suffix'] = $loginCredentialsExists['suffix'];
         $_SESSION['name'] = $loginCredentialsExists['first_name']." ".$loginCredentialsExists['middle_name']." ".$loginCredentialsExists['last_name'];
+        // if (userDataExists($connection, $username, "pwd_data") || userDataExists($connection, $username, "senior_citizen_data") || userDataExists($connection, $username, "solo_parent_data")) {
+        //     header("location: ../profile.html");
+        //     exit();
+        // } else {
+        //     header("location: ../home.html");
+        //     exit();
+        // }
         header("location: ../home.html");
         exit();
     }
