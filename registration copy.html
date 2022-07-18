@@ -199,7 +199,7 @@
                             <label class="form-check-label" for="transfer">
                                 TRANSFER
                             </label>
-                            <input type="text" name="textTransfer" id="textTransfer" disabled="disabled">
+                            <input type="text" name="" id="" disabled>
                         </div>
                     </div>
                     <div class="col border1 m-1">
@@ -208,7 +208,7 @@
                             <label class="form-check-label" for="change-info">
                                 CHANGE INFO
                             </label>
-                            <input type="text" name="textChangeInfo" id="textChangeInfo" disabled>
+                            <input type="text" name="" id="" disabled>
                         </div>
                     </div>
                 </div>
@@ -234,7 +234,7 @@
                                 <?php
                                 require_once 'includes/dbh.inc.php'; 
                                 require_once 'includes/functions.inc.php';
-                                    echo '<input class="form-control" type="text" name="lastName" id="lastName" value = "'; echo ($_SESSION['last_name']); echo '">';
+                                    echo '<input class="form-control" type="text" name="lastName" id="lastName" value = "'; echo ($_SESSION['last_name']); echo '" disabled>';
                                 ?>
                             </div>
                             <div class="col border1">
@@ -242,7 +242,7 @@
                                 <?php
                                 require_once 'includes/dbh.inc.php'; 
                                 require_once 'includes/functions.inc.php';
-                                    echo '<input class="form-control" type="text" name="firstName" id="firstName" value = "'; echo ($_SESSION['first_name']); echo '">';
+                                    echo '<input class="form-control" type="text" name="firstName" id="firstName" value = "'; echo ($_SESSION['first_name']); echo '" disabled>';
                                 ?>
                             </div>
                             <div class="col border1">
@@ -250,7 +250,7 @@
                                 <?php
                                 require_once 'includes/dbh.inc.php'; 
                                 require_once 'includes/functions.inc.php';
-                                    echo '<input class="form-control" type="text" name="middleName" id="middleName" value = "'; echo ($_SESSION['middle_name']); echo '">';
+                                    echo '<input class="form-control" type="text" name="middleName" id="middleName" value = "'; echo ($_SESSION['middle_name']); echo '" disabled>';
                                 ?>
                             </div>
                             <div class="col border1">
@@ -258,7 +258,7 @@
                                 <?php
                                 require_once 'includes/dbh.inc.php'; 
                                 require_once 'includes/functions.inc.php';
-                                    echo '<input class="form-control" type="text" name="suffix" id="suffix" value = "'; echo ($_SESSION['suffix']); echo '">';
+                                    echo '<input class="form-control" type="text" name="suffix" id="suffix" value = "'; echo ($_SESSION['suffix']); echo '" disabled>';
                                 ?>
                             </div>
                         </div>
@@ -276,39 +276,39 @@
                     <div class="col border1">
                         <div class="row">
                             <div class="col">
-                                <h5 class="">TYPE OF DISABILITY</h5>
+                                <h5 class="required">TYPE OF DISABILITY</h5>
                                 <div class="form-check">
-                                    <input class="form-check-input tod" type="checkbox" value="Deaf/Hard of Hearing" id="deaf" name="typeOfDisability[]">
+                                    <input class="form-check-input tod" type="checkbox" value="Deaf/Hard of Hearing" id="deaf" name="typeOfDisability[]" onclick='deRequire("tod");' required>
                                     <label class="form-check-label" for="deaf">
                                         Deaf/Hard of Hearing
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input tod" type="checkbox" value="Intellectual Disability" id="intellectualDisability" name="typeOfDisability[]">
+                                    <input class="form-check-input tod" type="checkbox" value="Intellectual Disability" id="intellectualDisability" name="typeOfDisability[]" onclick='deRequire("tod");' required>
                                     <label class="form-check-label" for="intellectualDisability">
                                         Intellectual Disability
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input tod" type="checkbox" value="Learning Disability" id="learningDisability" name="typeOfDisability[]">
+                                    <input class="form-check-input tod" type="checkbox" value="Learning Disability" id="learningDisability" name="typeOfDisability[]" onclick='deRequire("tod");' required>
                                     <label class="form-check-label" for="learningDisability">
                                         Learning Disability
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input tod" type="checkbox" value="Mental Disability" id="mentalDisability" name="typeOfDisability[]">
+                                    <input class="form-check-input tod" type="checkbox" value="Mental Disability" id="mentalDisability" name="typeOfDisability[]" onclick='deRequire("tod");' required>
                                     <label class="form-check-label" for="mentalDisability">
                                         Mental Disability
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input tod" type="checkbox" value="Physical Disablity (Orthopedic)" id="physicalDisablity" name="typeOfDisability[]">
+                                    <input class="form-check-input tod" type="checkbox" value="Physical Disablity (Orthopedic)" id="physicalDisablity" name="typeOfDisability[]" onclick='deRequire("tod");' required>
                                     <label class="form-check-label" for="physicalDisablity">
                                         Physical Disablity (Orthopedic)
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input tod" type="checkbox" value="Psychosocial Disability" id="psychosocialDisability" name="typeOfDisability[]">
+                                    <input class="form-check-input tod" type="checkbox" value="Psychosocial Disability" id="psychosocialDisability" name="typeOfDisability[]" onclick='deRequire("tod");' required>
                                     <label class="form-check-label" for="psychosocialDisability">
                                         Psychosocial Disability
                                     </label>
@@ -316,25 +316,25 @@
                             </div>
                             <div class="col">
                                 <div class="form-check">
-                                    <input class="form-check-input tod" type="checkbox" value="Speech and Language Impairment" id="speechAndLanguageImpairment" name="typeOfDisability[]">
+                                    <input class="form-check-input tod" type="checkbox" value="Speech and Language Impairment" id="speechAndLanguageImpairment" name="typeOfDisability[]" onclick='deRequire("tod");' required>
                                     <label class="form-check-label" for="speechAndLanguageImpairment">
                                         Speech and Language Impairment
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input tod" type="checkbox" value="Visual Disability" id="visualDisability" name="typeOfDisability[]">
+                                    <input class="form-check-input tod" type="checkbox" value="Visual Disability" id="visualDisability" name="typeOfDisability[]" onclick='deRequire("tod");' required>
                                     <label class="form-check-label" for="visualDisability">
                                         Visual Disability
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input tod" type="checkbox" value="Cancer (RA11215)" id="cancer" name="typeOfDisability[]">
+                                    <input class="form-check-input tod" type="checkbox" value="Cancer (RA11215)" id="cancer" name="typeOfDisability[]" onclick='deRequire("tod");' required>
                                     <label class="form-check-label" for="cancer">
                                         Cancer (RA11215)
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input tod" type="checkbox" value="Rare Disease (RA10747)" id="rareDisease" name="typeOfDisability[]">
+                                    <input class="form-check-input tod" type="checkbox" value="Rare Disease (RA10747)" id="rareDisease" name="typeOfDisability[]" onclick='deRequire("tod");' required>
                                     <label class="form-check-label" for="rareDisease">
                                         Rare Disease (RA10747)
                                     </label>
@@ -682,7 +682,6 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="disable disableDiv">
                             <b>INCOME IF EMPLOYED/SELF-EMPLOYED</b>
                             <div class="col">
                                 <div class="form-check">
@@ -718,9 +717,8 @@
                                     </label>
                                 </div>
                             </div>
-                            </div>
                         </div>
-                        <div class="row border1 disable disableDiv">
+                        <div class="row border1">
                             <b>CATEGORY OF EMPLOYMENT</b>
                             <div class="col">
                                 <div class="form-check">
@@ -739,7 +737,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row border1 disable disableDiv">
+                        <div class="row border1">
                             <b>NATURE OF EMPLOYMENT</b>
                             <div class="col">
                                 <div class="form-check">
@@ -772,7 +770,6 @@
                         </div>
                     </div>
                     <div class="col border1">
-                        <div class="disable disableDiv">
                         <b>OCCUPATION</b>
                         <div class="form-check">
                             <input class="form-check-input" value="Managers" type="radio" name="occupation" id="managers">
@@ -834,7 +831,6 @@
                                 Others, specify
                             </label>
                             <input type="text" name="otherOccupation" id="otherOccupation">
-                        </div>
                         </div>
                         <div class="row border1">
                             <b class="required">Are you or any of your family member a 4p's beneficiary?</b>
@@ -930,7 +926,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col border1 disable disableDiv">
+                    <div class="col border1">
                         <div class="row">
                             <label class="form-check-label" for="organization">
                             <b>ORGANIZATION AFFILIATED</b>
@@ -1014,7 +1010,7 @@
                             <b>MOTHER"S NAME</b>
                         </div>
                         <div class="row text-white" style="background-color: rgb(67, 67, 114);">
-                            <b>GUARDIAN'S NAME</b>
+                            <b>GUARDIAN's NAME</b>
                         </div>
                     </div>
                     <div class="col border1">
@@ -1064,15 +1060,15 @@
                 <div class="row">
                     <div class="col border1">
                         <label class="form-check-label" for="guardianRelationship">
-                        <b>KAANU-ANO NG PWD ANG GUARDIAN: </b>
+                        <b>KAANU-ANO NG PWD AND GUARDIAN: </b>
                         </label>
-                        <input type="text" name="guardianRelationship" id="guardianRelationship" disabled>
+                        <input type="text" name="guardianRelationship" id="guardianRelationship">
                     </div>
                     <div class="col border1">
                         <label class="form-check-label" for="guardianContactNumber">
                         <b class="text-white" style="background-color: rgb(67, 67, 114);">GUARDIAN'S CONTACT NO.: </b>
                         </label>
-                        <input type="text" name="guardianContactNumber" id="guardianContactNumber" disabled>
+                        <input type="text" name="guardianContactNumber" id="guardianContactNumber">
                     </div>
                 </div>
                 <!-- row 12 -->
@@ -1113,6 +1109,170 @@
                             <b class="text-white required" style="background-color: rgb(67, 67, 114);">LICENSE NO.: </b> 
                         </label>
                         <input type="text" name="licenseNumber" id="licenseNumber" required>
+                    </div>
+                </div>
+                <!-- row 14 -->
+                <div class="row">
+                    <hr><b>To be filled out by Persons with Disability Affairs Office Staff</b>
+                </div>
+                <!-- row 15 -->
+                <div class="row">
+                    <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
+                        <b>NAME OF REPORTING UNIT: </b>
+                    </div>
+                    <div class="col border1">
+                        <b>PERSONS WITH DISABILITY AFFAIRS OFFICE - CITY OF SANTA ROSA, LAGUNA</b>
+                    </div>
+                </div>
+                <!-- row 16 -->
+                <div class="row">
+                    <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
+                        <label class="form-check-label" for="controlNumber">
+                            <b>CONTROL NO.: </b>
+                        </label>
+                    </div>
+                    <div class="col border1">
+                        <input type="text" name="controlNumber" id="controlNumber">
+                    </div>
+                    <div class="col border1">
+                        <label class="form-check-label" for="#">
+                            <b style="color: red;">#</b>
+                        </label>
+                        <input type="text" name="#" id="#">
+                    </div>
+                    <div class="col col-md-3 border1">
+                        <b class="text-white" style="background-color: rgb(67, 67, 114);">DATE: </b><input type="date" name="" id="">
+                    </div>
+                </div>
+                <!-- row 17 -->
+                <div class="row">
+                    <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
+                        <b>RECEIVING: </b>
+                    </div>
+                    <div class="col border1">
+                        <input class="form-check-input" type="radio" value="MANETTE CERIN" name="receiving" id="receivingManetteCerin">
+                        <label class="form-check-label" for="receivingManetteCerin">
+                            MANETTE CERIN
+                        </label>
+                        <input class="form-check-input" type="radio" value="PDAO STAFF" name="receiving" id="receivingPDAOStaff">
+                        <label class="form-check-label" for="receivingPDAOStaff">
+                            PDAO STAFF
+                        </label>
+                        <input type="text" name="receivingPDAOStaff" id="receivingPDAOStaff">
+                    </div>
+                    <div class="col col-md-3 border1 custom-file">
+                        <label class="custom-file-label" for="receivingSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
+                        <input type="file" name="receivingSignature" id="receivingSignature" accept="image/*">
+                    </div>
+                </div>
+                <!-- row 18 -->
+                <div class="row">
+                    <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
+                        <b>VERIFICATION: </b>
+                    </div>
+                    <div class="col border1">
+                        <input class="form-check-input" type="radio" value="MARIMAM HALDOS" name="verification" id="verificationMarimamHaldos">
+                        <label class="form-check-label" for="verificationMarimamHaldos">
+                            MARIMAM HALDOS
+                        </label>
+                        <input class="form-check-input" type="radio" value="MITCHELLE MANLANGIT" name="verification" id="verificationMitchelle">
+                        <label class="form-check-label" for="verificationMitchelle">
+                            MITCHELLE MANLANGIT
+                        </label>
+                        <input class="form-check-input" type="radio" value="RENERSON CERIN" name="verification" id="verificationRenerson">
+                        <label class="form-check-label" for="verificationRenerson">
+                            RENERSON CERIN
+                        </label>
+                    </div>
+                    <div class="col col-md-3 border1">
+                        <label class="custom-file-label" for="verificationSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
+                        <input type="file" name="verificationSignature" id="verificationSignature" accept="image/*">
+                    </div>
+                </div>
+                <!-- row 19 -->
+                <div class="row">
+                    <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
+                        <b>APPROVING OFFICER: </b>
+                    </div>
+                    <div class="col border1">
+                        <input class="form-check-input" type="radio" value="MARRIE ROSE YACAT" name="approvingOfficer" id="approvingOfficerMarrieRose">
+                        <label class="form-check-label" for="approvingOfficerMarrieRose">
+                            MARRIE ROSE YACAT
+                        </label>
+                        <input class="form-check-input" type="radio" value="RENERSON CERIN" name="approvingOfficer" id="approvingOfficerRenerson">
+                        <label class="form-check-label" for="approvingOfficerRenerson">
+                            RENERSON CERIN
+                        </label>
+                    </div>
+                    <div class="col col-md-3 border1">
+                        <label class="custom-file-label" for="approvingOfficerSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
+                        <input type="file" name="approvingOfficerSignature" id="approvingOfficerSignature" accept="image/*">
+                    </div>
+                </div>
+                <!-- row 20 -->
+                <div class="row">
+                    <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
+                        <b>PROCESSING OFFICER: </b>
+                    </div>
+                    <div class="col border1">
+                        <input class="form-check-input" type="radio" value="MANETTE CERIN" name="processingOfficer" id="processingOfficerManetteCerin">
+                        <label class="form-check-label" for="processingOfficerManetteCerin">
+                            MANETTE CERIN
+                        </label>
+                        <input class="form-check-input" type="radio" value="PDAO STAFF" name="processingOfficer" id="processingOfficerPDAOStaff">
+                        <label class="form-check-label" for="processingOfficerPDAOStaff">
+                            PDAO STAFF
+                        </label>
+                        <input type="text" name="processingOfficerPDAOStaff" id="processingOfficerPDAOStaff">
+                    </div>
+                    <div class="col col-md-3 border1">
+                        <label class="custom-file-label" for="processingOfficerSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
+                        <input type="file" name="processingOfficerSignature" id="processingOfficerSignature" accept="image/*">
+                    </div>
+                </div>
+                <!-- row 21 -->
+                <div class="row">
+                    <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
+                        <b>RELEASING: </b>
+                    </div>
+                    <div class="col border1">
+                        <input class="form-check-input" type="radio" value="MANETTE CERIN" name="releasing" id="releasingManetteCerin">
+                        <label class="form-check-label" for="releasingManetteCerin">
+                            MANETTE CERIN
+                        </label>
+                        <input class="form-check-input" type="radio" value="PDAO STAFF" name="releasing" id="releasingPDAOStaff">
+                        <label class="form-check-label" for="releasingPDAOStaff">
+                            PDAO STAFF
+                        </label>
+                        <input type="text" name="releasingPDAOStaff" id="releasingPDAOStaff">
+                    </div>
+                    <div class="col col-md-3 border1">
+                        <label class="custom-file-label" for="releasingSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
+                        <input type="file" name="releasingSignature" id="releasingSignature" accept="image/*">
+                    </div>
+                </div>
+                <!-- row 22 -->
+                <div class="row">
+                    <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
+                        <b>ENCODER: </b>
+                    </div>
+                    <div class="col border1">
+                        <input class="form-check-input" type="radio" value="NOLAND AZURES" name="encoder" id="encoderNolandAzures">
+                        <label class="form-check-label" for="encoderNolandAzures">
+                            NOLAND AZURES
+                        </label>
+                        <input class="form-check-input" type="radio" value="ANGELICA PAPAG" name="encoder" id="encoderAngelicaPapag">
+                        <label class="form-check-label" for="encoderAngelicaPapag">
+                            ANGELICA PAPAG
+                        </label>
+                        <input class="form-check-input" type="radio" value="PETERSON CARASCO" name="encoder" id="encoderPetersonCarasco">
+                        <label class="form-check-label" for="encoderPetersonCarasco">
+                            PETERSON CARASCO
+                        </label>
+                    </div>
+                    <div class="col col-md-3 border1">
+                        <label class="custom-file-label" for="receivingSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
+                        <input type="file" name="receivingSignature" id="receivingSignature" accept="image/*">
                     </div>
                 </div>
                 <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="pwd-register" name="pwd-register">
@@ -1592,4 +1752,53 @@
             ?>
         </div>
     </section>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="includes/app.inc.js"></script>
+    <script>
+        $(window).load(function()
+        {
+            $('#staticBackdrop').modal('show');
+        });
+        $(document).ready(function(){
+            $("#id-type").on('change', function(){
+                $(".registration-container").hide();
+                $("#" + $(this).val()).fadeIn(700);
+            });
+        }).change();
+
+        $('#srCitizenDOB').change(function () {
+                var dateOfBirth = new Date($('#srCitizenDOB').val())
+                //calculate month difference from current date in time
+                var month_diff = Date.now() - dateOfBirth.getTime()
+
+                //convert the calculated difference in date format
+                var age_dt = new Date(month_diff)
+
+                //extract year from date
+                var year = age_dt.getUTCFullYear()
+
+                //now calculate the age of the user
+                var age = Math.abs(year - 1970)
+
+                //display the calculated age
+                $('#edad').val(age)
+            });
+
+            $('#birth').change(function () {
+                var dateOfBirth = new Date($('#birth').val())
+                //calculate month difference from current date in time
+                var month_diff = Date.now() - dateOfBirth.getTime()
+
+                //convert the calculated difference in date format
+                var age_dt = new Date(month_diff)
+
+                //extract year from date
+                var year = age_dt.getUTCFullYear()
+
+                //now calculate the age of the user
+                var age = Math.abs(year - 1970)
+
+                //display the calculated age
+                $('#age').val(age)
+            });
+    </script>

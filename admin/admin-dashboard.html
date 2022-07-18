@@ -1,54 +1,35 @@
 <?php 
     session_start();
-    $page = 'registration';
+    $page = 'admin-dashboard';
     include('header.html');
     if (!isset($_SESSION['admin-username'])) {
         header("location: index.html");
         exit();
     }
 ?> 
-
-<div class="" id="dashboard">
-    <aside>
-        <div class="close font-weight-bold" id="close-btn">
-            <span class="material-symbols-sharp">close</span>
-        </div>
-
-        <div class="sidebar">
-            <a href="#" class="active">
-                <span class="material-symbols-sharp">dashboard</span>
-                <h4 class="" id="items-dashboard">Dashboard</h4>
-            </a>
-            <a href="./admin-citizen.html">
-                <span class="material-symbols-sharp">person</span>
-                <h4 class="" id="items-dashboard">Citizens</h4>
-            </a>
-            <a href="./admin-message-inbox.html">
-                <span class="material-symbols-sharp">chat</span>
-                <h4 class="" id="items-dashboard">Messages</h4>
-            </a>
-            <a href="./admin-report.html">
-                <span class="material-symbols-sharp">report</span>
-                <h4 class="" id="items-dashboard">Reports</h4>
-            </a>
-            <a href="#">
-                <span class="material-symbols-sharp">settings</span>
-                <h4 class="" id="items-dashboard">Settings</h4>
-            </a>
-            <a href="includes/logout.inc.php">
-                <span class="material-symbols-sharp">logout</span>
-                <h4 class="" id="items-dashboard">Logout</h4>
-            </a>
-        </div>
-    </aside>
-                                <!--END OF ASIDE-->
     <main>
-        <h2 class="">Dashboard</h2>
-
-        <div class="date-dashboard">
-            <input type="date">
+        <div class="row">
+            <div class="col">
+                <h2 class="">Dashboard</h2>
+            </div>
+            <div class="col">
+                <div class="profile">
+                    <div class="info">
+                        <?php
+                            require_once 'includes/dbh.inc.php';
+                            require_once 'includes/functions.inc.php';
+                            if (isset($_SESSION['admin-username'])) {
+                                echo '<p><b>Welcome '; echo ($_SESSION["admin-name"]); echo '</b></p>';
+                                echo '<small>'; echo($_SESSION["admin-type"]); echo'</small><br>';
+                                echo '<small>'; echo($_SESSION["barangay"]); echo'</small>';
+                            }
+                        ?>
+                    </div>  
+                </div>
+            </div>
         </div>
-
+        
+        
         <div class="insights">
             <!-- PWD -->
             <div class="pwd">
@@ -168,22 +149,28 @@
                                     <!-- END OF MAIN -->
 
 
-    <div class="right">
+    <!-- <div class="right">
         <div class="top">
             <button id="menu-btn">
                 <span class="material-symbols-sharp">menu</span>
             </button>
             <div class="profile">
                 <div class="info">
-                    <p>Hey, <b>Aaron!</b></p>
-                    <small>Admin</small>
+                    <?php
+                        require_once 'includes/dbh.inc.php';
+                        require_once 'includes/functions.inc.php';
+                        if (isset($_SESSION['admin-username'])) {
+                            echo '<p><b>Welcome '; echo ($_SESSION["admin-name"]); echo '</b></p>';
+                            echo '<small>'; echo($_SESSION["admin-type"]); echo'</small><br>';
+                            echo '<small>'; echo($_SESSION["barangay"]); echo'</small>';
+                        }
+                    ?>
                 </div>
                 <div class="profile-photo">
                     <img src="../images/profile-1.jpg" class="profile-1" alt="profile">
                 </div>
             </div>
         </div>
-                                     <!-- END OF TOP -->
 
 
         <div class="upcoming-bday">
@@ -219,7 +206,6 @@
             </div>  
                 <a href="#" class="show2">Show All</a>
         </div>
-                                              <!-- END OF UPCOMING BIRTHDAYS -->
 
         
         <div class="upcoming-event">
@@ -254,9 +240,9 @@
         </div>
         <a href="#" class="show3">Show All</a>
                                               
-    </div>
+    </div> -->
 </div>
-    <script src="includes/dashboard.js"></script>
+<script src="includes/dashboard.js"></script>
 
 
 <?php 

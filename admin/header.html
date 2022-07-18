@@ -74,4 +74,31 @@
       </div>
     </div>
     </nav>
-
+    <div class="" id="dashboard">
+        <aside>
+            <div class="close font-weight-bold" id="close-btn">
+                <span class="material-symbols-sharp">close</span>
+            </div>
+            <div class="sidebar">
+                <a href="admin-dashboard.html" class="<?php if ($page == 'admin-dashboard') {echo 'active';} ?>">
+                    <span class="material-symbols-sharp">dashboard</span>
+                    <h4 class="" id="items-dashboard">Dashboard</h4>
+                </a>
+                <a href="admin-citizen.html" class="<?php if ($page == 'admin-citizen') {echo 'active';} ?>">
+                    <span class="material-symbols-sharp">person</span>
+                    <h4 class="" id="items-dashboard">Citizens</h4>
+                </a>
+                <a href="admin-report.html" class="<?php if ($page == 'admin-report') {echo 'active';} ?>">
+                    <span class="material-symbols-sharp">report</span>
+                    <h4 class="" id="items-dashboard">Reports</h4>
+                </a>
+                <a href="admin-add-administrator.html" class="<?php if ($page == 'admin-add-administrator') {echo 'active';} ?>">
+                    <span class="material-symbols-sharp">settings</span>
+                    <h4 class="" id="items-dashboard">Add Administrator</h4>
+                </a>
+                <a href="includes/logout.inc.php">
+                    <span class="material-symbols-sharp">logout</span>
+                    <h4 class="" id="items-dashboard">Logout</h4>
+                </a>
+            </div>
+        </aside>

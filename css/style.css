@@ -20,7 +20,7 @@ footer {
   display: flex;
   border-style: solid;
   border-radius: 15px;
-  background-color: rgba(57, 202, 221, 0.5);
+  background-color: rgb(255,184,243);
   max-width: 50vh;
   height: 70vh;
   margin: auto;
@@ -47,7 +47,7 @@ section {
 .registration-containers {
   border-style: solid;
   border-radius: 15px;
-  background-color: rgba(203, 225, 228, 0.5);
+  background-color: rgb(255,184,243);
   /* max-width: 1500px; */
   height: auto;
   margin: auto;
@@ -1079,4 +1079,8 @@ main .sent table:hover{
 input {
   margin: 5px;
   }
+}
+
+.disableDiv {
+  pointer-events: none;
 }

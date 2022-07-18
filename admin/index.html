@@ -1,50 +1,157 @@
-<?php 
-  session_start();
-  $page = "index";
-  include('header.html');
-  if (isset($_SESSION['admin-username'])) {
-      header("location: admin-dashboard.html");
-      exit();
-  }
-?>
-<section>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- JQuery for change div -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Google reCaptcha -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- Location api -->
+    <script src="https://f001.backblazeb2.com/file/buonzz-assets/jquery.ph-locations-v1.0.0.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
+    <script type="text/javascript" src="https://f001.backblazeb2.com/file/buonzz-assets/jquery.ph-locations.js"></script>
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <!-- External Javascript -->
+    <script type="text/javascript" src="includes/funtion.inc.js"></script>
+    <!-- Tab Icon -->
+    <link rel="shortcut icon" href="../images/santarosa-logo.ico" type="image/x-icon">
+    <!-- Material Icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/style.css">
 
-
-<div class="text-center mt-4" id="login-container">
-  <form id="login-form" action="includes/admin-login.inc.php" method="post">
-    <h1 class="mt-4 mb-4 text-white">Admin Login</h1>
-    <div class="mb-3">
-      <input type="text" class="form-control" id="AUsername" name="AUsername" placeholder="Username/Email..." required autofocus>
-    </div>
-    <div class="mb-3">
-      <input type="password" class="form-control" id="APassword" name="APassword" placeholder="Password..." required>
-    </div>
-    <div class="mt-3 mb-3">
-      <input type="submit" id="submit" name="submit" class="btn btn-lg btn-primary w-100"/>
-    </div>
-    <div class="mt-3 mb-3">
-      <?php
-        if (isset($_GET["error"])) {
-            if ($_GET["error"] == "wrongaccount"){
-                echo "<p style='color: red; font-size: 15px'>The username or email you entered isn’t connected to an account. 
-                  <a href='../contact-us.html' style='color: red; font-size: 15px'>Please contact the administrator.</a></p>";
-            }
-            else if ($_GET["error"] == "wrongpassword"){
-                echo "<p>The password you’ve entered is incorrect.</p>";
-            }   
-        }
-    ?>
-    </div>
-  </form>
   
-</div>
+    <title>
+      Administrator
+    </title>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-sm navbar-light"
+      style="background-image: linear-gradient(to right, #0f2d37, #d70080);"
+    >
+      <div class="container-fluid text-white">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="navbar-brand" href="../index.html">
+              <img
+                src="../images/ABAlogo.png"
+                alt=""
+                width="60"
+                height="50"
+              />
+            </a>
+          </li>
+          <li class="nav-item">
+            <h3 class="display-6 m-2">SANTOROSA CSWD ADMINISTRATOR</h3>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </nav>
+	<section>
+		<div class="text-center mt-4" id="login-container">
+			<form id="login-form" action="includes/admin-login.inc.php" method="post">
+				<h1 class="mt-4 mb-4 text-white">Admin Login</h1>
+				<div class="mb-3">
+				<input type="text" class="form-control" id="AUsername" name="AUsername" placeholder="Username/Email..." required autofocus>
+				</div>
+				<div class="mb-3">
+				<input type="password" class="form-control" id="APassword" name="APassword" placeholder="Password..." required>
+				</div>
+				<div class="mt-3 mb-3">
+				<input type="submit" id="submit" name="submit" class="btn btn-lg btn-primary w-100"/>
+				</div>
+				<div class="mt-3 mb-3">
+				<?php
+					if (isset($_GET["error"])) {
+						if ($_GET["error"] == "wrongaccount"){
+							echo "<p style='color: red; font-size: 15px'>The username or email you entered isn’t connected to an account. 
+							<a href='../contact-us.html' style='color: red; font-size: 15px'>Please contact the administrator.</a></p>";
+						}
+						else if ($_GET["error"] == "wrongpassword"){
+							echo "<p>The password you’ve entered is incorrect.</p>";
+						}   
+					}
+				?>
+				</div>
+			</form>
+		</div>
 
-</section>
-<?php
-  if (isset($_GET["admin-username"])) {
-      $username = $_GET['admin-username'];
-  }
-?>
-<?php 
-  include('footer.html');
-?>
+	</section>
+    <?php
+      if (isset($_GET["admin-username"])) {
+          $username = $_GET['admin-username'];
+      }
+      if (isset($_GET["error"])) {
+          if ($_GET["error"] == "none"){
+            echo "<script>alert('Your Username is $username')</script>";
+          } 
+      }
+    ?>
+    <footer class="bg-light text-center text-white">
+      <!-- Grid container -->
+      <div class="container-fluid p-4 pb-0">
+        <!-- Section: Social media -->
+        <div class="mb-4">
+          <!-- About Us -->
+          <a
+            class="btn btn-primary btn-floating m-1"
+            style="background-color: #3b5998;"
+            href="about-us.html"
+            role="button"
+            ><i class="fab fa-facebook-f"></i
+          >About Us</a>
+
+          <!-- Contact Us -->
+          <a
+            class="btn btn-primary btn-floating m-1"
+            style="background-color: #55acee;"
+            href="contact-us.html"
+            role="button"
+            ><i class="fab fa-twitter"></i
+          >Contact Us</a>
+
+          <!-- Privacy Policy -->
+          <a
+            class="btn btn-primary btn-floating m-1"
+            style="background-color: #dd4b39;"
+            href="privacy-and-policy.html"
+            role="button"
+            ><i class="fab fa-google"></i
+          >Privacy Policy</a>
+          <!-- Copyright -->
+          <div>© 2022 Copyright: PUP Santa Rosa Campus</div>
+          <!-- Copyright -->
+        </div>
+        <!-- Section: Social media -->
+      </div>
+      <!-- Grid container -->
+    </footer>
+  </body>
+</html>
