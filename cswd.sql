@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2022 at 06:51 AM
+-- Generation Time: Jul 19, 2022 at 03:21 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `pwd_data` (
   `id` int(11) NOT NULL,
   `username` varchar(128) NOT NULL,
-  `registration_type` enum('New ID','Renewal ID','Lost ID','Transfer','change information') NOT NULL,
+  `registration_type` enum('New ID','Renewal ID','Lost ID','Transfer','Change Information') NOT NULL,
   `pwd_number` varchar(20) DEFAULT NULL,
   `date_applied` date NOT NULL,
   `pwd_last_name` varchar(128) NOT NULL,
@@ -88,8 +88,17 @@ CREATE TABLE `pwd_data` (
   `accomplished_by` enum('Applicant','Guardian','Representative') NOT NULL,
   `name_of_accomplisher` varchar(128) NOT NULL,
   `name_of_physician` varchar(128) NOT NULL,
-  `license_number` varchar(128) NOT NULL
+  `license_number` varchar(128) NOT NULL,
+  `status` enum('Pending','Approved','Rejected') NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pwd_data`
+--
+
+INSERT INTO `pwd_data` (`id`, `username`, `registration_type`, `pwd_number`, `date_applied`, `pwd_last_name`, `pwd_first_name`, `pwd_middle_name`, `pwd_suffix`, `type_of_disability`, `medical_condition`, `cause_of_disability`, `congenital_inborn`, `acquired`, `status_of_disability`, `houseno_street_subdivision_address`, `barangay`, `city_municipality`, `province`, `region`, `landline`, `mobile_number`, `email`, `date_of_birth`, `sex`, `religion`, `civil_status`, `educational_attainment`, `is_voter`, `employment_status`, `income`, `category_of_employment`, `nature_of_employment`, `occupation`, `other_occupation`, `is_4ps_beneficiary`, `blood_type`, `organization_affiliated`, `contact_person`, `office_address`, `office_telephone_number`, `sss_number`, `gsis_number`, `psn_number`, `philhealth_number`, `philhealth_member_type`, `father_last_name`, `father_first_name`, `father_middle_name`, `mother_last_name`, `mother_first_name`, `mother_middle_name`, `guardian_last_name`, `guardian_first_name`, `guardian_middle_name`, `guardian_relationship`, `guardian_contact_number`, `accomplished_by`, `name_of_accomplisher`, `name_of_physician`, `license_number`, `status`, `date`) VALUES
+(1, 'rmbardillon', 'Transfer', NULL, '2022-07-18', 'Bardillon', 'Romeo Jr', 'Montealegre', '', 'Intellectual Disability,Learning Disability,Physical Disablity (Orthopedic),Speech and Language Impairment,Cancer (RA11215)', 'Masakit', 'Congenital/Inborn,Acquired', 'Autism,ADHD,Cerebral Palsy,Down Syndrome', 'Chronic Illness,Cerebral Palsy,Injury', 'Permanent', 'Block 7 Lot 2 Oak Street Rose Pointe Subdivision', 'Caingin', 'CITY OF SANTA ROSA', 'LAGUNA', 'IV-A (CALABARZON)', NULL, NULL, 'romsky.bardillon@gmail.com', '2001-07-30', 'Male', 'Catholic', 'Married', 'College', 'Yes', 'Student', NULL, NULL, NULL, NULL, NULL, 'No', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Applicant', 'Romeo Bardillon', 'Lebron James', '2307210', 'Pending', '2022-07-19 13:17:55');
 
 -- --------------------------------------------------------
 
@@ -122,7 +131,9 @@ CREATE TABLE `senior_citizen_data` (
   `pangalan_ng_asawa` varchar(128) NOT NULL,
   `edad_asawa` varchar(128) NOT NULL,
   `ilan_ang_anak` varchar(128) NOT NULL,
-  `kasama` varchar(128) NOT NULL
+  `kasama` varchar(128) NOT NULL,
+  `status` enum('Pending','Approved','Rejected') NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -152,8 +163,17 @@ CREATE TABLE `solo_parent_data` (
   `classification_when` longtext NOT NULL,
   `problems` longtext NOT NULL,
   `family_resources` longtext NOT NULL,
-  `date_applied` date NOT NULL
+  `date_applied` date NOT NULL,
+  `status` enum('Pending','Approved','Rejected') NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `solo_parent_data`
+--
+
+INSERT INTO `solo_parent_data` (`id`, `username`, `solo_parent_name`, `sex`, `date_of_birth`, `place_of_birth`, `address`, `barangay`, `educ_attainment`, `occupation`, `income`, `fam_income`, `tenurial`, `religion`, `contact_number`, `marital_status`, `classification_incidence`, `classification_when`, `problems`, `family_resources`, `date_applied`, `status`, `date`) VALUES
+(1, 'mmdelrosario', 'Maria Leonora Theresa', 'Female', '2000-01-30', 'Santa Rosa', 'Santa Rosa', 'Balibago', 'College', 'N/A', '0.00', '0.00', 'N/A', 'N/A', '09760657071', 'Separated', 'N/A', 'N/A', 'N/A', 'N/A', '2022-07-18', 'Pending', '2022-07-19 13:18:44');
 
 -- --------------------------------------------------------
 
@@ -170,8 +190,16 @@ CREATE TABLE `solo_parent_family_composition` (
   `civil_status` varchar(128) NOT NULL,
   `educ_attainment` varchar(128) NOT NULL,
   `occupation` varchar(128) NOT NULL,
-  `monthly_income` decimal(10,2) NOT NULL
+  `monthly_income` decimal(10,2) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `solo_parent_family_composition`
+--
+
+INSERT INTO `solo_parent_family_composition` (`id`, `username`, `name`, `relationship`, `age`, `civil_status`, `educ_attainment`, `occupation`, `monthly_income`, `date`) VALUES
+(1, 'mmdelrosario', 'Venice', 'Daughter', '6', 'Single', 'College', 'N/A', '0.00', '2022-07-19 13:19:26');
 
 -- --------------------------------------------------------
 
@@ -189,7 +217,9 @@ CREATE TABLE `sr-citizen-birthday-cash-gift` (
   `address` varchar(128) NOT NULL,
   `barangay` enum('Aplaya','Balibago','Caingin','Dila','Dita','Don Jose','Ibaba','Kanluran','Labas','Macabling','Malitlit','Malusak','Market Area','Pook','Pulong Santa Cruz','Santo Domingo','Sinalhan','Tagapo') NOT NULL,
   `date_of_birth` date NOT NULL,
-  `contact_number` varchar(128) NOT NULL
+  `contact_number` varchar(128) NOT NULL,
+  `status` enum('Pending','Approved','Rejected') NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -208,7 +238,9 @@ CREATE TABLE `sr-citizen-birthday-cash-incentive` (
   `address` varchar(128) NOT NULL,
   `barangay` enum('Aplaya','Balibago','Caingin','Dila','Dita','Don Jose','Ibaba','Kanluran','Labas','Macabling','Malitlit','Malusak','Market Area','Pook','Pulong Santa Cruz','Santo Domingo','Sinalhan','Tagapo') NOT NULL,
   `date_of_birth` date NOT NULL,
-  `contact_number` varchar(128) NOT NULL
+  `contact_number` varchar(128) NOT NULL,
+  `status` enum('Pending','Approved','Rejected') NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -230,15 +262,27 @@ CREATE TABLE `test` (
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
-  `user_type` int(11) NOT NULL,
   `username` varchar(128) NOT NULL,
   `last_name` varchar(128) NOT NULL,
   `suffix` varchar(20) DEFAULT NULL,
   `first_name` varchar(128) NOT NULL,
   `middle_name` varchar(128) DEFAULT NULL,
   `email` varchar(128) NOT NULL,
-  `password` varchar(128) NOT NULL
+  `password` varchar(128) NOT NULL,
+  `is_pwd` enum('Yes','No') NOT NULL DEFAULT 'No',
+  `is_sr_citizen` enum('Yes','No') NOT NULL DEFAULT 'No',
+  `is_solo_parent` enum('Yes','No') NOT NULL DEFAULT 'No',
+  `date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `last_name`, `suffix`, `first_name`, `middle_name`, `email`, `password`, `is_pwd`, `is_sr_citizen`, `is_solo_parent`, `date`) VALUES
+(1, 'rmbardillon', 'Bardillon', '', 'Romeo Jr', 'Montealegre', 'romsky.bardillon@gmail.com', '$2y$10$5IbMlSpi/p5tQAj7JXvbjebwI4Mlm6lyHJ/02LCA3URgj9dGlSIa.', 'Yes', 'No', 'No', '2022-07-19 13:21:08'),
+(2, 'mmdelrosario', 'Del Rosario', '', 'Maria Christine', 'Montealegre', 'tintin@gmail.com', '$2y$10$jAd8dVkvQlAkQl4rGeowMO7qDpSq.MPwXdAS2f/QKbijL8EvqN62O', 'No', 'No', 'Yes', '2022-07-19 13:21:08'),
+(3, 'asporlares', 'Porlares', '', 'Aaron', 'Sanchez', 'aaron.porlares@gmail.com', '$2y$10$zj64j.SJfQCSC1yUKqXlOOg9EUgdo8BvLmnavH8djeHHUzLosoX62', 'No', 'No', 'No', '2022-07-19 13:21:08');
 
 --
 -- Indexes for dumped tables
@@ -303,7 +347,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `pwd_data`
 --
 ALTER TABLE `pwd_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `senior_citizen_data`
@@ -315,13 +359,13 @@ ALTER TABLE `senior_citizen_data`
 -- AUTO_INCREMENT for table `solo_parent_data`
 --
 ALTER TABLE `solo_parent_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `solo_parent_family_composition`
 --
 ALTER TABLE `solo_parent_family_composition`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `sr-citizen-birthday-cash-gift`
@@ -345,7 +389,7 @@ ALTER TABLE `test`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

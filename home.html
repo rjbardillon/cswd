@@ -20,7 +20,17 @@
                 <h5 class="card-title">PWD</h5>
                 <p class="card-text">Set an appointment to confirm your documents.</p>
                 <a href="contact-us.html" class="btn btn-primary">Set an Appointment</a>
-                <a href="template/pwd-registration.html" class="btn btn-secondary">Edit</a>
+                <?php
+                    if ($_SESSION['is_pwd'] == "Yes") {
+                        echo '<a href="pwd-registration.html" class="btn btn-secondary">Edit</a>';
+                    } 
+                    if ($_SESSION['is_solo_parent'] == "Yes") {
+                        echo '<a href="solo-parent-registration.html" class="btn btn-secondary">Edit</a>';
+                    } 
+                    if ($_SESSION['is_sr_citizen'] == "Yes") {
+                        echo '<a href="sr-citizen-registration.html" class="btn btn-secondary">Edit</a>';
+                    }
+                ?>
             </div>
         </div>
     </div>

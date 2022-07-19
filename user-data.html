@@ -1,0 +1,10 @@
+<?php 
+    session_start();
+    $page = "registration";
+    include('header.html');
+    $username = $_SESSION['username'];
+    if (!isset($_SESSION['username'])) {
+        header("location: index.html");
+        exit();
+    }
+?>

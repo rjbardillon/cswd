@@ -1,0 +1,1197 @@
+<?php 
+    session_start();
+    require_once 'includes/dbh.inc.php';
+    require_once 'includes/functions.inc.php';
+    $page = "registration";
+    include('header.html');
+    $username = $_SESSION['username'];
+    $userdata = userDataExists($connection, $username, "pwd_data");
+    $typeOfDisability = explode(',', $userdata['type_of_disability']);
+    $causeOfDisability = explode(',', $userdata['cause_of_disability']);
+    $congenitalInborn = explode(',', $userdata['congenital_inborn']);
+    $acquired = explode(',', $userdata['acquired']);
+    if (!isset($_SESSION['username'])) {
+        header("location: index.html");
+        exit();
+    }
+?>
+<div>
+    <div class="container registration-containers mt-5 mb-5">
+        <form class="registration-form" action="includes/register.inc.php" method="post">
+            <!-- row 1 -->
+        <div class="row m-1" style="background-color: green;">
+            <div class="col border1">
+                <h6 class="text-center text-white">***PAKISAGUTAN LAHAT AT MAGSULAT NG MALALAKING LETRA LAMANG***</h6>
+            </div>
+        </div>
+        <div class="row m-1">
+            <div class="col border1 m-1">
+                <div class="form-check">
+                    <?php
+                    if($userdata["registration_type"] == "New ID") {
+                        echo '<input class="form-check-input" type="radio" value="New Id" id="new-id" name="idType" required checked>';
+                    } else {
+                        echo '<input class="form-check-input" type="radio" value="New Id" id="new-id" name="idType" required>';
+                    }
+                    ?> 
+                    <label class="form-check-label" for="new-id">
+                        NEW ID
+                    </label>
+                </div>
+            </div>
+            <div class="col border1 m-1">
+                <div class="form-check">
+                    <?php
+                    if($userdata["registration_type"] == "Renewal ID") {
+                        echo '<input class="form-check-input" type="radio" value="Renewal ID" id="renewal-id" name="idType" checked>';
+                    } else {
+                        echo '<input class="form-check-input" type="radio" value="Renewal ID" id="renewal-id" name="idType">';
+                    }
+                    ?> 
+                    <label class="form-check-label" for="renewal-id">
+                        RENEWAL ID
+                    </label>
+                </div>
+            </div>
+            <div class="col border1 m-1">
+                <div class="form-check">
+                    <?php
+                    if($userdata["registration_type"] == "Lost ID") {
+                        echo '<input class="form-check-input" type="radio" value="Lost ID" id="lost-id" name="idType" checked>';
+                    } else {
+                        echo '<input class="form-check-input" type="radio" value="Lost ID" id="lost-id" name="idType">';
+                    }
+                    ?> 
+                    <label class="form-check-label" for="lost-id">
+                        LOST ID
+                    </label>
+                </div>
+            </div>
+            <div class="col border1 m-1">
+                <div class="form-check">
+                    <?php
+                    if($userdata["registration_type"] == "Transfer") {
+                        echo '<input class="form-check-input" type="radio" value="Transfer" id="transfer" name="idType" checked>';
+                    } else {
+                        echo '<input class="form-check-input" type="radio" value="Transfer" id="transfer" name="idType">';
+                    }
+                    ?> 
+                    <label class="form-check-label" for="transfer">
+                        TRANSFER
+                    </label>
+                    <input type="text" name="textTransfer" id="textTransfer" disabled="disabled">
+                </div>
+            </div>
+            <div class="col border1 m-1">
+                <div class="form-check">
+                    <?php
+                    if($userdata["registration_type"] == "Change Information") {
+                        echo '<input class="form-check-input" type="radio" value="Change Information" id="change-info" name="idType" checked>';
+                    } else {
+                        echo '<input class="form-check-input" type="radio" value="Change Information" id="change-info" name="idType">';
+                    }
+                    ?> 
+                    <label class="form-check-label" for="change-info">
+                        CHANGE INFO
+                    </label>
+                    <input type="text" name="textChangeInfo" id="textChangeInfo" disabled>
+                </div>
+            </div>
+        </div>
+        <!-- row 2 -->
+        <div class="row m-1">
+            <div class="col">
+                <div class="row">
+                    <div class="col border1">
+                        <h5>PERSONS WITH DISABILITY NUMBER (RR-PPMM-BBB-NNNNNNN)</h5>
+                        <div>
+                            <label class="form-check-label" for="pwdNumber">0 4 3 4 2 8 0 </label>
+                            <input name="pwdNumber1" id="pwdNumber1" type="text" maxlength="2" size="2"> - <input name="pwdNumber2" id="pwdNumber2" type="text" maxlength="5" size="5">
+                        </div>
+                    </div>
+                    <div class="col border1">
+                        <h5>DATE APPLIED (MM/DD/YYYY)</h5>
+                        <input class="form-control" type="date" name="dateApplied" id="dateApplied" value ="<?php echo($userdata['date_applied']) ?>" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col border1">
+                        <h5>LAST NAME</h5>
+                        <?php
+                        require_once 'includes/dbh.inc.php'; 
+                        require_once 'includes/functions.inc.php';
+                            echo '<input class="form-control" type="text" name="lastName" id="lastName" value = "'; echo ($userdata['pwd_last_name']); echo '">';
+                        ?>
+                    </div>
+                    <div class="col border1">
+                        <h5>FIRST NAME</h5>
+                        <?php
+                        require_once 'includes/dbh.inc.php'; 
+                        require_once 'includes/functions.inc.php';
+                            echo '<input class="form-control" type="text" name="firstName" id="firstName" value = "'; echo ($userdata['pwd_first_name']); echo '">';
+                        ?>
+                    </div>
+                    <div class="col border1">
+                        <h5>MIDDLE NAME</h5>
+                        <?php
+                        require_once 'includes/dbh.inc.php'; 
+                        require_once 'includes/functions.inc.php';
+                            echo '<input class="form-control" type="text" name="middleName" id="middleName" value = "'; echo ($userdata['pwd_middle_name']); echo '">';
+                        ?>
+                    </div>
+                    <div class="col border1">
+                        <h5>SUFFIX</h5>
+                        <?php
+                        require_once 'includes/dbh.inc.php'; 
+                        require_once 'includes/functions.inc.php';
+                            echo '<input class="form-control" type="text" name="suffix" id="suffix" value = "'; echo ($userdata['pwd_suffix']); echo '">';
+                        ?>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 border1">
+                <div class="profile-pic-div">
+                    <img src="images/image.jpg" id="photo">
+                    <input type="file" id="file" accept="image/*">
+                    <label class="required" for="file" id="uploadBtn">Choose Photo</label>
+                </div>
+            </div>
+        </div>
+        <!-- row 3 -->
+        <div class="row">
+            <div class="col border1">
+                <div class="row">
+                    <div class="col">
+                        <h5 class="">TYPE OF DISABILITY</h5>
+                        <div class="form-check">
+                            <?php 
+                                if(in_array("Deaf/Hard of Hearing", $typeOfDisability, TRUE)) {
+                                    echo '<input class="form-check-input tod" type="checkbox" value="Deaf/Hard of Hearing" id="deaf" name="typeOfDisability[]" checked>';
+                                } else {
+                                    echo'<input class="form-check-input tod" type="checkbox" value="Deaf/Hard of Hearing" id="deaf" name="typeOfDisability[]">';
+                                }
+                            ?>
+                            <label class="form-check-label" for="deaf">
+                                Deaf/Hard of Hearing
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <?php 
+                                if(in_array("Intellectual Disability", $typeOfDisability, TRUE)) {
+                                    echo '<input class="form-check-input tod" type="checkbox" value="Intellectual Disability" id="intellectualDisability" name="typeOfDisability[]" checked>';
+                                } else {
+                                    echo'<input class="form-check-input tod" type="checkbox" value="Intellectual Disability" id="intellectualDisability" name="typeOfDisability[]">';
+                                }
+                            ?>
+                            <label class="form-check-label" for="intellectualDisability">
+                                Intellectual Disability
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <?php 
+                                if(in_array("Learning Disability", $typeOfDisability, TRUE)) {
+                                    echo '<input class="form-check-input tod" type="checkbox" value="Learning Disability" id="learningDisability" name="typeOfDisability[]" checked>';
+                                } else {
+                                    echo'<input class="form-check-input tod" type="checkbox" value="Learning Disability" id="learningDisability" name="typeOfDisability[]">';
+                                }
+                            ?>
+                            <label class="form-check-label" for="learningDisability">
+                                Learning Disability
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <?php 
+                                if(in_array("Mental Disability", $typeOfDisability, TRUE)) {
+                                    echo '<input class="form-check-input tod" type="checkbox" value="Mental Disability" id="mentalDisability" name="typeOfDisability[]" checked>';
+                                } else {
+                                    echo'<input class="form-check-input tod" type="checkbox" value="Mental Disability" id="mentalDisability" name="typeOfDisability[]">';
+                                }
+                            ?>
+                            <label class="form-check-label" for="mentalDisability">
+                                Mental Disability
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <?php 
+                                if(in_array("Physical Disablity (Orthopedic)", $typeOfDisability, TRUE)) {
+                                    echo '<input class="form-check-input tod" type="checkbox" value="Physical Disablity (Orthopedic)" id="physicalDisablity" name="typeOfDisability[]" checked>';
+                                } else {
+                                    echo'<input class="form-check-input tod" type="checkbox" value="Physical Disablity (Orthopedic)" id="physicalDisablity" name="typeOfDisability[]">';
+                                }
+                            ?>
+                            <label class="form-check-label" for="physicalDisablity">
+                                Physical Disablity (Orthopedic)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <?php 
+                                if(in_array("Psychosocial Disability", $typeOfDisability, TRUE)) {
+                                    echo '<input class="form-check-input tod" type="checkbox" value="Psychosocial Disability" id="psychosocialDisability" name="typeOfDisability[]" checked>';
+                                } else {
+                                    echo'<input class="form-check-input tod" type="checkbox" value="Psychosocial Disability" id="psychosocialDisability" name="typeOfDisability[]">';
+                                }
+                            ?>
+                            <label class="form-check-label" for="psychosocialDisability">
+                                Psychosocial Disability
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-check">
+                            <?php 
+                                if(in_array("Speech and Language Impairment", $typeOfDisability, TRUE)) {
+                                    echo '<input class="form-check-input tod" type="checkbox" value="Speech and Language Impairment" id="speechAndLanguageImpairment" name="typeOfDisability[]" checked>';
+                                } else {
+                                    echo'<input class="form-check-input tod" type="checkbox" value="Speech and Language Impairment" id="speechAndLanguageImpairment" name="typeOfDisability[]">';
+                                }
+                            ?>
+                            <label class="form-check-label" for="speechAndLanguageImpairment">
+                                Speech and Language Impairment
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input tod" type="checkbox" value="Visual Disability" id="visualDisability" name="typeOfDisability[]">
+                            <?php 
+                                if(in_array("Visual Disability", $typeOfDisability, TRUE)) {
+                                    echo '<input class="form-check-input tod" type="checkbox" value="Visual Disability" id="visualDisability" name="typeOfDisability[]" checked>';
+                                } else {
+                                    echo'<input class="form-check-input tod" type="checkbox" value="Visual Disability" id="visualDisability" name="typeOfDisability[]">';
+                                }
+                            ?>
+                            <label class="form-check-label" for="visualDisability">
+                                Visual Disability
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <?php 
+                                if(in_array("Cancer (RA11215)", $typeOfDisability, TRUE)) {
+                                    echo '<input class="form-check-input tod" type="checkbox" value="Cancer (RA11215)" id="cancer" name="typeOfDisability[]" checked>';
+                                } else {
+                                    echo'<input class="form-check-input tod" type="checkbox" value="Cancer (RA11215)" id="cancer" name="typeOfDisability[]">';
+                                }
+                            ?>
+                            <label class="form-check-label" for="cancer">
+                                Cancer (RA11215)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <?php 
+                                if(in_array("Rare Disease (RA10747)", $typeOfDisability, TRUE)) {
+                                    echo '<input class="form-check-input tod" type="checkbox" value="Rare Disease (RA10747)" id="rareDisease" name="typeOfDisability[]" checked>';
+                                } else {
+                                    echo'<input class="form-check-input tod" type="checkbox" value="Rare Disease (RA10747)" id="rareDisease" name="typeOfDisability[]">';
+                                }
+                            ?>
+                            <label class="form-check-label" for="rareDisease">
+                                Rare Disease (RA10747)
+                            </label>
+                        </div>
+                        <label class="form-check-label" for="medicalCondition">
+                            <h5>***MEDICAL CONDITION/DIAGNOSIS***</h5>
+                        </label>
+                        <input type="text" name="medicalCondition" id="medicalCondition" value="<?php echo ($userdata['medical_condition']); ?>">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col border1">
+                <div class="row">
+                    <h5 class="required">CAUSE OF DISABILITY</h5>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-check">
+                            <?php
+                            if(in_array("Congenital/Inborn", $causeOfDisability, TRUE)) {
+                                echo '<input class="form-check-input" type="checkbox" value="Congenital/Inborn" id="inborn" name="causeOfDisability[]" checked disabled>';
+                            } else {
+                                echo '<input class="form-check-input" type="checkbox" value="Congenital/Inborn" id="inborn" name="causeOfDisability[]" disabled>';
+                            }
+                            ?> 
+                            <label class="form-check-label" for="inborn">
+                                <b>CONGENITAL/INBORN</b>
+                            </label>
+                            <div class="form-check">
+                                <?php
+                                if(in_array("Autism", $congenitalInborn, TRUE)) {
+                                    echo '<input class="form-check-input cod" type="checkbox" value="Autism" id="autism" name="congenital[]" onclick="congenitalCheckboxChecker(\'cod\');" required checked>';
+                                } 
+                                ?>
+                                <?php
+                                if(!in_array("Autism", $congenitalInborn, TRUE)) {
+                                    echo '<input class="form-check-input cod" type="checkbox" value="Autism" id="autism" name="congenital[]" onclick="congenitalCheckboxChecker(\'cod\');" required>';
+                                }
+                                ?> 
+                                <label class="form-check-label" for="autism">
+                                    Autism
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <?php
+                                if(in_array("ADHD", $congenitalInborn, TRUE)) {
+                                    echo '<input class="form-check-input cod" type="checkbox" value="ADHD" id="adhd" name="congenital[]" onclick="congenitalCheckboxChecker(\'cod\');" required checked>';
+                                } 
+                                ?>
+                                <?php
+                                if(!in_array("ADHD", $congenitalInborn, TRUE)) {
+                                    echo '<input class="form-check-input cod" type="checkbox" value="ADHD" id="adhd" name="congenital[]" onclick="congenitalCheckboxChecker(\'cod\');" required>';
+                                }
+                                ?>
+                                <label class="form-check-label" for="adhd">
+                                    ADHD
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <?php
+                                if(in_array("Cerebral Palsy", $congenitalInborn, TRUE)) {
+                                    echo '<input class="form-check-input cod" type="checkbox" value="Cerebral Palsy" id="cerebralPalsy" name="congenital[]" onclick="congenitalCheckboxChecker(\'cod\');" required checked>';
+                                } 
+                                ?>
+                                <?php
+                                if(!in_array("Cerebral Palsy", $congenitalInborn, TRUE)) {
+                                    echo '<input class="form-check-input cod" type="checkbox" value="Cerebral Palsy" id="cerebralPalsy" name="congenital[]" onclick="congenitalCheckboxChecker(\'cod\');" required>';
+                                }
+                                ?>
+                                <label class="form-check-label" for="cerebralPalsy">
+                                    Cerebral Palsy
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <?php
+                                if(in_array("Down Syndrome", $congenitalInborn, TRUE)) {
+                                    echo '<input class="form-check-input cod" type="checkbox" value="Down Syndrome" id="downSyndrome" name="congenital[]" onclick="congenitalCheckboxChecker(\'cod\');" required checked>';
+                                } 
+                                ?>
+                                <?php
+                                if(!in_array("Down Syndrome", $congenitalInborn, TRUE)) {
+                                    echo '<input class="form-check-input cod" type="checkbox" value="Down Syndrome" id="downSyndrome" name="congenital[]" onclick="congenitalCheckboxChecker(\'cod\');" required>';
+                                }
+                                ?>
+                                <label class="form-check-label" for="downSyndrome">
+                                    Down Syndrome
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <h5 class="required">STATUS OF DISABILITY</h5>
+                            <div class="form-check col">
+                                <?php
+                                if($userdata["status_of_disability"] == "Permanent") {
+                                    echo '<input class="form-check-input" type="radio" value="Permanent" id="permanent" name="statusOfDisability" required checked>';
+                                } else {
+                                    echo '<input class="form-check-input" type="radio" value="Permanent" id="permanent" name="statusOfDisability" required>';
+                                }
+                                ?> 
+                                <label class="form-check-label" for="permanent">
+                                    Permanent
+                                </label>
+                            </div>
+                            <div class="form-check col">
+                                
+                                <?php
+                                if($userdata["status_of_disability"] == "Temporary") {
+                                    echo '<input class="form-check-input" type="radio" value="Temporary" id="temporary" name="statusOfDisability" checked>';
+                                } else {
+                                    echo '<input class="form-check-input" type="radio" value="Temporary" id="temporary" name="statusOfDisability">';
+                                }
+                                ?> 
+                                <label class="form-check-label" for="temporary">
+                                    Temporary
+                                </label>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="col">
+                        <div class="form-check">
+                            <?php
+                            if(in_array("Acquired", $causeOfDisability, TRUE)) {
+                                echo '<input class="form-check-input" type="checkbox" value="Acquired" id="acquired" name="causeOfDisability[]" checked disabled>';
+                            } else {
+                                echo '<input class="form-check-input" type="checkbox" value="Acquired" id="acquired" name="causeOfDisability[]" disabled>';
+                            }
+                            ?> 
+                            <label class="form-check-label" for="acquired">
+                                <b>ACQUIRED</b>
+                            </label>
+                            <div class="form-check">
+                                <?php
+                                if(in_array("Chronic Illness", $acquired, TRUE)) {
+                                    echo '<input class="form-check-input cod" type="checkbox" value="Chronic Illness" id="chronicIllness" name="acquired[]" onclick="acquiredCheckboxChecker(\'cod\');" required checked>';
+                                } 
+                                ?>
+                                <?php
+                                if(!in_array("Chronic Illness", $acquired, TRUE)) {
+                                    echo '<input class="form-check-input cod" type="checkbox" value="Chronic Illness" id="chronicIllness" name="acquired[]" onclick="acquiredCheckboxChecker(\'cod\');" required>';
+                                }
+                                ?>
+                                <label class="form-check-label" for="chronicIllness">
+                                    Chronic Illness
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <?php
+                                if(in_array("Cerebral Palsy", $acquired, TRUE)) {
+                                    echo '<input class="form-check-input cod" type="checkbox" value="Cerebral Palsy" id="acquiredCerebralPalsy" name="acquired[]" onclick="acquiredCheckboxChecker(\'cod\');" required checked>';
+                                } 
+                                ?>
+                                <?php
+                                if(!in_array("Cerebral Palsy", $acquired, TRUE)) {
+                                    echo '<input class="form-check-input cod" type="checkbox" value="Cerebral Palsy" id="acquiredCerebralPalsy" name="acquired[]" onclick="acquiredCheckboxChecker(\'cod\');" required>';
+                                }
+                                ?>
+                                <label class="form-check-label" for="acquiredCerebralPalsy">
+                                    Cerebral Palsy
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <?php
+                                if(in_array("Injury", $acquired, TRUE)) {
+                                    echo '<input class="form-check-input cod" type="checkbox" value="Injury" id="injury" name="acquired[]" onclick="acquiredCheckboxChecker(\'cod\');" required checked>';
+                                } 
+                                ?>
+                                <?php
+                                if(!in_array("Injury", $acquired, TRUE)) {
+                                    echo '<input class="form-check-input cod" type="checkbox" value="Injury" id="injury" name="acquired[]" onclick="acquiredCheckboxChecker(\'cod\');" required>';
+                                }
+                                ?>
+                                <label class="form-check-label" for="injury">
+                                    Injury
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- row 4 -->
+        <div class="row">
+            <div class="col col-md-auto text-white border1" style="background-color: rgb(67, 67, 114);">
+                <h5>ADDRESS</h5>
+            </div>
+            <div class="col border1">
+                <h5 class="required">HOUSE NO. /Street Name/Subdivision</h5>
+                <input class="form-control" type="text" name="address" id="address" value="<?php echo ($userdata['houseno_street_subdivision_address']) ?>" required>
+            </div>
+            <div class="col col-md-3 border1">
+                <h5 class="required">BARANGAY</h5>
+                <select class="form-select" id="barangay" name="barangay" required>
+                    <option disabled selected value="">Please Select</option>
+                    <?php 
+                        $selected = $userdata['barangay'];
+                        $barangay = array('Aplaya','Balibago','Caingin','Dila','Dita','Don Jose','Ibaba','Kanluran','Labas','Macabling','Malitlit','Malusak','Market Area','Pook','Pulong Santa Cruz'
+                        ,'Santo Domingo','Sinalhan','Tagapo');
+                        foreach($barangay as $option) {
+                            if($selected == $option) {
+                                echo '<option selected value="'; echo $option; echo'">'; echo $option; echo'</option>';
+                            } else {
+                                echo '<option value="'; echo $option; echo'">'; echo $option; echo'</option>';
+                            }
+                        }
+                    ?>
+                </select>
+            </div>
+        </div>
+        <!-- row 5 -->
+        <div class="row">
+            <div class="col border1"><b>CITY/MUNICIPALITY: </b>CITY OF SANTA ROSA</div>
+            <div class="col border1"><b>PROVINCE: </b>LAGUNA</div>
+            <div class="col border1"><b>REGION: </b>IV-A (CALABARZON)</div>
+        </div>
+        <!-- row 6 -->
+        <div class="row">
+            <div class="col col-md-auto text-white border1" style="background-color: rgb(67, 67, 114);">
+                <h5>CONTACT DETAILS</h5>
+            </div>
+            <div class="col border1">
+                <label class="form-check-label" for="landline">
+                    LANDLINE
+                </label>
+                <input class="form-control" type="text" name="landline" id="landline" maxlength="10" size="10" value="<?php echo ($userdata['landline']) ?>">
+            </div>
+            <div class="col border1">
+                <label class="form-check-label" for="mobileNumber">
+                    MOBILE NO. OF PWD
+                </label>
+                <input class="form-control" type="text" name="mobileNumber" id="mobileNumber" maxlength="11" size="11" value="<?php echo ($userdata['mobile_number']) ?>">
+            </div>
+            <div class="col col-md-auto border1">
+                <label class="form-check-label" for="email">
+                    EMAIL ADDRESS
+                </label>
+                <input class="form-control" type="text" name="email" id="email" value="<?php echo ($userdata['email']) ?>" disabled>
+            </div>
+        </div>
+        <!-- row 7 -->
+        <div class="row">
+            <div class="col border1">
+                <b class="required">DATE OF BIRTH (mm/dd/yyyy)</b><br>
+                <input type="date" name="dob" id="dob" value="<?php echo ($userdata['date_of_birth']) ?>" required>
+            </div>
+            <div class="col col-md-auto border1">
+                <b class="required">SEX</b>
+                <div class="form-check">
+                    <?php
+                    if($userdata["sex"] == "Male") {
+                        echo '<input class="form-check-input" value="Male" type="radio" name="sex" id="male" required checked>';
+                    } else {
+                        echo '<input class="form-check-input" value="Male" type="radio" name="sex" id="male" required>';
+                    }
+                    ?> 
+                    <label class="form-check-label" for="male">
+                        Male
+                    </label>
+                </div>
+                <div class="form-check">
+                    <?php
+                    if($userdata["sex"] == "Female") {
+                        echo '<input class="form-check-input" value="Female" type="radio" name="sex" id="female" checked>';
+                    } else {
+                        echo '<input class="form-check-input" value="Female" type="radio" name="sex" id="female">';
+                    }
+                    ?> 
+                    <label class="form-check-label" for="female">
+                        Female
+                    </label>
+                </div>
+            </div>
+            <div class="col col-md-auto border1">
+                <label class="form-check-label" for="religion">
+                    <b class="required">RELIGION</b>
+                </label><br>
+                <input type="text" name="religion" id="religion" value="<?php echo ($userdata['religion']) ?>" required>
+            </div>
+            <div class="col border1">
+                <b class="required">CIVIL STATUS</b>
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-check">
+                                <?php
+                                if($userdata["civil_status"] == "Single") {
+                                    echo '<input class="form-check-input" value="Single" type="radio" name="civilStatus" id="single" required checked>';
+                                } else {
+                                    echo '<input class="form-check-input" value="Single" type="radio" name="civilStatus" id="single" required>';
+                                }
+                                ?> 
+                                <label class="form-check-label" for="single">
+                                    Single
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-check">
+                                <?php
+                                if($userdata["civil_status"] == "Separated") {
+                                    echo '<input class="form-check-input" value="Separated" type="radio" name="civilStatus" id="separated" required checked>';
+                                } else {
+                                    echo '<input class="form-check-input" value="Separated" type="radio" name="civilStatus" id="separated" required>';
+                                }
+                                ?> 
+                                <label class="form-check-label" for="separated">
+                                    Separated
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-check">
+                                <?php
+                                if($userdata["civil_status"] == "Cohabitation (Live-in)") {
+                                    echo '<input class="form-check-input" value="Cohabitation (Live-in)" type="radio" name="civilStatus" id="cohabitation" required checked>';
+                                } else {
+                                    echo '<input class="form-check-input" value="Cohabitation (Live-in)" type="radio" name="civilStatus" id="cohabitation" required>';
+                                }
+                                ?> 
+                                <label class="form-check-label" for="cohabitation">
+                                    Cohabitation (Live-in)
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" value="Married" type="radio" name="civilStatus" id="married">
+                                <?php
+                                if($userdata["civil_status"] == "Married") {
+                                    echo '<input class="form-check-input" value="Married" type="radio" name="civilStatus" id="married" required checked>';
+                                } else {
+                                    echo '<input class="form-check-input" value="Married" type="radio" name="civilStatus" id="married" required>';
+                                }
+                                ?> 
+                                <label class="form-check-label" for="married">
+                                    Married
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-check">
+                                <?php
+                                if($userdata["civil_status"] == "Widow") {
+                                    echo '<input class="form-check-input" value="Widow" type="radio" name="civilStatus" id="widow" required checked>';
+                                } else {
+                                    echo '<input class="form-check-input" value="Widow" type="radio" name="civilStatus" id="widow" required>';
+                                }
+                                ?> 
+                                <label class="form-check-label" for="widow">
+                                    Widow/er
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- row 8 -->
+        <div class="row">
+            <div class="col border1">
+                <b class="required">EDUCATIONAL ATTAINMENT</b>
+                <div class="form-check">
+                    <input class="form-check-input" value="None" type="radio" name="educationalAttainment" id="none" <?php if($userdata['educational_attainment'] == 'None') echo 'checked' ?> required>
+                    <label class="form-check-label" for="none">
+                        None
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="Kindergarten" type="radio" name="educationalAttainment" id="kindergarten" <?php if($userdata['educational_attainment'] == 'Kindergarten') echo 'checked' ?> required>
+                    <label class="form-check-label" for="kindergarten">
+                        Kindergarten
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="Elementary Education" type="radio" name="educationalAttainment" id="elementaryEducation"<?php if($userdata['educational_attainment'] == 'Elementary Education') echo 'checked' ?> >
+                    <label class="form-check-label" for="elementaryEducation">
+                        Elementary Education
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="Junior High School" type="radio" name="educationalAttainment" id="juniorHighSchool"<?php if($userdata['educational_attainment'] == 'Junior High School') echo 'checked' ?> >
+                    <label class="form-check-label" for="juniorHighSchool">
+                        Junior High School
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="Senior High School" type="radio" name="educationalAttainment" id="seniorHighSchool"<?php if($userdata['educational_attainment'] == 'Senior High School') echo 'checked' ?> >
+                    <label class="form-check-label" for="seniorHighSchool">
+                        Senior High School
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="College" type="radio" name="educationalAttainment" id="college"<?php if($userdata['educational_attainment'] == 'College') echo 'checked' ?> >
+                    <label class="form-check-label" for="college">
+                        College
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="Vocational" type="radio" name="educationalAttainment" id="vocational"<?php if($userdata['educational_attainment'] == 'Vocational') echo 'checked' ?> >
+                    <label class="form-check-label" for="vocational">
+                        Vocational
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="Post Graduate Program" type="radio" name="educationalAttainment" id="postGraduateProgram"<?php if($userdata['educational_attainment'] == 'Post Graduate Program') echo 'checked' ?> >
+                    <label class="form-check-label" for="postGraduateProgram">
+                        Post Graduate Program
+                    </label>
+                </div>
+                <b class="required">ARE YOU (PWD) AN ACTIVE VOTER IN</b><br><b>SANTA ROSA, LAGUNA?</b>
+                <div class="form-check">
+                    <input class="form-check-input" value="Yes" type="radio" name="isVoter" id="yes" <?php if($userdata['is_voter'] == 'Yes') echo 'checked' ?> required>
+                    <label class="form-check-label" for="yes">
+                        Yes
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="No" type="radio" name="isVoter" id="no" <?php if($userdata['is_voter'] == 'No') echo 'checked' ?>>
+                    <label class="form-check-label" for="no">
+                        No
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="17 Below" type="radio" name="isVoter" id="17below" <?php if($userdata['is_voter'] == '17 Below') echo 'checked' ?>>
+                    <label class="form-check-label" for="17below">
+                        17 Below
+                    </label>
+                </div>
+            </div>
+            <div class="col border1">
+                <div class="row border1">
+                    <b class="required">EMPLOYMENT STATUS</b>
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" value="Employed" type="radio" name="employmentStatus" id="employed" <?php if($userdata['employment_status'] == 'Employed') echo 'checked' ?> required>
+                            <label class="form-check-label" for="employed">
+                                Employed
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" value="Unemployed" type="radio" name="employmentStatus" id="unemployed" <?php if($userdata['employment_status'] == 'Unemployed') echo 'checked' ?>>
+                            <label class="form-check-label" for="unemployed">
+                                Unemployed
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" value="Self-employed" type="radio" name="employmentStatus" id="selfEmployed" <?php if($userdata['employment_status'] == 'Self-employed') echo 'checked' ?>>
+                            <label class="form-check-label" for="selfEmployed">
+                                Self-employed
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" value="Student" type="radio" name="employmentStatus" id="student" <?php if($userdata['employment_status'] == 'Student') echo 'checked' ?>>
+                            <label class="form-check-label" for="student">
+                                Student
+                            </label>
+                        </div>
+                    </div>
+                    <div class="disable disableDiv">
+                    <b>INCOME IF EMPLOYED/SELF-EMPLOYED</b>
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" value="Less than 10,000" type="radio" name="income" id="l10" <?php if($userdata['income'] == 'Less than 10,000') echo 'checked' ?>>
+                            <label class="form-check-label" for="student">
+                            <label class="form-check-label" for="l10">
+                                Less than 10,000
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" value="10,000 - 20, 000" type="radio" name="income" id="10t-20t" <?php if($userdata['income'] == '10,000 - 20, 000') echo 'checked' ?>>
+                            <label class="form-check-label" for="student">
+                            <label class="form-check-label" for="10t-20t">
+                                10,000 - 20, 000
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" value="21,000 - 40,000" type="radio" name="income" id="21t-40t" <?php if($userdata['income'] == '21,000 - 40,000') echo 'checked' ?>>
+                            <label class="form-check-label" for="student">
+                            <label class="form-check-label" for="21t-40t">
+                                21,000 - 40,000
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" value="41,000 - 100,000" type="radio" name="income" id="41t-100t" <?php if($userdata['income'] == '41,000 - 100,000') echo 'checked' ?>>
+                            <label class="form-check-label" for="student">
+                            <label class="form-check-label" for="41t-100t">
+                                41,000 - 100,000
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" value="More than 100,000" type="radio" name="income" id="m100t" <?php if($userdata['income'] == 'More than 100,000') echo 'checked' ?>>
+                            <label class="form-check-label" for="student">
+                            <label class="form-check-label" for="m100t">
+                                More than 100,000
+                            </label>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="row border1 disable disableDiv">
+                    <b>CATEGORY OF EMPLOYMENT</b>
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" value="Government" type="radio" name="categoryOfEmployment" id="government" <?php if($userdata['category_of_employment'] == 'Government') echo 'checked' ?>>
+                            <label class="form-check-label" for="government">
+                                Government
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" value="Private" type="radio" name="categoryOfEmployment" id="private" <?php if($userdata['category_of_employment'] == 'Private') echo 'checked' ?>>
+                            <label class="form-check-label" for="private">
+                                Private
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row border1 disable disableDiv">
+                    <b>NATURE OF EMPLOYMENT</b>
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" value="Permanent/Regular" type="radio" name="natureOfEmployment" id="permanent/regular" <?php if($userdata['nature_of_employment'] == 'Permanent/Regular') echo 'checked' ?>>
+                            <label class="form-check-label" for="permanent/regular">
+                                Permanent/Regular
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" value="Seasonal" type="radio" name="natureOfEmployment" id="seasonal" <?php if($userdata['nature_of_employment'] == 'Seasonal') echo 'checked' ?>>
+                            <label class="form-check-label" for="seasonal">
+                                Seasonal
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" value="Casual" type="radio" name="natureOfEmployment" id="casual" <?php if($userdata['nature_of_employment'] == 'Casual') echo 'checked' ?>>
+                            <label class="form-check-label" for="casual">
+                                Casual
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" value="Emergency" type="radio" name="natureOfEmployment" id="emergency" <?php if($userdata['nature_of_employment'] == 'Emergency') echo 'checked' ?>>
+                            <label class="form-check-label" for="emergency">
+                                Emergency
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col border1">
+                <div class="disable disableDiv">
+                <b>OCCUPATION</b>
+                <div class="form-check">
+                    <input class="form-check-input" value="Managers" type="radio" name="occupation" id="managers" <?php if($userdata['occupation'] == 'Managers') echo 'checked' ?>>
+                    <label class="form-check-label" for="managers">
+                        Managers
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="Professionals" type="radio" name="occupation" id="professionals" <?php if($userdata['occupation'] == 'Professionals') echo 'checked' ?>>
+                    <label class="form-check-label" for="professionals">
+                        Professionals
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="Technician & Associate Professionals" type="radio" name="occupation" id="technicianAndAssociateProfessionals" <?php if($userdata['occupation'] == 'Technician & Associate Professionals') echo 'checked' ?>>
+                    <label class="form-check-label" for="technicianAndAssociateProfessionals">
+                        Technician & Associate Professionals
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="Clerical Support Workers" type="radio" name="occupation" id="clericalSupportWorkers" <?php if($userdata['occupation'] == 'Clerical Support Workers') echo 'checked' ?>>
+                    <label class="form-check-label" for="clericalSupportWorkers">
+                        Clerical Support Workers
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="Service & Sales Workers" type="radio" name="occupation" id="serviceAndSalesWorkers" <?php if($userdata['occupation'] == 'Service & Sales Workers') echo 'checked' ?>>
+                    <label class="form-check-label" for="serviceAndSalesWorkers">
+                        Service & Sales Workers
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="Skilled Agricultural, Forestry & Fishery Workers" type="radio" name="occupation" id="skilledAgricultural" <?php if($userdata['occupation'] == 'Skilled Agricultural, Forestry & Fishery Workers') echo 'checked' ?>>
+                    <label class="form-check-label" for="skilledAgricultural">
+                        Skilled Agricultural, Forestry & Fishery Workers
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="Craft & Related Trade Workers" type="radio" name="occupation" id="tradeWorkers" <?php if($userdata['occupation'] == 'Craft & Related Trade Workers') echo 'checked' ?>>
+                    <label class="form-check-label" for="tradeWorkers">
+                        Craft & Related Trade Workers 
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="Plant & Machine Operators & Assemblers" type="radio" name="occupation" id="machineOperator" <?php if($userdata['occupation'] == 'Plant & Machine Operators & Assemblers') echo 'checked' ?>>
+                    <label class="form-check-label" for="machineOperator">
+                        Plant & Machine Operators & Assemblers
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="Elementary Occupations" type="radio" name="occupation" id="elementaryOccupations" <?php if($userdata['occupation'] == 'Elementary Occupations') echo 'checked' ?>>
+                    <label class="form-check-label" for="elementaryOccupations">
+                        Elementary Occupations
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="Others" type="radio" name="occupation" id="others" <?php if($userdata['occupation'] == 'Others') echo 'checked' ?>>
+                    <label class="form-check-label" for="others">
+                        Others, specify
+                    </label>
+                    <input type="text" name="otherOccupation" id="otherOccupation" value="<?php echo ($userdata['other_occupation']) ?>">
+                </div>
+                </div>
+                <div class="row border1">
+                    <b class="required">Are you or any of your family member a 4p's beneficiary?</b>
+                    <div class="form-check">
+                        <input class="form-check-input" value="Yes" type="radio" name="4psBeneficiary" id="4psyes" <?php if($userdata['is_4ps_beneficiary'] == 'Yes') echo 'checked' ?> required>
+                        <label class="form-check-label" for="4psyes">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" value="No" type="radio" name="4psBeneficiary" id="4psno" <?php if($userdata['is_4ps_beneficiary'] == 'No') echo 'checked' ?>>
+                        <label class="form-check-label" for="4psno">
+                            No
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- row 9 -->
+        <div class="row">
+            <div class="col col-md-auto border1">
+                <b>BLOOD TYPE (Leave blank if you don't know)</b>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="A+" name="bloodType" id="A+" <?php if($userdata['blood_type'] == 'A+') echo 'checked' ?>>
+                            <label class="form-check-label" for="A+">
+                                A+
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="AB+" name="bloodType" id="AB+" <?php if($userdata['blood_type'] == 'AB+') echo 'checked' ?>>
+                            <label class="form-check-label" for="AB+">
+                                AB+
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="A-" name="bloodType" id="A-" <?php if($userdata['blood_type'] == 'A-') echo 'checked' ?>>
+                            <label class="form-check-label" for="A-">
+                                A-
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="AB-" name="bloodType" id="AB-" <?php if($userdata['blood_type'] == 'AB-') echo 'checked' ?>>
+                            <label class="form-check-label" for="AB-">
+                                AB-
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="B+" name="bloodType" id="B+" <?php if($userdata['blood_type'] == 'B+') echo 'checked' ?>>
+                            <label class="form-check-label" for="B+">
+                                B+
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="O+" name="bloodType" id="O+" <?php if($userdata['blood_type'] == 'O+') echo 'checked' ?>>
+                            <label class="form-check-label" for="O+">
+                                O+
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="B-" name="bloodType" id="B-" <?php if($userdata['blood_type'] == 'B-') echo 'checked' ?>>
+                            <label class="form-check-label" for="B-">
+                                B-
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="O-" name="bloodType" id="O-" <?php if($userdata['blood_type'] == 'O-') echo 'checked' ?>>
+                            <label class="form-check-label" for="O-">
+                                O-
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col border1 disable disableDiv">
+                <div class="row">
+                    <label class="form-check-label" for="organization">
+                    <b>ORGANIZATION AFFILIATED</b>
+                    </label>
+                    <input type="text" name="organization" id="organization" value="<?php echo ($userdata['organization_affiliated']) ?>">
+                </div>
+                <div class="row">
+                    <label class="form-check-label" for="contactPerson">
+                    <b>CONTACT PERSON</b>
+                    </label>
+                    <input type="text" name="contactPerson" id="contactPerson" value="<?php echo ($userdata['contact_person']) ?>">
+                </div>
+                <div class="row">
+                    <label class="form-check-label" for="officeAddress">
+                    <b>OFFICE ADDRESS</b>
+                    </label>
+                    <input type="text" name="officeAddress" id="officeAddress" value="<?php echo ($userdata['office_address']) ?>">
+                </div>
+                <div class="row">
+                    <label class="form-check-label" for="telNumber">
+                    <b>TEL. NO.</b>
+                    </label>
+                    <input type="text" name="telNumber" id="telNumber" value="<?php echo ($userdata['office_telephone_number']) ?>">
+                </div>       
+            </div>
+            <div class="col border1">
+                <b>ID REFERENCE NO.</b>
+                <div class="row">
+                    <label class="form-check-label" for="sssNumber">
+                        <b>SSS NO. :</b>
+                    </label>
+                    <input type="tel" name="sssNumber" id="sssNumber" value="<?php echo ($userdata['sss_number']) ?>">
+                </div>
+                <div class="row">
+                    <label class="form-check-label" for="gsisNumber">
+                        <b>GSIS No. :</b>
+                    </label>
+                    <input type="text" name="gsisNumber" id="gsisNumber" value="<?php echo ($userdata['gsis_number']) ?>">
+                </div>
+                <div class="row">
+                    <label class="form-check-label" for="psnNumber">
+                        <b>PSN NO. :</b>
+                    </label>
+                    <input type="text" name="psnNumber" id="psnNumber" value="<?php echo ($userdata['psn_number']) ?>">
+                </div>
+                <div class="row">
+                    <label class="form-check-label" for="philHealthNumber">
+                        <b>PHILHEALTH NO. :</b>
+                    </label>
+                    <input type="text" name="philHealthNumber" id="philHealthNumber" value="<?php echo ($userdata['philhealth_number']) ?>">
+                    <div class="row">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="PhilHealth Member" name="philHealthMemberType" id="philHealthMember" <?php if($userdata['philhealth_member_type'] == 'PhilHealth Member') echo 'checked' ?>>
+                            <label class="form-check-label" for="philHealthMember">
+                                PhilHealth Member
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="PhilHealth Member-Dependent" name="philHealthMemberType" id="philHealthMemberDependent" <?php if($userdata['philhealth_member_type'] == 'PhilHealth Member-Dependent') echo 'checked' ?>>
+                            <label class="form-check-label" for="philHealthMemberDependent">
+                                PhilHealth Member-Dependent
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <!-- row 10 -->
+        <div class="row">
+            <div class="col col-md-auto border1">
+                <div class="row text-white" style="background-color: rgb(67, 67, 114);">
+                    <b>FAMILY BACKGROUND</b>
+                </div>
+                <div class="row">
+                    <b>FATHER'S NAME</b>
+                </div>
+                <div class="row">
+                    <b>MOTHER"S NAME</b>
+                </div>
+                <div class="row text-white" style="background-color: rgb(67, 67, 114);">
+                    <b>GUARDIAN'S NAME</b>
+                </div>
+            </div>
+            <div class="col border1">
+                <div class="row text-white" style="background-color: rgb(67, 67, 114);">
+                    <b>LAST NAME</b>
+                </div>
+                <div class="row">
+                    <input type="text" name="fatherLastName" id="fatherLastName" value="<?php echo ($userdata['father_last_name']) ?>">
+                </div>
+                <div class="row">
+                    <input type="text" name="motherLastName" id="motherLastName" value="<?php echo ($userdata['mother_last_name']) ?>">
+                </div>
+                <div class="row">
+                    <input type="text" name="guardianLastName" id="guardianLastName" value="<?php echo ($userdata['guardian_last_name']) ?>">
+                </div>
+            </div>
+            <div class="col border1">
+                <div class="row text-white" style="background-color: rgb(67, 67, 114);">
+                    <b>FIRST NAME</b>
+                </div>
+                <div class="row">
+                    <input type="text" name="fatherFirstName" id="fatherFirstName" value="<?php echo ($userdata['father_first_name']) ?>">
+                </div>
+                <div class="row">
+                    <input type="text" name="motherFirstName" id="motherFirstName" value="<?php echo ($userdata['mother_first_name']) ?>">
+                </div>
+                <div class="row">
+                    <input type="text" name="guardianFirstName" id="guardianFirstName" value="<?php echo ($userdata['guardian_first_name']) ?>">
+                </div>
+            </div>
+            <div class="col border1">
+                <div class="row text-white" style="background-color: rgb(67, 67, 114);">
+                    <b>MIDDLE NAME</b>
+                </div>
+                <div class="row">
+                    <input type="text" name="fatherMiddleName" id="fatherMiddleName" value="<?php echo ($userdata['father_middle_name']) ?>">
+                </div>
+                <div class="row">
+                    <input type="text" name="motherMiddleName" id="motherMiddleName" value="<?php echo ($userdata['mother_middle_name']) ?>">
+                </div>
+                <div class="row">
+                    <input type="text" name="guardianMiddleName" id="guardianMiddleName" value="<?php echo ($userdata['guardian_middle_name']) ?>">
+                </div>
+            </div>
+        </div>
+        <!-- row 11 -->
+        <div class="row">
+            <div class="col border1">
+                <label class="form-check-label" for="guardianRelationship">
+                <b>KAANU-ANO NG PWD ANG GUARDIAN: </b>
+                </label>
+                <input type="text" name="guardianRelationship" id="guardianRelationship" value="<?php echo ($userdata['guardian_relationship']) ?>" disabled>
+            </div>
+            <div class="col border1">
+                <label class="form-check-label" for="guardianContactNumber">
+                <b class="text-white" style="background-color: rgb(67, 67, 114);">GUARDIAN'S CONTACT NO.: </b>
+                </label>
+                <input type="text" name="guardianContactNumber" id="guardianContactNumber" value="<?php echo ($userdata['guardian_contact_number']) ?>" disabled>
+            </div>
+        </div>
+        <!-- row 12 -->
+        <div class="row">
+            <div class="col col-md-auto border1">
+                <b class="required">ACCOMPLISHED BY: </b>
+                <input class="form-check-input" type="radio" value="Applicant" name="accomplishedBy" id="applicant" <?php if($userdata['accomplished_by'] == 'Applicant') echo 'checked' ?> required>
+                <label class="form-check-label" for="applicant">
+                    Applicant
+                </label>
+                <input class="form-check-input" type="radio" value="Guardian" name="accomplishedBy" id="guardian" <?php if($userdata['accomplished_by'] == 'Guardian') echo 'checked' ?>>
+                <label class="form-check-label" for="guardian">
+                    Guardian
+                </label>
+
+                <input class="form-check-input" type="radio" value="Representative" name="accomplishedBy" id="representative" <?php if($userdata['accomplished_by'] == 'Representative') echo 'checked' ?>>
+                <label class="form-check-label" for="representative">
+                    Representative  
+                </label>
+            </div>
+            <div class="col border1">
+                <label class="form-check-label" for="nameOfAccomplisher">
+                    <b class="required">NAME: </b>  
+                </label>
+                <input type="text" name="nameOfAccomplisher" id="nameOfAccomplisher" value="<?php echo ($userdata['name_of_accomplisher']) ?>" required>
+            </div>
+        </div>
+        <!-- row 13 -->
+        <div class="row">
+            <div class="col border1">
+                <label class="form-check-label" for="nameOfPhysician">
+                    <b class="text-white required" style="background-color: rgb(67, 67, 114);">NAME OF CERTIFYING PHYSICIAN: </b>
+                </label>
+                <input type="text" name="nameOfPhysician" id="nameOfPhysician" value="<?php echo ($userdata['name_of_physician']) ?>" required>
+            </div>
+            <div class="col border1">
+                <label class="form-check-label" for="licenseNumber">
+                    <b class="text-white required" style="background-color: rgb(67, 67, 114);">LICENSE NO.: </b> 
+                </label>
+                <input type="text" name="licenseNumber" id="licenseNumber" value="<?php echo ($userdata['license_number']) ?>" required>
+            </div>
+        </div>
+        <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Update" id="pwd-update" name="pwd-update">
+        </form>
+    </div>
+</div>
+<?php 
+    include('footer.html');
+?>

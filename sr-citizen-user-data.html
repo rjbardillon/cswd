@@ -1,0 +1,208 @@
+<?php 
+    session_start();
+    $page = "registration";
+    include('header.html');
+    $username = $_SESSION['username'];
+    if (!isset($_SESSION['username'])) {
+        header("location: index.html");
+        exit();
+    }
+?>
+<section>
+        <!-- Senior Citizen -->
+    <div class="disable disableDiv">
+        <div class="container registration-containers mt-5 mb-5">
+            <form class="registration-form" action="includes/register.inc.php" method="post">
+                <h1>Sr. Citizen</h1>
+                <p>Instruction:</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam eaque, dignissimos blanditiis nesciunt quidem vel hic nobis, debitis provident distinctio accusantium odio in ipsa officiis nulla dicta eveniet aut accusamus.</p>
+            <!-- Radio Btn -->
+                <div class="row align-items-start">
+                    <div class="col form-group">
+                        <div>
+                            <input class="form-check-input" type="radio" name="purpose" id="bago" value="Bago">
+                            <label class="" for="bago">Bago</label>
+                        </div>    
+                    </div>
+                    <div class="col form-group">
+                        <div>
+                            <input class="form-check-input" type="radio" name="purpose" id="lumipat" value="Lumipat">
+                            <label class="" for="lumipat">Lumipat</label>
+                        </div>    
+                    </div>
+                    <div class="col form-group">
+                        <div>
+                            <input class="form-check-input" type="radio" name="purpose" id="magpapalit" value="Magpapalit">
+                            <label class="" for="magpapalit">Magpapalit</label>
+                        </div>    
+                    </div>
+                    <div class="col form-group">
+                        <div>
+                            <input class="form-check-input" type="radio" name="purpose" id="nawala" value="Nawala">
+                            <label class="" for="nawala">Nawala</label>
+                        </div>    
+                    </div>
+                </div>
+                    <!-- ID number -->
+                    <div class="row align-items-start">
+                        <div class="col form-group">
+                            <label class="" for="IDnum">Numero ng ID (Bago)</label>
+                            <input class="form-control" type="text" id="IDnum" name="IDnum" required>
+                        </div>
+                    </div>
+                    <!-- Name -->
+                    <div class="row align-items-start">
+                        <div class="col form-group">
+                            <label class="" for="FName">First Name (Pangalan)</label>
+                            <input class="form-control" type="text" id="FName" name="FName" required>
+                        </div>
+                        <div class="col form-group">
+                            <label class="" for="MName">Middle Name (Gitnang Pangalan)</label>
+                            <input class="form-control" type="text" id="MName" name="MName">
+                        </div>
+                        <div class="col form-group">
+                            <label class="" for="LName">Last Name (Apelyido) </label>
+                            <input class="form-control" type="text" id="LName" name="LName" required>
+                        </div>
+                        <div class="col form-group">
+                            <label class="" for="srCitizenSuffix">Suffix</label>
+                            <input class="form-control" type="text" id="srCitizenSuffix" name="srCitizenSuffix">
+                        </div>
+                    </div>
+                    <!-- Address -->
+                    <div class="row align-items-start">
+                        <div class="col form-group">
+                            <label class="" for="srCitizenBarangay">Barangay</label>
+                            <select class="form-select" id="srCitizenBarangay" name="srCitizenBarangay">
+                                <option disabled selected value="">Please Select</option>
+                                <option value="Aplaya">Aplaya</option>
+                                <option value="Balibago">Balibago</option>
+                                <option value="Caingin">Caingin</option>
+                                <option value="Dila">Dila</option>
+                                <option value="Dita">Dita</option>
+                                <option value="Don Jose">Don Jose</option>
+                                <option value="Ibaba">Ibaba</option>
+                                <option value="Kalnuran">Kanluran</option>
+                                <option value="Labas">Labas</option>
+                                <option value="Macabling">Macabling</option>
+                                <option value="Malitlit">Malitlit</option>
+                                <option value="Malusak">Malusak</option>
+                                <option value="Market Area">Market Area</option>
+                                <option value="Pook">Pook</option>
+                                <option value="Pulong Santa Cruz">Pulong Santa Cruz</option>
+                                <option value="Santo Domingo">Santo Domingo</option>
+                                <option value="Sinalhan">Sinalhan</option>
+                                <option value="Tagapo">Tagapo</option>
+                            </select>
+                        </div>
+                        <div class="col form-group">
+                            <label class="" for="tirahan">Tirahan (House No./Street/Subdivision)</label>
+                            <input class="form-control" type="text" id="tirahan" name="tirahan">
+                        </div>
+                    </div>
+                    <!-- S/M/A -->
+                    <div class="row align-items-start">
+                        <div class="col">
+                            <label for="srCitizenSex">Sex (Kasarian noong Kapanganakan)</label>
+                                <select class="form-select" id="srCitizenSex" name="srCitizenSex">
+                                    <option disabled selected value="">Please Select</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                        </div>
+                        <div class="col">
+                            <label for="status">Marital Status</label>
+                            <div class="dropdown">
+                                <select class="form-select" id="status" name="status">
+                                    <option di  sabled selected value="">Please Select</option>
+                                    <option value="single">Single</option>
+                                    <option value="married">Married</option>
+                                    <option value="widowed">Widowed</option>
+                                    <option value="separated">Separated</option>
+                                    <option value="divorced">Divorced</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col form-group">
+                            <label class="" for="edad">Edad</label>
+                            <input class="form-control" type="text" id="edad" name="edad" readonly>
+                        </div>
+                    </div>
+
+                    <div class="row align-items-start">
+                        <div class="col">
+                            <label for="srCitizenDOB">Date of Birth</label>
+                            <input class="form-control" type="date" id="srCitizenDOB" name="srCitizenDOB" required>
+                        </div>
+                        <div class="col form-group">
+                            <label class="" for="srCitizenBirthplace">Lugar ng Kapanganakan</label>
+                            <input class="form-control" type="text" id="srCitizenBirthplace" name="srCitizenBirthplace" required>
+                        </div>
+                    </div>
+
+                    <div class="row align-items-start">
+                        <div class="col form-group">
+                            <label class="" for="telepono">Telepono</label>
+                            <input class="form-control" type="text" id="telepono" name="telepono" required>
+                        </div>
+                        <div class="col form-group">
+                            <label class="" for="relihiyon">Relihiyon</label>
+                            <input class="form-control" type="text" id="relihiyon" name="relihiyon" required>
+                        </div>
+                        <div class="col form-group">
+                            <label class="" for="hanapbuhay">Hanabuhay</label>
+                            <input class="form-control" type="text" id="hanapbuhay" name="hanapbuhay" required>
+                        </div>
+                    </div>
+                    <!-- Pensyon -->
+                    <div class="row align-items-start">
+                        <div class="col">
+                            <label for="pensyon">May pensyon na tinatanggap</label>
+                                <select class="form-select" id="pensyon" name="pensyon">
+                                    <option disabled selected value="">Please Select</option>
+                                    <option value="oo">Oo</option>
+                                    <option value="hindi">hindi</option>
+                                </select>
+                        </div>
+                        <div class="col form-group">
+                            <label class="" for="saan">Saan</label>
+                            <input class="form-control" type="text" id="saan" name="saan">
+                        </div>
+                        <div class="col form-group">
+                            <label class="" for="magkano">Magkano</label>
+                            <input class="form-control" type="text" id="magkano" name="magkano">
+                        </div>
+                    </div>
+                    <!-- Asawa -->
+                    <div class="row align-items-start">
+                        <div class="col form-group">
+                            <label class="" for="asawa">Pangalan ng Asawa</label>
+                            <input class="form-control" type="text" id="asawa" name="asawa">
+                        </div>
+                        <div class="col form-group">
+                            <label class="" for="edad-asawa">Edad</label>
+                            <input class="form-control" type="text" id="edad-asawa" name="edad-asawa">
+                        </div>
+                    </div>
+
+                    <!-- Anak -->
+                    <div class="row align-items-start">
+                        <div class="col form-group">
+                            <label class="" for="anak">Ilan ang anak</label>
+                            <input class="form-control" type="text" id="anak" name="anak">
+                        </div>
+                        <div class="col form-group">
+                            <label class="" for="kasama">Kasama sa bahay?</label>
+                            <input class="form-control" type="text" id="kasama" name="kasama">
+                        </div>
+                    </div>
+                    <!-- DITO MO ILAGAY YUNG LALAGAY MO ZETH -->
+                    <!-- AYOKO NGA -ZETH-->
+                    <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Approved" id="senior-citizen-approved" name="senior-citizen-approved">
+            </form>
+        </div>
+        <?php 
+            include('footer.html');
+        ?>
+    </div>
+</section>

@@ -1,0 +1,284 @@
+<?php 
+    session_start();
+    $page = "registration";
+    include('header.html');
+    $username = $_SESSION['username'];
+    if (!isset($_SESSION['username'])) {
+        header("location: index.html");
+        exit();
+    }
+?>
+<section>
+    <div>
+        <div class="container registration-containers mt-5 mb-5">
+            <form class="registration-form" action="includes/register.inc.php" method="post">
+                <div class="row m-1">
+                    <h2 class="display-20">APPLICATION FORM:</h2>
+                </div>
+                <div class="row m-1">
+                    <div class="">
+                        <h2 class="display-20 text-center" >SOLO PARENT IDENTIFICATION CARD</h2>
+                    </div>
+                </div>
+                <div class="row align-items-start">
+                    <div class="col form-group">
+                        <label class="required" for="name">Name</label>
+                        <input class="form-control" type="text" id="name" name="name" required>
+                    </div>
+                    <div class="col-2 form-group">
+                        <label class="required" for="age">Age</label>
+                        <input class="form-control" type="text" id="age" name="age" readonly>
+                    </div>
+                    <div class="col-2 form-group">
+                        <label class="required" for="sex">Sex </label>
+                        <select class="form-select" id="sex" name="sex" required>
+                            <option disabled selected value="">Please Select</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row align-items-start">
+                    <div class="col form-group">
+                        <label class="required" for="birth">Date of Birth </label>
+                        <input class="form-control" type="date" id="birth" name="birth" required>
+                    </div>
+                    <div class="col form-group">
+                        <label class="required" for="birthplace">Place of Birth </label>
+                        <input class="form-control" type="text" id="birthplace" name="birthplace" required>
+                    </div>
+                </div>
+
+                <div class="row align-items-start">
+                    <div class="col">
+                        <label class="required" for="soloParentAddress">Address</label>
+                        <input class="form-control" type="text" id="soloParentAddress" name="soloParentAddress" required>
+                    </div>
+                    <div class="col">
+                        <label class="required" for="soloParentBarangay">Barangay</label>
+                        <select class="form-select" id="soloParentBarangay" name="soloParentBarangay" required>
+                            <option disabled selected value="">Please Select</option>
+                            <option value="Aplaya">Aplaya</option>
+                            <option value="Balibago">Balibago</option>
+                            <option value="Caingin">Caingin</option>
+                            <option value="Dila">Dila</option>
+                            <option value="Dita">Dita</option>
+                            <option value="Don Jose">Don Jose</option>
+                            <option value="Ibaba">Ibaba</option>
+                            <option value="Kalnuran">Kanluran</option>
+                            <option value="Labas">Labas</option>
+                            <option value="Macabling">Macabling</option>
+                            <option value="Malitlit">Malitlit</option>
+                            <option value="Malusak">Malusak</option>
+                            <option value="Market Area">Market Area</option>
+                            <option value="Pook">Pook</option>
+                            <option value="Pulong Santa Cruz">Pulong Santa Cruz</option>
+                            <option value="Santo Domingo">Santo Domingo</option>
+                            <option value="Sinalhan">Sinalhan</option>
+                            <option value="Tagapo">Tagapo</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row align-items-start">
+                    <div class="col">
+                        <label class="required" for="educational">Highest Educational Attainment</label>
+                        <input class="form-control" type="text" id="educational" name="educational" required>
+                    </div>
+                </div>
+
+                <div class="row align-items-start">
+                    <div class="col">
+                        <label class="required" for="occupation">Occupation</label>
+                        <input class="form-control" type="text" id="occupation" name="occupation" required>
+                    </div>
+                    <div class="col">
+                        <label class="required" for="income">Monthly Income</label>
+                        <input class="form-control" type="text" id="income" name="income" required>
+                    </div>
+                </div>
+
+                <div class="row align-items-start">
+                    <div class="col">
+                        <label class="required" for="famincome">Total Monthly Family Income</label>
+                        <input class="form-control" type="text" id="famincome" name="famincome" required>
+                    </div>
+                </div>
+
+                <div class="row align-items-start">
+                    <div class="col">
+                        <label class="required" for="tenurial">Tenurial Status</label>
+                        <input class="form-control" type="text" id="tenurial" name="tenurial" required>
+                    </div>
+                </div>
+
+                <div class="row align-items-start">
+                    <div class="col">
+                        <label class="required" for="soloParentReligion">Religion</label>
+                        <input class="form-control" type="text" id="soloParentReligion" name="soloParentReligion" required>
+                    </div>
+                    <div class="col">
+                        <label class="required" for="contact">Contact no.</label>
+                        <input class="form-control" type="text" id="contact" name="contact" required>
+                    </div>
+                </div>
+                <div class="row m-1">
+                    <div class="">
+                        <h5 class="required" >Marital Status (Please check):</h5>
+                    </div>
+                </div>
+                <div class="row align-items-start">
+                    <div class="col ml-5">
+                        <input class="form-check-input" type="radio" value="Single" name="marital-status" id="soloParentSingle" required>
+                        <label class="form-check-label" for="soloParentSingle">
+                        Single
+                        </label>
+                    </div>
+                    <div class="col ml-5">
+                        <input class="form-check-input" type="radio" value="Annulled" name="marital-status" id="soloParentAnnulled">
+                        <label class="form-check-label" for="soloParentAnnulled">
+                        Annulled
+                        </label>
+                    </div>
+                    <div class="col ml-5">
+                        <input class="form-check-input" type="radio" value="Widow/Widower" name="marital-status" id="soloParentWidow">
+                        <label class="form-check-label" for="soloParentWidow">
+                            Widow/Widower
+                        </label>
+                    </div>
+                </div>
+                <div class="row align-items-start">
+                    <div class="col ml-5">
+                        <input class="form-check-input" type="radio" value="Married" name="marital-status" id="soloParentMarried">
+                        <label class="form-check-label" for="soloParentMarried">
+                        Married
+                        </label>
+                    </div>
+                    
+                    <div class="col ml-5">
+                        <input class="form-check-input" type="radio" value="Separated" name="marital-status" id="soloParentSeparated">
+                        <label class="form-check-label" for="soloParentSeparated">
+                            Separated(w/certificate of Legal Separation)
+                        </label>
+                    </div>
+                    <div class="col"></div>
+                </div>
+
+                <div class="row align-items-start">
+                    <div class="col">
+                        <h5 class="" >I.Family Composition</h5>
+                    </div>
+                    <div class="row">
+                        <label class="form-check-label col" for="">
+                            <b>Name</b>
+                        </label>
+                        <label class="form-check-label col" for="">
+                            <b>Relationship</b>
+                        </label>
+                        <label class="form-check-label col" for="">
+                            <b>Age</b>
+                        </label>
+                        <label class="form-check-label col" for="">
+                            <b>Civil Status</b>
+                        </label>
+                        <label class="form-check-label col" for="">
+                            <b>Educational Attainment</b>
+                        </label>
+                        <label class="form-check-label col" for="">
+                            <b>Occupation</b>
+                        </label>
+                        <label class="form-check-label col" for="">
+                            <b>Monthly Income</b>
+                        </label>
+                        <label for="" class="col"></label>                    
+                    </div>
+                    <div class="family-list">
+                        <div class="row family-data" id="duplicater">
+                            <input type="text" class="form-control col" name="family-composition-name[]" id="">
+                            <input type="text" class="form-control col" name="family-composition-relationship[]" id="">
+                            <input type="text" class="form-control col" name="family-composition-age[]" id="">
+                            <select class="col form-select" id="id-type" name="family-composition-civil-status[]" id="">
+                                <option disabled selected value="">Please Select</option>
+                                <option value="Single">Single</option>
+                                <option value="Annulled">Annulled</option>
+                                <option value="Widow">Widow/Widower</option>
+                                <option value="Married">Married</option>
+                                <option value="Separated">Separated</option>
+                            </select>
+                            <input type="text" class="form-control col" name="family-composition-educ-attainment[]" id="">
+                            <input type="text" class="form-control col" name="family-composition-occupation[]" id="">
+                            <input type="text" class="form-control col" name="family-composition-monthly-income[]" id="">
+                            <button type="button" class="btn btn-danger delete col" onclick="deleteDiv(this);">Delete</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary m-1" type="button" id="add-family" onclick="duplicate();">Add</button>
+                    <div class="text-center ins">
+                        <h6>(Include all family members and other members of the household.)</h6>
+                    </div>
+                </div>
+                <div class="row align-items-start">
+                    <div class="col">
+                        <h5 class="required" >II. Classification/ Circumstances of being a Solo Parent:</h5>
+                    </div>
+                    <div class="row align-items-start">
+                        <div class="col">
+                            <label class="required" for="incidence">Incidence</label>
+                            <input class="form-control" type="text" id="incidence" name="incidence" required>
+                        </div>
+                    </div>
+                    <div class="row align-items-start">
+                        <div class="col">
+                            <label class="required" for="when">When</label>
+                            <input class="form-control" type="text" id="when" name="when" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row align-items-start">
+                    <div class="col">
+                        <label class="required" for="problem"><h5>III. Needs/Problems of Solo Parent</h5></label>
+                    </div>
+                    <div class="row align-items-start">
+                        <div class="col">
+                            <input class="form-control" type="text" id="problem" name="problem" required>
+                        </div>
+                    </div>
+                </div>   
+                <div class="row align-items-start">
+                    <div class="col">
+                        <label class="required" for="resources"><h5>IV. Family Resources:</h5></label>
+                        <div class="row align-items-start">
+                            <div class="col">
+                                <input class="form-control" type="text" id="resources" name="resources" required>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="row align-items-start">
+                    <div class="col">
+                        <p class="font-weight-normal">I hereby certify that the information given above are true and correct. I further UNDERSTAND that any misinterpretations that may have made will subject me to criminal and civil liabilities provided by the existing laws.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="text-center">
+                            <input class="form-control " type="date" name="date" id="date" value ="<?php echo date('Y-m-d') ?>" readonly>
+                            <label for="date"><b>Date</b></label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="text-center">
+                            <input class="form-control " type="file" name="signature" id="signature">
+                            <label for="signature"><b>Signature/ Thumbmark over Printed Name</b></label>
+                        </div>
+                    </div>
+                </div>
+                <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Update" id="solo-parent-update" name="solo-parent-update">
+            </form>
+        </div>
+        <?php 
+            include('footer.html');
+        ?>
+    </div>
+</section>

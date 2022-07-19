@@ -1,4 +1,14 @@
-<div class="container registration-container mt-5" id="sr-citizen">
+<?php 
+    session_start();
+    $page = "registration";
+    include('header.html');
+    $username = $_SESSION['username'];
+    if (!isset($_SESSION['username'])) {
+        header("location: index.html");
+        exit();
+    }
+?>
+<div class="container registration-containers mt-5" id="sr-citizen">
     <form class="registration-form" action="includes/register.inc.php" method="post">
         <h1>Sr. Citizen</h1>
         <p>Instruction:</p>
@@ -163,6 +173,6 @@
                 </div>
             </div>
             <!-- DITO MO ILAGAY YUNG LALAGAY MO ZETH -->
-            <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="register" name="register">
+            <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Update" id="sr-citizen-update" name="sr-citizen-update">
     </form>
 </div>

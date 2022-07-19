@@ -7,162 +7,13 @@
         header("location: index.html");
         exit();
     }
-    if (userDataExists($connection, $username, "pwd_data") || userDataExists($connection, $username, "senior_citizen_data") || userDataExists($connection, $username, "solo_parent_data")) {
-        header("location: home.html");  
-        exit();
-    }
 ?>
-    <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Terms and Conditions</h5>
-          </div>
-          <div class="modal-body">
-            <p>Welcome to CSWD !</p>
-
-                <p>These terms and conditions outline the rules and regulations for the use of CSWD City of Santa Rosa Laguna's Website, located at cswd-santa-rosa.gov.ph.</p>
-
-                <p>By accessing this website we assume you accept these terms and conditions. Do not continue to use CSWD  if you do not agree to take all of the terms and conditions stated on this page.</p>
-
-                <p>The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and all Agreements: "Client", "You" and "Your" refers to you, the person log on this website and compliant to the Company’s terms and conditions. "The Company", "Ourselves", "We", "Our" and "Us", refers to our Company. "Party", "Parties", or "Us", refers to both the Client and ourselves. All terms refer to the offer, acceptance and consideration of payment necessary to undertake the process of our assistance to the Client in the most appropriate manner for the express purpose of meeting the Client’s needs in respect of provision of the Company’s stated services, in accordance with and subject to, prevailing law of Netherlands. Any use of the above terminology or other words in the singular, plural, capitalization and/or he/she or they, are taken as interchangeable and therefore as referring to same.</p>
-
-                <h3><strong>Cookies</strong></h3>
-
-                <p>We employ the use of cookies. By accessing CSWD , you agreed to use cookies in agreement with the CSWD City of Santa Rosa Laguna's Privacy Policy. </p>
-
-                <p>Most interactive websites use cookies to let us retrieve the user’s details for each visit. Cookies are used by our website to enable the functionality of certain areas to make it easier for people visiting our website. Some of our affiliate/advertising partners may also use cookies.</p>
-
-                <h3><strong>License</strong></h3>
-
-                <p>Unless otherwise stated, CSWD City of Santa Rosa Laguna and/or its licensors own the intellectual property rights for all material on CSWD . All intellectual property rights are reserved. You may access this from CSWD  for your own personal use subjected to restrictions set in these terms and conditions.</p>
-
-                <p>You must not:</p>
-                <ul>
-                    <li>Republish material from CSWD </li>
-                    <li>Sell, rent or sub-license material from CSWD </li>
-                    <li>Reproduce, duplicate or copy material from CSWD </li>
-                    <li>Redistribute content from CSWD </li>
-                </ul>
-
-                <p>This Agreement shall begin on the date hereof. Our Terms and Conditions were created with the help of the <a href="https://www.termsfeed.com/terms-conditions-generator/">Terms And Conditions Generator</a>.</p>
-
-                <p>Parts of this website offer an opportunity for users to post and exchange opinions and information in certain areas of the website. CSWD City of Santa Rosa Laguna does not filter, edit, publish or review Comments prior to their presence on the website. Comments do not reflect the views and opinions of CSWD City of Santa Rosa Laguna,its agents and/or affiliates. Comments reflect the views and opinions of the person who post their views and opinions. To the extent permitted by applicable laws, CSWD City of Santa Rosa Laguna shall not be liable for the Comments or for any liability, damages or expenses caused and/or suffered as a result of any use of and/or posting of and/or appearance of the Comments on this website.</p>
-
-                <p>CSWD City of Santa Rosa Laguna reserves the right to monitor all Comments and to remove any Comments which can be considered inappropriate, offensive or causes breach of these Terms and Conditions.</p>
-
-                <p>You warrant and represent that:</p>
-
-                <ul>
-                    <li>You are entitled to post the Comments on our website and have all necessary licenses and consents to do so;</li>
-                    <li>The Comments do not invade any intellectual property right, including without limitation copyright, patent or trademark of any third party;</li>
-                    <li>The Comments do not contain any defamatory, libelous, offensive, indecent or otherwise unlawful material which is an invasion of privacy</li>
-                    <li>The Comments will not be used to solicit or promote business or custom or present commercial activities or unlawful activity.</li>
-                </ul>
-
-                <p>You hereby grant CSWD City of Santa Rosa Laguna a non-exclusive license to use, reproduce, edit and authorize others to use, reproduce and edit any of your Comments in any and all forms, formats or media.</p>
-
-                <h3><strong>Hyperlinking to our Content</strong></h3>
-
-                <p>The following organizations may link to our Website without prior written approval:</p>
-
-                <ul>
-                    <li>Government agencies;</li>
-                    <li>Search engines;</li>
-                    <li>News organizations;</li>
-                    <li>Online directory distributors may link to our Website in the same manner as they hyperlink to the Websites of other listed businesses; and</li>
-                    <li>System wide Accredited Businesses except soliciting non-profit organizations, charity shopping malls, and charity fundraising groups which may not hyperlink to our Web site.</li>
-                </ul>
-
-                <p>These organizations may link to our home page, to publications or to other Website information so long as the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and its products and/or services; and (c) fits within the context of the linking party’s site.</p>
-
-                <p>We may consider and approve other link requests from the following types of organizations:</p>
-
-                <ul>
-                    <li>commonly-known consumer and/or business information sources;</li>
-                    <li>dot.com community sites;</li>
-                    <li>associations or other groups representing charities;</li>
-                    <li>online directory distributors;</li>
-                    <li>internet portals;</li>
-                    <li>accounting, law and consulting firms; and</li>
-                    <li>educational institutions and trade associations.</li>
-                </ul>
-
-                <p>We will approve link requests from these organizations if we decide that: (a) the link would not make us look unfavorably to ourselves or to our accredited businesses; (b) the organization does not have any negative records with us; (c) the benefit to us from the visibility of the hyperlink compensates the absence of CSWD City of Santa Rosa Laguna; and (d) the link is in the context of general resource information.</p>
-
-                <p>These organizations may link to our home page so long as the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and its products or services; and (c) fits within the context of the linking party’s site.</p>
-
-                <p>If you are one of the organizations listed in paragraph 2 above and are interested in linking to our website, you must inform us by sending an e-mail to CSWD City of Santa Rosa Laguna. Please include your name, your organization name, contact information as well as the URL of your site, a list of any URLs from which you intend to link to our Website, and a list of the URLs on our site to which you would like to link. Wait 2-3 weeks for a response.</p>
-
-                <p>Approved organizations may hyperlink to our Website as follows:</p>
-
-                <ul>
-                    <li>By use of our corporate name; or</li>
-                    <li>By use of the uniform resource locator being linked to; or</li>
-                    <li>By use of any other description of our Website being linked to that makes sense within the context and format of content on the linking party’s site.</li>
-                </ul>
-
-                <p>No use of CSWD City of Santa Rosa Laguna's logo or other artwork will be allowed for linking absent a trademark license agreement.</p>
-
-                <h3><strong>iFrames</strong></h3>
-
-                <p>Without prior approval and written permission, you may not create frames around our Webpages that alter in any way the visual presentation or appearance of our Website.</p>
-
-                <h3><strong>Content Liability</strong></h3>
-
-                <p>We shall not be hold responsible for any content that appears on your Website. You agree to protect and defend us against all claims that is rising on your Website. No link(s) should appear on any Website that may be interpreted as libelous, obscene or criminal, or which infringes, otherwise violates, or advocates the infringement or other violation of, any third party rights.</p>
-
-                <h3><strong>Your Privacy</strong></h3>
-
-                <p>Please read Privacy Policy</p>
-
-                <h3><strong>Reservation of Rights</strong></h3>
-
-                <p>We reserve the right to request that you remove all links or any particular link to our Website. You approve to immediately remove all links to our Website upon request. We also reserve the right to amen these terms and conditions and it’s linking policy at any time. By continuously linking to our Website, you agree to be bound to and follow these linking terms and conditions.</p>
-
-                <h3><strong>Removal of links from our website</strong></h3>
-
-                <p>If you find any link on our Website that is offensive for any reason, you are free to contact and inform us any moment. We will consider requests to remove links but we are not obligated to or so or to respond to you directly.</p>
-
-                <p>We do not ensure that the information on this website is correct, we do not warrant its completeness or accuracy; nor do we promise to ensure that the website remains available or that the material on the website is kept up to date.</p>
-
-                <h3><strong>Disclaimer</strong></h3>
-
-                <p>To the maximum extent permitted by applicable law, we exclude all representations, warranties and conditions relating to our website and the use of this website. Nothing in this disclaimer will:</p>
-
-                <ul>
-                    <li>limit or exclude our or your liability for death or personal injury;</li>
-                    <li>limit or exclude our or your liability for fraud or fraudulent misrepresentation;</li>
-                    <li>limit any of our or your liabilities in any way that is not permitted under applicable law; or</li>
-                    <li>exclude any of our or your liabilities that may not be excluded under applicable law.</li>
-                </ul>
-
-                <p>The limitations and prohibitions of liability set in this Section and elsewhere in this disclaimer: (a) are subject to the preceding paragraph; and (b) govern all liabilities arising under the disclaimer, including liabilities arising in contract, in tort and for breach of statutory duty.</p>
-
-                <p>As long as the website and the information and services on the website are provided free of charge, we will not be liable for any loss or damage of any nature.</p>
-                <p>By clicking <strong>Register</strong> you agree with the Terms of Use and Privacy Notice</p>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Register</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Dropdown -->
-    <section>
-        <div class="container mt-2">
-            <label for="id-type">ID Type</label>
-            <select class="form-select" id="id-type" name="id-type">
-                <option disabled selected value="">Please Select</option>
-                <option value="pwd">PWD</option>
-                <option value="solo-parent">Solo Parent</option>
-                <option value="sr-citizen">Sr. Citizen</option>
-            </select>
-        </div>    
-        <!-- PWD -->
-        <div class="registration-container" id="pwd">
-            <div class="container registration-containers mt-5 mb-5">
-                <form class="registration-form" action="includes/register.inc.php" method="post">
-                    <!-- row 1 -->
+<section>
+    <div>
+        <div class="container registration-containers mt-5 mb-5">
+            <form class="registration-form" action="includes/register.inc.php" method="post">
+            <div class="disable disableDiv">
+                <!-- row 1 -->
                 <div class="row m-1" style="background-color: green;">
                     <div class="col border1">
                         <h6 class="text-center text-white">***PAKISAGUTAN LAHAT AT MAGSULAT NG MALALAKING LETRA LAMANG***</h6>
@@ -1111,694 +962,176 @@
                         <input type="text" name="licenseNumber" id="licenseNumber" required>
                     </div>
                 </div>
-                <!-- row 14 -->
-                <div class="row">
-                    <hr><b>To be filled out by Persons with Disability Affairs Office Staff</b>
-                </div>
-                <!-- row 15 -->
-                <div class="row">
-                    <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
-                        <b>NAME OF REPORTING UNIT: </b>
-                    </div>
-                    <div class="col border1">
-                        <b>PERSONS WITH DISABILITY AFFAIRS OFFICE - CITY OF SANTA ROSA, LAGUNA</b>
-                    </div>
-                </div>
-                <!-- row 16 -->
-                <div class="row">
-                    <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
-                        <label class="form-check-label" for="controlNumber">
-                            <b>CONTROL NO.: </b>
-                        </label>
-                    </div>
-                    <div class="col border1">
-                        <input type="text" name="controlNumber" id="controlNumber">
-                    </div>
-                    <div class="col border1">
-                        <label class="form-check-label" for="#">
-                            <b style="color: red;">#</b>
-                        </label>
-                        <input type="text" name="#" id="#">
-                    </div>
-                    <div class="col col-md-3 border1">
-                        <b class="text-white" style="background-color: rgb(67, 67, 114);">DATE: </b><input type="date" name="" id="">
-                    </div>
-                </div>
-                <!-- row 17 -->
-                <div class="row">
-                    <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
-                        <b>RECEIVING: </b>
-                    </div>
-                    <div class="col border1">
-                        <input class="form-check-input" type="radio" value="MANETTE CERIN" name="receiving" id="receivingManetteCerin">
-                        <label class="form-check-label" for="receivingManetteCerin">
-                            MANETTE CERIN
-                        </label>
-                        <input class="form-check-input" type="radio" value="PDAO STAFF" name="receiving" id="receivingPDAOStaff">
-                        <label class="form-check-label" for="receivingPDAOStaff">
-                            PDAO STAFF
-                        </label>
-                        <input type="text" name="receivingPDAOStaff" id="receivingPDAOStaff">
-                    </div>
-                    <div class="col col-md-3 border1 custom-file">
-                        <label class="custom-file-label" for="receivingSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
-                        <input type="file" name="receivingSignature" id="receivingSignature" accept="image/*">
-                    </div>
-                </div>
-                <!-- row 18 -->
-                <div class="row">
-                    <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
-                        <b>VERIFICATION: </b>
-                    </div>
-                    <div class="col border1">
-                        <input class="form-check-input" type="radio" value="MARIMAM HALDOS" name="verification" id="verificationMarimamHaldos">
-                        <label class="form-check-label" for="verificationMarimamHaldos">
-                            MARIMAM HALDOS
-                        </label>
-                        <input class="form-check-input" type="radio" value="MITCHELLE MANLANGIT" name="verification" id="verificationMitchelle">
-                        <label class="form-check-label" for="verificationMitchelle">
-                            MITCHELLE MANLANGIT
-                        </label>
-                        <input class="form-check-input" type="radio" value="RENERSON CERIN" name="verification" id="verificationRenerson">
-                        <label class="form-check-label" for="verificationRenerson">
-                            RENERSON CERIN
-                        </label>
-                    </div>
-                    <div class="col col-md-3 border1">
-                        <label class="custom-file-label" for="verificationSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
-                        <input type="file" name="verificationSignature" id="verificationSignature" accept="image/*">
-                    </div>
-                </div>
-                <!-- row 19 -->
-                <div class="row">
-                    <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
-                        <b>APPROVING OFFICER: </b>
-                    </div>
-                    <div class="col border1">
-                        <input class="form-check-input" type="radio" value="MARRIE ROSE YACAT" name="approvingOfficer" id="approvingOfficerMarrieRose">
-                        <label class="form-check-label" for="approvingOfficerMarrieRose">
-                            MARRIE ROSE YACAT
-                        </label>
-                        <input class="form-check-input" type="radio" value="RENERSON CERIN" name="approvingOfficer" id="approvingOfficerRenerson">
-                        <label class="form-check-label" for="approvingOfficerRenerson">
-                            RENERSON CERIN
-                        </label>
-                    </div>
-                    <div class="col col-md-3 border1">
-                        <label class="custom-file-label" for="approvingOfficerSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
-                        <input type="file" name="approvingOfficerSignature" id="approvingOfficerSignature" accept="image/*">
-                    </div>
-                </div>
-                <!-- row 20 -->
-                <div class="row">
-                    <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
-                        <b>PROCESSING OFFICER: </b>
-                    </div>
-                    <div class="col border1">
-                        <input class="form-check-input" type="radio" value="MANETTE CERIN" name="processingOfficer" id="processingOfficerManetteCerin">
-                        <label class="form-check-label" for="processingOfficerManetteCerin">
-                            MANETTE CERIN
-                        </label>
-                        <input class="form-check-input" type="radio" value="PDAO STAFF" name="processingOfficer" id="processingOfficerPDAOStaff">
-                        <label class="form-check-label" for="processingOfficerPDAOStaff">
-                            PDAO STAFF
-                        </label>
-                        <input type="text" name="processingOfficerPDAOStaff" id="processingOfficerPDAOStaff">
-                    </div>
-                    <div class="col col-md-3 border1">
-                        <label class="custom-file-label" for="processingOfficerSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
-                        <input type="file" name="processingOfficerSignature" id="processingOfficerSignature" accept="image/*">
-                    </div>
-                </div>
-                <!-- row 21 -->
-                <div class="row">
-                    <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
-                        <b>RELEASING: </b>
-                    </div>
-                    <div class="col border1">
-                        <input class="form-check-input" type="radio" value="MANETTE CERIN" name="releasing" id="releasingManetteCerin">
-                        <label class="form-check-label" for="releasingManetteCerin">
-                            MANETTE CERIN
-                        </label>
-                        <input class="form-check-input" type="radio" value="PDAO STAFF" name="releasing" id="releasingPDAOStaff">
-                        <label class="form-check-label" for="releasingPDAOStaff">
-                            PDAO STAFF
-                        </label>
-                        <input type="text" name="releasingPDAOStaff" id="releasingPDAOStaff">
-                    </div>
-                    <div class="col col-md-3 border1">
-                        <label class="custom-file-label" for="releasingSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
-                        <input type="file" name="releasingSignature" id="releasingSignature" accept="image/*">
-                    </div>
-                </div>
-                <!-- row 22 -->
-                <div class="row">
-                    <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
-                        <b>ENCODER: </b>
-                    </div>
-                    <div class="col border1">
-                        <input class="form-check-input" type="radio" value="NOLAND AZURES" name="encoder" id="encoderNolandAzures">
-                        <label class="form-check-label" for="encoderNolandAzures">
-                            NOLAND AZURES
-                        </label>
-                        <input class="form-check-input" type="radio" value="ANGELICA PAPAG" name="encoder" id="encoderAngelicaPapag">
-                        <label class="form-check-label" for="encoderAngelicaPapag">
-                            ANGELICA PAPAG
-                        </label>
-                        <input class="form-check-input" type="radio" value="PETERSON CARASCO" name="encoder" id="encoderPetersonCarasco">
-                        <label class="form-check-label" for="encoderPetersonCarasco">
-                            PETERSON CARASCO
-                        </label>
-                    </div>
-                    <div class="col col-md-3 border1">
-                        <label class="custom-file-label" for="receivingSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
-                        <input type="file" name="receivingSignature" id="receivingSignature" accept="image/*">
-                    </div>
-                </div>
-                <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="pwd-register" name="pwd-register">
-                </form>
             </div>
-            <?php 
-                include('footer.html');
-            ?>
-        </div>
-        <!-- Solo Parent -->
-        <div class="registration-container" id="solo-parent">
-            <div class="container registration-containers mt-5 mb-5">
-                <form class="registration-form" action="includes/register.inc.php" method="post">
-                    <div class="row m-1">
-                        <h2 class="display-20">APPLICATION FORM:</h2>
-                    </div>
-                    <div class="row m-1">
-                        <div class="">
-                            <h2 class="display-20 text-center" >SOLO PARENT IDENTIFICATION CARD</h2>
-                        </div>
-                    </div>
-                    <div class="row align-items-start">
-                        <div class="col form-group">
-                            <label class="required" for="name">Name</label>
-                            <input class="form-control" type="text" id="name" name="name" required>
-                        </div>
-                        <div class="col-2 form-group">
-                            <label class="required" for="age">Age</label>
-                            <input class="form-control" type="text" id="age" name="age" readonly>
-                        </div>
-                        <div class="col-2 form-group">
-                            <label class="required" for="sex">Sex </label>
-                            <select class="form-select" id="sex" name="sex" required>
-                                <option disabled selected value="">Please Select</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="row align-items-start">
-                        <div class="col form-group">
-                            <label class="required" for="birth">Date of Birth </label>
-                            <input class="form-control" type="date" id="birth" name="birth" required>
-                        </div>
-                        <div class="col form-group">
-                            <label class="required" for="birthplace">Place of Birth </label>
-                            <input class="form-control" type="text" id="birthplace" name="birthplace" required>
-                        </div>
-                    </div>
-
-                    <div class="row align-items-start">
-                        <div class="col">
-                            <label class="required" for="soloParentAddress">Address</label>
-                            <input class="form-control" type="text" id="soloParentAddress" name="soloParentAddress" required>
-                        </div>
-                        <div class="col">
-                            <label class="required" for="soloParentBarangay">Barangay</label>
-                            <select class="form-select" id="soloParentBarangay" name="soloParentBarangay" required>
-                                <option disabled selected value="">Please Select</option>
-                                <option value="Aplaya">Aplaya</option>
-                                <option value="Balibago">Balibago</option>
-                                <option value="Caingin">Caingin</option>
-                                <option value="Dila">Dila</option>
-                                <option value="Dita">Dita</option>
-                                <option value="Don Jose">Don Jose</option>
-                                <option value="Ibaba">Ibaba</option>
-                                <option value="Kalnuran">Kanluran</option>
-                                <option value="Labas">Labas</option>
-                                <option value="Macabling">Macabling</option>
-                                <option value="Malitlit">Malitlit</option>
-                                <option value="Malusak">Malusak</option>
-                                <option value="Market Area">Market Area</option>
-                                <option value="Pook">Pook</option>
-                                <option value="Pulong Santa Cruz">Pulong Santa Cruz</option>
-                                <option value="Santo Domingo">Santo Domingo</option>
-                                <option value="Sinalhan">Sinalhan</option>
-                                <option value="Tagapo">Tagapo</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="row align-items-start">
-                        <div class="col">
-                            <label class="required" for="educational">Highest Educational Attainment</label>
-                            <input class="form-control" type="text" id="educational" name="educational" required>
-                        </div>
-                    </div>
-
-                    <div class="row align-items-start">
-                        <div class="col">
-                            <label class="required" for="occupation">Occupation</label>
-                            <input class="form-control" type="text" id="occupation" name="occupation" required>
-                        </div>
-                        <div class="col">
-                            <label class="required" for="income">Monthly Income</label>
-                            <input class="form-control" type="text" id="income" name="income" required>
-                        </div>
-                    </div>
-
-                    <div class="row align-items-start">
-                        <div class="col">
-                            <label class="required" for="famincome">Total Monthly Family Income</label>
-                            <input class="form-control" type="text" id="famincome" name="famincome" required>
-                        </div>
-                    </div>
-
-                    <div class="row align-items-start">
-                        <div class="col">
-                            <label class="required" for="tenurial">Tenurial Status</label>
-                            <input class="form-control" type="text" id="tenurial" name="tenurial" required>
-                        </div>
-                    </div>
-
-                    <div class="row align-items-start">
-                        <div class="col">
-                            <label class="required" for="soloParentReligion">Religion</label>
-                            <input class="form-control" type="text" id="soloParentReligion" name="soloParentReligion" required>
-                        </div>
-                        <div class="col">
-                            <label class="required" for="contact">Contact no.</label>
-                            <input class="form-control" type="text" id="contact" name="contact" required>
-                        </div>
-                    </div>
-                    <div class="row m-1">
-                        <div class="">
-                            <h5 class="required" >Marital Status (Please check):</h5>
-                        </div>
-                    </div>
-                    <div class="row align-items-start">
-                        <div class="col ml-5">
-                            <input class="form-check-input" type="radio" value="Single" name="marital-status" id="soloParentSingle" required>
-                            <label class="form-check-label" for="soloParentSingle">
-                            Single
-                            </label>
-                        </div>
-                        <div class="col ml-5">
-                            <input class="form-check-input" type="radio" value="Annulled" name="marital-status" id="soloParentAnnulled">
-                            <label class="form-check-label" for="soloParentAnnulled">
-                            Annulled
-                            </label>
-                        </div>
-                        <div class="col ml-5">
-                            <input class="form-check-input" type="radio" value="Widow/Widower" name="marital-status" id="soloParentWidow">
-                            <label class="form-check-label" for="soloParentWidow">
-                                Widow/Widower
-                            </label>
-                        </div>
-                    </div>
-                    <div class="row align-items-start">
-                        <div class="col ml-5">
-                            <input class="form-check-input" type="radio" value="Married" name="marital-status" id="soloParentMarried">
-                            <label class="form-check-label" for="soloParentMarried">
-                            Married
-                            </label>
-                        </div>
-                        
-                        <div class="col ml-5">
-                            <input class="form-check-input" type="radio" value="Separated" name="marital-status" id="soloParentSeparated">
-                            <label class="form-check-label" for="soloParentSeparated">
-                                Separated(w/certificate of Legal Separation)
-                            </label>
-                        </div>
-                        <div class="col"></div>
-                    </div>
-
-                    <div class="row align-items-start">
-                        <div class="col">
-                            <h5 class="" >I.Family Composition</h5>
-                        </div>
-                        <div class="row">
-                            <label class="form-check-label col" for="">
-                                <b>Name</b>
-                            </label>
-                            <label class="form-check-label col" for="">
-                                <b>Relationship</b>
-                            </label>
-                            <label class="form-check-label col" for="">
-                                <b>Age</b>
-                            </label>
-                            <label class="form-check-label col" for="">
-                                <b>Civil Status</b>
-                            </label>
-                            <label class="form-check-label col" for="">
-                                <b>Educational Attainment</b>
-                            </label>
-                            <label class="form-check-label col" for="">
-                                <b>Occupation</b>
-                            </label>
-                            <label class="form-check-label col" for="">
-                                <b>Monthly Income</b>
-                            </label>
-                            <label for="" class="col"></label>                    
-                        </div>
-                        <div class="family-list">
-                            <div class="row family-data" id="duplicater">
-                                <input type="text" class="form-control col" name="family-composition-name[]" id="">
-                                <input type="text" class="form-control col" name="family-composition-relationship[]" id="">
-                                <input type="text" class="form-control col" name="family-composition-age[]" id="">
-                                <select class="col form-select" id="id-type" name="family-composition-civil-status[]" id="">
-                                    <option disabled selected value="">Please Select</option>
-                                    <option value="Single">Single</option>
-                                    <option value="Annulled">Annulled</option>
-                                    <option value="Widow">Widow/Widower</option>
-                                    <option value="Married">Married</option>
-                                    <option value="Separated">Separated</option>
-                                </select>
-                                <input type="text" class="form-control col" name="family-composition-educ-attainment[]" id="">
-                                <input type="text" class="form-control col" name="family-composition-occupation[]" id="">
-                                <input type="text" class="form-control col" name="family-composition-monthly-income[]" id="">
-                                <button type="button" class="btn btn-danger delete col" onclick="deleteDiv(this);">Delete</button>
-                            </div>
-                        </div>
-                        <button class="btn btn-primary m-1" type="button" id="add-family" onclick="duplicate();">Add</button>
-                        <div class="text-center ins">
-                            <h6>(Include all family members and other members of the household.)</h6>
-                        </div>
-                    </div>
-                    <div class="row align-items-start">
-                        <div class="col">
-                            <h5 class="required" >II. Classification/ Circumstances of being a Solo Parent:</h5>
-                        </div>
-                        <div class="row align-items-start">
-                            <div class="col">
-                                <label class="required" for="incidence">Incidence</label>
-                                <input class="form-control" type="text" id="incidence" name="incidence" required>
-                            </div>
-                        </div>
-                        <div class="row align-items-start">
-                            <div class="col">
-                                <label class="required" for="when">When</label>
-                                <input class="form-control" type="text" id="when" name="when" required>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="row align-items-start">
-                        <div class="col">
-                            <label class="required" for="problem"><h5>III. Needs/Problems of Solo Parent</h5></label>
-                        </div>
-                        <div class="row align-items-start">
-                            <div class="col">
-                                <input class="form-control" type="text" id="problem" name="problem" required>
-                            </div>
-                        </div>
-                    </div>   
-                    <div class="row align-items-start">
-                        <div class="col">
-                            <label class="required" for="resources"><h5>IV. Family Resources:</h5></label>
-                            <div class="row align-items-start">
-                                <div class="col">
-                                    <input class="form-control" type="text" id="resources" name="resources" required>
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
-                    <div class="row align-items-start">
-                        <div class="col">
-                            <p class="font-weight-normal">I hereby certify that the information given above are true and correct. I further UNDERSTAND that any misinterpretations that may have made will subject me to criminal and civil liabilities provided by the existing laws.</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="text-center">
-                                <input class="form-control " type="date" name="date" id="date" value ="<?php echo date('Y-m-d') ?>" readonly>
-                                <label for="date"><b>Date</b></label>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="text-center">
-                                <input class="form-control " type="file" name="signature" id="signature">
-                                <label for="signature"><b>Signature/ Thumbmark over Printed Name</b></label>
-                            </div>
-                        </div>
-                    </div>
-                    <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="solo-parent-register" name="solo-parent-register">
-                </form>
+            <!-- row 14 -->
+            <div class="row">
+                <hr><b>To be filled out by Persons with Disability Affairs Office Staff</b>
             </div>
-            <?php 
-                include('footer.html');
-            ?>
-        </div>
-        <!-- Senior Citizen -->
-        <div class="registration-container" id="sr-citizen">
-            <div class="container registration-containers mt-5 mb-5">
-                <form class="registration-form" action="includes/register.inc.php" method="post">
-                    <h1>Sr. Citizen</h1>
-                    <p>Instruction:</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam eaque, dignissimos blanditiis nesciunt quidem vel hic nobis, debitis provident distinctio accusantium odio in ipsa officiis nulla dicta eveniet aut accusamus.</p>
-                <!-- Radio Btn -->
-                    <div class="row align-items-start">
-                        <div class="col form-group">
-                            <div>
-                                <input class="form-check-input" type="radio" name="purpose" id="bago" value="Bago">
-                                <label class="" for="bago">Bago</label>
-                            </div>    
-                        </div>
-                        <div class="col form-group">
-                            <div>
-                                <input class="form-check-input" type="radio" name="purpose" id="lumipat" value="Lumipat">
-                                <label class="" for="lumipat">Lumipat</label>
-                            </div>    
-                        </div>
-                        <div class="col form-group">
-                            <div>
-                                <input class="form-check-input" type="radio" name="purpose" id="magpapalit" value="Magpapalit">
-                                <label class="" for="magpapalit">Magpapalit</label>
-                            </div>    
-                        </div>
-                        <div class="col form-group">
-                            <div>
-                                <input class="form-check-input" type="radio" name="purpose" id="nawala" value="Nawala">
-                                <label class="" for="nawala">Nawala</label>
-                            </div>    
-                        </div>
-                    </div>
-                        <!-- ID number -->
-                        <div class="row align-items-start">
-                            <div class="col form-group">
-                                <label class="" for="IDnum">Numero ng ID (Bago)</label>
-                                <input class="form-control" type="text" id="IDnum" name="IDnum" required>
-                            </div>
-                        </div>
-                        <!-- Name -->
-                        <div class="row align-items-start">
-                            <div class="col form-group">
-                                <label class="" for="FName">First Name (Pangalan)</label>
-                                <input class="form-control" type="text" id="FName" name="FName" required>
-                            </div>
-                            <div class="col form-group">
-                                <label class="" for="MName">Middle Name (Gitnang Pangalan)</label>
-                                <input class="form-control" type="text" id="MName" name="MName">
-                            </div>
-                            <div class="col form-group">
-                                <label class="" for="LName">Last Name (Apelyido) </label>
-                                <input class="form-control" type="text" id="LName" name="LName" required>
-                            </div>
-                            <div class="col form-group">
-                                <label class="" for="srCitizenSuffix">Suffix</label>
-                                <input class="form-control" type="text" id="srCitizenSuffix" name="srCitizenSuffix">
-                            </div>
-                        </div>
-                        <!-- Address -->
-                        <div class="row align-items-start">
-                            <div class="col form-group">
-                                <label class="" for="srCitizenBarangay">Barangay</label>
-                                <select class="form-select" id="srCitizenBarangay" name="srCitizenBarangay">
-                                    <option disabled selected value="">Please Select</option>
-                                    <option value="Aplaya">Aplaya</option>
-                                    <option value="Balibago">Balibago</option>
-                                    <option value="Caingin">Caingin</option>
-                                    <option value="Dila">Dila</option>
-                                    <option value="Dita">Dita</option>
-                                    <option value="Don Jose">Don Jose</option>
-                                    <option value="Ibaba">Ibaba</option>
-                                    <option value="Kalnuran">Kanluran</option>
-                                    <option value="Labas">Labas</option>
-                                    <option value="Macabling">Macabling</option>
-                                    <option value="Malitlit">Malitlit</option>
-                                    <option value="Malusak">Malusak</option>
-                                    <option value="Market Area">Market Area</option>
-                                    <option value="Pook">Pook</option>
-                                    <option value="Pulong Santa Cruz">Pulong Santa Cruz</option>
-                                    <option value="Santo Domingo">Santo Domingo</option>
-                                    <option value="Sinalhan">Sinalhan</option>
-                                    <option value="Tagapo">Tagapo</option>
-                                </select>
-                            </div>
-                            <div class="col form-group">
-                                <label class="" for="tirahan">Tirahan (House No./Street/Subdivision)</label>
-                                <input class="form-control" type="text" id="tirahan" name="tirahan">
-                            </div>
-                        </div>
-                        <!-- S/M/A -->
-                        <div class="row align-items-start">
-                            <div class="col">
-                                <label for="srCitizenSex">Sex (Kasarian noong Kapanganakan)</label>
-                                    <select class="form-select" id="srCitizenSex" name="srCitizenSex">
-                                        <option disabled selected value="">Please Select</option>
-                                        <option value="male">Male</option>
-                                        <option value="female">Female</option>
-                                    </select>
-                            </div>
-                            <div class="col">
-                                <label for="status">Marital Status</label>
-                                <div class="dropdown">
-                                    <select class="form-select" id="status" name="status">
-                                        <option di  sabled selected value="">Please Select</option>
-                                        <option value="single">Single</option>
-                                        <option value="married">Married</option>
-                                        <option value="widowed">Widowed</option>
-                                        <option value="separated">Separated</option>
-                                        <option value="divorced">Divorced</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col form-group">
-                                <label class="" for="edad">Edad</label>
-                                <input class="form-control" type="text" id="edad" name="edad" readonly>
-                            </div>
-                        </div>
-
-                        <div class="row align-items-start">
-                            <div class="col">
-                                <label for="srCitizenDOB">Date of Birth</label>
-                                <input class="form-control" type="date" id="srCitizenDOB" name="srCitizenDOB" required>
-                            </div>
-                            <div class="col form-group">
-                                <label class="" for="srCitizenBirthplace">Lugar ng Kapanganakan</label>
-                                <input class="form-control" type="text" id="srCitizenBirthplace" name="srCitizenBirthplace" required>
-                            </div>
-                        </div>
-
-                        <div class="row align-items-start">
-                            <div class="col form-group">
-                                <label class="" for="telepono">Telepono</label>
-                                <input class="form-control" type="text" id="telepono" name="telepono" required>
-                            </div>
-                            <div class="col form-group">
-                                <label class="" for="relihiyon">Relihiyon</label>
-                                <input class="form-control" type="text" id="relihiyon" name="relihiyon" required>
-                            </div>
-                            <div class="col form-group">
-                                <label class="" for="hanapbuhay">Hanabuhay</label>
-                                <input class="form-control" type="text" id="hanapbuhay" name="hanapbuhay" required>
-                            </div>
-                        </div>
-                        <!-- Pensyon -->
-                        <div class="row align-items-start">
-                            <div class="col">
-                                <label for="pensyon">May pensyon na tinatanggap</label>
-                                    <select class="form-select" id="pensyon" name="pensyon">
-                                        <option disabled selected value="">Please Select</option>
-                                        <option value="oo">Oo</option>
-                                        <option value="hindi">hindi</option>
-                                    </select>
-                            </div>
-                            <div class="col form-group">
-                                <label class="" for="saan">Saan</label>
-                                <input class="form-control" type="text" id="saan" name="saan">
-                            </div>
-                            <div class="col form-group">
-                                <label class="" for="magkano">Magkano</label>
-                                <input class="form-control" type="text" id="magkano" name="magkano">
-                            </div>
-                        </div>
-                        <!-- Asawa -->
-                        <div class="row align-items-start">
-                            <div class="col form-group">
-                                <label class="" for="asawa">Pangalan ng Asawa</label>
-                                <input class="form-control" type="text" id="asawa" name="asawa">
-                            </div>
-                            <div class="col form-group">
-                                <label class="" for="edad-asawa">Edad</label>
-                                <input class="form-control" type="text" id="edad-asawa" name="edad-asawa">
-                            </div>
-                        </div>
-
-                        <!-- Anak -->
-                        <div class="row align-items-start">
-                            <div class="col form-group">
-                                <label class="" for="anak">Ilan ang anak</label>
-                                <input class="form-control" type="text" id="anak" name="anak">
-                            </div>
-                            <div class="col form-group">
-                                <label class="" for="kasama">Kasama sa bahay?</label>
-                                <input class="form-control" type="text" id="kasama" name="kasama">
-                            </div>
-                        </div>
-                        <!-- DITO MO ILAGAY YUNG LALAGAY MO ZETH -->
-                        <!-- AYOKO NGA -ZETH-->
-                        <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Register" id="senior-citizen-register" name="senior-citizen-register">
-                </form>
+            <!-- row 15 -->
+            <div class="row">
+                <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
+                    <b>NAME OF REPORTING UNIT: </b>
+                </div>
+                <div class="col border1">
+                    <b>PERSONS WITH DISABILITY AFFAIRS OFFICE - CITY OF SANTA ROSA, LAGUNA</b>
+                </div>
             </div>
-            <?php 
-                include('footer.html');
-            ?>
+            <!-- row 16 -->
+            <div class="row">
+                <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
+                    <label class="form-check-label" for="controlNumber">
+                        <b>CONTROL NO.: </b>
+                    </label>
+                </div>
+                <div class="col border1">
+                    <input type="text" name="controlNumber" id="controlNumber">
+                </div>
+                <div class="col border1">
+                    <label class="form-check-label" for="#">
+                        <b style="color: red;">#</b>
+                    </label>
+                    <input type="text" name="#" id="#">
+                </div>
+                <div class="col col-md-3 border1">
+                    <b class="text-white" style="background-color: rgb(67, 67, 114);">DATE: </b><input type="date" name="" id="">
+                </div>
+            </div>
+            <!-- row 17 -->
+            <div class="row">
+                <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
+                    <b>RECEIVING: </b>
+                </div>
+                <div class="col border1">
+                    <input class="form-check-input" type="radio" value="MANETTE CERIN" name="receiving" id="receivingManetteCerin">
+                    <label class="form-check-label" for="receivingManetteCerin">
+                        MANETTE CERIN
+                    </label>
+                    <input class="form-check-input" type="radio" value="PDAO STAFF" name="receiving" id="receivingPDAOStaff">
+                    <label class="form-check-label" for="receivingPDAOStaff">
+                        PDAO STAFF
+                    </label>
+                    <input type="text" name="receivingPDAOStaff" id="receivingPDAOStaff">
+                </div>
+                <div class="col col-md-3 border1 custom-file">
+                    <label class="custom-file-label" for="receivingSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
+                    <input type="file" name="receivingSignature" id="receivingSignature" accept="image/*">
+                </div>
+            </div>
+            <!-- row 18 -->
+            <div class="row">
+                <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
+                    <b>VERIFICATION: </b>
+                </div>
+                <div class="col border1">
+                    <input class="form-check-input" type="radio" value="MARIMAM HALDOS" name="verification" id="verificationMarimamHaldos">
+                    <label class="form-check-label" for="verificationMarimamHaldos">
+                        MARIMAM HALDOS
+                    </label>
+                    <input class="form-check-input" type="radio" value="MITCHELLE MANLANGIT" name="verification" id="verificationMitchelle">
+                    <label class="form-check-label" for="verificationMitchelle">
+                        MITCHELLE MANLANGIT
+                    </label>
+                    <input class="form-check-input" type="radio" value="RENERSON CERIN" name="verification" id="verificationRenerson">
+                    <label class="form-check-label" for="verificationRenerson">
+                        RENERSON CERIN
+                    </label>
+                </div>
+                <div class="col col-md-3 border1">
+                    <label class="custom-file-label" for="verificationSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
+                    <input type="file" name="verificationSignature" id="verificationSignature" accept="image/*">
+                </div>
+            </div>
+            <!-- row 19 -->
+            <div class="row">
+                <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
+                    <b>APPROVING OFFICER: </b>
+                </div>
+                <div class="col border1">
+                    <input class="form-check-input" type="radio" value="MARRIE ROSE YACAT" name="approvingOfficer" id="approvingOfficerMarrieRose">
+                    <label class="form-check-label" for="approvingOfficerMarrieRose">
+                        MARRIE ROSE YACAT
+                    </label>
+                    <input class="form-check-input" type="radio" value="RENERSON CERIN" name="approvingOfficer" id="approvingOfficerRenerson">
+                    <label class="form-check-label" for="approvingOfficerRenerson">
+                        RENERSON CERIN
+                    </label>
+                </div>
+                <div class="col col-md-3 border1">
+                    <label class="custom-file-label" for="approvingOfficerSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
+                    <input type="file" name="approvingOfficerSignature" id="approvingOfficerSignature" accept="image/*">
+                </div>
+            </div>
+            <!-- row 20 -->
+            <div class="row">
+                <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
+                    <b>PROCESSING OFFICER: </b>
+                </div>
+                <div class="col border1">
+                    <input class="form-check-input" type="radio" value="MANETTE CERIN" name="processingOfficer" id="processingOfficerManetteCerin">
+                    <label class="form-check-label" for="processingOfficerManetteCerin">
+                        MANETTE CERIN
+                    </label>
+                    <input class="form-check-input" type="radio" value="PDAO STAFF" name="processingOfficer" id="processingOfficerPDAOStaff">
+                    <label class="form-check-label" for="processingOfficerPDAOStaff">
+                        PDAO STAFF
+                    </label>
+                    <input type="text" name="processingOfficerPDAOStaff" id="processingOfficerPDAOStaff">
+                </div>
+                <div class="col col-md-3 border1">
+                    <label class="custom-file-label" for="processingOfficerSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
+                    <input type="file" name="processingOfficerSignature" id="processingOfficerSignature" accept="image/*">
+                </div>
+            </div>
+            <!-- row 21 -->
+            <div class="row">
+                <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
+                    <b>RELEASING: </b>
+                </div>
+                <div class="col border1">
+                    <input class="form-check-input" type="radio" value="MANETTE CERIN" name="releasing" id="releasingManetteCerin">
+                    <label class="form-check-label" for="releasingManetteCerin">
+                        MANETTE CERIN
+                    </label>
+                    <input class="form-check-input" type="radio" value="PDAO STAFF" name="releasing" id="releasingPDAOStaff">
+                    <label class="form-check-label" for="releasingPDAOStaff">
+                        PDAO STAFF
+                    </label>
+                    <input type="text" name="releasingPDAOStaff" id="releasingPDAOStaff">
+                </div>
+                <div class="col col-md-3 border1">
+                    <label class="custom-file-label" for="releasingSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
+                    <input type="file" name="releasingSignature" id="releasingSignature" accept="image/*">
+                </div>
+            </div>
+            <!-- row 22 -->
+            <div class="row">
+                <div class="col col-md-2 border1 text-white" style="background-color: rgb(67, 67, 114);">
+                    <b>ENCODER: </b>
+                </div>
+                <div class="col border1">
+                    <input class="form-check-input" type="radio" value="NOLAND AZURES" name="encoder" id="encoderNolandAzures">
+                    <label class="form-check-label" for="encoderNolandAzures">
+                        NOLAND AZURES
+                    </label>
+                    <input class="form-check-input" type="radio" value="ANGELICA PAPAG" name="encoder" id="encoderAngelicaPapag">
+                    <label class="form-check-label" for="encoderAngelicaPapag">
+                        ANGELICA PAPAG
+                    </label>
+                    <input class="form-check-input" type="radio" value="PETERSON CARASCO" name="encoder" id="encoderPetersonCarasco">
+                    <label class="form-check-label" for="encoderPetersonCarasco">
+                        PETERSON CARASCO
+                    </label>
+                </div>
+                <div class="col col-md-3 border1">
+                    <label class="custom-file-label" for="receivingSignature"><b class="text-white" style="background-color: rgb(67, 67, 114);">SIGNATURE:</b></label>
+                    <input type="file" name="receivingSignature" id="receivingSignature" accept="image/*">
+                </div>
+            </div>
+            <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Approved" id="pwd-approved" name="pwd-approved">
+            </form>
         </div>
-    </section>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src="includes/app.inc.js"></script>
-    <script>
-        $(window).load(function()
-        {
-            $('#staticBackdrop').modal('show');
-        });
-        $(document).ready(function(){
-            $("#id-type").on('change', function(){
-                $(".registration-container").hide();
-                $("#" + $(this).val()).fadeIn(700);
-            });
-        }).change();
-
-        $('#srCitizenDOB').change(function () {
-                var dateOfBirth = new Date($('#srCitizenDOB').val())
-                //calculate month difference from current date in time
-                var month_diff = Date.now() - dateOfBirth.getTime()
-
-                //convert the calculated difference in date format
-                var age_dt = new Date(month_diff)
-
-                //extract year from date
-                var year = age_dt.getUTCFullYear()
-
-                //now calculate the age of the user
-                var age = Math.abs(year - 1970)
-
-                //display the calculated age
-                $('#edad').val(age)
-            });
-
-            $('#birth').change(function () {
-                var dateOfBirth = new Date($('#birth').val())
-                //calculate month difference from current date in time
-                var month_diff = Date.now() - dateOfBirth.getTime()
-
-                //convert the calculated difference in date format
-                var age_dt = new Date(month_diff)
-
-                //extract year from date
-                var year = age_dt.getUTCFullYear()
-
-                //now calculate the age of the user
-                var age = Math.abs(year - 1970)
-
-                //display the calculated age
-                $('#age').val(age)
-            });
-    </script>
+        <?php 
+            include('footer.html');
+        ?>
+    </div>
+</section>
