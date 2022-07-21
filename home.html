@@ -21,6 +21,13 @@
                 <p class="card-text">Set an appointment to confirm your documents.</p>
                 <a href="contact-us.html" class="btn btn-primary">Set an Appointment</a>
                 <?php
+                    if (isset($_GET["email"])) {
+                        if ($_GET["email"] == "failed"){
+                            echo "<script>alert('Your Email was not delivered.')</script>";
+                        } else if ($_GET["email"] == "success"){
+                            echo "<script>alert('Your Email was delivered.')</script>";
+                        } 
+                    }
                     if ($_SESSION['is_pwd'] == "Yes") {
                         echo '<a href="pwd-registration.html" class="btn btn-secondary">Edit</a>';
                     } 

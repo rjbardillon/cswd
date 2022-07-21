@@ -17,13 +17,15 @@ footer {
 
 #login-container,
 #signup-container {
-  display: flex;
+  /* display: flex; */
   border-style: solid;
   border-radius: 15px;
   background-color: rgb(255,184,243);
-  max-width: 50vh;
-  height: 70vh;
-  margin: auto;
+  min-height: 50vh;
+  padding: 50px;
+  /* max-width: 50vh; */
+  /* height: 70vh; */
+  /* margin: auto; */
 }
 
 #login-form,
@@ -34,7 +36,7 @@ footer {
 }
 
 section {
-  height: 85vh;
+  height: 84vh;
 }
 
 .home-container {

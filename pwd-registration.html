@@ -27,13 +27,7 @@
         <div class="row m-1">
             <div class="col border1 m-1">
                 <div class="form-check">
-                    <?php
-                    if($userdata["registration_type"] == "New ID") {
-                        echo '<input class="form-check-input" type="radio" value="New Id" id="new-id" name="idType" required checked>';
-                    } else {
-                        echo '<input class="form-check-input" type="radio" value="New Id" id="new-id" name="idType" required>';
-                    }
-                    ?> 
+                    <input class="form-check-input" type="radio" value="New Id" id="new-id" name="idType" <?php if($userdata['registration_type']== 'New ID') echo 'checked' ?> required>
                     <label class="form-check-label" for="new-id">
                         NEW ID
                     </label>
@@ -41,13 +35,7 @@
             </div>
             <div class="col border1 m-1">
                 <div class="form-check">
-                    <?php
-                    if($userdata["registration_type"] == "Renewal ID") {
-                        echo '<input class="form-check-input" type="radio" value="Renewal ID" id="renewal-id" name="idType" checked>';
-                    } else {
-                        echo '<input class="form-check-input" type="radio" value="Renewal ID" id="renewal-id" name="idType">';
-                    }
-                    ?> 
+                    <input class="form-check-input" type="radio" value="Renewal ID" id="renewal-id" name="idType" <?php if($userdata['registration_type']== 'Renewal ID') echo 'checked' ?>>
                     <label class="form-check-label" for="renewal-id">
                         RENEWAL ID
                     </label>
@@ -55,13 +43,7 @@
             </div>
             <div class="col border1 m-1">
                 <div class="form-check">
-                    <?php
-                    if($userdata["registration_type"] == "Lost ID") {
-                        echo '<input class="form-check-input" type="radio" value="Lost ID" id="lost-id" name="idType" checked>';
-                    } else {
-                        echo '<input class="form-check-input" type="radio" value="Lost ID" id="lost-id" name="idType">';
-                    }
-                    ?> 
+                    <input class="form-check-input" type="radio" value="Lost ID" id="lost-id" name="idType" <?php if($userdata['registration_type']== 'Lost ID') echo 'checked' ?>>
                     <label class="form-check-label" for="lost-id">
                         LOST ID
                     </label>
@@ -69,32 +51,20 @@
             </div>
             <div class="col border1 m-1">
                 <div class="form-check">
-                    <?php
-                    if($userdata["registration_type"] == "Transfer") {
-                        echo '<input class="form-check-input" type="radio" value="Transfer" id="transfer" name="idType" checked>';
-                    } else {
-                        echo '<input class="form-check-input" type="radio" value="Transfer" id="transfer" name="idType">';
-                    }
-                    ?> 
+                    <input class="form-check-input" type="radio" value="Transfer" id="transfer" name="idType" <?php if($userdata['registration_type']== 'Transfer') echo 'checked' ?>>
                     <label class="form-check-label" for="transfer">
                         TRANSFER
                     </label>
-                    <input type="text" name="textTransfer" id="textTransfer" disabled="disabled">
+                    <input type="text" name="textTransfer" id="textTransfer" disabled="disabled" value="<?php echo($userdata['transfer_id']) ?>">
                 </div>
             </div>
             <div class="col border1 m-1">
                 <div class="form-check">
-                    <?php
-                    if($userdata["registration_type"] == "Change Information") {
-                        echo '<input class="form-check-input" type="radio" value="Change Information" id="change-info" name="idType" checked>';
-                    } else {
-                        echo '<input class="form-check-input" type="radio" value="Change Information" id="change-info" name="idType">';
-                    }
-                    ?> 
+                    <input class="form-check-input" type="radio" value="Change Information" id="change-info" name="idType" <?php if($userdata['registration_type']== 'Change Information') echo 'checked' ?>>
                     <label class="form-check-label" for="change-info">
                         CHANGE INFO
                     </label>
-                    <input type="text" name="textChangeInfo" id="textChangeInfo" disabled>
+                    <input type="text" name="textChangeInfo" id="textChangeInfo" disabled value="<?php echo($userdata['change_info_id']) ?>">
                 </div>
             </div>
         </div>
@@ -164,73 +134,37 @@
                     <div class="col">
                         <h5 class="">TYPE OF DISABILITY</h5>
                         <div class="form-check">
-                            <?php 
-                                if(in_array("Deaf/Hard of Hearing", $typeOfDisability, TRUE)) {
-                                    echo '<input class="form-check-input tod" type="checkbox" value="Deaf/Hard of Hearing" id="deaf" name="typeOfDisability[]" checked>';
-                                } else {
-                                    echo'<input class="form-check-input tod" type="checkbox" value="Deaf/Hard of Hearing" id="deaf" name="typeOfDisability[]">';
-                                }
-                            ?>
+                            <input class="form-check-input tod" type="checkbox" value="Deaf/Hard of Hearing" id="deaf" name="typeOfDisability[]" <?php if(in_array("Deaf/Hard of Hearing", $typeOfDisability, TRUE)) echo 'checked'?>>
                             <label class="form-check-label" for="deaf">
                                 Deaf/Hard of Hearing
                             </label>
                         </div>
                         <div class="form-check">
-                            <?php 
-                                if(in_array("Intellectual Disability", $typeOfDisability, TRUE)) {
-                                    echo '<input class="form-check-input tod" type="checkbox" value="Intellectual Disability" id="intellectualDisability" name="typeOfDisability[]" checked>';
-                                } else {
-                                    echo'<input class="form-check-input tod" type="checkbox" value="Intellectual Disability" id="intellectualDisability" name="typeOfDisability[]">';
-                                }
-                            ?>
+                            <input class="form-check-input tod" type="checkbox" value="Intellectual Disability" id="intellectualDisability" name="typeOfDisability[]" <?php if(in_array("Intellectual Disability", $typeOfDisability, TRUE)) echo 'checked'?>>
                             <label class="form-check-label" for="intellectualDisability">
                                 Intellectual Disability
                             </label>
                         </div>
                         <div class="form-check">
-                            <?php 
-                                if(in_array("Learning Disability", $typeOfDisability, TRUE)) {
-                                    echo '<input class="form-check-input tod" type="checkbox" value="Learning Disability" id="learningDisability" name="typeOfDisability[]" checked>';
-                                } else {
-                                    echo'<input class="form-check-input tod" type="checkbox" value="Learning Disability" id="learningDisability" name="typeOfDisability[]">';
-                                }
-                            ?>
+                            <input class="form-check-input tod" type="checkbox" value="Learning Disability" id="learningDisability" name="typeOfDisability[]" <?php if(in_array("Learning Disability", $typeOfDisability, TRUE)) echo 'checked'?>>
                             <label class="form-check-label" for="learningDisability">
                                 Learning Disability
                             </label>
                         </div>
                         <div class="form-check">
-                            <?php 
-                                if(in_array("Mental Disability", $typeOfDisability, TRUE)) {
-                                    echo '<input class="form-check-input tod" type="checkbox" value="Mental Disability" id="mentalDisability" name="typeOfDisability[]" checked>';
-                                } else {
-                                    echo'<input class="form-check-input tod" type="checkbox" value="Mental Disability" id="mentalDisability" name="typeOfDisability[]">';
-                                }
-                            ?>
+                            <input class="form-check-input tod" type="checkbox" value="Mental Disability" id="mentalDisability" name="typeOfDisability[]" <?php if(in_array("Mental Disability", $typeOfDisability, TRUE)) echo 'checked'?>>
                             <label class="form-check-label" for="mentalDisability">
                                 Mental Disability
                             </label>
                         </div>
                         <div class="form-check">
-                            <?php 
-                                if(in_array("Physical Disablity (Orthopedic)", $typeOfDisability, TRUE)) {
-                                    echo '<input class="form-check-input tod" type="checkbox" value="Physical Disablity (Orthopedic)" id="physicalDisablity" name="typeOfDisability[]" checked>';
-                                } else {
-                                    echo'<input class="form-check-input tod" type="checkbox" value="Physical Disablity (Orthopedic)" id="physicalDisablity" name="typeOfDisability[]">';
-                                }
-                            ?>
+                            <input class="form-check-input tod" type="checkbox" value="Physical Disablity (Orthopedic)" id="physicalDisablity" name="typeOfDisability[]" <?php if(in_array("Physical Disablity (Orthopedic)", $typeOfDisability, TRUE)) echo 'checked'?>>
                             <label class="form-check-label" for="physicalDisablity">
                                 Physical Disablity (Orthopedic)
                             </label>
                         </div>
                         <div class="form-check">
-                            <?php 
-                                if(in_array("Psychosocial Disability", $typeOfDisability, TRUE)) {
-                                    echo '<input class="form-check-input tod" type="checkbox" value="Psychosocial Disability" id="psychosocialDisability" name="typeOfDisability[]" checked>';
-                                } else {
-                                    echo'<input class="form-check-input tod" type="checkbox" value="Psychosocial Disability" id="psychosocialDisability" name="typeOfDisability[]">';
-                                }
-                            ?>
+                            <input class="form-check-input tod" type="checkbox" value="Psychosocial Disability" id="psychosocialDisability" name="typeOfDisability[]" <?php if(in_array("Psychosocial Disability", $typeOfDisability, TRUE)) echo 'checked'?>>
                             <label class="form-check-label" for="psychosocialDisability">
                                 Psychosocial Disability
                             </label>
@@ -238,50 +172,25 @@
                     </div>
                     <div class="col">
                         <div class="form-check">
-                            <?php 
-                                if(in_array("Speech and Language Impairment", $typeOfDisability, TRUE)) {
-                                    echo '<input class="form-check-input tod" type="checkbox" value="Speech and Language Impairment" id="speechAndLanguageImpairment" name="typeOfDisability[]" checked>';
-                                } else {
-                                    echo'<input class="form-check-input tod" type="checkbox" value="Speech and Language Impairment" id="speechAndLanguageImpairment" name="typeOfDisability[]">';
-                                }
-                            ?>
+                            <input class="form-check-input tod" type="checkbox" value="Speech and Language Impairment" id="speechAndLanguageImpairment" name="typeOfDisability[]" <?php if(in_array("Speech and Language Impairment", $typeOfDisability, TRUE)) echo 'checked'?>>
                             <label class="form-check-label" for="speechAndLanguageImpairment">
                                 Speech and Language Impairment
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input tod" type="checkbox" value="Visual Disability" id="visualDisability" name="typeOfDisability[]">
-                            <?php 
-                                if(in_array("Visual Disability", $typeOfDisability, TRUE)) {
-                                    echo '<input class="form-check-input tod" type="checkbox" value="Visual Disability" id="visualDisability" name="typeOfDisability[]" checked>';
-                                } else {
-                                    echo'<input class="form-check-input tod" type="checkbox" value="Visual Disability" id="visualDisability" name="typeOfDisability[]">';
-                                }
-                            ?>
+                            <input class="form-check-input tod" type="checkbox" value="Visual Disability" id="visualDisability" name="typeOfDisability[]" <?php if(in_array("Visual Disability", $typeOfDisability, TRUE)) echo 'checked'?>>
                             <label class="form-check-label" for="visualDisability">
                                 Visual Disability
                             </label>
                         </div>
                         <div class="form-check">
-                            <?php 
-                                if(in_array("Cancer (RA11215)", $typeOfDisability, TRUE)) {
-                                    echo '<input class="form-check-input tod" type="checkbox" value="Cancer (RA11215)" id="cancer" name="typeOfDisability[]" checked>';
-                                } else {
-                                    echo'<input class="form-check-input tod" type="checkbox" value="Cancer (RA11215)" id="cancer" name="typeOfDisability[]">';
-                                }
-                            ?>
+                            <input class="form-check-input tod" type="checkbox" value="Cancer (RA11215)" id="cancer" name="typeOfDisability[]" <?php if(in_array("Cancer (RA11215)", $typeOfDisability, TRUE)) echo 'checked'?>>
                             <label class="form-check-label" for="cancer">
                                 Cancer (RA11215)
                             </label>
                         </div>
                         <div class="form-check">
-                            <?php 
-                                if(in_array("Rare Disease (RA10747)", $typeOfDisability, TRUE)) {
-                                    echo '<input class="form-check-input tod" type="checkbox" value="Rare Disease (RA10747)" id="rareDisease" name="typeOfDisability[]" checked>';
-                                } else {
-                                    echo'<input class="form-check-input tod" type="checkbox" value="Rare Disease (RA10747)" id="rareDisease" name="typeOfDisability[]">';
-                                }
-                            ?>
+                            <input class="form-check-input tod" type="checkbox" value="Rare Disease (RA10747)" id="rareDisease" name="typeOfDisability[]" <?php if(in_array("Rare Disease (RA10747)", $typeOfDisability, TRUE)) echo 'checked'?>>
                             <label class="form-check-label" for="rareDisease">
                                 Rare Disease (RA10747)
                             </label>
@@ -301,72 +210,30 @@
                 <div class="row">
                     <div class="col">
                         <div class="form-check">
-                            <?php
-                            if(in_array("Congenital/Inborn", $causeOfDisability, TRUE)) {
-                                echo '<input class="form-check-input" type="checkbox" value="Congenital/Inborn" id="inborn" name="causeOfDisability[]" checked disabled>';
-                            } else {
-                                echo '<input class="form-check-input" type="checkbox" value="Congenital/Inborn" id="inborn" name="causeOfDisability[]" disabled>';
-                            }
-                            ?> 
+                            <input class="form-check-input" type="checkbox" value="Congenital/Inborn" id="inborn" name="causeOfDisability[]" <?php if(in_array("Congenital/Inborn", $causeOfDisability, TRUE)) echo 'checked'?> disabled>
                             <label class="form-check-label" for="inborn">
                                 <b>CONGENITAL/INBORN</b>
                             </label>
                             <div class="form-check">
-                                <?php
-                                if(in_array("Autism", $congenitalInborn, TRUE)) {
-                                    echo '<input class="form-check-input cod" type="checkbox" value="Autism" id="autism" name="congenital[]" onclick="congenitalCheckboxChecker(\'cod\');" required checked>';
-                                } 
-                                ?>
-                                <?php
-                                if(!in_array("Autism", $congenitalInborn, TRUE)) {
-                                    echo '<input class="form-check-input cod" type="checkbox" value="Autism" id="autism" name="congenital[]" onclick="congenitalCheckboxChecker(\'cod\');" required>';
-                                }
-                                ?> 
+                                <input class="form-check-input cod" type="checkbox" value="Autism" id="autism" name="congenital[]" onclick="congenitalCheckboxChecker('cod');" <?php if(in_array("Autism", $congenitalInborn, TRUE)) echo 'checked'?> required>
                                 <label class="form-check-label" for="autism">
                                     Autism
                                 </label>
                             </div>
                             <div class="form-check">
-                                <?php
-                                if(in_array("ADHD", $congenitalInborn, TRUE)) {
-                                    echo '<input class="form-check-input cod" type="checkbox" value="ADHD" id="adhd" name="congenital[]" onclick="congenitalCheckboxChecker(\'cod\');" required checked>';
-                                } 
-                                ?>
-                                <?php
-                                if(!in_array("ADHD", $congenitalInborn, TRUE)) {
-                                    echo '<input class="form-check-input cod" type="checkbox" value="ADHD" id="adhd" name="congenital[]" onclick="congenitalCheckboxChecker(\'cod\');" required>';
-                                }
-                                ?>
+                                <input class="form-check-input cod" type="checkbox" value="ADHD" id="adhd" name="congenital[]" onclick="congenitalCheckboxChecker('cod');" <?php if(in_array("ADHD", $congenitalInborn, TRUE)) echo 'checked'?> required>
                                 <label class="form-check-label" for="adhd">
                                     ADHD
                                 </label>
                             </div>
                             <div class="form-check">
-                                <?php
-                                if(in_array("Cerebral Palsy", $congenitalInborn, TRUE)) {
-                                    echo '<input class="form-check-input cod" type="checkbox" value="Cerebral Palsy" id="cerebralPalsy" name="congenital[]" onclick="congenitalCheckboxChecker(\'cod\');" required checked>';
-                                } 
-                                ?>
-                                <?php
-                                if(!in_array("Cerebral Palsy", $congenitalInborn, TRUE)) {
-                                    echo '<input class="form-check-input cod" type="checkbox" value="Cerebral Palsy" id="cerebralPalsy" name="congenital[]" onclick="congenitalCheckboxChecker(\'cod\');" required>';
-                                }
-                                ?>
+                                <input class="form-check-input cod" type="checkbox" value="Cerebral Palsy" id="cerebralPalsy" name="congenital[]" onclick="congenitalCheckboxChecker('cod');" <?php if(in_array("Cerebral Palsy", $congenitalInborn, TRUE)) echo 'checked'?> required>
                                 <label class="form-check-label" for="cerebralPalsy">
                                     Cerebral Palsy
                                 </label>
                             </div>
                             <div class="form-check">
-                                <?php
-                                if(in_array("Down Syndrome", $congenitalInborn, TRUE)) {
-                                    echo '<input class="form-check-input cod" type="checkbox" value="Down Syndrome" id="downSyndrome" name="congenital[]" onclick="congenitalCheckboxChecker(\'cod\');" required checked>';
-                                } 
-                                ?>
-                                <?php
-                                if(!in_array("Down Syndrome", $congenitalInborn, TRUE)) {
-                                    echo '<input class="form-check-input cod" type="checkbox" value="Down Syndrome" id="downSyndrome" name="congenital[]" onclick="congenitalCheckboxChecker(\'cod\');" required>';
-                                }
-                                ?>
+                                <input class="form-check-input cod" type="checkbox" value="Down Syndrome" id="downSyndrome" name="congenital[]" onclick="congenitalCheckboxChecker('cod');" <?php if(in_array("Down Syndrome", $congenitalInborn, TRUE)) echo 'checked'?> required>
                                 <label class="form-check-label" for="downSyndrome">
                                     Down Syndrome
                                 </label>
@@ -375,26 +242,13 @@
                         <div class="row">
                             <h5 class="required">STATUS OF DISABILITY</h5>
                             <div class="form-check col">
-                                <?php
-                                if($userdata["status_of_disability"] == "Permanent") {
-                                    echo '<input class="form-check-input" type="radio" value="Permanent" id="permanent" name="statusOfDisability" required checked>';
-                                } else {
-                                    echo '<input class="form-check-input" type="radio" value="Permanent" id="permanent" name="statusOfDisability" required>';
-                                }
-                                ?> 
+                                <input class="form-check-input" type="radio" value="Permanent" id="permanent" name="statusOfDisability" <?php if($userdata['status_of_disability'] == "Permanent") echo 'checked' ?> required>
                                 <label class="form-check-label" for="permanent">
                                     Permanent
                                 </label>
                             </div>
                             <div class="form-check col">
-                                
-                                <?php
-                                if($userdata["status_of_disability"] == "Temporary") {
-                                    echo '<input class="form-check-input" type="radio" value="Temporary" id="temporary" name="statusOfDisability" checked>';
-                                } else {
-                                    echo '<input class="form-check-input" type="radio" value="Temporary" id="temporary" name="statusOfDisability">';
-                                }
-                                ?> 
+                                <input class="form-check-input" type="radio" value="Temporary" id="temporary" name="statusOfDisability" <?php if($userdata['status_of_disability'] == "Temporary") echo 'checked' ?>>
                                 <label class="form-check-label" for="temporary">
                                     Temporary
                                 </label>
@@ -403,57 +257,24 @@
                     </div>
                     <div class="col">
                         <div class="form-check">
-                            <?php
-                            if(in_array("Acquired", $causeOfDisability, TRUE)) {
-                                echo '<input class="form-check-input" type="checkbox" value="Acquired" id="acquired" name="causeOfDisability[]" checked disabled>';
-                            } else {
-                                echo '<input class="form-check-input" type="checkbox" value="Acquired" id="acquired" name="causeOfDisability[]" disabled>';
-                            }
-                            ?> 
+                            <input class="form-check-input" type="checkbox" value="Acquired" id="acquired" name="causeOfDisability[]" <?php if(in_array("Acquired", $causeOfDisability, TRUE)) echo 'checked'?>  disabled>
                             <label class="form-check-label" for="acquired">
                                 <b>ACQUIRED</b>
                             </label>
                             <div class="form-check">
-                                <?php
-                                if(in_array("Chronic Illness", $acquired, TRUE)) {
-                                    echo '<input class="form-check-input cod" type="checkbox" value="Chronic Illness" id="chronicIllness" name="acquired[]" onclick="acquiredCheckboxChecker(\'cod\');" required checked>';
-                                } 
-                                ?>
-                                <?php
-                                if(!in_array("Chronic Illness", $acquired, TRUE)) {
-                                    echo '<input class="form-check-input cod" type="checkbox" value="Chronic Illness" id="chronicIllness" name="acquired[]" onclick="acquiredCheckboxChecker(\'cod\');" required>';
-                                }
-                                ?>
+                                <input class="form-check-input cod" type="checkbox" value="Chronic Illness" id="chronicIllness" name="acquired[]" onclick="acquiredCheckboxChecker('cod');" <?php if(in_array("Chronic Illness", $acquired, TRUE)) echo 'checked'?> required>
                                 <label class="form-check-label" for="chronicIllness">
                                     Chronic Illness
                                 </label>
                             </div>
                             <div class="form-check">
-                                <?php
-                                if(in_array("Cerebral Palsy", $acquired, TRUE)) {
-                                    echo '<input class="form-check-input cod" type="checkbox" value="Cerebral Palsy" id="acquiredCerebralPalsy" name="acquired[]" onclick="acquiredCheckboxChecker(\'cod\');" required checked>';
-                                } 
-                                ?>
-                                <?php
-                                if(!in_array("Cerebral Palsy", $acquired, TRUE)) {
-                                    echo '<input class="form-check-input cod" type="checkbox" value="Cerebral Palsy" id="acquiredCerebralPalsy" name="acquired[]" onclick="acquiredCheckboxChecker(\'cod\');" required>';
-                                }
-                                ?>
+                                <input class="form-check-input cod" type="checkbox" value="Cerebral Palsy" id="acquiredCerebralPalsy" name="acquired[]" onclick="acquiredCheckboxChecker('cod');" <?php if(in_array("Cerebral Palsy", $acquired, TRUE)) echo 'checked'?> required>
                                 <label class="form-check-label" for="acquiredCerebralPalsy">
                                     Cerebral Palsy
                                 </label>
                             </div>
                             <div class="form-check">
-                                <?php
-                                if(in_array("Injury", $acquired, TRUE)) {
-                                    echo '<input class="form-check-input cod" type="checkbox" value="Injury" id="injury" name="acquired[]" onclick="acquiredCheckboxChecker(\'cod\');" required checked>';
-                                } 
-                                ?>
-                                <?php
-                                if(!in_array("Injury", $acquired, TRUE)) {
-                                    echo '<input class="form-check-input cod" type="checkbox" value="Injury" id="injury" name="acquired[]" onclick="acquiredCheckboxChecker(\'cod\');" required>';
-                                }
-                                ?>
+                                <input class="form-check-input cod" type="checkbox" value="Injury" id="injury" name="acquired[]" onclick="acquiredCheckboxChecker('cod');" <?php if(in_array("Injury", $acquired, TRUE)) echo 'checked'?> required>
                                 <label class="form-check-label" for="injury">
                                     Injury
                                 </label>
@@ -518,7 +339,7 @@
                 <label class="form-check-label" for="email">
                     EMAIL ADDRESS
                 </label>
-                <input class="form-control" type="text" name="email" id="email" value="<?php echo ($userdata['email']) ?>" disabled>
+                <input class="form-control" type="text" name="email" id="email" value="<?php echo ($userdata['email']) ?>">
             </div>
         </div>
         <!-- row 7 -->

@@ -38,7 +38,7 @@ function acquiredCheckboxChecker(elClass) {
         }
     }
 }
-
+// Cause of disability checker
 function deRequire(elClass) {
     el = document.getElementsByClassName(elClass);
 
@@ -59,6 +59,36 @@ function deRequire(elClass) {
         }
     }
 }
+// Cause of disability checker
+$(window).on('load', function() {
+    if ($("#change-info").is(":checked")) {
+        $("#textChangeInfo").removeAttr("disabled");
+        $("#textChangeInfo").focus();
+    } else {
+        $("#textChangeInfo").attr("disabled", "disabled");
+        $('#textChangeInfo').val(""); 
+    }
+    if ($("#transfer").is(":checked")) {
+        $("#textTransfer").removeAttr("disabled");
+        $("#textTransfer").focus();
+    } else {
+        $("#textTransfer").attr("disabled", "disabled");
+        $('#textTransfer').val(""); 
+        }
+    el = document.getElementsByClassName('cod');
+    var subCheckboxAutism = document.querySelector('#autism');
+    var subCheckboxADHD = document.querySelector('#adhd');
+    var subCheckboxCerebralPalsy = document.querySelector('#cerebralPalsy');
+    var subCheckboxDownSyndrome = document.querySelector('#downSyndrome');
+    var subCheckboxChronicIllnes = document.querySelector('#chronicIllness');
+    var subCheckboxAcquiredCerebralPalsy = document.querySelector('#acquiredCerebralPalsy');
+    var subCheckboxInjury = document.querySelector('#injury');
+    if (subCheckboxAutism.checked || subCheckboxADHD || subCheckboxCerebralPalsy || subCheckboxDownSyndrome || subCheckboxChronicIllnes || subCheckboxAcquiredCerebralPalsy || subCheckboxInjury) {
+        for (i = 0; i < el.length; i++) {
+            el[i].required = false;
+        }
+    }
+});
 // Add Family Member
 function duplicate() {
     var parent = document.getElementsByClassName('family-list');
@@ -79,76 +109,6 @@ function alpha(e) {
     document.all ? k = e.keyCode : k = e.which;
     return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57));
 }
-// Date Of Birth and Age
-dob.max = new Date().toISOString().split("T")[0];
-srCitizenDOB.max = new Date().toISOString().split("T")[0];
-birth.max = new Date().toISOString().split("T")[0];
-$(window).load(function()
-{
-    $('#staticBackdrop').modal('show');
-});
-$(document).ready(function(){
-    $("#id-type").on('change', function(){
-        $(".registration-container").hide();
-        $("#" + $(this).val()).fadeIn(700);
-    });
-}).change();
-
-$("input[name='idType']").click(function () {
-if ($("#transfer").is(":checked")) {
-    $("#textTransfer").removeAttr("disabled");
-    $("#textTransfer").focus();
-} else {
-    $("#textTransfer").attr("disabled", "disabled");
-    $('#textTransfer').val(""); 
-    }
-});
-
-$("input[name='idType']").click(function () {
-if ($("#change-info").is(":checked")) {
-    $("#textChangeInfo").removeAttr("disabled");
-    $("#textChangeInfo").focus();
-} else {
-    $("#textChangeInfo").attr("disabled", "disabled");
-    $('#textChangeInfo').val(""); 
-}
-});
-
-$('#srCitizenDOB').change(function () {
-    var dateOfBirth = new Date($('#srCitizenDOB').val())
-    //calculate month difference from current date in time
-    var month_diff = Date.now() - dateOfBirth.getTime()
-
-    //convert the calculated difference in date format
-    var age_dt = new Date(month_diff)
-
-    //extract year from date
-    var year = age_dt.getUTCFullYear()
-
-    //now calculate the age of the user
-    var age = Math.abs(year - 1970)
-
-    //display the calculated age
-    $('#edad').val(age)
-});
-
-$('#birth').change(function () {
-    var dateOfBirth = new Date($('#birth').val())
-    //calculate month difference from current date in time
-    var month_diff = Date.now() - dateOfBirth.getTime()
-
-    //convert the calculated difference in date format
-    var age_dt = new Date(month_diff)
-
-    //extract year from date
-    var year = age_dt.getUTCFullYear()
-
-    //now calculate the age of the user
-    var age = Math.abs(year - 1970)
-
-    //display the calculated age
-    $('#age').val(age)
-});
 
 $("input[name='employmentStatus']").click(function () {
     if ($('#employed').is(':checked') || $('#selfEmployed').is(':checked')) {
@@ -162,7 +122,8 @@ $("input[name='employmentStatus']").click(function () {
         $('#organization').val(""); 
         $('#contactPerson').val(""); 
         $('#officeAddress').val(""); 
-        $('#telNumber').val(""); 
+        $('#telNumber').val("");
+        $('#otherOccupation').val("");
     }
 });
 
@@ -206,4 +167,74 @@ file.addEventListener('change', function(){
 
         reader.readAsDataURL(choosedFile);
     }
+});
+// ID Type
+$("input[name='idType']").click(function () {
+if ($("#transfer").is(":checked")) {
+    $("#textTransfer").removeAttr("disabled");
+    $("#textTransfer").focus();
+} else {
+    $("#textTransfer").attr("disabled", "disabled");
+    $('#textTransfer').val(""); 
+    }
+});
+
+$("input[name='idType']").click(function () {
+if ($("#change-info").is(":checked")) {
+    $("#textChangeInfo").removeAttr("disabled");
+    $("#textChangeInfo").focus();
+} else {
+    $("#textChangeInfo").attr("disabled", "disabled");
+    $('#textChangeInfo').val(""); 
+}
+});
+// Date Of Birth and Age
+dob.max = new Date().toISOString().split("T")[0];
+srCitizenDOB.max = new Date().toISOString().split("T")[0];
+birth.max = new Date().toISOString().split("T")[0];
+$(window).load(function()
+{
+    $('#staticBackdrop').modal('show');
+});
+$(document).ready(function(){
+    $("#id-type").on('change', function(){
+        $(".registration-container").hide();
+        $("#" + $(this).val()).fadeIn(700);
+    });
+}).change();
+
+$('#srCitizenDOB').change(function () {
+    var dateOfBirth = new Date($('#srCitizenDOB').val())
+    //calculate month difference from current date in time
+    var month_diff = Date.now() - dateOfBirth.getTime()
+
+    //convert the calculated difference in date format
+    var age_dt = new Date(month_diff)
+
+    //extract year from date
+    var year = age_dt.getUTCFullYear()
+
+    //now calculate the age of the user
+    var age = Math.abs(year - 1970)
+
+    //display the calculated age
+    $('#edad').val(age)
+});
+
+$('#birth').change(function () {
+    var dateOfBirth = new Date($('#birth').val())
+    //calculate month difference from current date in time
+    var month_diff = Date.now() - dateOfBirth.getTime()
+
+    //convert the calculated difference in date format
+    var age_dt = new Date(month_diff)
+
+    //extract year from date
+    var year = age_dt.getUTCFullYear()
+
+    //now calculate the age of the user
+    var age = Math.abs(year - 1970)
+
+    //display the calculated age
+    $('#age').val(age)
 });
