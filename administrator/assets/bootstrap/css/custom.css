@@ -1,88 +1,4 @@
-* {
-  box-sizing: border-box;
-}
-
-body {
-  /* padding-bottom: 15%; */
-  height: 100vh;
-}
-
-footer {
-  background-image: linear-gradient(to right, #0f2d37, #d70080);
-  position: relative;
-  bottom: 0;
-  height: 10vh;
-  width: 100%;
-}
-
-#login-container,
-#signup-container {
-  /* display: flex; */
-  border-style: solid;
-  border-radius: 15px;
-  background-color: rgb(255,184,243);
-  min-height: 50vh;
-  padding: 50px;
-  /* max-width: 50vh; */
-  /* height: 70vh; */
-  /* margin: auto; */
-}
-
-#login-form,
-#signup-form {
-  margin: auto;
-  max-width: 50vh;
-  padding: 20px;
-}
-
-section {
-  min-height: 84vh;
-}
-
-.home-container {
-  margin-bottom: 20px;
-  width: 80vh;
-  height: 80vh;
-  overflow: scroll;
-}
-
-.registration-containers {
-  border-style: solid;
-  border-radius: 15px;
-  background-color: rgb(255,184,243);
-  /* max-width: 1500px; */
-  height: auto;
-  margin: auto;
-}
-
-.registration-container {
-  display: none;
-}
-
-.registration-form {
-  margin: auto;
-  padding: 20px;
-}
-
-.border1 {
-  border: 1px solid black;
-}
-
-.row {
-  margin: 3px;
-  /* padding: 8px; */
-}
-
-.col {
-  margin: 3px;
-  /* padding: 8px; */
-}
-
-hr {
-  border-top: 1px dashed black;
-}
-
-.profile-pic-div{
+.profile-pic{
     height: 150px;
     width: 150px;
     position: relative;
@@ -99,11 +15,7 @@ hr {
     width: 100%;
 }
 
-#file{
-    display: none;
-}
-
-#uploadBtn{
+#uploadButton{
     height: 40px;
     width: 100%;
     position: absolute;
@@ -118,25 +30,6 @@ hr {
     font-size: 15px;
     cursor: pointer;
     display: none;
-}
-
-input {
-  margin: 5px;
-}
-
-.required:after {
-    content:" *";
-    color: red;
-}
-
-a{
-  color: var(--color-dark);
-  text-decoration: none;
-  font-size: 15px;
-}
-
-.disableDiv {
-  pointer-events: none;
 }
 
 #partitioned1 {
@@ -179,4 +72,41 @@ a{
 #divOuter{
   width: 365px; 
   overflow: hidden;
+}
+
+.registration-containers {
+  border-style: solid;
+  border-radius: 15px;
+  background-color: rgb(255,184,243) !important;
+  /* max-width: 1500px; */
+  height: auto;
+  margin: auto;
+}
+
+.registration-form {
+  margin: auto;
+  padding: 20px;
+}
+
+.border1 {
+  border: 1px solid black;
+}
+
+.row {
+  margin: 3px;
+  padding: 3px;
+}
+
+.col {
+  margin: 3px;
+  padding: 3px;
+}
+
+hr {
+  border-top: 1px dashed black;
+}
+
+.required:after {
+    content: "*";
+    color: red;
 }

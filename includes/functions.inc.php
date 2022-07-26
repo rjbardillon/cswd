@@ -301,10 +301,9 @@ function insertSeniorCitizenData($connection, $username, $registration_type, $sr
     mysqli_stmt_bind_param($stmt, "ssssssssssssssssssssssss", $username, $registration_type, $sr_citizen_num, $sr_citizen_first_name, $sr_citizen_middle_name, $sr_citizen_last_name, 
                           $sr_citizen_suffix, $barangay, $tirahan, $sex, $marital_status, $edad, $date_of_birth, $lugar_ng_kapanganakan, $telepono, $relihiyon, $hanapbuhay, $pensyon, 
                           $saan, $magkano, $pangalan_ng_asawa, $edad_asawa, $ilan_ang_anak, $kasama);
-    updateUserData($connection, $username, $columnName);
-                          mysqli_stmt_execute($stmt);
+    mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-
+    updateUserData($connection, $username, $columnName);
     header("location: ../home.html?error=none");
     exit();
 }
@@ -378,4 +377,75 @@ function updateUserData($connection, $username, $columnName) {
     $_SESSION['idType'] = $columnName;
     header("location: ../home.html?error=none");
     exit();
+}
+
+function profileExisting($connection, $username, $email){
+    $sql = "SELECT * FROM media WHERE username=? OR username=?";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../home.html?error=stmterror");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "ss", $username, $email);
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+    if ($row = mysqli_fetch_assoc($result)) {
+        return $row;
+    } 
+    else {
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+function insertProfile($connection, $username, $fileName, $fileTmpName, $fileDestination) {
+    $profileExists = profileExisting($connection, $username, $username);
+    if (!$profileExists) {
+        move_uploaded_file($fileTmpName, $fileDestination);
+        $sql = "INSERT INTO media(username, image_location) VALUES (?, ?);";
+        $stmt = mysqli_stmt_init($connection);
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+            header("location: ../home.html?error=stmterror");
+            exit();
+        }
+        mysqli_stmt_bind_param($stmt, "ss", $username, $fileName);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+    } else {
+        move_uploaded_file($fileTmpName, $fileDestination);
+        unlink("../uploads/".$profileExists["image_location"]);
+        $sql = "UPDATE media SET
+        image_location = ?
+        WHERE username = ?;";
+        $stmt = mysqli_stmt_init($connection);
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+            header("location: ../home.html?error=stmterror");
+            exit();
+        }
+        mysqli_stmt_bind_param($stmt, "ss", $fileName, $username);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+    }
+}
+
+function getUserData($connection, $table, $where, $condition) {
+    $data = [];
+    if (empty($where)) {
+        $sql = "SELECT * FROM $table";
+    } else {
+        $sql = "SELECT * FROM $table WHERE $where = '$condition'";
+    }
+    
+    $result = $connection->query($sql);
+
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            array_push($data, $row);
+        }
+    }
+    return $data;
 }

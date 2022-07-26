@@ -11,13 +11,23 @@
         header("location: registration.html");  
         exit();
     }
+
+    if ($_SESSION['is_pwd'] == "Yes") {
+        $idType = "PWD";
+    } 
+    if ($_SESSION['is_solo_parent'] == "Yes") {
+        $idType = "Solo Parent";
+    } 
+    if ($_SESSION['is_sr_citizen'] == "Yes") {
+        $idType = "Senior Citizen";
+    }
 ?>
 <section>
     <div class="container">
         <h1>Edit your account</h1>
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title">PWD</h5>
+                <h5 class="card-title"><?php echo($idType); ?></h5>
                 <p class="card-text">Set an appointment to confirm your documents.</p>
                 <a href="contact-us.html" class="btn btn-primary">Set an Appointment</a>
                 <?php

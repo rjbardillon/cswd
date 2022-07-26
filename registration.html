@@ -161,7 +161,7 @@
         <!-- PWD -->
         <div class="registration-container" id="pwd">
             <div class="container registration-containers mt-5 mb-5">
-                <form class="registration-form" action="includes/register.inc.php" method="post">
+                <form class="registration-form" action="includes/register.inc.php" method="post" enctype="multipart/form-data">
                     <!-- row 1 -->
                 <div class="row m-1" style="background-color: green;">
                     <div class="col border1">
@@ -219,8 +219,18 @@
                             <div class="col border1">
                                 <h5>PERSONS WITH DISABILITY NUMBER (RR-PPMM-BBB-NNNNNNN)</h5>
                                 <div>
-                                    <label class="form-check-label" for="pwdNumber">0 4 3 4 2 8 0 </label>
-                                    <input name="pwdNumber1" id="pwdNumber1" type="text" maxlength="2" size="2"> - <input name="pwdNumber2" id="pwdNumber2" type="text" maxlength="5" size="5">
+                                    <div id="divOuter">
+                                        <div id="divInner">
+                                            <label class="form-check-label" for="pwdNumber">0 4 3 4 2 8 0 </label>
+                                            <table>
+                                                <tr>
+                                                    <td><input id="partitioned1" type="text" maxlength="2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  onKeyPress="if(this.value.length==2) return false;"/></td>
+                                                    <td> - </td>
+                                                    <td><input id="partitioned" type="text" maxlength="5" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  onKeyPress="if(this.value.length==5) return false;"/></td>
+                                                </tr>
+                                            </table> 
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col border1">
@@ -266,7 +276,7 @@
                     <div class="col-sm-2 border1">
                         <div class="profile-pic-div">
                             <img src="images/image.jpg" id="photo">
-                            <input type="file" id="file" accept="image/*">
+                            <input type="file" id="file" name="file" accept="image/*">
                             <label class="required" for="file" id="uploadBtn">Choose Photo</label>
                         </div>
                     </div>

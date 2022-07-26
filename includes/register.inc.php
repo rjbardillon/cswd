@@ -217,6 +217,33 @@ if (isset($_POST['pwd-register'])) {
     $licenseNumber = $_POST['licenseNumber'];
     $status = "Pending";
     $columnName = "is_pwd";
+    $image = $_FILES['file'];
+
+    if ($image['name'] != "") {
+        $fileName = $image['name'];
+        $fileTmpName = $image['tmp_name'];
+        $fileSize = $image['size'];
+        $fileError = $image['error'];
+        $fileType = $image['type'];
+        $fileExt = explode('.', $fileName);
+        $fileActualExt = strtolower(end($fileExt));
+        $allowed = array('jpg', 'jpeg', 'png', '');
+
+        if (in_array($fileActualExt, $allowed)) {
+            if ($fileError === 0) {
+                $newFileName = uniqid('', true).".".$fileActualExt;
+                $fileDestination = "../uploads/".$newFileName;
+                $_SESSION['profileDestination'] = $fileDestination;
+                insertProfile($connection, $username, $newFileName, $fileTmpName, $fileDestination);
+            } else {
+                header("location: ../profile.html?error=therewasanerror");
+                exit();
+            }
+        } else {
+            header("location: ../profile.html?error=filenotallowed");
+            exit();
+        }
+    } 
     insertPWDData($connection, $username, $registrationType, $transferID, $changeInfoID, $pwdNumber, $dateApplied, $pwdLastName, $pwdFirstName, $pwdMiddleName, $pwdSuffix, $typeOfDisability, $medicalCondition,
                 $causeOfDisability, $congenitalInborn, $acquired, $statusOfDisability, $address, $barangay, $landline, $mobileNumber, $email, $dateOfBirth, $sex, $religion, $civilStatus,
                 $educationalAttainment, $isVoter, $employmentStatus, $income, $categoryOfEmployment, $natureOfEmployment, $occupation, $otherOccupation, $is4PsBeneficiary, $bloodType,
@@ -441,6 +468,33 @@ if (isset($_POST['pwd-register'])) {
     $licenseNumber = $_POST['licenseNumber'];
     $status = "Pending";
     $columnName = "is_pwd";
+    $image = $_FILES['file'];
+
+    if ($image['name'] != "") {
+        $fileName = $image['name'];
+        $fileTmpName = $image['tmp_name'];
+        $fileSize = $image['size'];
+        $fileError = $image['error'];
+        $fileType = $image['type'];
+        $fileExt = explode('.', $fileName);
+        $fileActualExt = strtolower(end($fileExt));
+        $allowed = array('jpg', 'jpeg', 'png', '');
+
+        if (in_array($fileActualExt, $allowed)) {
+            if ($fileError === 0) {
+                $newFileName = uniqid('', true).".".$fileActualExt;
+                $fileDestination = "../uploads/".$newFileName;
+                $_SESSION['profileDestination'] = $fileDestination;
+                insertProfile($connection, $username, $newFileName, $fileTmpName, $fileDestination);
+            } else {
+                header("location: ../profile.html?error=therewasanerror");
+                exit();
+            }
+        } else {
+            header("location: ../profile.html?error=filenotallowed");
+            exit();
+        }
+    }
     updatePWDData($connection, $username, $registrationType, $transferID, $changeInfoID, $pwdNumber, $dateApplied, $pwdLastName, $pwdFirstName, $pwdMiddleName, $pwdSuffix, $typeOfDisability, $medicalCondition,
                 $causeOfDisability, $congenitalInborn, $acquired, $statusOfDisability, $address, $barangay, $landline, $mobileNumber, $email, $dateOfBirth, $sex, $religion, $civilStatus,
                 $educationalAttainment, $isVoter, $employmentStatus, $income, $categoryOfEmployment, $natureOfEmployment, $occupation, $otherOccupation, $is4PsBeneficiary, $bloodType,

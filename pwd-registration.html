@@ -5,6 +5,7 @@
     $page = "registration";
     include('header.html');
     $username = $_SESSION['username'];
+    $profile = getUserData($connection, "media", "username", $username);
     $userdata = userDataExists($connection, $username, "pwd_data");
     $typeOfDisability = explode(',', $userdata['type_of_disability']);
     $causeOfDisability = explode(',', $userdata['cause_of_disability']);
@@ -17,7 +18,7 @@
 ?>
 <div>
     <div class="container registration-containers mt-5 mb-5">
-        <form class="registration-form" action="includes/register.inc.php" method="post">
+        <form class="registration-form" action="includes/register.inc.php" method="post" enctype="multipart/form-data">
             <!-- row 1 -->
         <div class="row m-1" style="background-color: green;">
             <div class="col border1">
@@ -75,8 +76,18 @@
                     <div class="col border1">
                         <h5>PERSONS WITH DISABILITY NUMBER (RR-PPMM-BBB-NNNNNNN)</h5>
                         <div>
-                            <label class="form-check-label" for="pwdNumber">0 4 3 4 2 8 0 </label>
-                            <input name="pwdNumber1" id="pwdNumber1" type="text" maxlength="2" size="2"> - <input name="pwdNumber2" id="pwdNumber2" type="text" maxlength="5" size="5">
+                            <div id="divOuter">
+                                <div id="divInner">
+                                    <label class="form-check-label" for="pwdNumber">0 4 3 4 2 8 0 </label>
+                                    <table>
+                                        <tr>
+                                            <td><input id="partitioned1" type="text" maxlength="2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  onKeyPress="if(this.value.length==2) return false;"/></td>
+                                            <td> - </td>
+                                            <td><input id="partitioned" type="text" maxlength="5" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  onKeyPress="if(this.value.length==5) return false;"/></td>
+                                        </tr>
+                                    </table> 
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col border1">
@@ -120,11 +131,20 @@
                 </div>
             </div>
             <div class="col-sm-2 border1">
+                <?php if(!empty($profile)) foreach($profile as $image): ?>
                 <div class="profile-pic-div">
-                    <img src="images/image.jpg" id="photo">
-                    <input type="file" id="file" accept="image/*">
+                    <img src="uploads/<?php echo($image['image_location']); ?>" id="photo">
+                    <input type="file" id="file" name="file" accept="image/*">
                     <label class="required" for="file" id="uploadBtn">Choose Photo</label>
                 </div>
+                <?php endforeach; ?>
+                <?php if(empty($profile)) {?>
+                <div class="profile-pic-div">
+                    <img src="images/image.jpg" id="photo">
+                    <input type="file" id="file" name="file" accept="image/*">
+                    <label class="required" for="file" id="uploadBtn">Choose Photo</label>
+                </div>
+                <?php }?>
             </div>
         </div>
         <!-- row 3 -->
@@ -383,90 +403,83 @@
             </div>
             <div class="col border1">
                 <b class="required">CIVIL STATUS</b>
-                <div class="col">
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-check">
-                                <?php
-                                if($userdata["civil_status"] == "Single") {
-                                    echo '<input class="form-check-input" value="Single" type="radio" name="civilStatus" id="single" required checked>';
-                                } else {
-                                    echo '<input class="form-check-input" value="Single" type="radio" name="civilStatus" id="single" required>';
-                                }
-                                ?> 
-                                <label class="form-check-label" for="single">
-                                    Single
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-check">
-                                <?php
-                                if($userdata["civil_status"] == "Separated") {
-                                    echo '<input class="form-check-input" value="Separated" type="radio" name="civilStatus" id="separated" required checked>';
-                                } else {
-                                    echo '<input class="form-check-input" value="Separated" type="radio" name="civilStatus" id="separated" required>';
-                                }
-                                ?> 
-                                <label class="form-check-label" for="separated">
-                                    Separated
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-check">
-                                <?php
-                                if($userdata["civil_status"] == "Cohabitation (Live-in)") {
-                                    echo '<input class="form-check-input" value="Cohabitation (Live-in)" type="radio" name="civilStatus" id="cohabitation" required checked>';
-                                } else {
-                                    echo '<input class="form-check-input" value="Cohabitation (Live-in)" type="radio" name="civilStatus" id="cohabitation" required>';
-                                }
-                                ?> 
-                                <label class="form-check-label" for="cohabitation">
-                                    Cohabitation (Live-in)
-                                </label>
-                            </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-check">
+                            <?php
+                            if($userdata["civil_status"] == "Single") {
+                                echo '<input class="form-check-input" value="Single" type="radio" name="civilStatus" id="single" required checked>';
+                            } else {
+                                echo '<input class="form-check-input" value="Single" type="radio" name="civilStatus" id="single" required>';
+                            }
+                            ?> 
+                            <label class="form-check-label" for="single">
+                                Single
+                            </label>
                         </div>
                     </div>
-                    
-                </div>
-                <div class="col">
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-check">
-                                <input class="form-check-input" value="Married" type="radio" name="civilStatus" id="married">
-                                <?php
-                                if($userdata["civil_status"] == "Married") {
-                                    echo '<input class="form-check-input" value="Married" type="radio" name="civilStatus" id="married" required checked>';
-                                } else {
-                                    echo '<input class="form-check-input" value="Married" type="radio" name="civilStatus" id="married" required>';
-                                }
-                                ?> 
-                                <label class="form-check-label" for="married">
-                                    Married
-                                </label>
-                            </div>
+                    <div class="col">
+                        <div class="form-check">
+                            <?php
+                            if($userdata["civil_status"] == "Separated") {
+                                echo '<input class="form-check-input" value="Separated" type="radio" name="civilStatus" id="separated" required checked>';
+                            } else {
+                                echo '<input class="form-check-input" value="Separated" type="radio" name="civilStatus" id="separated" required>';
+                            }
+                            ?> 
+                            <label class="form-check-label" for="separated">
+                                Separated
+                            </label>
                         </div>
-                        <div class="col">
-                            <div class="form-check">
-                                <?php
-                                if($userdata["civil_status"] == "Widow") {
-                                    echo '<input class="form-check-input" value="Widow" type="radio" name="civilStatus" id="widow" required checked>';
-                                } else {
-                                    echo '<input class="form-check-input" value="Widow" type="radio" name="civilStatus" id="widow" required>';
-                                }
-                                ?> 
-                                <label class="form-check-label" for="widow">
-                                    Widow/er
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col">
-                            
+                    </div>
+                    <div class="col">
+                        <div class="form-check">
+                            <?php
+                            if($userdata["civil_status"] == "Cohabitation (Live-in)") {
+                                echo '<input class="form-check-input" value="Cohabitation (Live-in)" type="radio" name="civilStatus" id="cohabitation" required checked>';
+                            } else {
+                                echo '<input class="form-check-input" value="Cohabitation (Live-in)" type="radio" name="civilStatus" id="cohabitation" required>';
+                            }
+                            ?> 
+                            <label class="form-check-label" for="cohabitation">
+                                Cohabitation (Live-in)
+                            </label>
                         </div>
                     </div>
                 </div>
-            </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-check">
+                            <?php
+                            if($userdata["civil_status"] == "Married") {
+                                echo '<input class="form-check-input" value="Married" type="radio" name="civilStatus" id="married" required checked>';
+                            } else {
+                                echo '<input class="form-check-input" value="Married" type="radio" name="civilStatus" id="married" required>';
+                            }
+                            ?> 
+                            <label class="form-check-label" for="married">
+                                Married
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-check">
+                            <?php
+                            if($userdata["civil_status"] == "Widow") {
+                                echo '<input class="form-check-input" value="Widow" type="radio" name="civilStatus" id="widow" required checked>';
+                            } else {
+                                echo '<input class="form-check-input" value="Widow" type="radio" name="civilStatus" id="widow" required>';
+                            }
+                            ?> 
+                            <label class="form-check-label" for="widow">
+                                Widow/er
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        
+                    </div>
+                </div>
         </div>
         <!-- row 8 -->
         <div class="row">

@@ -9,9 +9,9 @@
             <h2>Contact Us</h2>
         </div>
         <form action="includes/email.inc.php" method="post">
-            <div class="mb-3"><label class="form-label" for="name">Your Name</label><input class="form-control item" type="text" name="name" value ="<?php echo ($_SESSION['name']); ?>"></div>
+            <div class="mb-3"><label class="form-label" for="name">Your Name</label><input class="form-control item" type="text" name="name" value ="<?php if(isset($_SESSION['name']))echo ($_SESSION['name']); ?>"></div>
             <div class="mb-3"><label class="form-label" for="subject">Subject</label><input class="form-control item" type="text" name="subject"></div>
-            <div class="mb-3"><label class="form-label" for="email">Email</label><input class="form-control item" type="email" name="email" value ="<?php echo ($_SESSION['email']); ?>"></div>
+            <div class="mb-3"><label class="form-label" for="email">Email</label><input class="form-control item" type="email" name="email" value ="<?php if(isset($_SESSION['email']))echo ($_SESSION['email']); ?>"></div>
             <div class="mb-3"><label class="form-label" for="message">Message</label><textarea class="form-control item" name="message" rows="5"></textarea></div>
             <input id="hire-date" class="form-control" type="date" value ="<?php echo date('Y-m-d') ?>" readonly>
             <div class="mb-3"><button class="btn btn-primary btn-lg d-block w-100" name="email-submit" type="submit">Send</button></div>
