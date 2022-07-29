@@ -63,6 +63,11 @@
                 <ul class="navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item"><a class="nav-link" href="dashboard.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="profile.html"><i class="fas fa-user"></i><span>Profile</span></a></li>
+                    <?php 
+                        if($adminData['admin_type'] == "Main Administrator"){
+                        echo'<li class="nav-item"><a class="nav-link '; if ($page == 'admin-list') {echo 'active';} echo'" href="administrator-list.html" style="height: 52.4px;"><i class="fas fa-user"></i><span>List of Administrators</span></a></li>';
+                        }
+                    ?>
                     <li class="nav-item"><a class="nav-link active" href="pending-requests.html" style="height: 52.4px;"><i class="fas fa-users"></i><span>Pending Requests</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="announcement.html" style="height: 52.4px;"><i class="fas fa-volume-up"></i><span>Announcements</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="table.html" style="height: 52.4px;"><i class="fas fa-download"></i><span>Generate Report</span></a></li>
@@ -377,16 +382,13 @@
                             <div class="col col-md-3 border1">
                                 <h5 class="readonly">BARANGAY</h5>
                                 <select class="form-select" id="barangay" name="barangay" readonly>
-                                    <option disabled selected value="">Please Select</option>
                                     <?php 
                                         $selected = $userdata[0]['barangay'];
                                         $barangay = array('Aplaya','Balibago','Caingin','Dila','Dita','Don Jose','Ibaba','Kanluran','Labas','Macabling','Malitlit','Malusak','Market Area','Pook','Pulong Santa Cruz'
                                         ,'Santo Domingo','Sinalhan','Tagapo');
                                         foreach($barangay as $option) {
                                             if($selected == $option) {
-                                                echo '<option selected value="'; echo $option; echo'">'; echo $option; echo'</option>';
-                                            } else {
-                                                echo '<option value="'; echo $option; echo'">'; echo $option; echo'</option>';
+                                                echo '<option selected value="'; echo $option; echo'" disabled>'; echo $option; echo'</option>';
                                             }
                                         }
                                     ?>
@@ -1088,11 +1090,6 @@
                         </form>
                     </div>
                 </div>
-                <script>
-                    $(':radio:not(:checked)').attr('disabled', true);
-                    $(':checkbox:not(:checked)').attr('disabled', true);
-                    $(':option:not(:selected)').attr('disabled', true);
-                </script>
                 <footer class="bg-white sticky-footer">
                     <div class="container my-auto">
                         <div class="text-center my-auto copyright"><span>Copyright © Brand 2022</span></div>
@@ -1100,6 +1097,11 @@
                 </footer>
             </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
         </div>
+    </div>
+    <script>
+        $(':radio').attr('disabled', true);
+        $(':checkbox').attr('disabled', true);
+    </script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/theme.js"></script>
 </body>

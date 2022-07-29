@@ -89,7 +89,7 @@
                                                 <?php } ?>
                                                 <?php echo($user['sr_citizen_first_name']." ".$user['sr_citizen_middle_name']." ".$user['sr_citizen_last_name']); ?></td>
                                             <td style="text-align: center;">Barangay <?php echo($user['barangay']); ?>&nbsp;</td>
-                                            <td style="text-align: center;"><a class="btn btn-secondary" href="#">View Information</a></td>
+                                            <td style="text-align: center;"><a class="btn btn-secondary" href="sr-citizen-registration.html?id=<?php echo($user['id']); ?>&username=<?php echo($user['username']); ?>">View Information</a></td>
                                         </tr>
                                         <?php endforeach; 
                 echo <<<HTML
@@ -140,7 +140,7 @@
                                                 <?php } ?>
                                                 <?php echo($user['solo_parent_name']); ?></td>
                                             <td style="text-align: center;">Barangay <?php echo($user['barangay']); ?>&nbsp;</td>
-                                            <td style="text-align: center;"><a class="btn btn-secondary" href="#">View Information</a></td>
+                                            <td style="text-align: center;"><a class="btn btn-secondary" href="solo-parent-registration.html?id=<?php echo($user['id']); ?>&username=<?php echo($user['username']); ?>">View Information</a></td>
                                         </tr>
                                         <?php endforeach; 
                 echo <<<HTML
@@ -193,7 +193,7 @@
                                                 <?php } ?>
                                                 <?php echo($userPWDData['pwd_first_name']." ".$userPWDData['pwd_middle_name']." ".$userPWDData['pwd_last_name']); ?></td>
                                             <td style="text-align: center;">Barangay <?php echo($userPWDData['barangay']); ?>&nbsp;</td>
-                                            <td style="text-align: center;"><a class="btn btn-secondary" href="#">View Information</a></td>
+                                            <td style="text-align: center;"><a class="btn btn-secondary" href="pwd-registration.html?id=<?php echo($userPWDData['id']); ?>">View Information</a></td>
                                         </tr>
                                         <?php endforeach; 
                 echo <<<HTML
@@ -246,7 +246,7 @@
                                                 <?php } ?>
                                                 <?php echo($user['sr_citizen_first_name']." ".$user['sr_citizen_middle_name']." ".$user['sr_citizen_last_name']); ?></td>
                                             <td style="text-align: center;">Barangay <?php echo($user['barangay']); ?>&nbsp;</td>
-                                            <td style="text-align: center;"><a class="btn btn-secondary" href="#">View Information</a></td>
+                                            <td style="text-align: center;"><a class="btn btn-secondary" href="sr-citizen-registration.html?id=<?php echo($user['id']); ?>&username=<?php echo($user['username']); ?>">View Information</a></td>
                                         </tr>
                                         <?php endforeach; 
                 echo <<<HTML
@@ -299,7 +299,7 @@
                                                 <?php } ?>
                                                 <?php echo($user['solo_parent_name']); ?></td>
                                             <td style="text-align: center;">Barangay <?php echo($user['barangay']); ?>&nbsp;</td>
-                                            <td style="text-align: center;"><a class="btn btn-secondary" href="#">View Information</a></td>
+                                            <td style="text-align: center;"><a class="btn btn-secondary" href="solo-parent-registration.html?id=<?php echo($user['id']); ?>&username=<?php echo($user['username']); ?>">View Information</a></td>
                                         </tr>
                                         <?php endforeach; 
                 echo <<<HTML

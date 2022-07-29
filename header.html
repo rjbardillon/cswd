@@ -1,3 +1,30 @@
+<?php
+    require_once 'includes/dbh.inc.php';
+    require_once 'includes/functions.inc.php';
+    if(isset($_SESSION['username'])) {
+        $username = $_SESSION['username'];
+        $loginCredentialsExists = loginCredentialsExists($connection, $username, $username);
+        $_SESSION['email'] = $loginCredentialsExists['email'];
+        $_SESSION['first_name'] = $loginCredentialsExists['first_name'];
+        $_SESSION['middle_name'] = $loginCredentialsExists['middle_name'];
+        $_SESSION['last_name'] = $loginCredentialsExists['last_name'];
+        $_SESSION['suffix'] = $loginCredentialsExists['suffix'];
+        $_SESSION['name'] = $loginCredentialsExists['first_name']." ".$loginCredentialsExists['middle_name']." ".$loginCredentialsExists['last_name'];
+        $_SESSION['is_pwd'] = $loginCredentialsExists['is_pwd'];
+        $_SESSION['is_sr_citizen'] = $loginCredentialsExists['is_sr_citizen'];
+        $_SESSION['is_solo_parent'] = $loginCredentialsExists['is_solo_parent'];
+        if (userDataExists($connection, $username, "pwd_data")) {
+            $pwdUserdata = userDataExists($connection, $username, "pwd_data");
+            $_SESSION['userdata'] = $pwdUserdata;
+        } else if (userDataExists($connection, $username, "senior_citizen_data")) {
+            $srCitizenData = userDataExists($connection, $username, "senior_citizen_data");
+            $_SESSION['userdata'] = $srCitizenData;
+        } else if (userDataExists($connection, $username, "solo_parent_data")) {
+            $soloParentData = userDataExists($connection, $username, "solo_parent_data");
+            $_SESSION['userdata'] = $soloParentData;
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

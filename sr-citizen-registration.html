@@ -3,6 +3,8 @@
     $page = "registration";
     include('header.html');
     $username = $_SESSION['username'];
+    $userdata = userDataExists($connection, $username, "senior_citizen_data");
+    $familyComposition = getUserData($connection, "senior_citizen_family_composition", "username", $username);
     if (!isset($_SESSION['username'])) {
         header("location: index.html");
         exit();
@@ -10,70 +12,80 @@
 ?>
 <div class="container registration-containers mt-5" id="sr-citizen">
     <form class="registration-form" action="includes/register.inc.php" method="post">
-        <h1>Sr. Citizen</h1>
-        <p>Instruction:</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam eaque, dignissimos blanditiis nesciunt quidem vel hic nobis, debitis provident distinctio accusantium odio in ipsa officiis nulla dicta eveniet aut accusamus.</p>
+        <center><h1>Aplikasyon sa Pagsapi</h1></center>
        <!-- Radio Btn -->
         <div class="row align-items-start">
             <div class="col form-group">
                 <div>
-                    <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="">
+                    <input class="form-check-input" type="radio" name="typeOfApplication" id="bago" value="Bago" <?php if($userdata['registration_type']== 'Bago') echo 'checked' ?> required>
                     <label class="" for="bago">Bago</label>
-                  </div>    
+                </div>    
+                <div>
+                    <input class="form-control" type="text" id="IDnum" name="IDnum" placeholder="Numero ng ID (Bago)" value="<?php echo($userdata['sr_citizen_num']); ?>"  disabled>
+                </div>
             </div>
             <div class="col form-group">
                 <div>
-                    <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="">
+                    <input class="form-check-input" type="radio" name="typeOfApplication" id="lumipat" value="Lumipat" <?php if($userdata['registration_type']== 'Lumipat') echo 'checked' ?>>
                     <label class="" for="lumipat">Lumipat</label>
                   </div>    
             </div>
             <div class="col form-group">
                 <div>
-                    <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="">
+                    <input class="form-check-input" type="radio" name="typeOfApplication" id="magpapalit" value="Magpapalit" <?php if($userdata['registration_type']== 'Magpapalit') echo 'checked' ?>>
                     <label class="" for="magpapalit">Magpapalit</label>
                   </div>    
             </div>
             <div class="col form-group">
                 <div>
-                    <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="">
+                    <input class="form-check-input" type="radio" name="typeOfApplication" id="nawala" value="Nawala" <?php if($userdata['registration_type']== 'Nawala') echo 'checked' ?>>
                     <label class="" for="nawala">Nawala</label>
+                    <input class="form-control" type="text" name="lostNumber" id="lostNumber" placeholder="Numero ng ID (Nawala)" value="<?php echo($userdata['lost_number']); ?>"  disabled>
                   </div>    
             </div>
-            <!-- ID number -->
-            <div class="row align-items-start">
-                <div class="col form-group">
-                    <label class="" for="IDnum">Numero ng ID (Bago)</label>
-                    <input class="form-control" type="text" id="IDnum" name="IDnum" required>
-                </div>
-            </div>
+        </div>
             <!-- Name -->
             <div class="row align-items-start">
                 <div class="col form-group">
                     <label class="" for="FName">First Name (Pangalan)</label>
-                    <input class="form-control" type="text" id="FName" name="FName" required>
+                    <input class="form-control" type="text" id="FName" name="FName" value="<?php echo($userdata['sr_citizen_first_name']); ?>" required>
                 </div>
                 <div class="col form-group">
                     <label class="" for="MName">Middle Name (Gitnang Pangalan)</label>
-                    <input class="form-control" type="text" id="MName" name="MName">
+                    <input class="form-control" type="text" id="MName" name="MName" value="<?php echo($userdata['sr_citizen_middle_name']); ?>">
                 </div>
                 <div class="col form-group">
                     <label class="" for="LName">Last Name (Apelyido) </label>
-                    <input class="form-control" type="text" id="LName" name="LName" required>
+                    <input class="form-control" type="text" id="LName" name="LName" value="<?php echo($userdata['sr_citizen_last_name']); ?>" required>
                 </div>
                 <div class="col form-group">
                     <label class="" for="suffix">Suffix</label>
-                    <input class="form-control" type="text" id="suffix" name="suffix">
+                    <input class="form-control" type="text" id="suffix" name="suffix" value="<?php echo($userdata['sr_citizen_suffix']); ?>">
                 </div>
             </div>
             <!-- Address -->
             <div class="row align-items-start">
                 <div class="col form-group">
                     <label class="" for="barangay">Barangay</label>
-                    <input class="form-control" type="text" id="barangay" name="barangay" required>
+                    <select class="form-select" id="barangay" name="barangay" required>
+                        <option disabled selected value="">Please Select</option>
+                        <?php 
+                            $selected = $userdata['barangay'];
+                            $barangay = array('Aplaya','Balibago','Caingin','Dila','Dita','Don Jose','Ibaba','Kanluran','Labas','Macabling','Malitlit','Malusak','Market Area','Pook','Pulong Santa Cruz'
+                            ,'Santo Domingo','Sinalhan','Tagapo');
+                            foreach($barangay as $option) {
+                                if($selected == $option) {
+                                    echo '<option selected value="'; echo $option; echo'">'; echo $option; echo'</option>';
+                                } else {
+                                    echo '<option value="'; echo $option; echo'">'; echo $option; echo'</option>';
+                                }
+                            }
+                        ?>
+                    </select>
                 </div>
                 <div class="col form-group">
                     <label class="" for="tirahan">Tirahan</label>
-                    <input class="form-control" type="text" id="tirahan" name="tirahan">
+                    <input class="form-control" type="text" id="tirahan" name="tirahan" value="<?php echo($userdata['tirahan']); ?>">
                 </div>
             </div>
             <!-- S/M/A -->
@@ -82,97 +94,143 @@
                     <label for="sex">Sex (Kasarian noong Kapanganakan)</label>
                         <select class="form-select" id="sex" name="sex">
                             <option disabled selected value="">Please Select</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
+                            <?php 
+                                $selected = $userdata['sex'];
+                                $sex = array('Male','Female');
+                                foreach($sex as $option) {
+                                    if($selected == $option) {
+                                        echo '<option selected value="'; echo $option; echo'">'; echo $option; echo'</option>';
+                                    } else {
+                                        echo '<option value="'; echo $option; echo'">'; echo $option; echo'</option>';
+                                    }
+                                }
+                            ?>
                         </select>
                 </div>
                 <div class="col">
                     <label for="status">Marital Status</label>
                     <div class="dropdown">
                         <select class="form-select" id="status" name="status">
-                            <option di  sabled selected value="">Please Select</option>
-                            <option value="single">Single</option>
-                            <option value="married">Married</option>
-                            <option value="widowed">Widowed</option>
-                            <option value="separated">Separated</option>
-                            <option value="divorced">Divorced</option>
+                            <option disabled selected value="">Please Select</option>
+                            <?php 
+                                $selected = $userdata['marital_status'];
+                                $marital_status = array('Single','Married','Widowed','Separated','Divorced');
+                                foreach($marital_status as $option) {
+                                    if($selected == $option) {
+                                        echo '<option selected value="'; echo $option; echo'">'; echo $option; echo'</option>';
+                                    } else {
+                                        echo '<option value="'; echo $option; echo'">'; echo $option; echo'</option>';
+                                    }
+                                }
+                            ?>
                         </select>
                     </div>
                 </div>
                 <div class="col form-group">
                     <label class="" for="edad">Edad</label>
-                    <input class="form-control" type="text" id="edad" name="edad" required>
+                    <input class="form-control" type="text" id="edad" name="edad" value="<?php echo($userdata['edad']); ?>" readonly>
                 </div>
             </div>
-
             <div class="row align-items-start">
                 <div class="col">
                     <label for="dob">Date of Birth</label>
-                    <input class="form-control" type="date" id="dob" name="dob" required>
+                    <input class="form-control" type="date" id="srCitizenDOB" name="srCitizenDOB" value="<?php echo($userdata['date_of_birth']); ?>" required>
                 </div>
                 <div class="col form-group">
                     <label class="" for="birthplace">Lugar ng Kapanganakan</label>
-                    <input class="form-control" type="text" id="birthplace" name="birthplace" required>
+                    <input class="form-control" type="text" id="birthplace" name="birthplace" value="<?php echo($userdata['lugar_ng_kapanganakan']); ?>" required>
                 </div>
             </div>
-
             <div class="row align-items-start">
                 <div class="col form-group">
                     <label class="" for="telepono">Telepono</label>
-                    <input class="form-control" type="text" id="telepono" name="telepono" required>
+                    <input class="form-control" type="text" id="telepono" name="telepono" value="<?php echo($userdata['telepono']); ?>" required>
                 </div>
                 <div class="col form-group">
                     <label class="" for="relihiyon">Relihiyon</label>
-                    <input class="form-control" type="text" id="relihiyon" name="relihiyon" required>
+                    <input class="form-control" type="text" id="relihiyon" name="relihiyon" value="<?php echo($userdata['relihiyon']); ?>" required>
                 </div>
                 <div class="col form-group">
                     <label class="" for="hanapbuhay">Hanabuhay</label>
-                    <input class="form-control" type="text" id="hanapbuhay" name="hanapbuhay    " required>
+                    <input class="form-control" type="text" id="hanapbuhay" name="hanapbuhay" value="<?php echo($userdata['hanapbuhay']); ?>" required>
                 </div>
             </div>
             <!-- Pensyon -->
             <div class="row align-items-start">
                 <div class="col">
                     <label for="pensyon">May pensyon na tinatanggap</label>
-                        <select class="form-select" id="pensyon" name="pensyon">
-                            <option disabled selected value="">Please Select</option>
-                            <option value="oo">Oo</option>
-                            <option value="hindi">hindi</option>
-                        </select>
+                    <select class="form-select" id="pensyon" name="pensyon">
+                        <option disabled selected value="">Please Select</option>
+                        <?php 
+                            $selected = $userdata['pensyon'];
+                            $pensyon = array('Oo','Wala');
+                            foreach($pensyon as $option) {
+                                if($selected == $option) {
+                                    echo '<option selected value="'; echo $option; echo'">'; echo $option; echo'</option>';
+                                } else {
+                                    echo '<option value="'; echo $option; echo'">'; echo $option; echo'</option>';
+                                }
+                            }
+                        ?>
+                    </select>
                 </div>
                 <div class="col form-group">
                     <label class="" for="saan">Saan</label>
-                    <input class="form-control" type="text" id="saan" name="saan">
+                    <input class="form-control" type="text" id="saan" name="saan" value="<?php echo($userdata['saan']); ?>" disabled>
                 </div>
                 <div class="col form-group">
                     <label class="" for="magkano">Magkano</label>
-                    <input class="form-control" type="text" id="magkano" name="magkano">
+                    <input class="form-control" type="text" id="magkano" name="magkano" value="<?php echo($userdata['magkano']); ?>" disabled>
                 </div>
             </div>
             <!-- Asawa -->
             <div class="row align-items-start">
                 <div class="col form-group">
                     <label class="" for="asawa">Pangalan ng Asawa</label>
-                    <input class="form-control" type="text" id="asawa" name="asawa">
+                    <input class="form-control" type="text" id="asawa" name="asawa" value="<?php echo($userdata['pangalan_ng_asawa']); ?>">
                 </div>
                 <div class="col form-group">
-                    <label class="" for="edad-asawa">Edad</label>
-                    <input class="form-control" type="text" id="edad-asawa" name="edad-asawa">
+                    <label class="" for="edad-asawa">Edad ng Asawa</label>
+                    <input class="form-control" type="text" id="edad-asawa" name="edad-asawa" value="<?php echo($userdata['edad_asawa']); ?>">
                 </div>
             </div>
-
             <!-- Anak -->
             <div class="row align-items-start">
                 <div class="col form-group">
                     <label class="" for="anak">Ilan ang anak</label>
-                    <input class="form-control" type="text" id="anak" name="anak">
+                    <input class="form-control" type="text" id="anak" name="anak" value="<?php echo($userdata['ilan_ang_anak']); ?>">
                 </div>
                 <div class="col form-group">
                     <label class="" for="kasama">Kasama sa bahay?</label>
-                    <input class="form-control" type="text" id="kasama" name="kasama">
+                    <input class="form-control" type="text" id="kasama" name="kasama" value="<?php echo($userdata['kasama']); ?>">
                 </div>
             </div>
-            <!-- DITO MO ILAGAY YUNG LALAGAY MO ZETH -->
-            <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Update" id="sr-citizen-update" name="sr-citizen-update">
+            <div class="row align-items-start">
+                <table class="table">
+                    <thead>
+                        <tr>
+                        <th scope="col">Pangalan ng Anak</th>
+                        <th scope="col">Edad</th>
+                        <th scope="col">Tirahan</th>
+                        <th scope="col">Telepono</th>
+                        <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="new">
+                        <?php foreach($familyComposition as $data): ?>
+                        <tr id="duplicaterow">
+                            <input type="hidden" name="id[]" value="<?php echo($data['id']); ?>">
+                            <td><input class="form-control" type="text" name="relativeName[]" value="<?php echo($data['name']); ?>"></td>
+                            <td><input class="form-control" type="text" name="relativeAge[]" value="<?php echo($data['age']); ?>"></td>
+                            <td><input class="form-control" type="text" name="relativeAddress[]" value="<?php echo($data['address']); ?>"></td>
+                            <td><input class="form-control" type="text" name="relativeContact[]" value="<?php echo($data['contact']); ?>"></td>
+                            <td><button type="button" class="btn btn-danger delete" onclick="deleteRow(this);">Delete</button></td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+                <button class="btn btn-success" type="button" id="add-family" onclick="updateFamily();">Add</button>
+            </div>
+            <input class="mt-4 btn btn-lr btn-primary w-100" type="submit" value="Update" id="senior-citizen-update" name="senior-citizen-update">
     </form>
 </div>

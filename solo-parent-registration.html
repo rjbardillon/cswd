@@ -3,6 +3,8 @@
     $page = "registration";
     include('header.html');
     $username = $_SESSION['username'];
+    $userdata = userDataExists($connection, $username, "solo_parent_data");
+    $familyComposition = getUserData($connection, "solo_parent_family_composition", "username", $username);
     if (!isset($_SESSION['username'])) {
         header("location: index.html");
         exit();
@@ -23,18 +25,27 @@
                 <div class="row align-items-start">
                     <div class="col form-group">
                         <label class="required" for="name">Name</label>
-                        <input class="form-control" type="text" id="name" name="name" required>
+                        <input class="form-control" type="text" id="name" name="name" value="<?php echo($userdata['solo_parent_name']); ?>" required>
                     </div>
                     <div class="col-2 form-group">
                         <label class="required" for="age">Age</label>
-                        <input class="form-control" type="text" id="age" name="age" readonly>
+                        <input class="form-control" type="text" id="age" name="age" value="<?php echo($userdata['age']); ?>" readonly>
                     </div>
                     <div class="col-2 form-group">
                         <label class="required" for="sex">Sex </label>
                         <select class="form-select" id="sex" name="sex" required>
                             <option disabled selected value="">Please Select</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
+                            <?php 
+                                $selected = $userdata['sex'];
+                                $sex = array('Male','Female');
+                                foreach($sex as $option) {
+                                    if($selected == $option) {
+                                        echo '<option selected value="'; echo $option; echo'">'; echo $option; echo'</option>';
+                                    } else {
+                                        echo '<option value="'; echo $option; echo'">'; echo $option; echo'</option>';
+                                    }
+                                }
+                            ?>
                         </select>
                     </div>
                 </div>
@@ -42,41 +53,35 @@
                 <div class="row align-items-start">
                     <div class="col form-group">
                         <label class="required" for="birth">Date of Birth </label>
-                        <input class="form-control" type="date" id="birth" name="birth" required>
+                        <input class="form-control" type="date" id="birth" name="birth" value="<?php echo($userdata['date_of_birth']); ?>" required>
                     </div>
                     <div class="col form-group">
                         <label class="required" for="birthplace">Place of Birth </label>
-                        <input class="form-control" type="text" id="birthplace" name="birthplace" required>
+                        <input class="form-control" type="text" id="birthplace" name="birthplace" value="<?php echo($userdata['place_of_birth']); ?>" required>
                     </div>
                 </div>
 
                 <div class="row align-items-start">
                     <div class="col">
                         <label class="required" for="soloParentAddress">Address</label>
-                        <input class="form-control" type="text" id="soloParentAddress" name="soloParentAddress" required>
+                        <input class="form-control" type="text" id="soloParentAddress" name="soloParentAddress" value="<?php echo($userdata['address']); ?>" required>
                     </div>
                     <div class="col">
                         <label class="required" for="soloParentBarangay">Barangay</label>
                         <select class="form-select" id="soloParentBarangay" name="soloParentBarangay" required>
                             <option disabled selected value="">Please Select</option>
-                            <option value="Aplaya">Aplaya</option>
-                            <option value="Balibago">Balibago</option>
-                            <option value="Caingin">Caingin</option>
-                            <option value="Dila">Dila</option>
-                            <option value="Dita">Dita</option>
-                            <option value="Don Jose">Don Jose</option>
-                            <option value="Ibaba">Ibaba</option>
-                            <option value="Kalnuran">Kanluran</option>
-                            <option value="Labas">Labas</option>
-                            <option value="Macabling">Macabling</option>
-                            <option value="Malitlit">Malitlit</option>
-                            <option value="Malusak">Malusak</option>
-                            <option value="Market Area">Market Area</option>
-                            <option value="Pook">Pook</option>
-                            <option value="Pulong Santa Cruz">Pulong Santa Cruz</option>
-                            <option value="Santo Domingo">Santo Domingo</option>
-                            <option value="Sinalhan">Sinalhan</option>
-                            <option value="Tagapo">Tagapo</option>
+                            <?php 
+                                $selected = $userdata['barangay'];
+                                $barangay = array('Aplaya','Balibago','Caingin','Dila','Dita','Don Jose','Ibaba','Kanluran','Labas','Macabling','Malitlit','Malusak','Market Area','Pook','Pulong Santa Cruz'
+                                ,'Santo Domingo','Sinalhan','Tagapo');
+                                foreach($barangay as $option) {
+                                    if($selected == $option) {
+                                        echo '<option selected value="'; echo $option; echo'">'; echo $option; echo'</option>';
+                                    } else {
+                                        echo '<option value="'; echo $option; echo'">'; echo $option; echo'</option>';
+                                    }
+                                }
+                            ?>
                         </select>
                     </div>
                 </div>
@@ -84,43 +89,43 @@
                 <div class="row align-items-start">
                     <div class="col">
                         <label class="required" for="educational">Highest Educational Attainment</label>
-                        <input class="form-control" type="text" id="educational" name="educational" required>
+                        <input class="form-control" type="text" id="educational" name="educational" value="<?php echo($userdata['educ_attainment']); ?>" required>
                     </div>
                 </div>
 
                 <div class="row align-items-start">
                     <div class="col">
                         <label class="required" for="occupation">Occupation</label>
-                        <input class="form-control" type="text" id="occupation" name="occupation" required>
+                        <input class="form-control" type="text" id="occupation" name="occupation" value="<?php echo($userdata['occupation']); ?>" required>
                     </div>
                     <div class="col">
                         <label class="required" for="income">Monthly Income</label>
-                        <input class="form-control" type="text" id="income" name="income" required>
+                        <input class="form-control" type="text" id="income" name="income" value="<?php echo($userdata['income']); ?>" required>
                     </div>
                 </div>
 
                 <div class="row align-items-start">
                     <div class="col">
                         <label class="required" for="famincome">Total Monthly Family Income</label>
-                        <input class="form-control" type="text" id="famincome" name="famincome" required>
+                        <input class="form-control" type="text" id="famincome" name="famincome" value="<?php echo($userdata['fam_income']); ?>" required>
                     </div>
                 </div>
 
                 <div class="row align-items-start">
                     <div class="col">
                         <label class="required" for="tenurial">Tenurial Status</label>
-                        <input class="form-control" type="text" id="tenurial" name="tenurial" required>
+                        <input class="form-control" type="text" id="tenurial" name="tenurial" value="<?php echo($userdata['tenurial']); ?>" required>
                     </div>
                 </div>
 
                 <div class="row align-items-start">
                     <div class="col">
                         <label class="required" for="soloParentReligion">Religion</label>
-                        <input class="form-control" type="text" id="soloParentReligion" name="soloParentReligion" required>
+                        <input class="form-control" type="text" id="soloParentReligion" name="soloParentReligion" value="<?php echo($userdata['religion']); ?>" required>
                     </div>
                     <div class="col">
                         <label class="required" for="contact">Contact no.</label>
-                        <input class="form-control" type="text" id="contact" name="contact" required>
+                        <input class="form-control" type="text" id="contact" name="contact" value="<?php echo($userdata['contact_number']); ?>" required>
                     </div>
                 </div>
                 <div class="row m-1">
@@ -130,19 +135,19 @@
                 </div>
                 <div class="row align-items-start">
                     <div class="col ml-5">
-                        <input class="form-check-input" type="radio" value="Single" name="marital-status" id="soloParentSingle" required>
+                        <input class="form-check-input" type="radio" value="Single" name="marital-status" id="soloParentSingle" <?php if($userdata['marital_status']== 'Single') echo 'checked' ?> required>
                         <label class="form-check-label" for="soloParentSingle">
                         Single
                         </label>
                     </div>
                     <div class="col ml-5">
-                        <input class="form-check-input" type="radio" value="Annulled" name="marital-status" id="soloParentAnnulled">
+                        <input class="form-check-input" type="radio" value="Annulled" name="marital-status" id="soloParentAnnulled"<?php if($userdata['marital_status']== 'Annulled') echo 'checked' ?> >
                         <label class="form-check-label" for="soloParentAnnulled">
                         Annulled
                         </label>
                     </div>
                     <div class="col ml-5">
-                        <input class="form-check-input" type="radio" value="Widow/Widower" name="marital-status" id="soloParentWidow">
+                        <input class="form-check-input" type="radio" value="Widow/Widower" name="marital-status" id="soloParentWidow"<?php if($userdata['marital_status']== 'Widow') echo 'checked' ?> >
                         <label class="form-check-label" for="soloParentWidow">
                             Widow/Widower
                         </label>
@@ -150,14 +155,14 @@
                 </div>
                 <div class="row align-items-start">
                     <div class="col ml-5">
-                        <input class="form-check-input" type="radio" value="Married" name="marital-status" id="soloParentMarried">
+                        <input class="form-check-input" type="radio" value="Married" name="marital-status" id="soloParentMarried"<?php if($userdata['marital_status']== 'Married') echo 'checked' ?> >
                         <label class="form-check-label" for="soloParentMarried">
                         Married
                         </label>
                     </div>
                     
                     <div class="col ml-5">
-                        <input class="form-check-input" type="radio" value="Separated" name="marital-status" id="soloParentSeparated">
+                        <input class="form-check-input" type="radio" value="Separated" name="marital-status" id="soloParentSeparated"<?php if($userdata['marital_status']== 'Separated') echo 'checked' ?> >
                         <label class="form-check-label" for="soloParentSeparated">
                             Separated(w/certificate of Legal Separation)
                         </label>
@@ -193,24 +198,33 @@
                         </label>
                         <label for="" class="col"></label>                    
                     </div>
-                    <div class="family-list">
+                    <div class="family-list" id="new">
+                        <?php foreach($familyComposition as $data): ?>
                         <div class="row family-data" id="duplicater">
-                            <input type="text" class="form-control col" name="family-composition-name[]" id="">
-                            <input type="text" class="form-control col" name="family-composition-relationship[]" id="">
-                            <input type="text" class="form-control col" name="family-composition-age[]" id="">
+                            <input type="hidden" name="id[]" value="<?php echo($data['id']); ?>">
+                            <input type="text" class="form-control col" name="family-composition-name[]" id="" value="<?php echo($data['name']); ?>">
+                            <input type="text" class="form-control col" name="family-composition-relationship[]" id="" value="<?php echo($data['relationship']); ?>">
+                            <input type="text" class="form-control col" name="family-composition-age[]" id="" value="<?php echo($data['age']); ?>">
                             <select class="col form-select" id="id-type" name="family-composition-civil-status[]" id="">
                                 <option disabled selected value="">Please Select</option>
-                                <option value="Single">Single</option>
-                                <option value="Annulled">Annulled</option>
-                                <option value="Widow">Widow/Widower</option>
-                                <option value="Married">Married</option>
-                                <option value="Separated">Separated</option>
+                                <?php 
+                                    $selected = $data['civil_status'];
+                                    $civilStatus = array('Single','Annulled','Widow','Married','Separated');
+                                    foreach($civilStatus as $option) {
+                                        if($selected == $option) {
+                                            echo '<option selected value="'; echo $option; echo'">'; echo $option; echo'</option>';
+                                        } else {
+                                            echo '<option value="'; echo $option; echo'">'; echo $option; echo'</option>';
+                                        }
+                                    }
+                                ?>
                             </select>
-                            <input type="text" class="form-control col" name="family-composition-educ-attainment[]" id="">
-                            <input type="text" class="form-control col" name="family-composition-occupation[]" id="">
-                            <input type="text" class="form-control col" name="family-composition-monthly-income[]" id="">
+                            <input type="text" class="form-control col" name="family-composition-educ-attainment[]" id="" value="<?php echo($data['educ_attainment']); ?>">
+                            <input type="text" class="form-control col" name="family-composition-occupation[]" id="" value="<?php echo($data['occupation']); ?>">
+                            <input type="text" class="form-control col" name="family-composition-monthly-income[]" id="" value="<?php echo($data['monthly_income']); ?>">
                             <button type="button" class="btn btn-danger delete col" onclick="deleteDiv(this);">Delete</button>
                         </div>
+                        <?php endforeach; ?>
                     </div>
                     <button class="btn btn-primary m-1" type="button" id="add-family" onclick="duplicate();">Add</button>
                     <div class="text-center ins">
@@ -224,13 +238,13 @@
                     <div class="row align-items-start">
                         <div class="col">
                             <label class="required" for="incidence">Incidence</label>
-                            <input class="form-control" type="text" id="incidence" name="incidence" required>
+                            <input class="form-control" type="text" id="incidence" name="incidence" value="<?php echo($userdata['classification_incidence']); ?>" required>
                         </div>
                     </div>
                     <div class="row align-items-start">
                         <div class="col">
                             <label class="required" for="when">When</label>
-                            <input class="form-control" type="text" id="when" name="when" required>
+                            <input class="form-control" type="text" id="when" name="when" value="<?php echo($userdata['classification_when']); ?>" required>
                         </div>
                     </div>
                 </div>
@@ -241,7 +255,7 @@
                     </div>
                     <div class="row align-items-start">
                         <div class="col">
-                            <input class="form-control" type="text" id="problem" name="problem" required>
+                            <input class="form-control" type="text" id="problem" name="problem" value="<?php echo($userdata['problems']); ?>" required>
                         </div>
                     </div>
                 </div>   
@@ -250,7 +264,7 @@
                         <label class="required" for="resources"><h5>IV. Family Resources:</h5></label>
                         <div class="row align-items-start">
                             <div class="col">
-                                <input class="form-control" type="text" id="resources" name="resources" required>
+                                <input class="form-control" type="text" id="resources" name="resources" value="<?php echo($userdata['family_resources']); ?>" required>
                             </div>
                         </div>
                     </div>

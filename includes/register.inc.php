@@ -251,7 +251,8 @@ if (isset($_POST['pwd-register'])) {
                 $fatherFirstName, $fatherMiddleName, $motherLastName, $motherFirstName, $motherMiddleName, $guardianLastName, $guardianFirstName, $guardianMiddleName, $guardianRelationship,
                 $guardianContactNumber, $accomplishedBy, $nameOfAccomplisher, $nameOfPhysician, $licenseNumber, $status, $columnName);
 
-} else if (isset($_POST['pwd-update'])) {
+} 
+else if (isset($_POST['pwd-update'])) {
     session_start();
     require_once 'dbh.inc.php';
     require_once 'functions.inc.php';
@@ -502,25 +503,27 @@ if (isset($_POST['pwd-register'])) {
                 $fatherFirstName, $fatherMiddleName, $motherLastName, $motherFirstName, $motherMiddleName, $guardianLastName, $guardianFirstName, $guardianMiddleName, $guardianRelationship,
                 $guardianContactNumber, $accomplishedBy, $nameOfAccomplisher, $nameOfPhysician, $licenseNumber, $status, $columnName);
 
-} else if(isset($_POST['senior-citizen-register'])) {
+} 
+else if(isset($_POST['senior-citizen-register'])) {
     session_start();
     require_once 'dbh.inc.php';
     require_once 'functions.inc.php';
 
     $username = $_SESSION['username'];
-    $registration_type = $_POST['purpose'];
+    $registration_type = $_POST['typeOfApplication'];
+    $lostNumber = $_POST['lostNumber'];
     $sr_citizen_num = $_POST['IDnum'];
     $sr_citizen_first_name = $_POST['FName'];
     $sr_citizen_middle_name = $_POST['MName'];
     $sr_citizen_last_name = $_POST['LName'];
-    $sr_citizen_suffix = $_POST['srCitizenSuffix'];
-    $barangay = $_POST['srCitizenBarangay'];
+    $sr_citizen_suffix = $_POST['suffix'];
+    $barangay = $_POST['barangay'];
     $tirahan = $_POST['tirahan'];
-    $sex = $_POST['srCitizenSex'];
+    $sex = $_POST['sex'];
     $marital_status = $_POST['status'];
     $edad = $_POST['edad'];
     $date_of_birth = $_POST['srCitizenDOB'];
-    $lugar_ng_kapanganakan = $_POST['srCitizenBirthplace'];
+    $lugar_ng_kapanganakan = $_POST['birthplace'];
     $telepono = $_POST['telepono'];
     $relihiyon = $_POST['relihiyon'];
     $hanapbuhay = $_POST['hanapbuhay'];
@@ -532,17 +535,70 @@ if (isset($_POST['pwd-register'])) {
     $ilan_ang_anak = $_POST['anak'];
     $kasama = $_POST['kasama'];
     $columnName = "is_sr_citizen";
-    insertSeniorCitizenData($connection, $username, $registration_type, $sr_citizen_num, $sr_citizen_first_name, $sr_citizen_middle_name, $sr_citizen_last_name, 
-                            $sr_citizen_suffix, $barangay, $tirahan, $sex, $marital_status, $edad, $date_of_birth, $lugar_ng_kapanganakan, $telepono, $relihiyon, $hanapbuhay, $pensyon, 
-                            $saan, $magkano, $pangalan_ng_asawa, $edad_asawa, $ilan_ang_anak, $kasama, $columnName);
+    $status = "Pending";
+    $family_composition_name = $_POST['relativeName'];
+    $family_composition_age = $_POST['relativeAge'];
+    $family_composition_address = $_POST['relativeAddress'];
+    $family_composition_contact = $_POST['relativeContact'];
 
-} else if(isset($_POST['solo-parent-register'])) {
+    insertSeniorCitizenData($connection, $username, $registration_type, $lostNumber, $sr_citizen_num, $sr_citizen_first_name, $sr_citizen_middle_name, $sr_citizen_last_name, 
+                            $sr_citizen_suffix, $barangay, $tirahan, $sex, $marital_status, $edad, $date_of_birth, $lugar_ng_kapanganakan, $telepono, $relihiyon, $hanapbuhay, $pensyon, 
+                            $saan, $magkano, $pangalan_ng_asawa, $edad_asawa, $ilan_ang_anak, $kasama, $columnName, $family_composition_name, $family_composition_age, $family_composition_address,
+                            $family_composition_contact, $status);
+
+} 
+else if(isset($_POST['senior-citizen-update'])) {
+    session_start();
+    require_once 'dbh.inc.php';
+    require_once 'functions.inc.php';
+
+    $username = $_SESSION['username'];
+    $registration_type = $_POST['typeOfApplication'];
+    $lostNumber = $_POST['lostNumber'];
+    $sr_citizen_num = $_POST['IDnum'];
+    $sr_citizen_first_name = $_POST['FName'];
+    $sr_citizen_middle_name = $_POST['MName'];
+    $sr_citizen_last_name = $_POST['LName'];
+    $sr_citizen_suffix = $_POST['suffix'];
+    $barangay = $_POST['barangay'];
+    $tirahan = $_POST['tirahan'];
+    $sex = $_POST['sex'];
+    $marital_status = $_POST['status'];
+    $edad = $_POST['edad'];
+    $date_of_birth = $_POST['srCitizenDOB'];
+    $lugar_ng_kapanganakan = $_POST['birthplace'];
+    $telepono = $_POST['telepono'];
+    $relihiyon = $_POST['relihiyon'];
+    $hanapbuhay = $_POST['hanapbuhay'];
+    $pensyon = $_POST['pensyon'];
+    $saan = $_POST['saan'];
+    $magkano = $_POST['magkano'];
+    $pangalan_ng_asawa = $_POST['asawa'];
+    $edad_asawa = $_POST['edad-asawa'];
+    $ilan_ang_anak = $_POST['anak'];
+    $kasama = $_POST['kasama'];
+    $columnName = "is_sr_citizen";
+    $status = "Pending";
+    $id = $_POST['id'];
+    $family_composition_name = $_POST['relativeName'];
+    $family_composition_age = $_POST['relativeAge'];
+    $family_composition_address = $_POST['relativeAddress'];
+    $family_composition_contact = $_POST['relativeContact'];
+
+    updateSeniorCitizenData($connection, $username, $registration_type, $lostNumber, $sr_citizen_num, $sr_citizen_first_name, $sr_citizen_middle_name, $sr_citizen_last_name, 
+                            $sr_citizen_suffix, $barangay, $tirahan, $sex, $marital_status, $edad, $date_of_birth, $lugar_ng_kapanganakan, $telepono, $relihiyon, $hanapbuhay, $pensyon, 
+                            $saan, $magkano, $pangalan_ng_asawa, $edad_asawa, $ilan_ang_anak, $kasama, $columnName, $family_composition_name, $family_composition_age, $family_composition_address,
+                            $family_composition_contact, $status, $id);
+
+} 
+else if(isset($_POST['solo-parent-register'])) {
     session_start();
     require_once 'dbh.inc.php';
     require_once 'functions.inc.php';
     
     $username = $_SESSION['username'];
     $solo_parent_name = $_POST['name'];
+    $age = $_POST['age'];
     $sex = $_POST['sex'];
     $date_of_birth = date('Y-m-d', strtotime($_POST['birth']));
     $place_of_birth = $_POST['birthplace'];
@@ -572,13 +628,52 @@ if (isset($_POST['pwd-register'])) {
     $combinedArray = array_merge($family_composition_name, $family_composition_relationship, $family_composition_age, $family_composition_civil_status, $family_composition_educ_attainment, $family_composition_occupation, $family_composition_monthly_income);
     $columnName = "is_solo_parent";
 
-    insertSoloParentData($connection, $username, $solo_parent_name, $sex, $date_of_birth, $place_of_birth, $address, $barangay, 
+    insertSoloParentData($connection, $username, $solo_parent_name, $age, $sex, $date_of_birth, $place_of_birth, $address, $barangay, 
                         $educ_attainment, $occupation, $income, $fam_income, $tenurial, $religion, $contact_number, $marital_status, $classification_incidence,
                         $classification_when, $problems, $family_resources, $date_applied, $family_composition_name, $family_composition_relationship, $family_composition_age, $family_composition_civil_status, $family_composition_educ_attainment, $family_composition_occupation, 
                         $family_composition_monthly_income, $combinedArray, $columnName);
-} else {
-        header("location: ../sign-up.html");
-        exit();
 }
+else if(isset($_POST['solo-parent-update'])) {
+    session_start();
+    require_once 'dbh.inc.php';
+    require_once 'functions.inc.php';
+    
+    $username = $_SESSION['username'];
+    $solo_parent_name = $_POST['name'];
+    $age = $_POST['age'];
+    $sex = $_POST['sex'];
+    $date_of_birth = date('Y-m-d', strtotime($_POST['birth']));
+    $place_of_birth = $_POST['birthplace'];
+    $address = $_POST['soloParentAddress'];
+    $barangay = $_POST['soloParentBarangay'];
+    $educ_attainment = $_POST['educational'];
+    $occupation = $_POST['occupation'];
+    $income = $_POST['income'];
+    $fam_income = $_POST['famincome'];
+    $tenurial = $_POST['tenurial'];
+    $religion = $_POST['soloParentReligion'];
+    $contact_number = $_POST['contact'];
+    $marital_status = $_POST['marital-status'];
+    $classification_incidence = $_POST['incidence'];
+    $classification_when = $_POST['when'];
+    $problems = $_POST ['problem'];
+    $family_resources = $_POST['resources'];
+    $date_applied = date('Y-m-d', strtotime($_POST['date']));
+    $id = $_POST['id'];
 
+    $family_composition_name = $_POST['family-composition-name'];
+    $family_composition_relationship = $_POST['family-composition-relationship'];
+    $family_composition_age = $_POST['family-composition-age'];
+    $family_composition_civil_status = $_POST['family-composition-civil-status'];
+    $family_composition_educ_attainment = $_POST['family-composition-educ-attainment'];
+    $family_composition_occupation = $_POST['family-composition-occupation'];
+    $family_composition_monthly_income = $_POST['family-composition-monthly-income'];
+    $combinedArray = array_merge($family_composition_name, $family_composition_relationship, $family_composition_age, $family_composition_civil_status, $family_composition_educ_attainment, $family_composition_occupation, $family_composition_monthly_income);
+    $columnName = "is_solo_parent";
+
+    updateSoloParentData($connection, $username, $solo_parent_name, $age, $sex, $date_of_birth, $place_of_birth, $address, $barangay, 
+                        $educ_attainment, $occupation, $income, $fam_income, $tenurial, $religion, $contact_number, $marital_status, $classification_incidence,
+                        $classification_when, $problems, $family_resources, $date_applied, $family_composition_name, $family_composition_relationship, $family_composition_age, $family_composition_civil_status, $family_composition_educ_attainment, $family_composition_occupation, 
+                        $family_composition_monthly_income, $combinedArray, $columnName, $id);
+}
 ?>

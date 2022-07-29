@@ -142,25 +142,7 @@ function loginUser($connection, $username, $password){
     else if($checkPassword === true) {
         session_start();
         $_SESSION['username'] = $loginCredentialsExists['username'];
-        $_SESSION['email'] = $loginCredentialsExists['email'];
-        $_SESSION['first_name'] = $loginCredentialsExists['first_name'];
-        $_SESSION['middle_name'] = $loginCredentialsExists['middle_name'];
-        $_SESSION['last_name'] = $loginCredentialsExists['last_name'];
-        $_SESSION['suffix'] = $loginCredentialsExists['suffix'];
-        $_SESSION['name'] = $loginCredentialsExists['first_name']." ".$loginCredentialsExists['middle_name']." ".$loginCredentialsExists['last_name'];
-        $_SESSION['is_pwd'] = $loginCredentialsExists['is_pwd'];
-        $_SESSION['is_sr_citizen'] = $loginCredentialsExists['is_sr_citizen'];
-        $_SESSION['is_solo_parent'] = $loginCredentialsExists['is_solo_parent'];
-        if (userDataExists($connection, $username, "pwd_data")) {
-            $pwdUserdata = userDataExists($connection, $username, "pwd_data");
-            $_SESSION['userdata'] = $pwdUserdata;
-        } else if (userDataExists($connection, $username, "senior_citizen_data")) {
-            $srCitizenData = userDataExists($connection, $username, "senior_citizen_data");
-            $_SESSION['userdata'] = $srCitizenData;
-        } else if (userDataExists($connection, $username, "solo_parent_data")) {
-            $soloParentData = userDataExists($connection, $username, "solo_parent_data");
-            $_SESSION['userdata'] = $soloParentData;
-        }
+        
         // $array = explode(',', $pwdUserdata['type_of_disability']);
         // foreach ($array as $key => $value) {
         //     echo $value."<br>";
@@ -205,16 +187,7 @@ function insertPWDData($connection, $username, $registrationType, $transferID, $
                 $otherOccupation, $is4PsBeneficiary, $bloodType, $organizationAffiliated, $contactPerson, $officeAddress, $telNumber, $sssNumber, $gsisNumber, $psnNumber, 
                 $philHealthNumber, $philHealthMemberType, $fatherLastName, $fatherFirstName, $fatherMiddleName, $motherLastName, $motherFirstName, $motherMiddleName, 
                 $guardianLastName, $guardianFirstName, $guardianMiddleName, $guardianRelationship, $guardianContactNumber, $accomplishedBy, $nameOfAccomplisher, $nameOfPhysician, $licenseNumber, $status);
-    
-    $data =  array($username, $registrationType, $transferID, $changeInfoID, $pwdNumber, $dateApplied, $pwdLastName, $pwdFirstName, $pwdMiddleName, 
-                $pwdSuffix, $typeOfDisability, $medicalCondition, $causeOfDisability, $congenitalInborn, $acquired, $statusOfDisability, $address, $barangay, $landline, $mobileNumber, $email, 
-                $dateOfBirth, $sex, $religion, $civilStatus, $educationalAttainment, $isVoter, $employmentStatus, $income, $categoryOfEmployment, $natureOfEmployment, $occupation, 
-                $otherOccupation, $is4PsBeneficiary, $bloodType, $organizationAffiliated, $contactPerson, $officeAddress, $telNumber, $sssNumber, $gsisNumber, $psnNumber, 
-                $philHealthNumber, $philHealthMemberType, $fatherLastName, $fatherFirstName, $fatherMiddleName, $motherLastName, $motherFirstName, $motherMiddleName, 
-                $guardianLastName, $guardianFirstName, $guardianMiddleName, $guardianRelationship, $guardianContactNumber, $accomplishedBy, $nameOfAccomplisher, $nameOfPhysician, $licenseNumber, $status, $columnName);
-    // foreach ($data as $key => $value) {
-    //     echo $value."<br>";
-    // }
+
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     updateUserData($connection, $username, $columnName);
@@ -253,21 +226,21 @@ function updatePWDData($connection, $username, $registrationType, $transferID, $
     exit();
 }
 
-function insertSoloParentData($connection, $username, $solo_parent_name, $sex, $date_of_birth, $place_of_birth, $address, $barangay, 
+function insertSoloParentData($connection, $username, $solo_parent_name, $age, $sex, $date_of_birth, $place_of_birth, $address, $barangay, 
                             $educ_attainment, $occupation, $income, $fam_income, $tenurial, $religion, $contact_number, $marital_status, $classification_incidence,
                             $classification_when, $problems, $family_resources, $date_applied, $family_composition_name, $family_composition_relationship, $family_composition_age, 
                          $family_composition_civil_status, $family_composition_educ_attainment, $family_composition_occupation, $family_composition_monthly_income, $combinedArray, $columnName) {
-    $sql = "INSERT INTO solo_parent_data(username, solo_parent_name, sex, date_of_birth, place_of_birth, address, barangay, educ_attainment, occupation, 
+    $sql = "INSERT INTO solo_parent_data(username, solo_parent_name, age, sex, date_of_birth, place_of_birth, address, barangay, educ_attainment, occupation, 
     income, fam_income, tenurial, religion, contact_number, marital_status, classification_incidence, classification_when, problems, family_resources, 
     date_applied) 
     VALUES  (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
-            ?, ?, ?, ?, ?, ?, ?, ?, ?, ? );";
+            ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($connection);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../home.html?error=stmterror");
         exit();
     }
-    mysqli_stmt_bind_param($stmt, "ssssssssssssssssssss", $username, $solo_parent_name, $sex, $date_of_birth, $place_of_birth, $address, $barangay, 
+    mysqli_stmt_bind_param($stmt, "sssssssssssssssssssss", $username, $solo_parent_name, $age, $sex, $date_of_birth, $place_of_birth, $address, $barangay, 
                          $educ_attainment, $occupation, $income, $fam_income, $tenurial, $religion, $contact_number, $marital_status, $classification_incidence,
                          $classification_when, $problems, $family_resources, $date_applied);
     mysqli_stmt_execute($stmt);
@@ -276,34 +249,128 @@ function insertSoloParentData($connection, $username, $solo_parent_name, $sex, $
         $sql = "INSERT INTO solo_parent_family_composition(username, name, relationship, age, civil_status, educ_attainment, occupation, monthly_income) VALUES (?,?,?,?,?,?,?,?);";
         $stmt = $connection->prepare($sql);
         mysqli_stmt_bind_param($stmt, "ssssssss", $username, $family_composition_name[$i], $family_composition_relationship[$i], $family_composition_age[$i], $family_composition_civil_status[$i], $family_composition_educ_attainment[$i], $family_composition_occupation[$i], $family_composition_monthly_income[$i]);
-        updateUserData($connection, $username, $columnName);
         mysqli_stmt_execute($stmt); 
         mysqli_stmt_close($stmt);
-    }  
+    }
+    updateUserData($connection, $username, $columnName);
     header("location: ../home.html?error=none");
     exit();
 }
 
-function insertSeniorCitizenData($connection, $username, $registration_type, $sr_citizen_num, $sr_citizen_first_name, $sr_citizen_middle_name, $sr_citizen_last_name, 
-                                $sr_citizen_suffix, $barangay, $tirahan, $sex, $marital_status, $edad, $date_of_birth, $lugar_ng_kapanganakan, $telepono, $relihiyon, $hanapbuhay, $pensyon, 
-                                $saan, $magkano, $pangalan_ng_asawa, $edad_asawa, $ilan_ang_anak, $kasama, $columnName) {
-    $sql = "INSERT INTO senior_citizen_data(username, registration_type, sr_citizen_num, sr_citizen_first_name, sr_citizen_middle_name, sr_citizen_last_name, sr_citizen_suffix, 
-                                            barangay, tirahan, sex, marital_status, edad, date_of_birth, lugar_ng_kapanganakan, telepono, relihiyon, hanapbuhay, pensyon, saan, magkano, pangalan_ng_asawa, edad_asawa,
-                                            ilan_ang_anak, kasama) 
-    VALUES  ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
-             ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 
-             ?, ?, ?,?);";
+function updateSoloParentData($connection, $username, $solo_parent_name, $age, $sex, $date_of_birth, $place_of_birth, $address, $barangay, 
+                            $educ_attainment, $occupation, $income, $fam_income, $tenurial, $religion, $contact_number, $marital_status, $classification_incidence,
+                            $classification_when, $problems, $family_resources, $date_applied, $family_composition_name, $family_composition_relationship, $family_composition_age, 
+                         $family_composition_civil_status, $family_composition_educ_attainment, $family_composition_occupation, $family_composition_monthly_income, $combinedArray, 
+                         $columnName, $id) {
+    $presentID = implode(',', $id);
+    $sql = "DELETE FROM solo_parent_family_composition WHERE id NOT IN($presentID) AND username = '$username'";
+    mysqli_query($connection, $sql);
+    for ($i=0; $i < count($family_composition_name); $i++) {
+        $sql = "REPLACE INTO solo_parent_family_composition(id, username, name, relationship, age, civil_status, educ_attainment, occupation, monthly_income) VALUES (?,?,?,?,?,?,?,?,?);";
+        $stmt = $connection->prepare($sql);
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+            header("location: ../home.html?error=stmterror");
+            exit();
+        }
+        mysqli_stmt_bind_param($stmt, "sssssssss", $id[$i], $username, $family_composition_name[$i], $family_composition_relationship[$i], $family_composition_age[$i], $family_composition_civil_status[$i], $family_composition_educ_attainment[$i], $family_composition_occupation[$i], $family_composition_monthly_income[$i]);
+        if (mysqli_stmt_execute($stmt)) {
+            echo("Success $i");
+        } 
+        mysqli_stmt_close($stmt);
+    }
+    $sql = "UPDATE solo_parent_data SET solo_parent_name = ?, age = ?, sex = ?, date_of_birth = ?, place_of_birth = ?, address = ?, barangay = ?, educ_attainment = ?, occupation = ?, 
+    income = ?, fam_income = ?, tenurial = ?, religion = ?, contact_number = ?, marital_status = ?, classification_incidence = ?, classification_when = ?, problems = ?, family_resources = ?, 
+    date_applied = ? WHERE username = ?;";
     $stmt = mysqli_stmt_init($connection);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../home.html?error=stmterror");
         exit();
     }
-    mysqli_stmt_bind_param($stmt, "ssssssssssssssssssssssss", $username, $registration_type, $sr_citizen_num, $sr_citizen_first_name, $sr_citizen_middle_name, $sr_citizen_last_name, 
-                          $sr_citizen_suffix, $barangay, $tirahan, $sex, $marital_status, $edad, $date_of_birth, $lugar_ng_kapanganakan, $telepono, $relihiyon, $hanapbuhay, $pensyon, 
-                          $saan, $magkano, $pangalan_ng_asawa, $edad_asawa, $ilan_ang_anak, $kasama);
+    mysqli_stmt_bind_param($stmt, "sssssssssssssssssssss", $solo_parent_name, $age, $sex, $date_of_birth, $place_of_birth, $address, $barangay, 
+                         $educ_attainment, $occupation, $income, $fam_income, $tenurial, $religion, $contact_number, $marital_status, $classification_incidence,
+                         $classification_when, $problems, $family_resources, $date_applied, $username);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
+    header("location: ../home.html?error=none");
+    exit();
+}
+
+function insertSeniorCitizenData($connection, $username, $registration_type, $lostNumber, $sr_citizen_num, $sr_citizen_first_name, $sr_citizen_middle_name, $sr_citizen_last_name, 
+                                $sr_citizen_suffix, $barangay, $tirahan, $sex, $marital_status, $edad, $date_of_birth, $lugar_ng_kapanganakan, $telepono, $relihiyon, $hanapbuhay, $pensyon, 
+                                $saan, $magkano, $pangalan_ng_asawa, $edad_asawa, $ilan_ang_anak, $kasama, $columnName, $family_composition_name, $family_composition_age, $family_composition_address,
+                                $family_composition_contact, $status) {
+    $sql = "INSERT INTO senior_citizen_data(username, registration_type, lost_number, sr_citizen_num, sr_citizen_first_name, sr_citizen_middle_name, sr_citizen_last_name, 
+    sr_citizen_suffix, barangay, tirahan, sex, marital_status, edad, date_of_birth, lugar_ng_kapanganakan, telepono, relihiyon, hanapbuhay, pensyon, saan, 
+    magkano, pangalan_ng_asawa, edad_asawa, ilan_ang_anak, kasama, status) 
+    VALUES  (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+             ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 
+             ?, ?, ?, ?, ?);";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../home.html?error=stmterror");
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "ssssssssssssssssssssssssss", $username, $registration_type, $lostNumber, $sr_citizen_num, $sr_citizen_first_name, $sr_citizen_middle_name, $sr_citizen_last_name, 
+                          $sr_citizen_suffix, $barangay, $tirahan, $sex, $marital_status, $edad, $date_of_birth, $lugar_ng_kapanganakan, $telepono, $relihiyon, $hanapbuhay, $pensyon, 
+                          $saan, $magkano, $pangalan_ng_asawa, $edad_asawa, $ilan_ang_anak, $kasama, $status);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    for ($i=0; $i < count($family_composition_name); $i++) {
+        $sql = "INSERT INTO senior_citizen_family_composition(username, name, age, address, contact) VALUES (?,?,?,?,?);";
+        $stmt = $connection->prepare($sql);
+        mysqli_stmt_bind_param($stmt, "sssss", $username, $family_composition_name[$i], $family_composition_age[$i], $family_composition_address[$i], $family_composition_contact[$i]);
+        mysqli_stmt_execute($stmt); 
+        mysqli_stmt_close($stmt);
+    }  
     updateUserData($connection, $username, $columnName);
+    header("location: ../home.html?error=none");
+    exit();
+}
+
+function updateSeniorCitizenData($connection, $username, $registration_type, $lostNumber, $sr_citizen_num, $sr_citizen_first_name, $sr_citizen_middle_name, $sr_citizen_last_name, 
+                                $sr_citizen_suffix, $barangay, $tirahan, $sex, $marital_status, $edad, $date_of_birth, $lugar_ng_kapanganakan, $telepono, $relihiyon, $hanapbuhay, $pensyon, 
+                                $saan, $magkano, $pangalan_ng_asawa, $edad_asawa, $ilan_ang_anak, $kasama, $columnName, $family_composition_name, $family_composition_age, $family_composition_address,
+                                $family_composition_contact, $status, $id) {
+    $presentID = '';
+    if($family_composition_name !== NULL) {
+        if ($id !== NULL) {
+            $presentID = implode(',', $id);
+            $sql = "DELETE FROM senior_citizen_family_composition WHERE id NOT IN($presentID) AND username = '$username'";
+            mysqli_query($connection, $sql);
+        }
+        
+        for ($i=0; $i < count($family_composition_name); $i++) {
+            $sql = "REPLACE INTO senior_citizen_family_composition(id, username, name, age, address, contact) VALUES (?,?,?,?,?,?);";
+            $stmt = $connection->prepare($sql);
+            if (!mysqli_stmt_prepare($stmt, $sql)) {
+                header("location: ../home.html?error=stmterror");
+                exit();
+            }
+            mysqli_stmt_bind_param($stmt, "ssssss", $id[$i], $username, $family_composition_name[$i], $family_composition_age[$i], $family_composition_address[$i], $family_composition_contact[$i]);
+            if (mysqli_stmt_execute($stmt)) {
+                echo("Success $i");
+            } 
+            mysqli_stmt_close($stmt);
+        }
+    } else {
+        $sql = "DELETE FROM senior_citizen_family_composition WHERE username = '$username'";
+        mysqli_query($connection, $sql);
+    }
+    
+
+    $sql = "UPDATE senior_citizen_data SET registration_type = ?, lost_number = ?, sr_citizen_num = ?, sr_citizen_first_name = ?, sr_citizen_middle_name = ?, sr_citizen_last_name = ?, 
+    sr_citizen_suffix = ?, barangay = ?, tirahan = ?, sex = ?, marital_status = ?, edad = ?, date_of_birth = ?, lugar_ng_kapanganakan = ?, telepono = ?, relihiyon = ?, hanapbuhay = ?, pensyon = ?, saan = ?, 
+    magkano = ?, pangalan_ng_asawa = ?, edad_asawa = ?, ilan_ang_anak = ?, kasama = ?, status = ? WHERE username = ?;";
+    $stmt = mysqli_stmt_init($connection);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../home.html?error=stmterror");
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "ssssssssssssssssssssssssss", $registration_type, $lostNumber, $sr_citizen_num, $sr_citizen_first_name, $sr_citizen_middle_name, $sr_citizen_last_name, 
+                          $sr_citizen_suffix, $barangay, $tirahan, $sex, $marital_status, $edad, $date_of_birth, $lugar_ng_kapanganakan, $telepono, $relihiyon, $hanapbuhay, $pensyon, 
+                          $saan, $magkano, $pangalan_ng_asawa, $edad_asawa, $ilan_ang_anak, $kasama, $status, $username);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
     header("location: ../home.html?error=none");
     exit();
 }
@@ -375,8 +442,6 @@ function updateUserData($connection, $username, $columnName) {
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     $_SESSION['idType'] = $columnName;
-    header("location: ../home.html?error=none");
-    exit();
 }
 
 function profileExisting($connection, $username, $email){
