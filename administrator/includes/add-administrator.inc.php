@@ -7,7 +7,7 @@
         $email = $_POST["email"];
         $password = $_POST["password"];
         $confirmPassword = $_POST["repeat_password"];
-        $currentUsername = str_replace(" ", "", strtolower($firstName[0].$lastName));
+        $currentUsername = "admin".str_replace(" ", "", strtolower($firstName[0].$lastName));
         $username = $currentUsername;
         $i = 0;
     

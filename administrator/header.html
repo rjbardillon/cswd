@@ -3,32 +3,34 @@
     require_once 'includes/dbh.inc.php';
     require_once 'includes/functions.inc.php';
 
-    $_SESSION['username'] = $_SESSION['admin-data']['username'];
-    $loginCredentialsExists = loginCredentialsExists($connection, $_SESSION['username'], $_SESSION['username']);
-    $adminData = $loginCredentialsExists;
-    $admin_name = $adminData['first_name']." ".$adminData['last_name'];
-    $profile = getUserData($connection, "media", "username", $adminData['username']);
-    $announcements = $_SESSION['announcements'] = getUserData($connection, "announcement", "", "");
-    if ($adminData['admin_type'] == "Main Administrator") {
-        $mainAdmin = $_SESSION['mainAdmin'] = getUserData($connection, "administrator", "admin_type", "Main Administrator");
-        $pwdAdmin = $_SESSION['pwdAdmin'] = getUserData($connection, "administrator", "admin_type", "PWD Administrator");
-        $srCitizenAdmin = $_SESSION['srCitizenAdmin'] = getUserData($connection, "administrator", "admin_type", "Senior Citizen Administrator");
-        $soloParentAdmin = $_SESSION['soloParentAdmin'] = getUserData($connection, "administrator", "admin_type", "Solo Parent Administrator");
-        $pwdData = $_SESSION['pwdData']  = getUserData($connection, "pwd_data", "", "");
-        $srCitizenData = $_SESSION['srCitizenData'] = getUserData($connection, "senior_citizen_data", "", "");
-        $soloParentData = $_SESSION['soloParentData'] = getUserData($connection, "solo_parent_data", "", "");
-        $pendingPWD = $_SESSION['pendingPWD'] = getUserData($connection, "pwd_data", "status", "pending");
-        $pendingSrCitizen = $_SESSION['pendingSrCitizen'] = getUserData($connection, "senior_citizen_data", "status", "pending");
-        $pendingSoloParent = $_SESSION['pendingSoloParent'] = getUserData($connection, "solo_parent_data", "status", "pending");
-    } else if ($adminData['admin_type'] == "Solo Parent Administrator") {
-        $soloParentData = $_SESSION['soloParentData'] = getUserData($connection, "solo_parent_data", "", "");
-        $pendingSoloParent = $_SESSION['pendingSoloParent'] = getUserData($connection, "solo_parent_data", "status", "pending");
-    } else if ($adminData['admin_type'] == "Senior Citizen Administrator") {
-        $srCitizenData = $_SESSION['srCitizenData'] = getUserData($connection, "senior_citizen_data", "", "");
-        $pendingSrCitizen = $_SESSION['pendingSrCitizen'] = getUserData($connection, "senior_citizen_data", "status", "pending");
-    } else if ($adminData['admin_type'] == "PWD Administrator") {
-        $pwdData = $_SESSION['pwdData'] = getUserData($connection, "pwd_data", "", "");
-        $pendingPWD = $_SESSION['pendingPWD'] = getUserData($connection, "pwd_data", "status", "pending");
+    if(isset($_SESSION['admin-data'])) {
+        $_SESSION['username'] = $_SESSION['admin-data']['username'];
+        $loginCredentialsExists = loginCredentialsExists($connection, $_SESSION['username'], $_SESSION['username']);
+        $adminData = $loginCredentialsExists;
+        $admin_name = $adminData['first_name']." ".$adminData['last_name'];
+        $profile = getUserData($connection, "media", "username", $adminData['username']);
+        $announcements = $_SESSION['announcements'] = getUserData($connection, "announcement", "", "");
+        if ($adminData['admin_type'] == "Main Administrator") {
+            $mainAdmin = $_SESSION['mainAdmin'] = getUserData($connection, "administrator", "admin_type", "Main Administrator");
+            $pwdAdmin = $_SESSION['pwdAdmin'] = getUserData($connection, "administrator", "admin_type", "PWD Administrator");
+            $srCitizenAdmin = $_SESSION['srCitizenAdmin'] = getUserData($connection, "administrator", "admin_type", "Senior Citizen Administrator");
+            $soloParentAdmin = $_SESSION['soloParentAdmin'] = getUserData($connection, "administrator", "admin_type", "Solo Parent Administrator");
+            $pwdData = $_SESSION['pwdData']  = getUserData($connection, "pwd_data", "", "");
+            $srCitizenData = $_SESSION['srCitizenData'] = getUserData($connection, "senior_citizen_data", "", "");
+            $soloParentData = $_SESSION['soloParentData'] = getUserData($connection, "solo_parent_data", "", "");
+            $pendingPWD = $_SESSION['pendingPWD'] = getUserData($connection, "pwd_data", "status", "pending");
+            $pendingSrCitizen = $_SESSION['pendingSrCitizen'] = getUserData($connection, "senior_citizen_data", "status", "pending");
+            $pendingSoloParent = $_SESSION['pendingSoloParent'] = getUserData($connection, "solo_parent_data", "status", "pending");
+        } else if ($adminData['admin_type'] == "Solo Parent Administrator") {
+            $soloParentData = $_SESSION['soloParentData'] = getUserData($connection, "solo_parent_data", "", "");
+            $pendingSoloParent = $_SESSION['pendingSoloParent'] = getUserData($connection, "solo_parent_data", "status", "pending");
+        } else if ($adminData['admin_type'] == "Senior Citizen Administrator") {
+            $srCitizenData = $_SESSION['srCitizenData'] = getUserData($connection, "senior_citizen_data", "", "");
+            $pendingSrCitizen = $_SESSION['pendingSrCitizen'] = getUserData($connection, "senior_citizen_data", "status", "pending");
+        } else if ($adminData['admin_type'] == "PWD Administrator") {
+            $pwdData = $_SESSION['pwdData'] = getUserData($connection, "pwd_data", "", "");
+            $pendingPWD = $_SESSION['pendingPWD'] = getUserData($connection, "pwd_data", "status", "pending");
+        }
     }
 ?>
 <!DOCTYPE html>
