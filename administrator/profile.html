@@ -89,7 +89,22 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="barangay"><strong>Barangay</strong></label><input class="form-control" type="text" id="barangay" placeholder="Tagapo" name="barangay" value="<?php echo($adminData['barangay']); ?>"></div>
+                                                        <div class="mb-3"><label class="form-label" for="barangay"><strong>Barangay</strong></label>
+                                                            <select class="form-select" id="barangay" name="barangay" readonly>
+                                                                <?php 
+                                                                    $selected = $adminData['barangay'];
+                                                                    $barangay = array('City Hall','Aplaya','Balibago','Caingin','Dila','Dita','Don Jose','Ibaba','Kanluran','Labas','Macabling','Malitlit','Malusak','Market Area','Pook','Pulong Santa Cruz'
+                                                                    ,'Santo Domingo','Sinalhan','Tagapo');
+                                                                    foreach($barangay as $option) {
+                                                                        if($selected == $option) {
+                                                                            echo '<option selected value="'; echo $option; echo'"   >'; echo $option; echo'</option>';
+                                                                        } else {
+                                                                            echo '<option value="'; echo $option; echo'">'; echo $option; echo'</option>';
+                                                                        }
+                                                                    }
+                                                                ?>
+                                                            </select>
+                                                        </div>
                                                     </div>
                                                     <div class="col">
                                                         <div class="mb-3"><label class="form-label" for="admin-type"><strong>Administrator Type</strong></label><input class="form-control" type="text" id="admin-type" placeholder="Main Administrator" name="admin-type" value="<?php echo($adminData['admin_type']); ?>" readonly></div>

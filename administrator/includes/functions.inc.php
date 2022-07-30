@@ -163,7 +163,22 @@ function getUserData($connection, $table, $where, $condition) {
         $sql = "SELECT * FROM $table";
     } else {
         $sql = "SELECT * FROM $table WHERE $where = '$condition'";
+    } 
+    
+    $result = $connection->query($sql);
+
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            array_push($data, $row);
+        }
     }
+    return $data;
+}
+
+function getUserDataPerBarangay($connection, $table, $where, $condition, $where2, $condition2) {
+    $data = [];
+
+    $sql = "SELECT * FROM $table WHERE $where = '$condition' AND $where2 = '$condition2'";
     
     $result = $connection->query($sql);
 
