@@ -8,14 +8,14 @@ function congenitalCheckboxChecker(elClass) {
 
     if (subCheckbox1.checked || subCheckbox2.checked || subCheckbox3.checked || subCheckbox4.checked) {
         mainCheckbox.checked = true;
-        // for (i = 0; i < el.length; i++) {
-        // el[i].required = false;
-        // }
+        for (i = 0; i < el.length; i++) {
+        el[i].required = false;
+        }
     } else {
         mainCheckbox.checked = false;
-        // for (i = 0; i < el.length; i++) {
-        // el[i].required = true;
-        // }
+        for (i = 0; i < el.length; i++) {
+        el[i].required = true;
+        }
     }
 }
 
@@ -232,6 +232,10 @@ if(imgDiv) {
 }
     
 // Date Of Birth and Age
+var dob = document.getElementById('dob');
+if(dob) {
+    dob.max = new Date().toISOString().split("T")[0];
+}
 var srCitizenDOB = document.getElementById('srCitizenDOB');
 if(srCitizenDOB) {
     srCitizenDOB.max = new Date().toISOString().split("T")[0];
@@ -315,6 +319,9 @@ $("input[name='employmentStatus']").click(function () {
         $('#telNumber').val("");
         $('#otherOccupation').val("");
     }
+    if ($('#others').is(':checked')) {
+        $('#otherOccupation').attr("disabled", false);
+    }
 });
 
 $('#guardianLastName').change(function(){
@@ -336,14 +343,14 @@ $(window).on('load', function() {
         $("#textChangeInfo").focus();
     } else {
         $("#textChangeInfo").attr("disabled", "disabled");
-        $('#textChangeInfo').val(""); 
+        // $('#textChangeInfo').val(""); 
     }
     if ($("#transfer").is(":checked")) {
         $("#textTransfer").removeAttr("disabled");
         $("#textTransfer").focus();
     } else {
         $("#textTransfer").attr("disabled", "disabled");
-        $('#textTransfer').val(""); 
+        // $('#textTransfer').val(""); 
     }
     el = document.getElementsByClassName('cod');
     var subCheckboxAutism = document.querySelector('#autism');
@@ -367,14 +374,14 @@ $("input[name='idType']").click(function () {
         $("#textTransfer").focus();
     } else {
         $("#textTransfer").attr("disabled", "disabled");
-        $('#textTransfer').val(""); 
+        // $('#textTransfer').val(""); 
         }
         if ($("#change-info").is(":checked")) {
         $("#textChangeInfo").removeAttr("disabled");
         $("#textChangeInfo").focus();
     } else {
         $("#textChangeInfo").attr("disabled", "disabled");
-        $('#textChangeInfo').val(""); 
+        // $('#textChangeInfo').val(""); 
     }
 });
 
@@ -385,7 +392,7 @@ $("input[name='typeOfApplication']").click(function () {
         $("#IDnum").prop('required',true);
     } else {
         $("#IDnum").attr("disabled", "disabled");
-        $('#IDnum').val(""); 
+        // $('#IDnum').val(""); 
     }
     if ($("#nawala").is(":checked")) {
         $("#lostNumber").removeAttr("disabled");
@@ -393,7 +400,7 @@ $("input[name='typeOfApplication']").click(function () {
         $("#lostNumber").prop('required',true);
     } else {
         $("#lostNumber").attr("disabled", "disabled");
-        $('#lostNumber').val(""); 
+        // $('#lostNumber').val(""); 
     }
 });
 

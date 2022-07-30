@@ -83,7 +83,7 @@ if (isset($_POST['pwd-register'])) {
     if (isset($_POST['income'])) {
         $income = $_POST['income'];
     } else {
-        $income = NULL;
+        $income = "0.00";
     }
     if (isset($_POST['categoryOfEmployment'])) {
         $categoryOfEmployment = $_POST['categoryOfEmployment'];
