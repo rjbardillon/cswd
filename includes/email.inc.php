@@ -11,19 +11,19 @@
 		require 'PHPMailer/src/SMTP.php';
 		$senderName = $_POST['name'];
 		$subject = $_POST['subject'];
-		$fromEmail = $_POST['email'];
-		$toEmail = "romsky.bardillon@gmail.com";
+		$fromEmail = "populationmanagementsystem@gmail.com";
+		$toEmail = $_POST['email'];
 		$message = $_POST['message'];
 		
 		$mail = new PHPMailer(true);
-		$mail->SMTPDebug = 3;
+		// $mail->SMTPDebug = 3;
 		$mail->isSMTP();
-		$mail->Host = "mail.smtp2go.com";
+		$mail->Host = "smtp.gmail.com";
 		$mail->SMTPAuth = true;
-		$mail->Username = "rmbardillonjr@iskolarngbayan.pup.edu.ph";
-		$mail->Password = "Romsky@001";
+		$mail->Username = "populationmanagementsystem@gmail.com";
+		$mail->Password = "ntllidrufjiuujll";
 		$mail->SMTPSecure = "tls";
-		$mail->Port = "2525";
+		$mail->Port = "587";
 		$mail->From = $fromEmail;
 		$mail->FromName = $senderName;
 		$mail->addAddress($toEmail, "Romeo JR Bardillon");

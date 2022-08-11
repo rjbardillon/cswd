@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 29, 2022 at 04:40 AM
+-- Generation Time: Aug 11, 2022 at 06:09 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -74,6 +74,20 @@ CREATE TABLE `media` (
   `id` int(11) NOT NULL,
   `username` varchar(128) NOT NULL,
   `image_location` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pwdreset`
+--
+
+CREATE TABLE `pwdreset` (
+  `id` int(11) NOT NULL,
+  `pwdResetEmail` text NOT NULL,
+  `pwdResetSelector` text NOT NULL,
+  `pwdResetToken` longtext NOT NULL,
+  `pwdResetExpires` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -311,6 +325,8 @@ CREATE TABLE `user` (
   `first_name` varchar(128) NOT NULL,
   `middle_name` varchar(128) DEFAULT NULL,
   `email` varchar(128) NOT NULL,
+  `is_verified` int(11) NOT NULL DEFAULT 0,
+  `vkey` text NOT NULL,
   `password` varchar(128) NOT NULL,
   `is_pwd` enum('Yes','No') NOT NULL DEFAULT 'No',
   `is_sr_citizen` enum('Yes','No') NOT NULL DEFAULT 'No',
@@ -340,6 +356,12 @@ ALTER TABLE `announcement`
 ALTER TABLE `media`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
+
+--
+-- Indexes for table `pwdreset`
+--
+ALTER TABLE `pwdreset`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `pwd_data`
@@ -412,6 +434,12 @@ ALTER TABLE `announcement`
 -- AUTO_INCREMENT for table `media`
 --
 ALTER TABLE `media`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pwdreset`
+--
+ALTER TABLE `pwdreset`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
