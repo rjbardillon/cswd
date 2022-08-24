@@ -77,8 +77,6 @@
 .registration-containers {
   border-style: solid;
   border-radius: 15px;
-  background-color: rgb(255,184,243) !important;
-  /* max-width: 1500px; */
   height: auto;
   margin: auto;
 }
@@ -86,10 +84,6 @@
 .registration-form {
   margin: auto;
   padding: 20px;
-}
-
-.border1 {
-  border: 1px solid black;
 }
 
 .row {
