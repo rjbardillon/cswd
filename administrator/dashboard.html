@@ -18,7 +18,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info">
-                                <table class="table my-0" id="dataTable">
+                                <table class="table my-0" id="pwdDataTable">
                                     <thead>
                                         <tr>
                                             <th style="text-align: center;">Name</th>
@@ -43,23 +43,13 @@
                                                 <?php echo($userPWDData['pwd_first_name']." ".$userPWDData['pwd_middle_name']." ".$userPWDData['pwd_last_name']); ?></td>
                                             <td style="text-align: center;">Barangay <?php echo($userPWDData['barangay']); ?>&nbsp;</td>
                                             <td style="text-align: center;"><?php echo(ageCalculator($userPWDData['date_of_birth'])); ?></td>
-                                            <td style="text-align: center;"><?php echo($userPWDData['date']); ?></td>
+                                            <td style="text-align: center;"><?php echo($userPWDData['application_date']); ?></td>
                                             <td style="text-align: center;"><?php echo($userPWDData['income']); ?></td>
                                             <td style="text-align: center;"><?php echo($userPWDData['status']); ?></td>
                                         </tr>
                                         <?php endforeach; 
                 echo <<<HTML
                                     </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td><strong></strong></td>
-                                            <td><strong></strong></td>
-                                            <td></td>
-                                            <td><strong></strong></td>
-                                            <td><strong></strong></td>
-                                            <td><strong></strong></td>
-                                        </tr>
-                                    </tfoot>
                                 </table>
                             </div>
                         </div>
@@ -74,7 +64,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive table mt-2" id="dataTable-3" role="grid" aria-describedby="dataTable_info">
-                                <table class="table my-0" id="dataTable">
+                                <table class="table my-0" id="spDataTable">
                                     <thead>
                                         <tr>
                                             <th style="text-align: center;">Name</th>
@@ -106,16 +96,6 @@
                                         <?php endforeach; 
                 echo <<<HTML
                                     </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td><strong></strong></td>
-                                            <td><strong></strong></td>
-                                            <td></td>
-                                            <td><strong></strong></td>
-                                            <td><strong></strong></td>
-                                            <td><strong></strong></td>
-                                        </tr>
-                                    </tfoot>
                                 </table>
                             </div>
                         </div>
@@ -130,7 +110,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive table mt-2" id="dataTable-2" role="grid" aria-describedby="dataTable_info">
-                                <table class="table my-0" id="dataTable">
+                                <table class="table my-0" id="scDataTable">
                                     <thead>
                                         <tr>
                                             <th style="text-align: center;">Name</th>
@@ -162,16 +142,6 @@
                                         <?php endforeach; 
                 echo <<<HTML
                                     </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td><strong></strong></td>
-                                            <td><strong></strong></td>
-                                            <td></td>
-                                            <td><strong></strong></td>
-                                            <td><strong></strong></td>
-                                            <td><strong></strong></td>
-                                        </tr>
-                                    </tfoot>
                                 </table>
                             </div>
                         </div>
