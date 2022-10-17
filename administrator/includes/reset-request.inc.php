@@ -53,7 +53,7 @@ if (isset($_POST["reset-request-submit"])){
     $headers .= "Reply-To: populationmanagementsystem@gmail.com\r\n";
     $headers .= "Content-Type: text/html\r\n";
 
-    mail($userEmail, $subject, $message, $headers);
+    // mail($userEmail, $subject, $message, $headers);
     email("CSWDO Santa Rosa", $subject, "populationmanagementsystem@gmail.com", "", $userEmail, $message);
 
     header("Location: ../forgot-password.html?reset=success");

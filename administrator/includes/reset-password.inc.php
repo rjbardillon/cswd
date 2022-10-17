@@ -45,7 +45,7 @@ if(isset($_POST["reset-password-submit"])){
             }
             else if ($tokenCheck === true){
                 $tokenEmail = $row['pwdResetEmail'];
-                $sql = "SELECT * FROM user WHERE email=?;";
+                $sql = "SELECT * FROM administrator WHERE email=?;";
                 $stmt = mysqli_stmt_init($connection);
                 if(!mysqli_stmt_prepare($stmt, $sql)){
                     echo "There was an error!";
@@ -60,7 +60,7 @@ if(isset($_POST["reset-password-submit"])){
                         exit();
                     }
                     else{
-                        $sql = "UPDATE user SET password=? WHERE email=?";
+                        $sql = "UPDATE administrator SET password=? WHERE email=?";
                         $stmt = mysqli_stmt_init($connection);
                         if(!mysqli_stmt_prepare($stmt, $sql)){
                             echo "There was an error!";
