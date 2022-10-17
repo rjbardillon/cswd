@@ -74,6 +74,8 @@
 (73, 'Main Administrator', 'City Hall', 'adminrebecca', 'Rebecca', 'Ramos', 'rebecca@gmail.com', '$2y$10$3bQiV6swhl.AMqMxJoh3uOtqTPRlp2PmBK/pMx3hYTIihfZPP0vte'),
 (74, 'Main Administrator', 'City Hall', 'admincarlos', 'Carlos', 'Librada', 'carlos@gmail.com', '$2y$10$3bQiV6swhl.AMqMxJoh3uOtqTPRlp2PmBK/pMx3hYTIihfZPP0vte'),
 (75, 'Main Administrator', 'City Hall', 'admindaniel', 'Daniel', 'Comiso', 'daniel@gmail.com', '$2y$10$3bQiV6swhl.AMqMxJoh3uOtqTPRlp2PmBK/pMx3hYTIihfZPP0vte'),
+(76, 'Main Administrator', 'City Hall', 'adminsteph', 'Stephen', 'Curry', 'curry@gmail.com', '$2y$10$3bQiV6swhl.AMqMxJoh3uOtqTPRlp2PmBK/pMx3hYTIihfZPP0vte'),
+(77, 'Main Administrator', 'City Hall', 'adminkyrie', 'Kyrie', 'Irving', 'irving@gmail.com', '$2y$10$3bQiV6swhl.AMqMxJoh3uOtqTPRlp2PmBK/pMx3hYTIihfZPP0vte'),
 (78, 'Main Administrator', 'City Hall', 'adminamir', 'Amir', 'Ezrael', 'amirezrael@gmail.com', '$2y$10$3bQiV6swhl.AMqMxJoh3uOtqTPRlp2PmBK/pMx3hYTIihfZPP0vte'),
 (79, 'Main Administrator', 'City Hall', 'adminsealtiel', 'Sealtiel', 'Bueno', 'sealtiel@gmail.com', '$2y$10$3bQiV6swhl.AMqMxJoh3uOtqTPRlp2PmBK/pMx3hYTIihfZPP0vte'),
 (80, 'Main Administrator', 'City Hall', 'adminjanzen', 'Janzen', 'Caponpon', 'janzen@gmail.com', '$2y$10$3bQiV6swhl.AMqMxJoh3uOtqTPRlp2PmBK/pMx3hYTIihfZPP0vte'),
